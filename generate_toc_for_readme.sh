@@ -7,7 +7,7 @@ generate_toc() {
     for file in "$dir"/*; do
         if [ -d "$file" ]; then
             local dir_name=$(basename "$file")
-            echo "- [$dir_name](#$dir_name)"
+            echo "- $dir_name"
             echo "  $(generate_toc "$file")"
         elif [ -f "$file" ] && [[ $file == *.md ]]; then
             local title=$(basename "$file" .md)
