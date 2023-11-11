@@ -1,3 +1,6 @@
+GPTs url: https://chat.openai.com/g/g-fTA4FQ7wj-hot-mods
+
+GPTs logo:
 <img src="https://files.oaiusercontent.com/file-wOlP7l6RXZJ4YvZq3pUAqLOY?se=2123-10-13T04%3A59%3A43Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3DHotMods.png&sig=eayebboHdkASOIpNoSeDCqC9o5/XYCmjaV/oYy2%2BsmQ%3D" width="100px" />
 
 ```markdown

@@ -1,3 +1,6 @@
+GPTs url: https://chat.openai.com/g/g-PXlrhc1MV-mocktail-mixologist
+
+GPTs logo:
 <img src="https://files.oaiusercontent.com/file-bRpq5C5YwRMtQGO7xFa3nT40?se=2123-10-13T19%3A41%3A29Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dmocktails.png&sig=8us63D/Hx%2BsAn8u99rsbW5BoihTQQD1eP/jFb6C1KNs%3D" width="100px" />
 
 ```markdown

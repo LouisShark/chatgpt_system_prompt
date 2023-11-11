@@ -1,3 +1,6 @@
+GPTs url: https://chat.openai.com/g/g-ENhijiiwK-math-mentor
+
+GPTs logo:
 <img src="https://files.oaiusercontent.com/file-vRLKTttMrbx27eEJWEBVKJwt?se=2123-10-13T01%3A00%3A21Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dmath-mentor.png&sig=%2BS1FfwRE0ifFpK2QDAHtVLhsRzIBoFs/jqcjILyGYt8%3D" width="100px" />
 
 ```markdown

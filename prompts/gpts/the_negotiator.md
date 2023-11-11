@@ -1,3 +1,6 @@
+GPTs url: https://chat.openai.com/g/g-TTTAK9GuS-the-negotiator
+
+GPTs logo:
 <img src="https://files.oaiusercontent.com/file-MjvVb8L9Se5PdSC1gMLopCHh?se=2123-10-13T00%3A50%3A51Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dnegotiator.png&sig=GDq28k4lIHIZbvXfm9PjQerwO1kGUnkNn6a5aQD/7/M%3D" width="100px" />
 
 ```markdown

@@ -1,3 +1,6 @@
+GPTs url: https://chat.openai.com/g/g-Sug6mXozT-game-time
+
+GPTs logo:
 <img src="https://files.oaiusercontent.com/file-JxYoHzuJQ2TXHBYy6UGC4Xs8?se=2123-10-13T00%3A46%3A49Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dc0bba883-a507-42dd-acfd-211509efd97c.png&sig=jZeFDXgC4ZbNC8mVNuQK7zeKS7ssRCh5QTlqa81WJEM%3D" width="100px" />
 
 ```markdown

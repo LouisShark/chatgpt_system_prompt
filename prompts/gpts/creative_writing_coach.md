@@ -1,3 +1,6 @@
+GPTs url: https://chat.openai.com/g/g-lN1gKFnvL-creative-writing-coach
+
+GPTs logo:
 <img src="https://files.oaiusercontent.com/file-KSheuuQR8UjcxzFjjSfjfEOP?se=2123-10-13T00%3A52%3A56Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dcreative-writing.png&sig=MA3AFe4yhExdlgBje00y4%2BCLHpBkJ%2BUQKkiwknp46as%3D" width="100px" />
 
 ```markdown

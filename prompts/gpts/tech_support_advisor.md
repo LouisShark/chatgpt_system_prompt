@@ -1,3 +1,6 @@
+GPTs url: https://chat.openai.com/g/g-WKIaLGGem-tech-support-advisor
+
+GPTs logo:
 <img src="https://files.oaiusercontent.com/file-soqNFMszjoxK9d3BFD3rAGA5?se=2123-10-13T00%3A53%3A58Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3DTechSupport.jpg&sig=ztG5CVAIZeK5/C/wQkWdewTJVlXtRmmSRd5Z7XRsJ04%3D" width="100px" />
 
 ```markdown

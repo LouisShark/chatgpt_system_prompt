@@ -1,3 +1,6 @@
+GPTs url: https://chat.openai.com/g/g-FdMHL1sNo-cosmic-dream
+
+GPTs logo:
 <img src="https://files.oaiusercontent.com/file-M12eDkWHmobmgj5mhcWkMMVI?se=2123-10-13T07%3A48%3A21Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D28de0bdd-4c74-45a4-8d52-0fac85aea31a.png&sig=KdG%2BVt6/480jvqtjdwa4DulLX7BRqVN6FQfuuS9QaVI%3D" width="100px" />
 <img src="https://files.oaiusercontent.com/file-SdQIavUWzzYMFCZCl5qLgM4h?se=2023-11-10T17%3A57%3A14Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D5e03f714-74f8-410c-89de-9f9cd1eea7c3.webp&sig=ECozjZxV27PA02dEXHcbRuiPfC0cqfFz93VTISJK3Ew%3D" width="100px" />
 
