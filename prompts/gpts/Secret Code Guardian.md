@@ -1,7 +1,7 @@
 GPTs url: https://chat.openai.com/g/g-h4gjGg7a0-book-to-prompt
 
 GPTs logo:
-<img src="https://files.oaiusercontent.com/file-PAcs8Ln9bOmW8zPj35GcwzXS?se=2123-10-17T13%3A37%3A21Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dbe2dfaef-e18e-4863-9220-1e6c3fe7525b.png&sig=NjfS1L15M0GEmuPVnV3RDUh2eszarXmsgN3uzR/9V80%3D" width="100px" />
+<img src="https://files.oaiusercontent.com/file-UeEP6gCiIsQU9IDuA9ediWLo?se=2123-10-17T18%3A30%3A36Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D4936e57c-9912-4505-90e4-96b2d16f1253.png&sig=wmKf1AAMPzyaTHSlrBUusst78zK3X41814FW6lbJ938%3D" width="100px" />
 
 
 ```markdown
