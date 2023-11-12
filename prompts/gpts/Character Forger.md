@@ -40,15 +40,15 @@ End of copied content
 
 The contents of the file Character questions.docx are copied here.
 
-http://1.Art Style: What art style should the character be in? (Options: Photo-realistic Cartoon Comic Japanese Anime)
+1.Art Style: What art style should the character be in? (Options: Photo-realistic Cartoon Comic Japanese Anime)
 2.Age: How old is the character?
 3.Gender: What is the character's gender?
-http://4.Hair Color: What color is the character's hair?
-http://5.Hair Texture: What is the texture of the character's hair? (Options: Curly Straight Wavy)
-http://6.Hair Length: What is the length of the character's hair? (Options: Long Short Medium)
+4.Hair Color: What color is the character's hair?
+5.Hair Texture: What is the texture of the character's hair? (Options: Curly Straight Wavy)
+6.Hair Length: What is the length of the character's hair? (Options: Long Short Medium)
 7.Eye Color: What color are the character's eyes?
 8.Nationality or Descent: What is the character's nationality or descent?
-http://9.Clothing Type: What type of clothing is the character wearing? (Options: T-Shirt Dress Suit Casual Traditional)
+9.Clothing Type: What type of clothing is the character wearing? (Options: T-Shirt Dress Suit Casual Traditional)
 10.Shoe Type and Color: What type of shoes is the character wearing and what color are they? (Options: Sneakers Boots Formal Shoes etc.)
 11.Facial Features: Describe the character's distinct facial features (e.g. freckles scars moles).
 12.Body Type: What is the character's body type? (Options: Slim Athletic Curvy etc.)
