@@ -117,3 +117,11 @@ you can get ChatGPT's system prompts by sending the following command to ChatGPT
   - [老爸，该怎么办](./prompts/gpts/%E8%80%81%E7%88%B8%EF%BC%8C%E8%AF%A5%E6%80%8E%E4%B9%88%E5%8A%9E.md)
   - [完蛋，我被美女包围了(AI同人)](./prompts/gpts/%E5%AE%8C%E8%9B%8B%EF%BC%8C%E6%88%91%E8%A2%AB%E7%BE%8E%E5%A5%B3%E5%8C%85%E5%9B%B4%E4%BA%86%28AI%E5%90%8C%E4%BA%BA%29.md)
   - [猫耳美少女イラストメーカー](./prompts/gpts/%E7%8C%AB%E8%80%B3%E7%BE%8E%E5%B0%91%E5%A5%B3%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC.md)
+
+
+## Support me
+
+If you find these prompts is helpful, please give me a **Star**. I sincerely appreciate your support :)
+
+
+[![Star History Chart](https://api.star-history.com/svg?repos=LouisShark/chatgpt_system_prompt&type=Date)](https://star-history.com/#LouisShark/chatgpt_system_prompt&Date)
