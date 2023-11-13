@@ -48,6 +48,7 @@ you can get ChatGPT's system prompts by sending the following command to ChatGPT
   - [DesignerGPT](./prompts/gpts/DesignerGPT.md)
   - [Diffusion Master](./prompts/gpts/Diffusion%20Master.md)
   - [EmojAI](./prompts/gpts/EmojAI.md)
+  - [FramerGPT](./prompts/gpts/FramerGPT.md)
   - [Gif-PT](./prompts/gpts/Gif-PT.md)
   - [Girlfriend Emma](./prompts/gpts/Girlfriend%20Emma.md)
   - [Grimoire](./prompts/gpts/Grimoire.md)
