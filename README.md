@@ -41,9 +41,11 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
 - gpts
   - [(A.I. Bestie)](./prompts/gpts/%28A.I.%20Bestie%29.md)
   - [10x Engineer](./prompts/gpts/10x%20Engineer.md)
+  - [20K Vocab builder](./prompts/gpts/20K%20Vocab%20builder.md)
   - [AI Doctor](./prompts/gpts/AI%20Doctor.md)
   - [AI Lover](./prompts/gpts/AI%20Lover.md)
   - [AI Paper Polisher Pro](./prompts/gpts/AI%20Paper%20Polisher%20Pro.md)
+  - [AI算命](./prompts/gpts/AI%E7%AE%97%E5%91%BD.md)
   - [ALL IN GPT](./prompts/gpts/ALL%20IN%20GPT.md)
   - [Agi_zip](./prompts/gpts/Agi_zip.md)
   - [Ai PDF](./prompts/gpts/Ai%20PDF.md)
@@ -65,6 +67,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [EmojAI](./prompts/gpts/EmojAI.md)
   - [FramerGPT](./prompts/gpts/FramerGPT.md)
   - [GPT Builder](./prompts/gpts/GPT%20Builder.md)
+  - [GPT Customizer, File Finder & JSON Action Creator](./prompts/gpts/GPT%20Customizer%2C%20File%20Finder%20%26%20JSON%20Action%20Creator.md)
   - [GPT Shop Keeper](./prompts/gpts/GPT%20Shop%20Keeper.md)
   - [Gif-PT](./prompts/gpts/Gif-PT.md)
   - [Girlfriend Emma](./prompts/gpts/Girlfriend%20Emma.md)
@@ -93,6 +96,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [ScholarAI](./prompts/gpts/ScholarAI.md)
   - [Secret Code Guardian](./prompts/gpts/Secret%20Code%20Guardian.md)
   - [Simpsonize Me](./prompts/gpts/Simpsonize%20Me.md)
+  - [Story Spock](./prompts/gpts/Story%20Spock.md)
   - [Storyteller](./prompts/gpts/Storyteller.md)
   - [Super Describe](./prompts/gpts/Super%20Describe.md)
   - [Synthia 😋🌟](./prompts/gpts/Synthia%20%F0%9F%98%8B%F0%9F%8C%9F.md)
@@ -129,8 +133,12 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [toonGPT](./prompts/gpts/toonGPT.md)
   - [🎀My excellent classmates (Help with my homework!)](./prompts/gpts/%F0%9F%8E%80My%20excellent%20classmates%20%28Help%20with%20my%20homework%21%29.md)
   - [枫叶林](./prompts/gpts/%E6%9E%AB%E5%8F%B6%E6%9E%97.md)
+  - [鐵公雞](./prompts/gpts/%E9%90%B5%E5%85%AC%E9%9B%9E.md)
   - [悲慘世界 RPG](./prompts/gpts/%E6%82%B2%E6%85%98%E4%B8%96%E7%95%8C%20RPG.md)
   - [脏话连篇](./prompts/gpts/%E8%84%8F%E8%AF%9D%E8%BF%9E%E7%AF%87.md)
+  - [春霞つくし Tsukushi Harugasumi](./prompts/gpts/%E6%98%A5%E9%9C%9E%E3%81%A4%E3%81%8F%E3%81%97%20Tsukushi%20Harugasumi.md)
+  - [骂醒恋爱脑](./prompts/gpts/%E9%AA%82%E9%86%92%E6%81%8B%E7%88%B1%E8%84%91.md)
+  - [广告文案大师](./prompts/gpts/%E5%B9%BF%E5%91%8A%E6%96%87%E6%A1%88%E5%A4%A7%E5%B8%88.md)
   - [痤疮治疗指南](./prompts/gpts/%E7%97%A4%E7%96%AE%E6%B2%BB%E7%96%97%E6%8C%87%E5%8D%97.md)
   - [科技文章翻译](./prompts/gpts/%E7%A7%91%E6%8A%80%E6%96%87%E7%AB%A0%E7%BF%BB%E8%AF%91.md)
   - [老妈，我爱你](./prompts/gpts/%E8%80%81%E5%A6%88%EF%BC%8C%E6%88%91%E7%88%B1%E4%BD%A0.md)
@@ -138,7 +146,8 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [老爸，该怎么办](./prompts/gpts/%E8%80%81%E7%88%B8%EF%BC%8C%E8%AF%A5%E6%80%8E%E4%B9%88%E5%8A%9E.md)
   - [完蛋！我爱上了姐姐](./prompts/gpts/%E5%AE%8C%E8%9B%8B%EF%BC%81%E6%88%91%E7%88%B1%E4%B8%8A%E4%BA%86%E5%A7%90%E5%A7%90.md)
   - [完蛋，我被美女包围了(AI同人)](./prompts/gpts/%E5%AE%8C%E8%9B%8B%EF%BC%8C%E6%88%91%E8%A2%AB%E7%BE%8E%E5%A5%B3%E5%8C%85%E5%9B%B4%E4%BA%86%28AI%E5%BA%29.md)
-  - [猫耳美少女イラストメーカー](./prompts/gpts/%E7%8C%AB%E8%80%B3%E7%BE%8E%E5%B0%91%E5%A5%B3%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC.md)
+  - [猫耳美少女イラストメーカー](./prompts/gpts/%E7%8C%AB%E8%80%B3%E7%BE%8E%E5%B0%91%E5%A5%B3%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E3%83%A1%E3%83%BC%3%BC.md)
+
 
 
 ## Disclaimer
