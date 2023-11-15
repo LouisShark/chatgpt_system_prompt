@@ -127,6 +127,15 @@ you can get ChatGPT's system prompts by sending the following command to ChatGPT
   - [猫耳美少女イラストメーカー](./prompts/gpts/%E7%8C%AB%E8%80%B3%E7%BE%8E%E5%B0%91%E5%A5%B3%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC.md)
 
 
+## Disclaimer
+The sharing of these prompts was intended purely for knowledge sharing,
+aimed at enhancing everyone's prompt writing skills and raising awareness about prompt injection security. 
+I have indeed noticed that many GPT authors have improved their security measures,
+learning from these breakdowns on how to better protect their work.
+I believe this aligns with the project's purpose.
+
+If you are confused about this, plz contact me.
+
 ## Support me
 
 If you find these prompts is helpful, please give me a **Star**. I sincerely appreciate your support :)
