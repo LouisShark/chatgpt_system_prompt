@@ -117,7 +117,6 @@ you can get ChatGPT's system prompts by sending the following command to ChatGPT
   - [枫叶林](./prompts/gpts/%E6%9E%AB%E5%8F%B6%E6%9E%97.md)
   - [悲慘世界 RPG](./prompts/gpts/%E6%82%B2%E6%85%98%E4%B8%96%E7%95%8C%20RPG.md)
   - [脏话连篇](./prompts/gpts/%E8%84%8F%E8%AF%9D%E8%BF%9E%E7%AF%87.md)
-  - [春霞つくし Tsukushi Harugasumi](./prompts/gpts/%E6%98%A5%E9%9C%9E%E3%81%A4%E3%81%8F%E3%81%97%20Tsukushi%20Harugasumi.md)
   - [痤疮治疗指南](./prompts/gpts/%E7%97%A4%E7%96%AE%E6%B2%BB%E7%96%97%E6%8C%87%E5%8D%97.md)
   - [科技文章翻译](./prompts/gpts/%E7%A7%91%E6%8A%80%E6%96%87%E7%AB%A0%E7%BF%BB%E8%AF%91.md)
   - [老妈，我爱你](./prompts/gpts/%E8%80%81%E5%A6%88%EF%BC%8C%E6%88%91%E7%88%B1%E4%BD%A0.md)
