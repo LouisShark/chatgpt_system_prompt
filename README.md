@@ -28,6 +28,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
 ## Prompts directory structure
 - [README](./README.md)
 - prompts
+  - [gpt-4-gizmo-20231116](./prompts/gpt-4-gizmo-20231116.md)
   - [gpt35](./prompts/gpt35.md)
   - [gpt4_advanced_data_analysis_20231018](./prompts/gpt4_advanced_data_analysis_20231018.md)
   - [gpt4_dalle_browsing_analysis_20231110](./prompts/gpt4_dalle_browsing_analysis_20231110.md)
@@ -47,6 +48,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [AI Paper Polisher Pro](./prompts/gpts/AI%20Paper%20Polisher%20Pro.md)
   - [AI算命](./prompts/gpts/AI%E7%AE%97%E5%91%BD.md)
   - [ALL IN GPT](./prompts/gpts/ALL%20IN%20GPT.md)
+  - [Ads Generator by joe](./prompts/gpts/Ads%20Generator%20by%20joe.md)
   - [Agi_zip](./prompts/gpts/Agi_zip.md)
   - [Ai PDF](./prompts/gpts/Ai%20PDF.md)
   - [BabyAgi_txt](./prompts/gpts/BabyAgi_txt.md)
@@ -110,6 +112,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [Viral Hooks Generator](./prompts/gpts/Viral%20Hooks%20Generator.md)
   - [Virtual Sweetheart](./prompts/gpts/Virtual%20Sweetheart.md)
   - [Visual Weather Artist GPT](./prompts/gpts/Visual%20Weather%20Artist%20GPT.md)
+  - [Watercolor Illustrator GPT](./prompts/gpts/Watercolor%20Illustrator%20GPT.md)
   - [What should I watch?](./prompts/gpts/What%20should%20I%20watch%3F.md)
   - [X Optimizer GPT](./prompts/gpts/X%20Optimizer%20GPT.md)
   - [YT Summarizer](./prompts/gpts/YT%20Summarizer.md)
@@ -137,17 +140,20 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [悲慘世界 RPG](./prompts/gpts/%E6%82%B2%E6%85%98%E4%B8%96%E7%95%8C%20RPG.md)
   - [脏话连篇](./prompts/gpts/%E8%84%8F%E8%AF%9D%E8%BF%9E%E7%AF%87.md)
   - [春霞つくし Tsukushi Harugasumi](./prompts/gpts/%E6%98%A5%E9%9C%9E%E3%81%A4%E3%81%8F%E3%81%97%20Tsukushi%20Harugasumi.md)
+  - [攻击型领导](./prompts/gpts/%E6%94%BB%E5%87%BB%E5%9E%8B%E9%A2%86%E5%AF%BC.md)
+  - [短视频脚本](./prompts/gpts/%E7%9F%AD%E8%A7%86%E9%A2%91%E8%84%9A%E6%9C%AC.md)
   - [骂醒恋爱脑](./prompts/gpts/%E9%AA%82%E9%86%92%E6%81%8B%E7%88%B1%E8%84%91.md)
   - [广告文案大师](./prompts/gpts/%E5%B9%BF%E5%91%8A%E6%96%87%E6%A1%88%E5%A4%A7%E5%B8%88.md)
   - [痤疮治疗指南](./prompts/gpts/%E7%97%A4%E7%96%AE%E6%B2%BB%E7%96%97%E6%8C%87%E5%8D%97.md)
   - [科技文章翻译](./prompts/gpts/%E7%A7%91%E6%8A%80%E6%96%87%E7%AB%A0%E7%BF%BB%E8%AF%91.md)
   - [老妈，我爱你](./prompts/gpts/%E8%80%81%E5%A6%88%EF%BC%8C%E6%88%91%E7%88%B1%E4%BD%A0.md)
   - [天官庙的刘半仙](./prompts/gpts/%E5%A4%A9%E5%AE%98%E5%BA%99%E7%9A%84%E5%88%98%E5%8D%8A%E4%BB%99.md)
+  - [小红书写作专家](./prompts/gpts/%E5%B0%8F%E7%BA%A2%E4%B9%A6%E5%86%99%E4%BD%9C%E4%B8%93%E5%AE%B6.md)
   - [老爸，该怎么办](./prompts/gpts/%E8%80%81%E7%88%B8%EF%BC%8C%E8%AF%A5%E6%80%8E%E4%B9%88%E5%8A%9E.md)
   - [完蛋！我爱上了姐姐](./prompts/gpts/%E5%AE%8C%E8%9B%8B%EF%BC%81%E6%88%91%E7%88%B1%E4%B8%8A%E4%BA%86%E5%A7%90%E5%A7%90.md)
-  - [完蛋，我被美女包围了(AI同人)](./prompts/gpts/%E5%AE%8C%E8%9B%8B%EF%BC%8C%E6%88%91%E8%A2%AB%E7%BE%8E%E5%A5%B3%E5%8C%85%E5%9B%B4%E4%BA%86%28AI%E5%BA%29.md)
+  - [知识渊博的健身教练](./prompts/gpts/%E7%9F%A5%E8%AF%86%E6%B8%8A%E5%8D%9A%E7%9A%84%E5%81%A5%E8%BA%AB%E6%95%99%E7%BB%83.md)
+  - [完蛋，我被美女包围了(AI同人)](./prompts/gpts/%E5%AE%8C%E8%9B%8B%EF%BC%8C%E6%88%91%E8%A2%AB%E7%BE%8E%E5%A5%B3%E5%8C%85%E5%9B%B4%E4%BA%86%28AI%E5%90%8C%E4%BA%BA%29.md)
   - [猫耳美少女イラストメーカー](./prompts/gpts/%E7%8C%AB%E8%80%B3%E7%BE%8E%E5%B0%91%E5%A5%B3%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E3%83%A1%E3%83%BC%3%BC.md)
-
 
 
 ## Disclaimer
