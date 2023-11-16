@@ -22,9 +22,6 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
 2. Privatized GPT
 
 
-
-
-
 ## Prompts directory structure
 - [README](./README.md)
 - prompts
@@ -67,6 +64,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [DesignerGPT](./prompts/gpts/DesignerGPT.md)
   - [Diffusion Master](./prompts/gpts/Diffusion%20Master.md)
   - [EmojAI](./prompts/gpts/EmojAI.md)
+  - [Framer Template Assistant](./prompts/gpts/Framer%20Template%20Assistant.md)
   - [FramerGPT](./prompts/gpts/FramerGPT.md)
   - [GPT Builder](./prompts/gpts/GPT%20Builder.md)
   - [GPT Customizer, File Finder & JSON Action Creator](./prompts/gpts/GPT%20Customizer%2C%20File%20Finder%20%26%20JSON%20Action%20Creator.md)
@@ -114,6 +112,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [Visual Weather Artist GPT](./prompts/gpts/Visual%20Weather%20Artist%20GPT.md)
   - [Watercolor Illustrator GPT](./prompts/gpts/Watercolor%20Illustrator%20GPT.md)
   - [What should I watch?](./prompts/gpts/What%20should%20I%20watch%3F.md)
+  - [Writing Assistant](./prompts/gpts/Writing%20Assistant.md)
   - [X Optimizer GPT](./prompts/gpts/X%20Optimizer%20GPT.md)
   - [YT Summarizer](./prompts/gpts/YT%20Summarizer.md)
   - [YT transcriber](./prompts/gpts/YT%20transcriber.md)
@@ -152,7 +151,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [老爸，该怎么办](./prompts/gpts/%E8%80%81%E7%88%B8%EF%BC%8C%E8%AF%A5%E6%80%8E%E4%B9%88%E5%8A%9E.md)
   - [完蛋！我爱上了姐姐](./prompts/gpts/%E5%AE%8C%E8%9B%8B%EF%BC%81%E6%88%91%E7%88%B1%E4%B8%8A%E4%BA%86%E5%A7%90%E5%A7%90.md)
   - [知识渊博的健身教练](./prompts/gpts/%E7%9F%A5%E8%AF%86%E6%B8%8A%E5%8D%9A%E7%9A%84%E5%81%A5%E8%BA%AB%E6%95%99%E7%BB%83.md)
-  - [完蛋，我被美女包围了(AI同人)](./prompts/gpts/%E5%AE%8C%E8%9B%8B%EF%BC%8C%E6%88%91%E8%A2%AB%E7%BE%8E%E5%A5%B3%E5%8C%85%E5%9B%B4%E4%BA%86%28AI%E5%90%8C%E4%BA%BA%29.md)
+  - [完蛋，我被美女包围了(AI同人)](./prompts/gpts/%E5%AE%8C%E8%9B%8B%EF%BC%8C%E6%88%91%E8%A2%AB%E7%BE%8E%E5%A5%B3%E5%8C%85%E5%9B%B4%E4%BA%86%28AI%E5%BA%29.md)
   - [猫耳美少女イラストメーカー](./prompts/gpts/%E7%8C%AB%E8%80%B3%E7%BE%8E%E5%B0%91%E5%A5%B3%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E3%83%A1%E3%83%BC%3%BC.md)
 
 
