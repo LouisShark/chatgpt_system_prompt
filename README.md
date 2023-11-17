@@ -82,6 +82,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [ID Photo Pro](./prompts/gpts/ID%20Photo%20Pro.md)
   - [Interview Coach](./prompts/gpts/Interview%20Coach.md)
   - [KoeGPT](./prompts/gpts/KoeGPT.md)
+  - [LeetCode Problem Solver](./prompts/gpts/LeetCode%20Problem%20Solver.md)
   - [LogoGPT](./prompts/gpts/LogoGPT.md)
   - [Manga Miko - Anime Girlfriend](./prompts/gpts/Manga%20Miko%20-%20Anime%20Girlfriend.md)
   - [Meme Magic](./prompts/gpts/Meme%20Magic.md)
@@ -131,6 +132,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [genz_4_meme](./prompts/gpts/genz_4_meme.md)
   - [gpt4_classic](./prompts/gpts/gpt4_classic.md)
   - [hot_mods](./prompts/gpts/hot_mods.md)
+  - [img2img](./prompts/gpts/img2img.md)
   - [laundry_buddy](./prompts/gpts/laundry_buddy.md)
   - [math_mentor](./prompts/gpts/math_mentor.md)
   - [mocktail_mixologist](./prompts/gpts/mocktail_mixologist.md)
@@ -160,10 +162,10 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [小红书写作专家](./prompts/gpts/%E5%B0%8F%E7%BA%A2%E4%B9%A6%E5%86%99%E4%BD%9C%E4%B8%93%E5%AE%B6.md)
   - [老爸，该怎么办](./prompts/gpts/%E8%80%81%E7%88%B8%EF%BC%8C%E8%AF%A5%E6%80%8E%E4%B9%88%E5%8A%9E.md)
   - [完蛋！我爱上了姐姐](./prompts/gpts/%E5%AE%8C%E8%9B%8B%EF%BC%81%E6%88%91%E7%88%B1%E4%B8%8A%E4%BA%86%E5%A7%90%E5%A7%90.md)
+  - [武林秘传：江湖探险](./prompts/gpts/%E6%AD%A6%E6%9E%97%E7%A7%98%E4%BC%A0%EF%BC%9A%E6%B1%9F%E6%B9%96%E6%8E%A2%E9%99%A9.md)
   - [知识渊博的健身教练](./prompts/gpts/%E7%9F%A5%E8%AF%86%E6%B8%8A%E5%8D%9A%E7%9A%84%E5%81%A5%E8%BA%AB%E6%95%99%E7%BB%83.md)
   - [完蛋，我被美女包围了(AI同人)](./prompts/gpts/%E5%AE%8C%E8%9B%8B%EF%BC%8C%E6%88%91%E8%A2%AB%E7%BE%8E%E5%A5%B3%E5%8C%85%E5%9B%B4%E4%BA%86%28AI%E5%BA%29.md)
-  - [猫耳美少女イラストメーカー](./prompts/gpts/%E7%8C%AB%E8%80%B3%E7%BE%8E%E5%B0%91%E5%A5%B3%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E3%83%A1%E3%83%BC%82%AB%E3%83%BC.md)
-
+  - [猫耳美少女イラストメーカー](./prompts/gpts/%E7%8C%AB%E8%80%B3%E7%BE%8E%E5%B0%91%E5%A5%B3%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E3%83%A1%E3%83%BC%3%BC.md)
 
 ## Disclaimer
 The sharing of these prompts was intended purely for knowledge sharing,
