@@ -62,6 +62,7 @@ some useful prompts:
   - [CEO GPT](./prompts/gpts/CEO%20GPT.md)
   - [Calendar GPT](./prompts/gpts/Calendar%20GPT.md)
   - [Canva](./prompts/gpts/Canva.md)
+  - [Cauldron](./prompts/gpts/Cauldron.md)
   - [Character Forger](./prompts/gpts/Character%20Forger.md)
   - [Chibi Kohaku (猫音コハク)](./prompts/gpts/Chibi%20Kohaku%20%28%E7%8C%AB%E9%9F%B3%E3%82%B3%E3%83%8F%E3%82%AF%29.md)
   - [Choose your own adventure!](./prompts/gpts/Choose%20your%20own%20adventure%21.md)
