@@ -117,7 +117,7 @@ some useful prompts:
   - [Synthia 😋🌟](./prompts/gpts/Synthia%20%F0%9F%98%8B%F0%9F%8C%9F.md)
   - [Take Code Captures](./prompts/gpts/Take%20Code%20Captures.md)
   - [TaxGPT](./prompts/gpts/TaxGPT.md)
-  - [The Secret of Monkey Island_ Amsterdam](./prompts/gpts/The%20Secret%20of%20Monkey%20Island%3A%20Amsterdam.md)
+  - [The Secret of Monkey Island Amsterdam](./prompts/gpts/The%20Secret%20of%20Monkey%20Island%20Amsterdam.md)
   - [The Shaman](./prompts/gpts/The%20Shaman.md)
   - [TherapistGPT](./prompts/gpts/TherapistGPT.md)
   - [Trey Ratcliff's Photo Critique GPT](./prompts/gpts/Trey%20Ratcliff%27s%20Photo%20Critique%20GPT.md)

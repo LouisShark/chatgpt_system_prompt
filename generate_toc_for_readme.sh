@@ -13,8 +13,10 @@ generate_toc() {
             local title=$(basename "$file" .md)
             # Replace Windows incompatible characters with '_'
             local safe_title=$(echo "$title" | sed 's/[<>:："\/\\|?*]/_/g')
+            # Rename the source file with the safe_title
+            mv "$file" "$dir/$safe_title.md"
             # shellcheck disable=SC2001
-            local link=$(echo "$file" | sed "s|^$base_dir/||")
+            local link=$(echo "$dir/$safe_title.md" | sed "s|^$base_dir/||")
             local encoded_link=$(python -c "import urllib.parse; print(urllib.parse.quote('''$link'''))")
             echo "  - [$safe_title]($encoded_link)"
         fi
