@@ -15,9 +15,10 @@ generate_toc() {
             local safe_title=$(echo "$title" | sed 's/[<>:："\/\\|?*]/_/g')
             # Rename the source file with the safe_title
             mv "$file" "$dir/$safe_title.md"
-            # shellcheck disable=SC2001
-            local link=$(echo "$dir/$safe_title.md" | sed "s|^$base_dir/||")
-            local encoded_link=$(python -c "import urllib.parse; print(urllib.parse.quote('''$link'''))")
+            # Create a relative link
+            local relative_link="${dir#$base_dir/}/$safe_title.md"
+            # Manually encode only spaces and other few characters if needed
+            local encoded_link=$(echo "$relative_link" | sed 's/ /%20/g; s/"//g')
             echo "  - [$safe_title]($encoded_link)"
         fi
     done
