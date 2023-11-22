@@ -44,6 +44,8 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [gpt_dalle](./prompts/gpt_dalle.md)
   - [gpt_voice](./prompts/gpt_voice.md)
 - gpts
+  - [! Breakdown_ Outline Any Topic](./prompts/gpts/!%20Breakdown_%20Outline%20Any%20Topic.md)
+  - [! The Rizz Game ](./prompts/gpts/!%20The%20Rizz%20Game%20.md)
   - [(A.I. Bestie)](./prompts/gpts/(A.I.%20Bestie).md)
   - [10x Engineer](./prompts/gpts/10x%20Engineer.md)
   - [20K Vocab builder](./prompts/gpts/20K%20Vocab%20builder.md)
