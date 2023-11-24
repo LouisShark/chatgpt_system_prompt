@@ -188,7 +188,9 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [完蛋，我被美女包围了(AI同人)](./prompts/gpts/完蛋，我被美女包围了(AI同人).md)
   - [猫耳美少女イラストメーカー](./prompts/gpts/猫耳美少女イラストメーカー.md)
   - [確定申告について教えてくれる君](./prompts/gpts/確定申告について教えてくれる君.md)
-
+- opensource-prj
+  - [screenshot-to-code](./prompts/opensource-prj/screenshot-to-code.md)
+  - [tldraw](./prompts/opensource-prj/tldraw.md)
 
 ## Disclaimer
 The sharing of these prompts was intended purely for knowledge sharing,
