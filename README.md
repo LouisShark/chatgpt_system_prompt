@@ -62,6 +62,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [Agi_zip](./prompts/gpts/Agi_zip.md)
   - [Ai PDF](./prompts/gpts/Ai%20PDF.md)
   - [BabyAgi_txt](./prompts/gpts/BabyAgi_txt.md)
+  - [BibiGPT.co](./prompts/gpts/BibiGPT.co.md)
   - [Blog Post Generator](./prompts/gpts/Blog%20Post%20Generator.md)
   - [Book to Prompt](./prompts/gpts/Book%20to%20Prompt.md)
   - [Business Plan Sage](./prompts/gpts/Business%20Plan%20Sage.md)
