@@ -61,10 +61,12 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [Ads Generator by joe](./prompts/gpts/Ads%20Generator%20by%20joe.md)
   - [Agi_zip](./prompts/gpts/Agi_zip.md)
   - [Ai PDF](./prompts/gpts/Ai%20PDF.md)
+  - [AskTheCode](./prompts/gpts/AskTheCode.md)
   - [BabyAgi_txt](./prompts/gpts/BabyAgi_txt.md)
   - [BibiGPT.co](./prompts/gpts/BibiGPT.co.md)
   - [Blog Post Generator](./prompts/gpts/Blog%20Post%20Generator.md)
   - [Book to Prompt](./prompts/gpts/Book%20to%20Prompt.md)
+  - [Briefly](./prompts/gpts/Briefly.md)
   - [Business Plan Sage](./prompts/gpts/Business%20Plan%20Sage.md)
   - [CEO GPT](./prompts/gpts/CEO%20GPT.md)
   - [Calendar GPT](./prompts/gpts/Calendar%20GPT.md)
@@ -73,6 +75,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [Character Forger](./prompts/gpts/Character%20Forger.md)
   - [Chibi Kohaku (猫音コハク)](./prompts/gpts/Chibi%20Kohaku%20(猫音コハク).md)
   - [Choose your own adventure!](./prompts/gpts/Choose%20your%20own%20adventure!.md)
+  - [Cipheron](./prompts/gpts/Cipheron.md)
   - [ClearGPT](./prompts/gpts/ClearGPT.md)
   - [CodeCopilot](./prompts/gpts/CodeCopilot.md)
   - [ConvertAnything](./prompts/gpts/ConvertAnything.md)
@@ -89,6 +92,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [GPT Builder](./prompts/gpts/GPT%20Builder.md)
   - [GPT Customizer, File Finder & JSON Action Creator](./prompts/gpts/GPT%20Customizer,%20File%20Finder%20&%20JSON%20Action%20Creator.md)
   - [GPT Shop Keeper](./prompts/gpts/GPT%20Shop%20Keeper.md)
+  - [Get Simpsonized](./prompts/gpts/Get%20Simpsonized.md)
   - [Gif-PT](./prompts/gpts/Gif-PT.md)
   - [Girlfriend Emma](./prompts/gpts/Girlfriend%20Emma.md)
   - [Grimoire](./prompts/gpts/Grimoire.md)
@@ -116,6 +120,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [Pic-book Artist](./prompts/gpts/Pic-book%20Artist.md)
   - [Proofreader](./prompts/gpts/Proofreader.md)
   - [Quality Raters SEO Guide](./prompts/gpts/Quality%20Raters%20SEO%20Guide.md)
+  - [Radical Selfishness](./prompts/gpts/Radical%20Selfishness.md)
   - [Retro Adventures](./prompts/gpts/Retro%20Adventures.md)
   - [SEObot](./prompts/gpts/SEObot.md)
   - [Sales Cold Email Coach](./prompts/gpts/Sales%20Cold%20Email%20Coach.md)
@@ -191,6 +196,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
 - opensource-prj
   - [screenshot-to-code](./prompts/opensource-prj/screenshot-to-code.md)
   - [tldraw](./prompts/opensource-prj/tldraw.md)
+
 
 ## Disclaimer
 The sharing of these prompts was intended purely for knowledge sharing,
