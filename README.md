@@ -113,6 +113,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [Moby Dick RPG ](./prompts/gpts/Moby%20Dick%20RPG%20.md)
   - [Music Writer](./prompts/gpts/Music%20Writer.md)
   - [MuskGPT](./prompts/gpts/MuskGPT.md)
+  - [Nomad List](./prompts/gpts/Nomad%20List.md)
   - [OCR-GPT](./prompts/gpts/OCR-GPT.md)
   - [OpenAPI Builder](./prompts/gpts/OpenAPI%20Builder.md)
   - [OpenStorytelling Plus](./prompts/gpts/OpenStorytelling%20Plus.md)
