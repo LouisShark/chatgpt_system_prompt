@@ -1,0 +1,217 @@
+1 - A collection of Awesome resources for the Flipper Zero device : 
+
+My-Flipper-Shits Free and open-source [BadUSB] payloads for Flipper Zero., Link: https://github.com/aleff-github/my-flipper-shits/
+UberGuidoZ Playground Large collection of files, documentation, and dumps of all kinds., Link: https://github.com/UberGuidoZ/Flipper
+Flipper-IRDB Many IR dumps for various appliances., Link: https://github.com/logickworkshop/Flipper-IRDB
+FlipperZero-TouchTunes Dumps of TouchTune's remote., Link: https://github.com/jimilinuxguy/flipperzero-touchtunes
+Flipper Maker Generate Flipper Zero files on the fly., Link: https://flippermaker.github.io/
+FlipperAmiibo Bank vault of Amiibos to Flipper's format., Link: https://github.com/Gioman101/FlipperAmiibo
+FlipperMusicRTTTL Collection of musics for FlipperZero Music Player., Link: https://github.com/neverfa11ing/FlipperMusicRTTTL
+flipper-music-files Much smaller collection of musics for FlipperZero Music Player., Link: https://github.com/Tonsil/flipper-music-files
+Flipper BadUSB Payloads Collection of payloads formatted to work on the Flipper Zero., Link: https://github.com/I-Am-Jakoby/Flipper-Zero-BadUSB
+FlipperZero-Goodies Intercom keys, scripts, etc., Link: https://github.com/wetox-team/flipperzero-goodies
+T119 bruteforcer Triggers Retekess T119 restaurant pagers., Link: https://github.com/xb8/t119bruteforcer
+flipperzero-bruteforce Generate .sub files to brute force Sub-GHz OOK., Link: https://github.com/tobiabocchi/flipperzero-bruteforce
+UNC0V3R3D BadUSB collection Yet another BadUSB collection., Link: https://github.com/UNC0V3R3D/Flipper_Zero-BadUsb
+Flipper-StarNew Universal Intercom Keys., Link: https://github.com/GlUTEN-BASH/Flipper-Starnew
+FalsePhilosophers Flipper BadUSB Flipper zero community ducky payload repo., Link: https://github.com/FalsePhilosopher/badusb
+SerialHex2FlipperZeroInfrared Convert IR serial messages into FlipperZero compatible IR files., Link: https://github.com/maehw/SerialHex2FlipperZeroInfrared
+, Link: #applications--plugins
+official app store!, Link: https://lab.flipper.net/apps
+Flipper-Plugin-Tutorial Updated plugin tutorial based on new build methods., Link: https://github.com/csBlueChip/FlipperZero_plugin_howto
+Spectrum analyzer Sub-GHz frequency spectrum analyzer., Link: https://github.com/jolcese/flipperzero-firmware/tree/spectrum/applications/spectrum_analyzer
+Tetris A rudimentary Tetris game., Link: https://github.com/jeffplang/flipperzero-firmware/tree/tetris_game/applications/tetris_game
+Flappy Bird The name says it all., Link: https://github.com/DroomOne/flipperzero-firmware/tree/dev/applications%2Fflappy_bird
+T-Rex Runner Flipper zero port of Chrome's game., Link: https://github.com/Rrycbarm/t-rex-runner
+Mouse jiggler Keeps PC screens on by acting as a moving mouse., Link: https://github.com/MuddledBox/flipperzero-firmware/tree/Mouse_Jiggler/applications/mouse_jiggler
+floopper-bloopper LD#47 Game., Link: https://github.com/glitchcore/floopper-bloopper
+NRF24 & Mousejacking PoC NRF24 library and mousejack exploitation app., Link: https://github.com/mothball187/flipperzero-nrf24
+UPC-A Barcode Generator Can be used to create any UPC-A barcode., Link: https://github.com/McAzzaMan/flipperzero-firmware/tree/UPC-A_Barcode_Generator/applications/barcode_generator
+Sentry Safe Plugin that can open any Sentry Safe and Master Lock electronic safe without entering pin code., Link: https://github.com/H4ckd4ddy/flipperzero-sentry-safe-plugin
+Dec/Hex Converter Small "real time" decimal/hexadecimal converter., Link: https://github.com/theisolinearchip/flipperzero_stuff/tree/main/applications/dec_hex_converter
+MultiConverter Multi-unit converter that can be easily expanded with new units and conversion methods., Link: https://github.com/theisolinearchip/flipperzero_stuff/tree/main/applications/multi_converter
+Doom Doom-like clone for Flipper Zero., Link: https://github.com/p4nic4ttack/doom-flipper-zero
+bpm-tapper Tap along to a song to measure beats per minute., Link: https://github.com/panki27/bpm-tapper
+Metronome Musical metronome., Link: https://github.com/panki27/Metronome
+USB Keyboard A refactor of the BT remote to work over USB. Allows the Flipper to act as an USB HID keyboard., Link: https://github.com/huuck/FlipperZeroUSBKeyboard
+Minesweeper Minesweeper implementation., Link: https://github.com/panki27/minesweeper
+SD Load Applications Prebuilt applications (FAP) for popular firmware options., Link: https://github.com/UberGuidoZ/Flipper/tree/main/Applications
+Tuning Fork Use your flipper as a tuning fork., Link: https://github.com/besya/flipperzero-tuning-fork
+GPS Display data from a serial GPS module., Link: https://github.com/ezod/flipperzero-gps
+USB HID Autofire Send left-clicks as a USB HID device., Link: https://github.com/pbek/usb_hid_autofire
+Flipper Authenticator Generate TOTP authentication codes., Link: https://github.com/akopachov/flipper-zero_authenticator/
+Unitemp Temperature, humidity and pressure sensors reader (DHT11/22, DS18B20, BMP280, HTU21x and more), Link: https://github.com/quen0n/unitemp-flipperzero
+Flipp Pomodoro Pomodoro Timer Tool for productivity., Link: https://github.com/Th3Un1q3/flipp_pomodoro
+COM Port Scanner Emulator Barcode Scanner Emulator., Link: https://github.com/polarikus/flipper-zero_bc_scanner_emulator
+Xbox Controller Easy controller for Xbox One with IR, Link: https://github.com/gebeto/flipper-xbox-controller
+Reversi The classic Reversi game, Link: https://github.com/dimat/flipperzero-reversi
+Servo Tester Servo Tester App, Link: https://github.com/mhasbini/ServoTesterApp
+, Link: #firmwares--tweaks
+Click here, Link: https://github.com/djsime1/awesome-flipperzero/blob/main/Firmwares.md
+Unleashed Unlocked firmware with rolling codes support & community plugins, stable tweaks, and games., Link: https://github.com/DarkFlippers/unleashed-firmware
+RogueMaster Fork of Unleashed firmware with custom graphics, experimental tweaks, community plugins and games., Link: https://github.com/RogueMaster/flipperzero-firmware-wPlugins
+Xtreme Official fork with cleaned up codebase, more module extensions and custom assets., Link: https://github.com/ClaraCrazy/Flipper-Xtreme
+Dexv Xtreme fork; The "Will it blend?" of custom firmwares., Link: https://github.com/DXVVAY/Dexvmaster0
+SquachWare Fork of official firmware which adds custom graphics, community applications & files., Link: https://github.com/skizzophrenic/SquachWare-CFW
+v1nc flipper zero firmware Unleashed fork with support for different Duckyscript keyboard layouts & community plugins., Link: https://github.com/v1nc/flipperzero-firmware
+Wetox Very similar to the official branch, with a few small tweaks., Link: https://github.com/wetox-team/flipperzero-firmware
+Muddled Forks Less-active firmware modifications., Link: https://github.com/MuddledBox/flipperzero-firmware/tree/muddled_dev
+OpenHaystack BLE mod Very old PoC that makes Flipper behave like an AirTag., Link: https://github.com/AlexStrNik/flipperzero-firmware
+, Link: #graphics--animations
+Talking Sasquach Animations Literally wrote the book on making animations., Link: https://github.com/skizzophrenic/Talking-Sasquach
+Lab401 Animation Video YouTube video with a step by step from Talking Sasquach., Link: https://www.youtube.com/watch?v=Nq5DXhOMo5s
+Kuronons Graphics Custom animations, passport backgrounds & profile pictures., Link: https://github.com/Kuronons/FZ_graphics
+Flipper Zero Animation Process Google Doc step by step from Talking Sasquach., Link: https://docs.google.com/document/d/e/2PACX-1vR_nZRakD6iwJVQS8Pf4y7Wm4klcucrC7EKVO8m_DQV63To7e-alqD0yaoO3sTygjcChfcRo80Hdeet/pub
+Flipper Animation Manager Visualize and manage animations directly from your computer., Link: https://github.com/Ooggle/FlipperAnimationManager
+zip2Animation Utility to assist in creating animations., Link: https://github.com/CharlesTheGreat77/zip2Animation
+H4XV's Gif2Anim Gif2FlipperAnimation Converter, Link: https://github.com/H4XV/flipper-animation-generator
+Haseosama Animations Great collection of custom animations., Link: https://github.com/Haseosama/FZ_Animations
+Animations by stopoxy Another great custom animation collection., Link: https://github.com/stopoxy/FZAnimations
+Wr3nch Animations Some custom animations and scripts., Link: https://github.com/wrenchathome/flip0anims
+Dexv Graphics Custom animations and resources., Link: https://github.com/DXVVAY/dexv-graphics
+DoobTheGoober Animations Custom animations from the creator of zip2Animation, Link: https://github.com/CharlesTheGreat77/FlipperZeroAnimation
+UberGuidoZ Graphics Brief description and links to resources, including PYX host., Link: https://github.com/UberGuidoZ/Flipper/tree/main/Graphics
+Animations by mnenkov A dump with animations and manifest creator for batch files., Link: https://github.com/mnenkov/flipper-zero-animations
+Oneamongthetrees Animations/Graphics Collection of custom animations and passport icons., Link: https://github.com/oneamongthetrees/fz-gfx
+, Link: #modules--cases
+Ultimate Flipper Zero Case 3D printed case with room for 3rd party modules & 2x WiFi dev board slots., Link: https://www.printables.com/model/527482-ultimate-flipper-case
+FlipperZero-Hardware 3D-Printable cases with custom iButton interface., Link: https://github.com/s0ko1ex/FlipperZero-Hardware
+Flipper Zero Cases 3D-Printable case & cover models., Link: https://github.com/MuddledBox/FlipperZeroCases
+FlipperZero-Protoboards-Kicad KiCad prototype boards., Link: https://github.com/lomalkin/flipperzero-protoboards-kicad
+Pelican case Big case to hold Flipper and USB., Link: https://www.printables.com/model/204882-flipper-zero-case
+Hard case Smaller than pelican case, but still bulky., Link: https://www.thingiverse.com/thing:5387015
+WiFi Module v1 Case Small cover for the WiFi dev board., Link: https://www.printables.com/model/179910-case-for-flipper-zero-wi-fi-module-v1
+Flipper screen protector An alternative screen protector for Flipper., Link: https://www.photodon.com/p/2419-01.html
+WiFi Scanner Module Scans for WiFi networks via a custom Wemos module board., Link: https://github.com/SequoiaSan/FlipperZero-WiFi-Scanner_Module
+WiFi Scanner Module Flasher Web flasher for module firmware above., Link: https://sequoiasan.github.io/FlipperZero-WiFi-Scanner_Module/
+WiFi DSTIKE Deauther Preforms WiFi deauth attacks via a custom ESP8266 module board., Link: https://github.com/SequoiaSan/FlipperZero-Wifi-ESP8266-Deauther-Module
+WiFi Deauther Module Flasher Web flasher for module firmware above., Link: https://sequoiasan.github.io/FlipperZero-Wifi-ESP8266-Deauther-Module/
+Skadis holder Flipper Zero holder for Ikea Skadis., Link: https://www.thingiverse.com/thing:5434476
+Flipper Zero Boards ESP32 and NRF24 daughterboards for the Flipper., Link: https://github.com/DrB0rk/Flipper-Zero-Boards
+Flipper Zero Car Mount Uses foam from the original box., Link: https://www.thingiverse.com/thing:5464899
+Soft TPU cover Similar to the official silicone case., Link: https://www.printables.com/en/model/272676-soft-tpu-flipper-zero-cover
+Flipper-Boy Flipper Zero Case with 22mm Watch Strap Adapter., Link: https://www.printables.com/model/304243-flipper-boy
+WiFi Devboard Pelican Case Top case that works with the 4mm FZ Pelican case., Link: https://github.com/Z3BRO/Flipper-Zero-Pelican-Case-Wifi-Devboard
+FlipperZero RGB backlight Replacing stock backlight with RGB, Link: https://github.com/quen0n/flipperzero-firmware-rgb
+The Mayhem Fin ESP32 with WiFi, BT/BLE, Micro-SD, Camera, Flashlight, NRF24/CC1101, and more., Link: https://github.com/eried/flipperzero-mayhem
+Flipper-Zero-Backpacks Backpack addon boards with ESP32, Raspberry Pi, Protoboards etc., Link: https://github.com/Chrismettal/flipper-zero-backpacks
+, Link: #off-device--debugging
+Official Web Interface Web interface to interact with Flipper, including Paint and SUB/IR analyzer., Link: https://lab.flipper.net/
+OOK to .sub Python script to generate Flipper RAW .sub files from OOK bitstreams., Link: https://gist.github.com/jinschoi/f39dbd82e4e3d99d32ab6a9b8dfc2f55
+csv2ir Script to convert IRDB CSV's to Flipper .ir files., Link: https://github.com/Spexivus/csv2ir
+flipperzero-sesproject Segger Embedded Studio project., Link: https://github.com/hedger/flipperzero-sesproject
+FlipperScripts Modify the state and level of your dolphin., Link: https://github.com/DroomOne/FlipperScripts
+Viewing system logs Dump system logs to serial CLI., Link: https://gist.github.com/jaflo/50c35c46f3ecada7a18c9e5cc203a3f8
+AmiiboFlipperConverter Script that converts Amiibo's to Flipper format., Link: https://github.com/Lucaslhm/AmiiboFlipperConverter/
+CLI Tools Python scripts to screenshot/stream screen., Link: https://github.com/lomalkin/flipperzero-cli-tools
+Flipper File Toolbox Scripts for generating Flipper data files., Link: https://github.com/evilpete/flipper_toolbox
+Marauder for Wifi Dev Board See Flipper.bin in Releases by JustCallMeKoko., Link: https://github.com/justcallmekoko/ESP32Marauder
+VertProntoIR2FlipperIR Converts Vert Pronto IR codes to Flipper format., Link: https://github.com/SkeletonMan03/VertProntoIR2FlipperIR
+FlippMibo Yet another Amiibo to Flipper conversion script., Link: https://github.com/0xz00n/FlipMiibo
+mfkey32v2 MFC key recovery reader attack., Link: https://github.com/equipter/mfkey32v2
+Fztea Connect to your Flipper's UI over serial or make it accessible via SSH., Link: https://github.com/jon4hz/fztea
+pyFlipper Unofficial CLI wrapper writter in Python., Link: https://github.com/wh00hw/pyFlipper
+SUB Plotters / comparers Python package to plot and compare multiple .sub files., Link: https://github.com/ShotokanZH/flipper_sub_plotters_comparers
+ClassicConverter Converts Mifare Classic binary files to Flipper., Link: https://github.com/equipter/ClassicConverter
+ClassicConverterWeb Converts between Mifare Classic binary and Flipper NFC file., Link: https://micsen.github.io/flipperNfcToBin/
+musicxml2fmf Converts MusicXML files to Flipper Music Format., Link: https://github.com/white-gecko/musicxml2fmf
+BadUSB keyboard converter Payload converted for non-US keyboard layouts., Link: http://helppox.com/badusbconvert.html
+U2F SSH Keys U2F ECDSA SSH Key Generation using Flipper Zero., Link: https://gist.github.com/BlackPropaganda/44c40f7855a90e289a9477b654e54eb1
+flipper0 Rusty crate with safe interface to Flipper Firmware and autogen bindings underneath., Link: https://crates.io/crates/flipper0
+flipperzero-rs Hand-crafted bindings to Flipper Firmware with custom build tool., Link: https://github.com/dcoles/flipperzero-rs
+fzfs Flipper Zero filesystem driver., Link: https://github.com/dakhnod/fzfs
+Pagger Sub-GHz generators for restaurants/kiosks paging systems., Link: https://meoker.github.io/pagger/
+FBT-AARCH64 A script that sets up FBT's toolchain on ARM devices., Link: https://github.com/qqmajikpp/FBT-AARCH64
+flipper2mct A script to convert Flipper NFC files to Mifare Classic Tools format for MC 1k & 4k., Link: https://gist.github.com/ardubev16/339ee55e0e610e9241dd236c11ac3c3d
+, Link: #notes--references
+official documentation, Link: https://docs.flipper.net/
+Official battery self-repair guide How to troubleshoot battery issues., Link: https://cdn.flipperzero.one/self-repair-guide.pdf
+Official firmware recovery guide How to troubleshoot firmware issues., Link: https://docs.flipperzero.one/basics/firmware-update/firmware-recovery
+FZ Firmware Comparisons Comparison of custom firmwares listed in this repo., Link: https://github.com/djsime1/awesome-flipperzero/blob/main/Firmwares.md
+Flipper Zero Hacking 101 Guides with screenshots, files, and general help., Link: https://flipper.pingywon.com/
+Reset forgotten PIN How to reset your device's PIN code., Link: https://gist.github.com/djsime1/18d73b981249859f17aab3e2bfd2b600
+Atmanos Flipper Software Docs Flipper development tutorials and information., Link: https://flipper.atmanos.com/docs/overview/intro
+Flipper Zero GPIO Pinout Official GPIO pinouts., Link: https://miro.com/app/board/uXjVO_LaYYI=/?moveToWidget=3458764522696947614&cot=10
+Add-on Modules GPIO Pinouts ESP32, ESP8266, ESP32-CAM, ESP32-WROOM, NRF24., Link: https://github.com/UberGuidoZ/Flipper/tree/main/GPIO
+Firmware roadmap Official stock firmware roadmap., Link: https://miro.com/app/board/uXjVO_3D6xU=/?moveToWidget=3458764522498020058&cot=14
+Flipper Zero SW&HW keynote (OUTDATED) Hardware & software architecture document., Link: https://miro.com/app/board/o9J_l1XZfbw=/?moveToWidget=3458764514405659414&cot=14
+Unofficial Community Wiki To help consolidate all things Flipper (official and unofficial)., Link: https://flipperzero.miraheze.org/wiki/Main_Page
+Flipper Zero disassembly guide Difficulty: Moderate, Time: 8-15 Minutes., Link: https://www.ifixit.com/Guide/Flipper+Zero+Disassembly/151455
+Alternative disassembly video Third-party video for disassembling the Flipper., Link: https://youtu.be/38pHe7M4vl8
+ESP32 Marauder on WiFi dev board Portable WiFi/Bluetooth pentesting., Link: https://github.com/justcallmekoko/ESP32Marauder/wiki/flipper-zero
+ESP32 Marauder guide video Companion video for the above link., Link: https://youtu.be/_YLTpNo5xa0
+Flipper Skylanders How to read a Skylanders figure with Flipper., Link: https://github.com/V0lk3n/Flipper-Skylanders
+Flipper Zero Dimensions Basic info on screen and case dimensions., Link: https://github.com/UberGuidoZ/Flipper/tree/main/FlipperZero_Dimensions
+Application CI/CD Guide A complete guide on how to adopt flipper application to regular API changes., Link: https://gist.github.com/Th3Un1q3/233fa6900d13caa95c6383e53a92bed1
+Notes and Documentation A collection of useful notes and documentation, Link: https://github.com/FroggMaster/Flipperzero#flipper-documents--notes
+SD Card Resources A collection of useful resources for your SD Card (BadUSB, NFC, IR, SubGHZ), Link: https://github.com/FroggMaster/FlipperZero/tree/main/SD%20Card%20Resources
+, Link: #helpful-repositories--wikis
+Awesome Flipper Zero An index of helpful repos and information, Link: https://github.com/djsime1/awesome-flipperzero
+Official Flipper Wiki The Official Flipper Wiki, Link: https://docs.flipperzero.one
+Unofficial Flipper Wiki The Unofficial Flipper Wiki, Link: https://flipperzero.miraheze.org/wiki/Main_Page
+Atmanos' Documents A collection of guides for the Flipper Zero, Link: https://flipper.atmanos.com/docs/overview/intro
+UberGuidoZ Flipper Resources A collection of resources for Flipper Zero, Link: https://github.com/UberGuidoZ/Flipper
+Pingywon's Repository A collection of resources and guides for the Flipper Zero, Link: https://flipper.pingywon.com/
+, Link: #flipper-firmware
+Official FW The Official Flipper Zero Firmware, Link: https://github.com/flipperdevices/flipperzero-firmware
+Kokoe FW Frog's Firmware a fork of Unleashed. Primarily for my personal testing/changes, Link: https://github.com/FroggMaster/flipperzero-kokoe-firmware
+Unleashed/Plugins FW RogueMaster's Firmware a fork of MuddleBox/Unleashed with additional plugins, Link: https://github.com/RogueMaster/flipperzero-firmware-wPlugins
+Unleashed FW The Unleashed Firmware (No Legal Limitations), Link: https://github.com/Eng1n33r/flipperzero-firmware
+, Link: #applications--plugins--games
+, Link: #plugins
+MouseJacking A Plugin/Driver for mousejacking, requires an NRF24L01 radio chip, Link: https://github.com/mothball187/flipperzero-nrf24
+Spectrum Analyzer A simple Sprectrum Anaylzer, Link: https://github.com/jolcese/flipperzero-firmware/tree/spectrum/applications/spectrum_analyzer
+Mouse Jiggler A mouse jiggler to keep a connected PC Active, Link: https://github.com/MuddledBox/flipperzero-firmware/tree/Mouse_Jiggler/applications/mouse_jiggler
+, Link: #games
+Tetris The game of Tetris, Link: https://github.com/jeffplang/flipperzero-firmware/tree/tetris_game/applications/tetris_game
+Flappy Bird The game of Flappy Bird, collision is nonfunctional/duplicate walls or artifcating occurs, Link: https://github.com/DroomOne/flipperzero-firmware/tree/dev/applications%2Fflappy_bird
+Flooper Blooper A game of exploration and platforming, Link: https://github.com/glitchcore/floopper-bloopper
+, Link: #accessories
+, Link: #3d-designs--printables
+Wifi Devboard Case A case for the Wifi Dev Board, Link: https://www.printables.com/model/179910-case-for-flipper-zero-wi-fi-module-v1
+MuddleBox's Flipper Cases A Repo of 3D Printable Cases for Flipper Zero, Link: https://github.com/MuddledBox/FlipperZeroCases
+Hard Cases Two hard shell cases by warpedrenegade, Link: https://www.thingiverse.com/thing:5387015
+Tacticool Case A tacticool case by s0ko1ex, Link: https://github.com/s0ko1ex/FlipperZero-Hardware/tree/master/Cases/Tacticool%20case
+HardEdgy Case A "HardEdgy" case by s0ko1ex, Link: https://github.com/s0ko1ex/FlipperZero-Hardware/tree/master/Cases/Hard%20Edgy%20Case
+Flipper Zero 3D Model A 3D .GBL model of the Flipper Zero, Link: https://cdn.flipperzero.one/flp_new.glb
+ProtoBoards KiCadA KiCad for printing Flipper Zero Protoboards, Link: https://github.com/lomalkin/flipperzero-protoboards-kicad
+, Link: #hardware
+Screen Protector A screen protector for the Flipper Zero, Link: https://www.photodon.com/p/2419-01.html
+, Link: #flipper-documents--notes
+, Link: #guides--instructions
+, Link: #how-to
+Windows Development Environment An overview of how to setup a Windows development environment, Link: https://github.com/FroggMaster/FlipperZero/blob/main/Notes%20and%20Documentation/Windows%20Development%20Environment.md
+Change Flipper's Display Name Step by step instructions to change the Flipper Zero's display name, Link: https://github.com/FroggMaster/Flipper/blob/main/Notes%20and%20Documentation/Change%20Flippers%20Display%20Name.md
+Using The Bluetooth Remote Plugin How to use the Bluetooth Remote Plugin, Link: https://github.com/FroggMaster/Flipper/blob/main/Notes%20and%20Documentation/Using%20The%20Bluetooth%20Remote%20Plugin.md
+, Link: #video-tutorials
+Flipper Zero Disassembly How to disassemble the Flipper Zero, Link: https://youtu.be/38pHe7M4vl8
+How To Run Marauder on the WiFi Dev Board An overview of how to run Marauder on the Wifi Devboard, compliements of , Link: https://youtu.be/_YLTpNo5xa0
+justcallmekoko, Link: https://github.com/justcallmekoko
+, Link: #repair-guides
+Flipper Battery Self Repair Guide A guide on how to dissassemble and troubleshoot battery problems with the Flipper Zero, Link: https://cdn.flipperzero.one/self-repair-guide.pdf
+Official Firmware Recovery Guide A guide from the official Flipper documents for firmware recovery, Link: https://docs.flipperzero.one/basics/firmware-update/firmware-recovery
+iFixIt Flipper Disassembly Guide A guide on how to completely disassemble the Flipper Zero, Link: https://www.ifixit.com/Guide/Flipper+Zero+Disassembly/151455
+, Link: #outdated
+Hello World Plugin Tutorial A tutorial on how to create a Hello World plugin, Link: https://github.com/DroomOne/Flipper-Plugin-Tutorial
+, Link: #notes--misc
+, Link: #hardware-1
+Screw Dimensions A reference/measurements of the screws used for the Flipper Zero, Link: https://user-images.githubusercontent.com/12762784/177255984-eef7eb2b-0ac8-4d81-b03b-2d75d7e48d49.png
+Screen Protector Dimensions An image that shows the appropriate dimensions for a Screen Protector, Link: https://user-images.githubusercontent.com/12762784/169257741-24aa4c28-d7e7-4ccb-9bd9-3efc8299ef7c.png
+, Link: #gpio
+GPIO PIN Reference An image which overviews the GPIO pins, Link: https://user-images.githubusercontent.com/12762784/169719082-96bc5bf2-1040-4f47-aea8-2639a6405de8.png
+NRF24L01 Wiring Diagram A visual reference for wiring the NRFL24L01 Radio, Link: https://user-images.githubusercontent.com/12762784/177709854-66219630-9c8a-472c-9cad-6f2ba0253c3b.png
+, Link: #misc
+Flipper SW/HW Keynote A collection of slides that overview the basics of software and hardware development, Link: https://miro.com/app/board/o9J_l1XZfbw=/?moveToWidget=3458764514405659414&cot=14
+QFlipper All Builds All available QFlipper Builds, Link: https://update.flipperzero.one/builds/qFlipper/
+
+
+2 - Installing Animations on RogueMaster
+Insert SD Card: Place the SD card back into your Flipper Zero.
+Navigate to Animations: Turn on your Flipper Zero and navigate to the Animations or Gallery section in the menu.
+Manifest Switcher: For RogueMaster firmware, you might need to use the Manifest Switcher. Copy the manifest switcher files to the /dolphin folder on your SD card. The manifest switcher allows you to set your build to the desired set of animations.
+Source for manifest switcher files: RogueMaster GitHub Repository
+Select Animation: Once you have the manifest in place, use the Flipper Zero interface to navigate to CFW Settings -> Interface -> Desktop -> Animations. Here, you can select and activate the custom animations.
+
+2 - Installing Animations on flipper zero for xtream firmware :
+We created our own in this link : https://flipper-xtre.me/asset-packs/ , new & improved Animation / Asset system, that we can finally reveal. It lets you to create and cycle through your own Asset Packs with only a few button presses, allowing you to easily load custom Animations and Icons like never before.
+

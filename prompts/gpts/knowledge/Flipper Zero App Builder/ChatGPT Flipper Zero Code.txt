@@ -1,0 +1,91 @@
+- code examples : 
+
+This is example code "Hello World" with back button using flipper build tool.
+
+flipper build tool doc : https://github.com/flipperdevices/flipperzero-firmware/blob/dev/documentation/fbt.md
+
+hello_world.c : 
+
+#include <furi.h>
+#include <gui/gui.h>
+#include <stdlib.h>
+#include <gui/elements.h>
+#include <input/input.h>
+
+static void render_callback(Canvas* const canvas, void* ctx) {
+
+
+    (void)ctx;
+    // Clear the canvas
+    canvas_clear(canvas);
+
+    // Set font
+    canvas_set_font(canvas, FontPrimary);
+
+    // Draw the text
+    elements_multiline_text_aligned(canvas, 64, 32, AlignCenter, AlignTop, "Hello World");
+}
+
+// Input callback function
+static void input_callback(InputEvent* input_event, void* ctx) {
+    bool* running = (bool*)ctx;
+
+    if(input_event->type == InputTypeShort) {
+        if(input_event->key == InputKeyBack) {
+            *running = false;
+        }
+    }
+}
+
+int32_t hello_world_app(void) {
+    // Create and open a viewport
+    ViewPort* view_port = view_port_alloc();
+    view_port_draw_callback_set(view_port, render_callback, NULL);
+    Gui* gui = furi_record_open(RECORD_GUI);
+    gui_add_view_port(gui, view_port, GuiLayerFullscreen);
+
+    // Create an input queue
+    FuriMessageQueue* input_queue = furi_message_queue_alloc(8, sizeof(InputEvent));
+
+    // Main loop control variable
+    bool running = true;
+
+    // Register input callback
+    view_port_input_callback_set(view_port, input_callback, &running);
+
+    // Main loop
+    while(running) {
+        view_port_update(view_port);
+        furi_delay_ms(100);
+
+        // Check for input events
+        InputEvent input_event;
+        while(furi_message_queue_get(input_queue, &input_event, 0) == FuriStatusOk) {
+            input_callback(&input_event, &running);
+        }
+    }
+
+    // Cleanup
+    view_port_enabled_set(view_port, false);
+    gui_remove_view_port(gui, view_port);
+    furi_record_close(RECORD_GUI);
+    view_port_free(view_port);
+    furi_message_queue_free(input_queue);
+
+    return 0;
+}
+
+
+- errors : 
+
+error 1 :
+error: unused parameter 'ctx' [-Werror=unused-parameter]
+    7 | static void render_callback(Canvas* const canvas, void* ctx) {
+      |                                                   ~~~~~~^~~
+cc1-bin: all warnings being treated as errors
+        SDKCHK  targets/f7/api_symbols.csv
+scons: *** [build/f7-firmware-D/.extapps/hello_world/testingapp.o] Error 1
+
+solve 1 : 
+
+using (void)ctx; in functions if not used.

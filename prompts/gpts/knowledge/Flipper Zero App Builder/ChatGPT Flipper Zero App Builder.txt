@@ -1,0 +1,1453 @@
+Example of flipper zero app source code : 
+
+- This is counter increamnt by InputKeyDown and InputKeyUp in flipper zero :
+
+#include <furi.h>
+#include <gui/gui.h>
+#include <stdlib.h>
+#include <gui/elements.h>
+#include <input/input.h>
+#include <stdio.h>
+
+typedef struct {
+    int number;
+    bool confirm;
+} AppState;
+
+// Render callback
+static void render_callback(Canvas* canvas, void* context) {
+    AppState* app_state = (AppState*)context;
+
+    // Clear the canvas
+    canvas_clear(canvas);
+
+    // Set font and draw text
+    canvas_set_font(canvas, FontSecondary);
+    elements_multiline_text_aligned(canvas, 0, 0, AlignLeft, AlignTop, "BMI Calculator");
+
+    char numStr[12];
+    snprintf(numStr, sizeof(numStr), "%d", app_state->number);
+    elements_multiline_text_aligned(canvas, 64, 32, AlignCenter, AlignTop, numStr);
+}
+
+// Input callback
+static void input_callback(InputEvent* input_event, void* context) {
+    AppState* app_state = (AppState*)context;
+
+    if(input_event->type == InputTypeShort) {
+        switch(input_event->key) {
+            case InputKeyUp:
+                app_state->number++;
+                break;
+            case InputKeyDown:
+                app_state->number--;
+                break;
+            case InputKeyOk:
+                app_state->confirm = true;
+                break;
+            case InputKeyBack:
+                // Add any action if required when back button is pressed
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+int32_t flippertools_app(void) {
+    AppState app_state;
+    app_state.number = 0;
+    app_state.confirm = false;
+
+    // Create and open a viewport
+    ViewPort* view_port = view_port_alloc();
+    view_port_draw_callback_set(view_port, render_callback, &app_state);
+
+    // Setup GUI
+    Gui* gui = furi_record_open(RECORD_GUI);
+    gui_add_view_port(gui, view_port, GuiLayerFullscreen);
+
+    // Create an input queue
+    FuriMessageQueue* input_queue = furi_message_queue_alloc(8, sizeof(InputEvent));
+    view_port_input_callback_set(view_port, input_callback, &app_state);
+
+    // Main loop
+    while(!app_state.confirm) {
+        view_port_update(view_port);
+        furi_delay_ms(100);
+
+        // Check for input events
+        InputEvent input_event;
+        while(furi_message_queue_get(input_queue, &input_event, 0) == FuriStatusOk) {
+            input_callback(&input_event, &app_state);
+        }
+    }
+
+    // Cleanup
+    view_port_enabled_set(view_port, false);
+    gui_remove_view_port(gui, view_port);
+    furi_record_close(RECORD_GUI);
+    view_port_free(view_port);
+    furi_message_queue_free(input_queue);
+
+    return 0;
+}
+
+
+
+
+- This Flipper application lets you view all information's regarding your flippers experience and butthurt.
+
+Features:
+
+General XP and Butthurt View
+Daily XP View and descriptions to each category.
+Daily Butthurt View and descriptions.
+Backup View to create and load backups of your flippers experience and butthurt.
+
+
+full code : doc.c file : 
+#include "doc_i.h"
+#include "helpers/doc_storage_helper.h"
+
+#include <dialogs/dialogs.h>
+#include <scenes/doc_scene.h>
+
+bool doc_custom_event_callback(void* ctx, uint32_t event) {
+    furi_assert(ctx);
+    Doc* app = ctx;
+    return scene_manager_handle_custom_event(app->scene_manager, event);
+}
+
+bool doc_back_event_callback(void* ctx) {
+    furi_assert(ctx);
+    Doc* app = ctx;
+    return scene_manager_handle_back_event(app->scene_manager);
+}
+
+/*
+ * The Dolphin service only saves 30s after the latest change,
+ * it can take up to that amount to get the real current values.
+ * The timer gets called after 10s, for 3 times and then stops.
+ */
+void doc_dolphin_timer_callback(void* ctx) {
+    furi_assert(ctx);
+    Doc* app = ctx;
+
+    app->dolphin_timer_counter++;
+
+    if(app->dolphin_timer_counter <= 3) {
+        FURI_LOG_D(TAG, "Loading new state after %hhus", app->dolphin_timer_counter * 10);
+        doc_dolphin_state_load(app->dolphin);
+        furi_delay_ms(20);
+
+        if(app->in_selection) {
+            doc_selection_request_redraw(app->selection);
+        }
+        if(app->in_description) {
+            doc_description_request_redraw(app->description);
+        }
+    }
+
+    if(app->dolphin_timer_counter == 3) {
+        FURI_LOG_D(TAG, "30s reached, stopping timer.");
+        furi_timer_stop(app->dolphin_timer);
+    }
+}
+
+Doc* doc_alloc() {
+    Doc* app = malloc(sizeof(Doc));
+
+    app->dolphin = malloc(sizeof(DolphinState));
+    app->dolphin_timer = furi_timer_alloc(doc_dolphin_timer_callback, FuriTimerTypePeriodic, app);
+    app->file_path = furi_string_alloc();
+
+    //? ------------- Records -------------
+    app->gui = furi_record_open(RECORD_GUI);
+    app->dialogs = furi_record_open(RECORD_DIALOGS);
+    //? ----------- Records End -----------
+
+    // ViewDispatcher & SceneManager
+    app->view_dispatcher = view_dispatcher_alloc();
+    app->scene_manager = scene_manager_alloc(&doc_scene_handlers, app);
+    view_dispatcher_enable_queue(app->view_dispatcher);
+    view_dispatcher_set_event_callback_context(app->view_dispatcher, app);
+    view_dispatcher_set_custom_event_callback(app->view_dispatcher, doc_custom_event_callback);
+    view_dispatcher_set_navigation_event_callback(app->view_dispatcher, doc_back_event_callback);
+
+    //! -------------- DEBUG --------------
+    app->notification = furi_record_open(RECORD_NOTIFICATION);
+    notification_message(app->notification, &sequence_display_backlight_on);
+    //! ------------ DEBUG END ------------
+    
+    //? -------------- Views --------------
+    app->selection = doc_selection_alloc();
+    view_dispatcher_add_view(app->view_dispatcher, DocSelectionView, doc_selection_get_view(app->selection));
+    app->description = doc_description_alloc();
+    view_dispatcher_add_view(app->view_dispatcher, DocDescriptionView, doc_description_get_view(app->description));
+    app->text_input = text_input_alloc();
+    view_dispatcher_add_view(app->view_dispatcher, DocTextInputView, text_input_get_view(app->text_input));
+    //? ------------ Views End ------------
+    
+    view_dispatcher_attach_to_gui(app->view_dispatcher, app->gui, ViewDispatcherTypeFullscreen);
+    return app;
+}
+
+void doc_free(Doc* app) {
+
+    //! -------------- DEBUG --------------
+    furi_record_close(RECORD_NOTIFICATION);
+    app->notification = NULL;
+    //! ------------ DEBUG END ------------
+    
+    //? -------------- Views --------------
+    view_dispatcher_remove_view(app->view_dispatcher, DocSelectionView);
+    doc_selection_free(app->selection);
+    view_dispatcher_remove_view(app->view_dispatcher, DocDescriptionView);
+    doc_description_free(app->description);
+    view_dispatcher_remove_view(app->view_dispatcher, DocTextInputView);
+    text_input_free(app->text_input);
+    //? ------------ Views End ------------
+
+    // ViewDispatcher & SceneManager
+    scene_manager_free(app->scene_manager);
+    view_dispatcher_free(app->view_dispatcher);
+
+    //? ------------- Records -------------
+    furi_record_close(RECORD_GUI);
+    app->gui = NULL;
+    furi_record_close(RECORD_DIALOGS);
+    app->dialogs = NULL;
+    //? ----------- Records End -----------
+
+    furi_string_free(app->file_path);
+    furi_timer_free(app->dolphin_timer);
+    free(app->dolphin);
+    
+    free(app);
+}
+
+uint32_t doc_app(void* p) {
+    UNUSED(p);
+    Doc* app = doc_alloc();
+
+    doc_dolphin_state_load(app->dolphin);
+    furi_timer_start(app->dolphin_timer, 10 * 1000);
+    scene_manager_next_scene(app->scene_manager, DocSceneMenu);
+    view_dispatcher_run(app->view_dispatcher);
+
+    doc_free(app);
+    return 0;
+}
+
+doc_i.h file : 
+#pragma once
+
+#include <helpers/dolphin_state.h>
+
+//? -------------- Views --------------
+#include <views/doc_selection.h>
+#include <views/doc_description.h>
+#include <gui/modules/text_input.h>
+//? ------------ Views End ------------
+
+#include <gui/gui.h>
+#include <gui/view_dispatcher.h>
+
+#include <dialogs/dialogs.h>
+
+//! -------------- DEBUG --------------
+#include <notification/notification_messages.h>
+//! ------------ DEBUG END ------------
+
+#define TAG "FlipperDoc"
+
+typedef struct {
+    DolphinState* dolphin;
+    FuriTimer* dolphin_timer;
+    uint8_t dolphin_timer_counter;
+
+    //? -------------- Views --------------
+    DocSelection* selection;
+    bool in_selection;
+    DocDescription* description;
+    bool in_description;
+    TextInput* text_input;
+    //? ------------ Views End ------------
+
+    Gui* gui;
+    ViewDispatcher* view_dispatcher;
+    SceneManager* scene_manager;
+
+    DialogsApp* dialogs;
+    FuriString* file_path;
+    char text_input_array[50];
+
+    //! -------------- DEBUG --------------
+    NotificationApp* notification;
+    //! ------------ DEBUG END ------------
+} Doc;
+
+enum {
+    DocSelectionView,
+    DocDescriptionView,
+    DocTextInputView,
+};
+
+doc_icons.h file :
+#pragma once
+
+#include <gui/icon.h>
+
+extern const Icon I_flipperdoc;
+extern const Icon I_doc_smallscreen_light;
+extern const Icon I_doc_bigscreen_light;
+extern const Icon I_doc_button_left_small;
+extern const Icon I_doc_button_up;
+extern const Icon I_doc_button_down;
+
+
+
+application.fam : 
+
+# For details & more options, see documentation/AppManifests.md in firmware repo
+
+App(
+    appid="flipperdoc",
+    name="Flipper Doctor",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="doc_app",
+    stack_size=1 * 1024,
+    fap_category="Tools",
+    fap_version="0.1",
+    fap_icon="images/flipperdoc.png",
+    fap_author="JulanDeAlb",
+    fap_weburl="https://github.com/julandealb/flipperdoc",
+    fap_icon_assets="images",
+)
+
+
+views/doc_description.c : 
+
+
+#include "doc_description.h"
+#include "doc_view_common.h"
+
+#include <doc_icons.h>
+
+struct DocDescription {
+    View* view;
+    DocDescriptionCallback callback;
+    void* ctx;
+};
+
+typedef struct {
+    FuriString* text;
+
+    uint8_t category;
+
+    //Internal
+    uint8_t size;
+    uint8_t index;
+} DocDescriptionViewModel;
+
+static void doc_description_draw_callback(Canvas* canvas, void* ctx) {
+    furi_assert(ctx);
+    DocDescriptionViewModel* vm = ctx;
+
+    canvas_draw_icon(canvas, 0, 0, &I_doc_bigscreen_light);
+
+    // Scrolling Arrow
+    if(vm->index > 0) {
+        canvas_draw_icon(canvas, 113, 13, &I_doc_button_up);
+    }
+    if(vm->size > 4 &&
+        vm->index < vm->size - 4) {
+        canvas_draw_icon(canvas, 113, 39, &I_doc_button_down);
+    }
+
+    // Text
+    doc_draw_text(canvas, vm->text, 18, 110, 16, 10, vm->index, 4);
+}
+
+static bool doc_description_input_callback(InputEvent* event, void* ctx) {
+    furi_assert(ctx);
+    DocDescription* instance = ctx;
+    bool consumed = false;
+
+    if(event->type == InputTypeShort || event->type == InputTypeRepeat) {
+        switch(event->key) {
+        case InputKeyUp:
+            with_view_model(
+                instance->view,
+                DocDescriptionViewModel* model,
+                {
+                    if(model->index > 0) {
+                        model->index--;
+                    }
+                },
+                true);
+            consumed = true;
+            break;
+        case InputKeyDown:
+            with_view_model(
+                instance->view,
+                DocDescriptionViewModel* model,
+                {
+                    if(model->index < model->size - 4) {
+                        model->index++;
+                    }
+                },
+                true);
+            consumed = true;
+            break;
+        case InputKeyBack:
+            with_view_model(
+                instance->view,
+                DocDescriptionViewModel* model,
+                {
+                    model->index = 0;
+                },
+                false);
+            break;
+        default:
+            break;
+        }
+    }
+
+    return consumed;
+}
+
+//? Basic Functions
+View* doc_description_get_view(DocDescription* instance) {
+    furi_assert(instance);
+    return instance->view;
+}
+
+void doc_description_set_callback(DocDescription* instance, DocDescriptionCallback callback, void* ctx) {
+    furi_assert(instance);
+    furi_assert(callback);
+
+    instance->callback = callback;
+    instance->ctx = ctx;
+}
+
+DocDescription* doc_description_alloc() {
+    DocDescription* instance = malloc(sizeof(DocDescription));
+
+    instance->view = view_alloc();
+    view_allocate_model(instance->view, ViewModelTypeLocking, sizeof(DocDescriptionViewModel));
+    view_set_draw_callback(instance->view, doc_description_draw_callback);
+    view_set_input_callback(instance->view, doc_description_input_callback);
+    view_set_context(instance->view, instance);
+
+    with_view_model(
+        instance->view,
+        DocDescriptionViewModel* vm,
+        {
+            vm->text = furi_string_alloc();
+        }, false);
+
+    return instance;
+}
+
+void doc_description_free(DocDescription* instance) {
+    furi_assert(instance);
+
+    with_view_model(
+        instance->view,
+        DocDescriptionViewModel* vm,
+        {
+            furi_string_free(vm->text);
+        }, false);
+
+    view_free(instance->view);
+    free(instance);
+}
+//? Basic Functions End
+
+//? Custom Functions
+FuriString* doc_description_get_string(DocDescription* instance) {
+    furi_assert(instance);
+
+    FuriString* text;
+    with_view_model(
+        instance->view,
+        DocDescriptionViewModel* vm,
+        {
+            text = vm->text;
+        }, true);
+
+    return text;
+}
+
+uint8_t doc_description_get_category(DocDescription* instance) {
+    furi_assert(instance);
+
+    uint8_t category;
+    with_view_model(
+        instance->view,
+        DocDescriptionViewModel* vm,
+        {
+            category = vm->category;
+        }, false);
+
+    return category;
+}
+
+void doc_description_set_category(DocDescription* instance, uint8_t category) {
+    furi_assert(instance);
+
+    with_view_model(
+        instance->view,
+        DocDescriptionViewModel* vm,
+        {
+            vm->category = category;
+        }, true);
+}
+
+void doc_description_set_size(DocDescription* instance, uint8_t size) {
+    furi_assert(instance);
+
+    with_view_model(
+        instance->view,
+        DocDescriptionViewModel* vm,
+        {
+            vm->size = size;
+        }, true);
+}
+
+void doc_description_request_redraw(DocDescription* instance) {
+    furi_assert(instance);
+    if(instance->callback != NULL) {
+        instance->callback(instance->ctx, (uint8_t) - 1);
+    }
+}
+
+void doc_description_force_redraw(DocDescription* instance) {
+    furi_assert(instance);
+    with_view_model(instance->view, DocDescriptionViewModel* vm, { UNUSED(vm); }, true);
+}
+//? Custom Functions End
+
+
+views/doc_description.h : 
+
+#pragma once
+
+#include <gui/view.h>
+
+typedef struct DocDescription DocDescription;
+typedef void (*DocDescriptionCallback)(void* ctx, uint8_t index);
+
+//? Basic Functions
+View* doc_description_get_view(DocDescription* instance);
+void doc_description_set_callback(DocDescription* instance, DocDescriptionCallback callback, void* ctx);
+DocDescription* doc_description_alloc();
+void doc_description_free(DocDescription* instance);
+//? Basic Functions End
+
+//? Custom Functions
+FuriString* doc_description_get_string(DocDescription* instance);
+uint8_t doc_description_get_category(DocDescription* instance);
+void doc_description_set_category(DocDescription* instance, uint8_t category);
+void doc_description_set_size(DocDescription* instance, uint8_t size);
+void doc_description_request_redraw(DocDescription* instance);
+void doc_description_force_redraw(DocDescription* instance);
+//? Custom Functions End
+
+views/doc_selection.c : 
+
+#include "doc_selection.h"
+#include "doc_view_common.h"
+
+#include <doc_icons.h>
+
+struct DocSelection {
+    View* view;
+    DocSelectionCallback callback;
+    void* ctx;
+};
+
+typedef struct {
+    const char* title;
+    FuriString* text;
+    const char* footer;
+
+    uint8_t category;
+
+    //Internal
+    uint8_t size;
+    uint8_t position;
+    uint8_t window_position;
+} DocSelectionViewModel;
+
+static void doc_selection_draw_callback(Canvas* canvas, void* ctx) {
+    furi_assert(ctx);
+    DocSelectionViewModel* vm = ctx;
+
+    canvas_draw_icon(canvas, 0, 0, &I_doc_smallscreen_light);
+
+    // Selection Arrow
+    uint8_t selection_index = vm->position - vm->window_position;
+    if(selection_index == 0) {
+        canvas_draw_icon(canvas, 123, 16, &I_doc_button_left_small);
+    } else if(selection_index == 1) {
+        canvas_draw_icon(canvas, 123, 25, &I_doc_button_left_small);
+    } else {
+        canvas_draw_icon(canvas, 123, 34, &I_doc_button_left_small);
+    }
+
+    // Title
+    canvas_set_font(canvas, FontPrimary);
+    canvas_draw_str_aligned(canvas, 85, 11, AlignCenter, AlignBottom, vm->title);
+    canvas_set_font(canvas, FontSecondary);
+
+    // Text
+    doc_draw_text(canvas, vm->text, 44, 121, 22, 9, vm->window_position, 3);
+
+    // Footer
+    canvas_draw_str_aligned(canvas, 87, 54, AlignCenter, AlignBottom, vm->footer);
+}
+
+static bool doc_selection_input_callback(InputEvent* event, void* ctx) {
+    furi_assert(ctx);
+    DocSelection* instance = ctx;
+    bool consumed = false;
+
+    if((event->type == InputTypeShort) || (event->type == InputTypeRepeat)) {
+        switch(event->key) {
+        case InputKeyUp:
+            with_view_model(
+                instance->view,
+                DocSelectionViewModel* model,
+                {
+                    if(model->position > 0) {
+                        model->position--;
+
+                        if(model->position == model->window_position && model->window_position > 0) {
+                            model->window_position--;
+                        }
+                    } else {
+                        model->position = model->size - 1;
+
+                        if(model->position > 2) {
+                            model->window_position = model->position - 2;
+                        }
+                    }
+                },
+                true);
+            consumed = true;
+            break;
+        case InputKeyDown:
+            with_view_model(
+                instance->view,
+                DocSelectionViewModel* model,
+                {
+                    if(model->position < model->size - 1) {
+                        model->position++;
+
+                        if(model->position - model->window_position > 1 && model->window_position < model->size - 3) {
+                            model->window_position++;
+                        }
+                    } else {
+                        model->position = 0;
+                        model->window_position = 0;
+                    }
+                },
+                true);
+            consumed = true;
+            break;
+        case InputKeyOk:
+            with_view_model(
+                instance->view,
+                DocSelectionViewModel* model,
+                {
+                    if(instance->callback) {
+                        instance->callback(instance->ctx, model->position);
+                    }
+                },
+                false);
+            break;
+        default:
+            break;
+        }
+    }
+
+    return consumed;
+}
+
+//? Basic Functions
+View* doc_selection_get_view(DocSelection* instance) {
+    furi_assert(instance);
+    return instance->view;
+}
+
+void doc_selection_set_callback(DocSelection* instance, DocSelectionCallback callback, void* ctx) {
+    furi_assert(instance);
+    furi_assert(callback);
+
+    instance->callback = callback;
+    instance->ctx = ctx;
+}
+
+DocSelection* doc_selection_alloc() {
+    DocSelection* instance = malloc(sizeof(DocSelection));
+
+    instance->view = view_alloc();
+    view_allocate_model(instance->view, ViewModelTypeLocking, sizeof(DocSelectionViewModel));
+    view_set_draw_callback(instance->view, doc_selection_draw_callback);
+    view_set_input_callback(instance->view, doc_selection_input_callback);
+    view_set_context(instance->view, instance);
+
+    with_view_model(
+        instance->view,
+        DocSelectionViewModel* vm,
+        {
+            vm->text = furi_string_alloc();
+        }, false);
+
+    return instance;
+}
+
+void doc_selection_free(DocSelection* instance) {
+    furi_assert(instance);
+
+    with_view_model(
+        instance->view,
+        DocSelectionViewModel* vm,
+        {
+            furi_string_free(vm->text);
+        }, false);
+
+    view_free(instance->view);
+    free(instance);
+}
+//? Basic Functions End
+
+//? Custom Functions
+void doc_selection_set_title(DocSelection* instance, const char* title) {
+    furi_assert(instance);
+
+    with_view_model(
+        instance->view,
+        DocSelectionViewModel* vm,
+        {
+            vm->title = title;
+        }, true);
+}
+
+FuriString* doc_selection_get_string(DocSelection* instance) {
+    furi_assert(instance);
+
+    FuriString* text;
+    with_view_model(
+        instance->view,
+        DocSelectionViewModel* vm,
+        {
+            text = vm->text;
+        }, true);
+
+    return text;
+}
+
+void doc_selection_set_footer(DocSelection* instance, const char* footer) {
+    furi_assert(instance);
+
+    with_view_model(
+        instance->view,
+        DocSelectionViewModel* vm,
+        {
+            vm->footer = footer;
+        }, true);
+}
+
+void doc_selection_set_index(DocSelection* instance, uint8_t index) {
+    furi_assert(instance);
+
+    with_view_model(
+        instance->view,
+        DocSelectionViewModel* model,
+        {
+            uint8_t position = index;
+            if(position >= model->size) {
+                position = 0;
+            }
+
+            model->position = position;
+            model->window_position = position;
+
+            if(model->window_position > 0) {
+                model->window_position -= 1;
+            }
+
+            if(model->size <= 3) {
+                model->window_position = 0;
+            } else {
+                if(model->window_position >= model->size - 3) {
+                    model->window_position = model->size - 3;
+                }
+            }
+        },
+        true);
+}
+
+void doc_selection_set_size(DocSelection* instance, uint8_t size) {
+    furi_assert(instance);
+
+    with_view_model(
+        instance->view,
+        DocSelectionViewModel* vm,
+        {
+            vm->size = size;
+        }, true);
+}
+
+void doc_selection_request_redraw(DocSelection* instance) {
+    furi_assert(instance);
+    if(instance->callback != NULL) {
+        instance->callback(instance->ctx, (uint8_t) - 1);
+    }
+}
+
+void doc_selection_force_redraw(DocSelection* instance) {
+    furi_assert(instance);
+    with_view_model(instance->view, DocSelectionViewModel* vm, { UNUSED(vm); }, true);
+}
+//? Custom Functions End
+
+views/doc_view_common.c : 
+#include "doc_view_common.h"
+
+void doc_draw_text(Canvas* canvas, FuriString* text,
+    uint8_t x_one, uint8_t x_two, uint8_t y,
+    uint8_t font_height, uint8_t start_index, uint8_t max_index) {
+    furi_assert(canvas);
+
+    FuriString* str = furi_string_alloc();
+    const char* start = furi_string_get_cstr(text);
+    char* mid;
+    char* end;
+    uint8_t temp_index = 0;
+
+    do {
+        mid = strchr(start, '\t');
+        end = strchr(start, '\n');
+
+        if(mid && end && 0 < end - mid) {
+            furi_string_set_strn(str, start, mid - start);
+
+            if(temp_index >= start_index) {
+                canvas_draw_str_aligned(canvas, x_one, y, AlignLeft, AlignBottom, furi_string_get_cstr(str));
+            }
+        }
+
+        if(end && mid) {
+            furi_string_set_strn(str, mid, end - start);
+            start = end + 1;
+        } else if(end) {
+            furi_string_set_strn(str, start, end - start);
+            start = end + 1;
+        } else {
+            furi_string_set(str, start);
+        }
+
+        if(temp_index >= start_index) {
+            canvas_draw_str_aligned(canvas, x_two, y, AlignRight, AlignBottom, furi_string_get_cstr(str));
+            y += font_height;
+        }
+
+        temp_index++;
+    } while(end && y < 64 && temp_index <= start_index + max_index - 1);
+
+    furi_string_free(str);
+}
+
+views/doc_view_common.h : 
+
+#pragma once
+
+#include <gui/view.h>
+
+void doc_draw_text(Canvas* canvas, FuriString* text,
+    uint8_t x_one, uint8_t x_two, uint8_t y,
+    uint8_t font_height, uint8_t start_index, uint8_t max_index);
+
+
+
+
+this app will generate a password in flipper zero , source code : 
+
+#include <furi.h>
+#include <gui/gui.h>
+#include <gui/elements.h>
+#include <input/input.h>
+#include <notification/notification_messages.h>
+#include <stdlib.h>
+#include <passgen_icons.h>
+
+#define PASSGEN_MAX_LENGTH 16
+#define PASSGEN_CHARACTERS_LENGTH (26*4)
+
+#define PASSGEN_DIGITS "0123456789"
+#define PASSGEN_LETTERS_LOW "abcdefghijklmnopqrstuvwxyz"
+#define PASSGEN_LETTERS_UP "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+#define PASSGEN_SPECIAL "!#$%^&*.-_"
+
+typedef enum PassGen_Alphabet
+{
+	Digits = 1,
+	Lowercase = 2,
+	
+	Uppercase = 4,
+	Special = 8,
+	
+	DigitsLower = Digits | Lowercase,
+	DigitsAllLetters = Digits | Lowercase | Uppercase,
+	Mixed = DigitsAllLetters | Special
+} PassGen_Alphabet;
+
+const int AlphabetLevels[] = { Digits, Lowercase, DigitsLower, DigitsAllLetters, Mixed };
+const char* AlphabetLevelNames[] = { "1234", "abcd", "ab12", "Ab12", "Ab1#" };
+const int AlphabetLevelsCount = sizeof(AlphabetLevels) / sizeof(int);
+
+const NotificationSequence PassGen_Alert_vibro = {
+    &message_vibro_on,
+    &message_blue_255,
+	&message_delay_50,
+    &message_vibro_off,
+    NULL,
+};
+
+typedef struct {
+    FuriMessageQueue* input_queue;
+    ViewPort* view_port;
+    Gui* gui;
+    FuriMutex** mutex;
+	NotificationApp* notify;
+	char password[PASSGEN_MAX_LENGTH+1];
+	char alphabet[PASSGEN_CHARACTERS_LENGTH+1];
+	int length;
+	int level;
+} PassGen;
+
+void state_free(PassGen* app) {
+    gui_remove_view_port(app->gui, app->view_port);
+    furi_record_close(RECORD_GUI);
+    view_port_free(app->view_port);
+    furi_message_queue_free(app->input_queue);
+    furi_mutex_free(app->mutex);
+    furi_record_close(RECORD_NOTIFICATION);
+    free(app);
+}
+
+static void input_callback(InputEvent* input_event, void* ctx) {
+    PassGen* app = ctx;
+    if(input_event->type == InputTypeShort) {
+        furi_message_queue_put(app->input_queue, input_event, 0);
+    }
+}
+
+static void render_callback(Canvas* canvas, void* ctx) {
+    char str_length[8];
+    PassGen* app = ctx;
+    furi_check(furi_mutex_acquire(app->mutex, FuriWaitForever) == FuriStatusOk);
+	
+    canvas_clear(canvas);
+    canvas_draw_box(canvas, 0, 0, 128, 14);
+    canvas_set_color(canvas, ColorWhite);
+    canvas_set_font(canvas, FontPrimary);
+    canvas_draw_str(canvas, 2, 11, "Password Generator");
+    
+    canvas_set_color(canvas, ColorBlack);
+	canvas_draw_str_aligned(canvas, 64, 35, AlignCenter, AlignCenter, app->password);
+
+	// Navigation menu:
+    canvas_set_font(canvas, FontSecondary);
+    canvas_draw_icon(canvas, 96, 52, &I_Pin_back_arrow_10x8);
+    canvas_draw_str(canvas, 108, 60, "Exit");
+	
+    canvas_draw_icon(canvas, 54, 52, &I_Vertical_arrow_7x9);
+    canvas_draw_str(canvas, 64, 60, AlphabetLevelNames[app->level]);
+	
+    snprintf(str_length, sizeof(str_length), "Len: %d", app->length);
+    canvas_draw_icon(canvas, 4, 53, &I_Horizontal_arrow_9x7);
+    canvas_draw_str(canvas, 15, 60, str_length);
+	
+    furi_mutex_release(app->mutex);
+}
+
+void build_alphabet(PassGen* app)
+{
+	PassGen_Alphabet mode = AlphabetLevels[app->level];
+	app->alphabet[0] = '\0';
+	if ((mode & Digits) != 0)
+		strcat(app->alphabet, PASSGEN_DIGITS);
+	if ((mode & Lowercase) != 0)
+		strcat(app->alphabet, PASSGEN_LETTERS_LOW);
+	if ((mode & Uppercase) != 0)
+		strcat(app->alphabet, PASSGEN_LETTERS_UP);
+	if ((mode & Special) != 0)
+		strcat(app->alphabet, PASSGEN_SPECIAL);
+}
+
+PassGen* state_init() {
+    PassGen* app = malloc(sizeof(PassGen));
+	app->length = 8;
+	app->level = 2;
+	build_alphabet(app);
+    app->input_queue = furi_message_queue_alloc(8, sizeof(InputEvent));
+    app->view_port = view_port_alloc();
+    app->gui = furi_record_open(RECORD_GUI);
+    app->mutex = furi_mutex_alloc(FuriMutexTypeNormal);
+    view_port_input_callback_set(app->view_port, input_callback, app);
+    view_port_draw_callback_set(app->view_port, render_callback, app);
+    gui_add_view_port(app->gui, app->view_port, GuiLayerFullscreen);
+	
+	app->notify = furi_record_open(RECORD_NOTIFICATION);
+	
+    return app;
+}
+
+void generate(PassGen* app)
+{
+	int hi = strlen(app->alphabet);
+	for (int i=0; i<app->length; i++)
+	{
+		int x = rand() % hi;
+		app->password[i]=app->alphabet[x];
+	}
+	app->password[app->length] = '\0';
+}
+
+void update_password(PassGen* app, bool vibro)
+{
+	generate(app);
+	
+	if (vibro)
+		notification_message(app->notify, &PassGen_Alert_vibro);
+	else
+		notification_message(app->notify, &sequence_blink_blue_100);
+	view_port_update(app->view_port);
+}
+
+int32_t passgenapp(void) {
+    PassGen* app = state_init();
+	generate(app);
+
+    while(1) {
+        InputEvent input;
+        while(furi_message_queue_get(app->input_queue, &input, FuriWaitForever) == FuriStatusOk) {
+            furi_check(furi_mutex_acquire(app->mutex, FuriWaitForever) == FuriStatusOk);
+
+			if (input.type == InputTypeShort)
+			{
+				switch (input.key) {
+				case InputKeyBack:
+					furi_mutex_release(app->mutex);
+					state_free(app);
+					return 0;
+				case InputKeyDown:
+					if (app->level > 0)
+					{
+						app->level--;
+						build_alphabet(app);
+						update_password(app, false);
+					}
+					else
+						notification_message(app->notify, &sequence_blink_red_100);
+					break;
+				case InputKeyUp:
+					if (app->level < AlphabetLevelsCount - 1)
+					{
+						app->level++;
+						build_alphabet(app);
+						update_password(app, false);
+					}
+					else
+						notification_message(app->notify, &sequence_blink_red_100);
+					break;
+				case InputKeyLeft:
+					if (app->length > 1)
+					{
+						app->length--;
+						update_password(app, false);
+					}
+					else
+						notification_message(app->notify, &sequence_blink_red_100);
+					break;
+				case InputKeyRight:
+					if (app->length < PASSGEN_MAX_LENGTH)
+					{
+						app->length++;
+						update_password(app, false);
+					}
+					else
+						notification_message(app->notify, &sequence_blink_red_100);
+					break;
+				case InputKeyOk:
+					update_password(app, true);
+					break;
+				default:
+					break;
+				}
+			}
+            furi_mutex_release(app->mutex);
+        }
+    }
+    state_free(app);
+    return 0;
+}
+
+
+Simple Flashlight source code for flipper zero Plugin  : 
+
+
+// by @xMasterX
+
+#include <furi.h>
+#include <furi_hal_power.h>
+#include <gui/gui.h>
+#include <input/input.h>
+#include <stdlib.h>
+#include <gui/elements.h>
+
+typedef enum {
+    EventTypeTick,
+    EventTypeKey,
+} EventType;
+
+typedef struct {
+    EventType type;
+    InputEvent input;
+} PluginEvent;
+
+typedef struct {
+    FuriMutex* mutex;
+    bool is_on;
+} PluginState;
+
+static void render_callback(Canvas* const canvas, void* ctx) {
+    furi_assert(ctx);
+    const PluginState* plugin_state = ctx;
+    furi_mutex_acquire(plugin_state->mutex, FuriWaitForever);
+
+    canvas_set_font(canvas, FontPrimary);
+    elements_multiline_text_aligned(canvas, 64, 2, AlignCenter, AlignTop, "Flashlight");
+
+    canvas_set_font(canvas, FontSecondary);
+
+    if(!plugin_state->is_on) {
+        elements_multiline_text_aligned(
+            canvas, 64, 28, AlignCenter, AlignTop, "Press OK button turn on");
+    } else {
+        elements_multiline_text_aligned(canvas, 64, 28, AlignCenter, AlignTop, "Light is on!");
+        elements_multiline_text_aligned(
+            canvas, 64, 40, AlignCenter, AlignTop, "Press OK button to off");
+    }
+
+    furi_mutex_release(plugin_state->mutex);
+}
+
+static void input_callback(InputEvent* input_event, FuriMessageQueue* event_queue) {
+    furi_assert(event_queue);
+
+    PluginEvent event = {.type = EventTypeKey, .input = *input_event};
+    furi_message_queue_put(event_queue, &event, FuriWaitForever);
+}
+
+static void flash_toggle(PluginState* const plugin_state) {
+    furi_hal_gpio_write(&gpio_ext_pc3, false);
+    furi_hal_gpio_init(&gpio_ext_pc3, GpioModeOutputPushPull, GpioPullNo, GpioSpeedVeryHigh);
+
+    if(plugin_state->is_on) {
+        furi_hal_gpio_write(&gpio_ext_pc3, false);
+        plugin_state->is_on = false;
+    } else {
+        furi_hal_gpio_write(&gpio_ext_pc3, true);
+        plugin_state->is_on = true;
+    }
+}
+
+int32_t flashlight_app() {
+    FuriMessageQueue* event_queue = furi_message_queue_alloc(8, sizeof(PluginEvent));
+
+    PluginState* plugin_state = malloc(sizeof(PluginState));
+
+    plugin_state->mutex = furi_mutex_alloc(FuriMutexTypeNormal);
+    if(!plugin_state->mutex) {
+        FURI_LOG_E("flashlight", "cannot create mutex\r\n");
+        furi_message_queue_free(event_queue);
+        free(plugin_state);
+        return 255;
+    }
+
+    // Set system callbacks
+    ViewPort* view_port = view_port_alloc();
+    view_port_draw_callback_set(view_port, render_callback, plugin_state);
+    view_port_input_callback_set(view_port, input_callback, event_queue);
+
+    // Open GUI and register view_port
+    Gui* gui = furi_record_open(RECORD_GUI);
+    gui_add_view_port(gui, view_port, GuiLayerFullscreen);
+
+    PluginEvent event;
+    for(bool processing = true; processing;) {
+        FuriStatus event_status = furi_message_queue_get(event_queue, &event, 100);
+
+        furi_mutex_acquire(plugin_state->mutex, FuriWaitForever);
+
+        if(event_status == FuriStatusOk) {
+            // press events
+            if(event.type == EventTypeKey) {
+                if(event.input.type == InputTypePress) {
+                    switch(event.input.key) {
+                    case InputKeyUp:
+                    case InputKeyDown:
+                    case InputKeyRight:
+                    case InputKeyLeft:
+                        break;
+                    case InputKeyOk:
+                        flash_toggle(plugin_state);
+                        break;
+                    case InputKeyBack:
+                        processing = false;
+                        break;
+                    default:
+                        break;
+                    }
+                }
+            }
+        }
+
+        furi_mutex_release(plugin_state->mutex);
+        view_port_update(view_port);
+    }
+
+    view_port_enabled_set(view_port, false);
+    gui_remove_view_port(gui, view_port);
+    furi_record_close(RECORD_GUI);
+    view_port_free(view_port);
+    furi_message_queue_free(event_queue);
+    furi_mutex_free(plugin_state->mutex);
+
+    return 0;
+}
+
+
+color guess source code for flipper zero app : 
+
+#include "color_guess.h"
+#include "helpers/digits.h"
+
+bool color_guess_custom_event_callback(void* context, uint32_t event) {
+    furi_assert(context);
+    ColorGuess* app = context;
+    return scene_manager_handle_custom_event(app->scene_manager, event);
+}
+
+void color_guess_tick_event_callback(void* context) {
+    furi_assert(context);
+    ColorGuess* app = context;
+    scene_manager_handle_tick_event(app->scene_manager);
+}
+
+//leave app if back button pressed
+bool color_guess_navigation_event_callback(void* context) {
+    furi_assert(context);
+    ColorGuess* app = context;
+    return scene_manager_handle_back_event(app->scene_manager);
+}
+
+ColorGuess* color_guess_app_alloc() {
+    ColorGuess* app = malloc(sizeof(ColorGuess));
+    app->gui = furi_record_open(RECORD_GUI);
+    app->notification = furi_record_open(RECORD_NOTIFICATION);
+    app->error = false;
+
+    // Set Defaults if no config exists
+    app->haptic = 1;
+    app->led = 1;
+    app->save_settings = 1;
+
+    // Load configs
+    color_guess_read_settings(app);
+
+    NotificationApp* notification = furi_record_open(RECORD_NOTIFICATION);
+    notification_message(notification, &sequence_display_backlight_on);
+
+    //Scene additions
+    app->view_dispatcher = view_dispatcher_alloc();
+    view_dispatcher_enable_queue(app->view_dispatcher);
+
+    app->scene_manager = scene_manager_alloc(&color_guess_scene_handlers, app);
+    view_dispatcher_set_event_callback_context(app->view_dispatcher, app);
+    view_dispatcher_set_navigation_event_callback(
+        app->view_dispatcher, color_guess_navigation_event_callback);
+    view_dispatcher_set_tick_event_callback(
+        app->view_dispatcher, color_guess_tick_event_callback, 100);
+    view_dispatcher_set_custom_event_callback(
+        app->view_dispatcher, color_guess_custom_event_callback);
+    app->submenu = submenu_alloc();
+
+    view_dispatcher_add_view(
+        app->view_dispatcher, ColorGuessViewIdMenu, submenu_get_view(app->submenu));
+    app->variable_item_list = variable_item_list_alloc();
+    view_dispatcher_add_view(
+        app->view_dispatcher,
+        ColorGuessViewIdSettings,
+        variable_item_list_get_view(app->variable_item_list));
+    app->color_guess_startscreen = color_guess_startscreen_alloc();
+    view_dispatcher_add_view(
+        app->view_dispatcher,
+        ColorGuessViewIdStartscreen,
+        color_guess_startscreen_get_view(app->color_guess_startscreen));
+    app->color_guess_color_set = color_guess_color_set_alloc();
+    view_dispatcher_add_view(
+        app->view_dispatcher,
+        ColorGuessViewIdColorSet,
+        color_guess_color_set_get_view(app->color_guess_color_set));
+    app->color_guess_play = color_guess_play_alloc();
+    view_dispatcher_add_view(
+        app->view_dispatcher,
+        ColorGuessViewIdPlay,
+        color_guess_play_get_view(app->color_guess_play));
+
+    //End Scene Additions
+
+    return app;
+}
+
+void color_guess_app_free(ColorGuess* app) {
+    furi_assert(app);
+
+    // Scene manager
+    scene_manager_free(app->scene_manager);
+
+    // View Dispatcher
+    view_dispatcher_remove_view(app->view_dispatcher, ColorGuessViewIdMenu);
+    view_dispatcher_remove_view(app->view_dispatcher, ColorGuessViewIdStartscreen);
+    view_dispatcher_remove_view(app->view_dispatcher, ColorGuessViewIdColorSet);
+    view_dispatcher_remove_view(app->view_dispatcher, ColorGuessViewIdPlay);
+    view_dispatcher_remove_view(app->view_dispatcher, ColorGuessViewIdSettings);
+    submenu_free(app->submenu);
+
+    view_dispatcher_free(app->view_dispatcher);
+
+    // GUI
+    furi_record_close(RECORD_GUI);
+
+    app->view_port = NULL;
+    app->gui = NULL;
+    app->notification = NULL;
+
+    //Remove whatever is left
+    free(app);
+}
+
+int32_t color_guess_app(void* p) {
+    UNUSED(p);
+    ColorGuess* app = color_guess_app_alloc();
+    if(app->error) {
+        return 255;
+    }
+
+    if(!furi_hal_region_is_provisioned()) {
+        color_guess_app_free(app);
+        return 1;
+    }
+
+    view_dispatcher_attach_to_gui(app->view_dispatcher, app->gui, ViewDispatcherTypeFullscreen);
+
+    scene_manager_next_scene(app->scene_manager, ColorGuessSceneStartscreen);
+
+    furi_hal_power_suppress_charge_enter();
+
+    view_dispatcher_run(app->view_dispatcher);
+
+    color_guess_save_settings(app);
+
+    furi_hal_power_suppress_charge_exit();
+
+    color_guess_app_free(app);
+
+    return 0;
+}
+
+
+example of hello world with face draw : 
+
+helloworld.c : 
+#include <furi.h>
+#include <gui/gui.h>
+#include <stdlib.h>
+#include <gui/elements.h>
+
+// Render callback
+static void render_callback(Canvas* canvas, void* context) {
+    // Clear the canvas
+    canvas_clear(canvas);
+
+    // Set font and draw "Hello World" with a twist
+    canvas_set_font(canvas, FontSecondary);
+    elements_multiline_text_aligned(canvas, 64, 32, AlignCenter, AlignTop, "Hello World!");
+
+    // Draw a smiley face under the text
+    canvas_draw_circle(canvas, 64, 50, 10);
+    canvas_draw_line(canvas, 60, 47, 62, 47); // Corrected line
+    canvas_draw_line(canvas, 66, 47, 68, 47); // Corrected line
+}
+
+// Input callback - exit on back button
+static void input_callback(InputEvent* input_event, void* context) {
+    bool* running = context;
+    if(input_event->type == InputTypeShort && input_event->key == InputKeyBack) {
+        *running = false;
+    }
+}
+
+// Main app function
+int32_t hello_world_app(void) {
+    // Setup GUI and viewport
+    Gui* gui = furi_record_open(RECORD_GUI);
+    ViewPort* view_port = view_port_alloc();
+    gui_add_view_port(gui, view_port, GuiLayerFullscreen);
+    view_port_draw_callback_set(view_port, render_callback, NULL);
+
+    // Main loop
+    bool running = true;
+    view_port_input_callback_set(view_port, input_callback, &running);
+    while(running) {
+        view_port_update(view_port);
+        furi_delay_ms(100);
+    }
+
+    // Cleanup
+    gui_remove_view_port(gui, view_port);
+    furi_record_close(RECORD_GUI);
+    view_port_free(view_port);
+    return 0;
+}
+
+application.fam : 
+
+App(
+    appid="hello_world",
+    name="Hello World",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="hello_world_app",
+    stack_size=1 * 1024,
+    fap_category="Tools",
+    fap_version="1.0",
+    fap_icon="images/icon.png",
+    fap_author="YourName",
+    fap_weburl="https://yourwebsite.com"
+)
+
+
+
+
+
+
+
+

@@ -3,11 +3,19 @@
 generate_toc() {
     local dir=$1
     local base_dir=$(pwd)
+    local exclude_dir="knowledge"  # 设置要排除的目录名称
 
     for file in "$dir"/*; do
+        # 获取文件或目录的基本名称
+        local name=$(basename "$file")
+
+        # 如果是要排除的目录，则跳过
+        if [ "$name" == "$exclude_dir" ]; then
+            continue
+        fi
+
         if [ -d "$file" ]; then
-            local dir_name=$(basename "$file")
-            echo "- $dir_name"
+            echo "- $name"
             echo "  $(generate_toc "$file")"
         elif [ -f "$file" ] && [[ $file == *.md ]]; then
             local title=$(basename "$file" .md)

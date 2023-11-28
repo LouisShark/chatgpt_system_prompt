@@ -1,0 +1,466 @@
+
+- Intro
+In this tutorial, you will be creating a simple program that moves a small box around the screen, giving you the building blocks to create your own plugins down the line.
+
+Scope
+This tutorial will cover:
+
+A simple GUI+ViewPort application paradigm
+Basic interface with the gui and input services
+Basic queues using osMessageQueue
+Acquiring and working with user input
+Drawing to the screen
+Enabling and compiling custom applications .
+
+Requirements
+A Flipper Zero
+Basic knowledge of C or something close.
+An IDE (I use VSCode)
+
+-  Setting up your workspace
+
+Now that you have a simple overview of the goal of this tutorial, let's create our own plugin!
+
+Now that you have a simple overview of the goal of this tutorial, let's create our own plugin!
+
+Creating The Directory
+Navigate to the applications folder
+Create a new folder inside. Let's call it box_mover!
+Now, let's create a new C file named box_mover.c inside of box_mover
+Your file structure should look like this:
+
+.
+└── flipperzero-firmware/
+    └── applications/
+        └── box_mover/
+            └── box_mover.c
+
+- Signature and structures
+
+Signature and structures
+Now that we have box_mover.c in our box_mover folder, we can finally start programming.
+
+Model Struct
+To make our lives easier, let's define all the information we need to encode for rendering our app:
+
+A point to render our box at, consisting of:
+an x coordinate
+and a y coordinate
+Pretty simple! We'll do that by declaring a BoxMoverModel struct that holds that information.
+
+box_mover/box_mover.c
+typedef struct {
+    int x;
+    int y;
+} BoxMoverModel;
+
+Application Struct
+Now that we're able to encode the information we need, let's create a struct that will hold all of the necessary variables and structures for our entire application.
+
+This might seem a little odd at this point, but the benefits will show soon. This type of program structure is idiomatic with the rest of Flipper Zero's applications and will allow you to more easily transfer into other GUI Paradigms later down the line.
+
+typedef struct {
+    BoxMoverModel* model;
+} BoxMover;
+
+For now, it'll just hold a pointer to our model.
+
+Allocating and freeing functions
+Now, let's write two functions that will allocate and free an instance of our BoxMover struct. Let's call them box_mover_alloc and box_mover_free
+
+Allocation
+BoxMover* box_mover_alloc(){
+    BoxMover* instance = malloc(sizeof(BoxMover));
+    instance->model = malloc(sizeof(BoxMoverModel));
+    instance->model->x = 10;
+    instance->model->y = 10;
+    
+    return instance;
+}
+
+Our box_mover_alloc will allocate space for a BoxMover instance and subsequent model instance, and then initialize the model with some data. We return the instance at the end for our caller to use later.
+
+Freeing
+void box_mover_free(BoxMover* instance){
+    free(instance->model);
+    free(instance);
+}
+
+Since all we've done in our box_mover_alloc is allocate memory for our structs, we just need to use free to release that memory back.
+
+Main Signature
+The function that will run our plugin's code will follow a simple signature, complying with the other applications:
+
+#include <furi.h>
+
+// --snip--
+
+int32_t box_mover_app(void* p){
+    BoxMover* box_mover = box_mover_alloc();
+
+    box_mover_free(box_mover);
+    return 0;
+}
+
+This is how all applications are declared within Flipper Zero firmware, and it is common practice to append the name with _app.
+
+
+- GUI
+
+With our model now able to encode the information we need, and the main signature set up, let's start working with the gui service.
+
+First, let's start off by including the header, gui/gui.h. This will give us easy tools for interfacing with the screen.
+
+Next, we add a ViewPort and a Gui object to our BoxMover struct. These are the two structures that will allow us to make and draw to a GUI.
+
+#include <furi.h>
+#include <gui/gui.h>
+#include <stdlib.h>
+// -snip-
+typedef struct {
+    BoxMoverModel* model;
+
+    ViewPort* view_port;
+    Gui* gui;
+
+} BoxMover;
+
+Let's initialize our new Gui and ViewPort objects in our box_mover_alloc function.
+
+BoxMover* box_mover_alloc(){
+    BoxMover* instance = malloc(sizeof(BoxMover));
+    instance->model = malloc(sizeof(BoxMoverModel));
+    instance->model->x = 10;
+    instance->model->y = 10;
+
+
+    instance->view_port = view_port_alloc();
+    
+    instance->gui = furi_record_open("gui");
+    gui_add_view_port(instance->gui, instance->view_port, GuiLayerFullScreen);
+
+    return instance;
+}
+
+
+We get the Gui object by asking furi to open the record with the label "gui", and we use a gui.h helper to allocate a ViewPort, much like we are making with our box_mover_alloc!
+
+In our freeing function, let's disable our ViewPort, close our record, and clean up the memory we've allocated.
+
+void box_mover_free(BoxMover* instance){
+    view_port_enabled_set(instance->view_port, false); // Disables our ViewPort
+    gui_remove_view_port(instance->gui, instance->view_port); // Removes our ViewPort from the Gui 
+    furi_record_close("gui"); // Closes the gui record
+    view_port_free(instance->view_port); // Frees memory allocated by view_port_alloc
+
+    free(instance->model);
+    free(instance);
+}
+
+
+- Input Queue
+In order to take in input, we're going to be utilizing osMessageQueue, which, as the name implies, allows us to create queues of messages.
+
+For our BoxMover struct, all we need to do is declare an osMessageQueueId_t, which will be an ID for our queue, so we can reference it later.
+
+typedef struct {
+    BoxMoverModel* model;
+
+    osMessageQueueId_t event_queue;
+
+    ViewPort* view_port;
+    Gui* gui;
+
+} BoxMover;
+
+Now, let's actually create a queue inside of our box_mover_alloc function.
+
+BoxMover* box_mover_alloc(){
+    // --snip--
+    instance->gui = furi_record_open("gui");
+
+    instance->event_queue = osMessageQueueNew(8, sizeof(InputEvent), NULL);
+    
+    return instance;
+}
+
+
+The above code creates a new event queue that will hold InputEvents (from the input service).
+
+In its parameters, we define that it will have:
+
+A maximum of 8 messages in the queue
+A message size of an InputEvent
+Default attributes (specified by NULL)
+Let's remember to free this new input queue in box_mover_free:
+
+void box_mover_free(BoxMover* instance){
+    // --snip--
+    osMessageQueueDelete(instance->event_queue);
+
+    free(instance->model);
+    free(instance);
+}
+
+- Callbacks and Concurrency
+Currently, our program only does this:
+
+Sets up our BoxMover struct
+Allocates a ViewPort
+Open our gui record
+Adds the ViewPort to the Gui
+Creates an input queue
+Cleans everything up and exits
+
+No drawing to the screen, and no input processing.
+Let's change that with callbacks!
+
+
+Callback Methods
+The gui service provides us with two nice methods for handling drawing and input.
+
+These are aptly declared: view_port_draw_callback_set and view_port_input_callback_set
+
+Let's look at their full declarations:
+
+void view_port_draw_callback_set(ViewPort* view_port, ViewPortDrawCallback callback, void* context);
+void view_port_input_callback_set(ViewPort* view_port, ViewPortInputCallback callback, void* context);
+
+
+As you might guess, view_port_draw_callback_set sets the function that is called whenever a new frame is signalled to be drawn. And view_port_input_callback_set sets the function that is called whenever input is recieved, like a button press.
+
+Conceptually, the callbacks work like this:
+
+We define a function we want to be called whenever an event occurs
+We use our *_callback_set functions, and fill it out with the general form:
+A pointer to our ViewPort instance
+Our callback function
+A pointer to the data we want to have access to in our callback functions
+This is passed to our functions as a void pointer, and we have to cast it back to the type we need.
+So, what would we like to do with the callbacks?
+
+Draw: Draw a box using our model's x and y values as an anchor point
+Input: Put key presses onto our input queue
+Before we implement them, we need to go over something inherent about callbacks: threads.
+
+Tackling Concurrency Issues Using Mutex
+Callbacks pose a problem because they run on a separate thread from our main app. Since we need to access our BoxMover in the callback, this could result in a race condition between our callbacks and main loop.
+
+Let's fix that by adding a mutex ID to our BoxMover struct. This will, in effect, allow it to be used as a blocking resource, only allowing one thread access at a time. We just need to make sure we acquire and release it whenever we deal with our struct.
+
+We'll do this by utilizing osMutex, an API layer that interfaces with the RTOS kernel. This is best current practice and supersedes ValueMutex, which you may see in some applications.
+
+Let's add an ID to our mutex in our BoxMover struct.
+
+typedef struct {
+    BoxMoverModel* model;
+    osMutexId_t* model_mutex;
+
+    osMessageQueueId_t event_queue;
+
+    ViewPort* view_port;
+    Gui* gui;
+
+} BoxMover;
+
+Now, let's initialize it in our box_mover_alloc, and clean it up in our box_mover_free.
+
+BoxMover* box_mover_alloc(){
+    // --snip--
+    instance->view_port = view_port_alloc();
+    
+    instance->model_mutex = osMutexNew(NULL);
+
+    instance->gui = furi_record_open("gui");
+    // --snip--
+}
+
+void box_mover_free(BoxMover* instance){
+    // --snip--
+    osMessageQueueDelete(instance->event_queue);
+
+    osMutexDelete(instance->model_mutex);
+    // --snip--
+}
+
+Great! Now our BoxMover has the ability to be modified without the possibility of inducing a race condition. Let's implement those callbacks now.
+
+Draw Callback
+Our draw callback must conform to the following parameters:
+
+A pointer to a Canvas
+A pointer to the data we pass in view_port_draw_callback_set
+(For both callbacks, we will be passing in an instance of BoxMover.)
+
+// --snip--
+void draw_callback(Canvas* canvas, void* ctx){
+    BoxMover* box_mover = ctx;
+    furi_check(osMutexAcquire(box_mover->model_mutex, osWaitForever)==osOK);
+
+    canvas_draw_box(canvas, box_mover->model->x, box_mover->model->y, 4, 4); // Draw a box on the screen
+
+    osMutexRelease(box_mover->model_mutex);
+}
+
+
+Here, we try to acquire our mutex for however long it takes (denoted by osWaitForever), and is wrapped in a furi_check, which will crash the program if there is an error with the mutex.
+
+Once we have it, we know that only this thread has the mutex. Great! We can start using the variables now.
+
+We draw a simple box at x,y and with a height and width of 4, and then release the mutex to be used by another thread.
+
+EXPERIMENT!
+Experiment with other canvas_draw functions like canvas_draw_str, canvas_draw_circle, and many more! (see canvas.h)
+
+Let's add it to our ViewPort in our box_mover_alloc function:
+
+BoxMover* box_mover_alloc(){
+    // --snip-- 
+
+    instance->view_port = view_port_alloc();
+    view_port_draw_callback_set(instance->view_port, draw_callback, instance);
+    
+    instance->model_mutex = osMutexNew(NULL);
+    // --snip-- 
+}
+
+
+Now our ViewPort is set up with a drawing callback! Next, we need to implement an input callback.
+
+Input Callback
+Our input callback must conform to the following parameters:
+
+A pointer to an InputEvent
+A pointer to the data we passed in view_port_input_callback_set
+The goal for our input callback is pretty simple. All we want it to do is:
+
+Read an input event
+Place it on the message queue to be read later, in our main loop.
+So, let's implement that with osMessageQueue.
+
+// --snip--
+void input_callback(InputEvent* input, void* ctx){
+    BoxMover* box_mover = ctx;
+    // Puts input onto event queue with priority 0, and waits until completion. 
+    osMessageQueuePut(box_mover->event_queue, input, 0, osWaitForever); 
+}
+BoxMover* box_mover_alloc(){
+    // --snip--
+    view_port_draw_callback_set(instance->view_port, draw_callback, instance);
+
+    view_port_input_callback_set(instance->view_port, input_callback, instance);
+    // --snip--
+}
+
+- Main Loop
+Handling Input
+With the input callback now processing our new events, we can start utilizing them in our main loop.
+
+Let's do that, and write a simple control flow.
+
+int32_t box_mover_app(void* p){
+    UNUSED(p);
+
+    BoxMover* box_mover = box_mover_alloc();
+
+    InputEvent event;
+    for(bool processing = true; processing;){
+        // Pops a message off the queue and stores it in `event`.
+        // No message priority denoted by NULL, and 100 ticks of timeout.
+        osStatus_t status =  osMessageQueueGet(box_mover->event_queue, &event, NULL, 100);
+        furi_check(osMutexAcquire(box_mover->model_mutex, osWaitForever) == osOK);
+        if(status==osOK){
+            if(event.type==InputTypePress){
+                switch(event.key){
+                    case InputKeyUp:
+                        box_mover->model->y-=2;
+                        break;
+                    case InputKeyDown:
+                        box_mover->model->y+=2;
+                        break;
+                    case InputKeyLeft:
+                        box_mover->model->x-=2;
+                        break;
+                    case InputKeyRight:
+                        box_mover->model->x+=2;
+                        break;
+                    case InputKeyOk:
+                    case InputKeyBack:
+                        processing = false;
+                        break;
+                }
+            }
+        }
+        osMutexRelease(box_mover->model_mutex);
+        view_port_update(box_mover->view_port); // signals our draw callback
+    } 
+    box_mover_free(box_mover);
+    return 0;
+}
+
+
+As you can see, because of our struct-oriented approach, this makes our final client calls much easier, and these skills and structure will transfer very well to other GUI Paradigms.
+
+
+- Enabling and Compiling
+
+Luckily this process has been streamlined, and we only need add a single line to reference our plugin ID in
+
+and add the file application.fam for our plugin metadata in our application folder.
+
+Application Metadata
+First, let's create an individual metadata file for our plugin:
+
+.
+└── flipperzero-firmware/
+    └── applications/
+        └── box-mover/
+            └── application.fam
+
+Inside, we're going to add some metadata about our application.
+
+/applications/box-mover/application.fam
+   App(
+    appid="box_mover_app",
+    name="Box Mover",
+    apptype=FlipperAppType.PLUGIN,
+    entry_point="box_mover_app",
+    cdefines=["APP_BOX_MOVER"],
+    requires=["gui"],
+    stack_size=1 * 1024,
+    icon="A_Plugins_14",
+    order=30,
+)
+
+This file provides metadata about our application. The appid will be used to reference our plugin, and entry_point indicates our main function for execution when the plugin initiates.
+
+Linking to the applications list
+To make our plugin accessible, we need to add an entry into the /applications/meta/application.fam file, with our plugin ID we created in the individual metadata.
+
+.
+└── flipperzero-firmware/
+    └── applications/
+        └── meta/
+            └── application.fam
+
+Let's add it to the "basic_plugins" list of applications.
+
+/applications/meta/application.fam
+...
+
+App(
+    appid="basic_plugins",
+    name="Basic applications for plug-in menu",
+    apptype=FlipperAppType.METAPACKAGE,
+    provides=[
+        "music_player",
+        "snake_game",
+        "box_mover_app",
+        "bt_hid",
+    ],
+)
+
+and with that, we are ready to compile and flash!
+
+
+

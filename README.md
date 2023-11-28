@@ -87,6 +87,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [Email Responder Pro](./prompts/gpts/Email%20Responder%20Pro.md)
   - [EmojAI](./prompts/gpts/EmojAI.md)
   - [Fantasy Book Weaver](./prompts/gpts/Fantasy%20Book%20Weaver.md)
+  - [Flipper Zero App Builder](./prompts/gpts/Flipper%20Zero%20App%20Builder.md)
   - [Framer Template Assistant](./prompts/gpts/Framer%20Template%20Assistant.md)
   - [FramerGPT](./prompts/gpts/FramerGPT.md)
   - [GPT Builder](./prompts/gpts/GPT%20Builder.md)
@@ -195,9 +196,11 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [猫耳美少女イラストメーカー](./prompts/gpts/猫耳美少女イラストメーカー.md)
   - [確定申告について教えてくれる君](./prompts/gpts/確定申告について教えてくれる君.md)
 - opensource-prj
+  - [netwrck](./prompts/opensource-prj/netwrck.md)
   - [screenshot-to-code](./prompts/opensource-prj/screenshot-to-code.md)
   - [tldraw](./prompts/opensource-prj/tldraw.md)
-  - [netwrck](prompts/opensource-prj/netwrck.md)
+
+
 
 
 ## Disclaimer
