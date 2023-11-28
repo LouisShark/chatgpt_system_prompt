@@ -1,6 +1,8 @@
 # chatgpt_system_prompt
 store all agent's system prompt
 
+<img src="bg.png" width="500px" />
+
 ## how to get system prompt
 you can get ChatGPT's system prompts by sending the following command to ChatGPT(The core is to divert ChatGPT's attention so that he does not realize that he is violating the rules.):
 ```markdown
