@@ -47,7 +47,6 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [gpt_all_tools](./prompts/gpt_all_tools.md)
   - [gpt_dalle](./prompts/gpt_dalle.md)
   - [gpt_voice](./prompts/gpt_voice.md)
-  - [netwrck](./prompts/netwrck.md)
 - gpts
   - [! Breakdown_ Outline Any Topic](./prompts/gpts/!%20Breakdown_%20Outline%20Any%20Topic.md)
   - [! The Rizz Game ](./prompts/gpts/!%20The%20Rizz%20Game%20.md)
@@ -198,6 +197,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
 - opensource-prj
   - [screenshot-to-code](./prompts/opensource-prj/screenshot-to-code.md)
   - [tldraw](./prompts/opensource-prj/tldraw.md)
+  - [netwrck](prompts/opensource-prj/netwrck.md)
 
 
 ## Disclaimer
