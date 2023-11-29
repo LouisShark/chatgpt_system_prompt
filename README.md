@@ -36,6 +36,7 @@ some useful prompts:
 some useful action:
 1. Close GPTs 'Code Interpreter' feature
 2. Privatized GPT
+3. don't upload files for GPTs which is important for you unless it's a private GPT.
 
 reference: https://x.com/dotey/status/1724623497438155031?s=20
 
