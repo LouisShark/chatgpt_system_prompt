@@ -146,6 +146,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [Storyteller](./prompts/gpts/Storyteller.md)
   - [Super Describe](./prompts/gpts/Super%20Describe.md)
   - [Synthia 😋🌟](./prompts/gpts/Synthia%20😋🌟.md)
+  - [TailwindCSS Previewer](./prompts/gpts/TailwindCSS_Previewer_WindChat.md)
   - [Take Code Captures](./prompts/gpts/Take%20Code%20Captures.md)
   - [TaxGPT](./prompts/gpts/TaxGPT.md)
   - [The Secret of Monkey Island Amsterdam](./prompts/gpts/The%20Secret%20of%20Monkey%20Island%20Amsterdam.md)
