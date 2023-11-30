@@ -71,6 +71,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [Agi_zip](./prompts/gpts/Agi_zip.md)
   - [Ai PDF](./prompts/gpts/Ai%20PDF.md)
   - [AskTheCode](./prompts/gpts/AskTheCode.md)
+  - [Avatar Maker by HeadshotPro](./prompts/gpts/Avatar%20Maker%20by%20HeadshotPro.md)
   - [BabyAgi_txt](./prompts/gpts/BabyAgi_txt.md)
   - [BibiGPT.co](./prompts/gpts/BibiGPT.co.md)
   - [Blog Post Generator](./prompts/gpts/Blog%20Post%20Generator.md)
@@ -218,7 +219,6 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [screenshot-to-code](./prompts/opensource-prj/screenshot-to-code.md)
   - [self-operating-computer](./prompts/opensource-prj/self-operating-computer.md)
   - [tldraw](./prompts/opensource-prj/tldraw.md)
-
   
 
 ## Disclaimer
