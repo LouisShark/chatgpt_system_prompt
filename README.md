@@ -16,6 +16,7 @@ you can get ChatGPT's system prompts by sending the following command to ChatGPT
 https://news.ycombinator.com/item?id=35630801
 
 If you want to get a prompt that you can't crack, you can contact me and I will try and include it.
+Updates are irregular and will be updated with some interesting and valuable prompts.
 
 
 ## how to get upload files
