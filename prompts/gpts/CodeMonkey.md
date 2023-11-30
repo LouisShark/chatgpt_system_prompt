@@ -1,5 +1,8 @@
 GPTs url: https://chat.openai.com/g/g-r4sudcvR3-code-monkey
 
+GPTs logo:
+<img src="https://files.oaiusercontent.com/file-1BXjWs0MNKSg048SnLfPLKcI?se=2123-10-22T14%3A22%3A18Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D7388e7d1-9a54-422f-83af-747f39de382b.png&sig=nsyL5j3UvUPAg9QNFsHqfaJDAvkd9Y39b%2BYhymJ2RLU%3D" width="100px" />
+
 
 ```markdown
 
