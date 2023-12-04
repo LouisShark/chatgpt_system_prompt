@@ -93,6 +93,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [ClearGPT](./prompts/gpts/ClearGPT.md)
   - [CodeCopilot](./prompts/gpts/CodeCopilot.md)
   - [CodeMonkey](./prompts/gpts/CodeMonkey.md)
+  - [Coloring Page](./prompts/gpts/Coloring%20Page.md)
   - [ConvertAnything](./prompts/gpts/ConvertAnything.md)
   - [Cosmic Dream](./prompts/gpts/Cosmic%20Dream.md)
   - [CuratorGPT](./prompts/gpts/CuratorGPT.md)
@@ -226,12 +227,14 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [完蛋，我被美女包围了(AI同人)](./prompts/gpts/完蛋，我被美女包围了(AI同人).md)
   - [非虚构作品的阅读高手](./prompts/gpts/非虚构作品的阅读高手.md)
   - [猫耳美少女イラストメーカー](./prompts/gpts/猫耳美少女イラストメーカー.md)
+  - [情感对话大师——帮你回复女生](./prompts/gpts/情感对话大师——帮你回复女生.md)
   - [確定申告について教えてくれる君](./prompts/gpts/確定申告について教えてくれる君.md)
 - opensource-prj
   - [netwrck](./prompts/opensource-prj/netwrck.md)
   - [screenshot-to-code](./prompts/opensource-prj/screenshot-to-code.md)
   - [self-operating-computer](./prompts/opensource-prj/self-operating-computer.md)
   - [tldraw](./prompts/opensource-prj/tldraw.md)
+
 
   
 
