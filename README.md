@@ -113,7 +113,8 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [Get Simpsonized](./prompts/gpts/Get%20Simpsonized.md)
   - [Gif-PT](./prompts/gpts/Gif-PT.md)
   - [Girlfriend Emma](./prompts/gpts/Girlfriend%20Emma.md)
-  - [Grimoire](./prompts/gpts/Grimoire.md)
+  - [Grimoire[1.13]](./prompts/gpts/Grimoire[1.13].md)
+  - [Grimoire[1.16.1]](./prompts/gpts/Grimoire[1.16.1].md)
   - [GymStreak Workout Creator](./prompts/gpts/GymStreak%20Workout%20Creator.md)
   - [High-Quality Review Analyzer](./prompts/gpts/High-Quality%20Review%20Analyzer.md)
   - [HormoziGPT](./prompts/gpts/HormoziGPT.md)
@@ -147,6 +148,7 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [ResearchGPT](./prompts/gpts/ResearchGPT.md)
   - [Retro Adventures](./prompts/gpts/Retro%20Adventures.md)
   - [SEObot](./prompts/gpts/SEObot.md)
+  - [SWOT Analysis](./prompts/gpts/SWOT%20Analysis.md)
   - [Sales Cold Email Coach](./prompts/gpts/Sales%20Cold%20Email%20Coach.md)
   - [Sarcastic Humorist](./prompts/gpts/Sarcastic%20Humorist.md)
   - [ScholarAI](./prompts/gpts/ScholarAI.md)
@@ -234,7 +236,6 @@ reference: https://x.com/dotey/status/1724623497438155031?s=20
   - [screenshot-to-code](./prompts/opensource-prj/screenshot-to-code.md)
   - [self-operating-computer](./prompts/opensource-prj/self-operating-computer.md)
   - [tldraw](./prompts/opensource-prj/tldraw.md)
-
 
   
 
