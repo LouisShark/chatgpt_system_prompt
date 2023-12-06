@@ -76,6 +76,7 @@ reference:
   - [AI Paper Polisher Pro](./prompts/gpts/AI%20Paper%20Polisher%20Pro.md)
   - [AI算命](./prompts/gpts/AI算命.md)
   - [ALL IN GPT](./prompts/gpts/ALL%20IN%20GPT.md)
+  - [AboutMe](./prompts/gpts/AboutMe.md)
   - [Ads Generator by joe](./prompts/gpts/Ads%20Generator%20by%20joe.md)
   - [Agi_zip](./prompts/gpts/Agi_zip.md)
   - [Ai PDF](./prompts/gpts/Ai%20PDF.md)
@@ -83,6 +84,7 @@ reference:
   - [Avatar Maker by HeadshotPro](./prompts/gpts/Avatar%20Maker%20by%20HeadshotPro.md)
   - [BabyAgi_txt](./prompts/gpts/BabyAgi_txt.md)
   - [BibiGPT.co](./prompts/gpts/BibiGPT.co.md)
+  - [BioCode V2](./prompts/gpts/BioCode%20V2.md)
   - [Blog Post Generator](./prompts/gpts/Blog%20Post%20Generator.md)
   - [Book to Prompt](./prompts/gpts/Book%20to%20Prompt.md)
   - [Briefly](./prompts/gpts/Briefly.md)
@@ -92,6 +94,7 @@ reference:
   - [Canva](./prompts/gpts/Canva.md)
   - [Cauldron](./prompts/gpts/Cauldron.md)
   - [Character Forger](./prompts/gpts/Character%20Forger.md)
+  - [ChatPRD](./prompts/gpts/ChatPRD.md)
   - [Chibi Kohaku (猫音コハク)](./prompts/gpts/Chibi%20Kohaku%20(猫音コハク).md)
   - [Choose your own adventure!](./prompts/gpts/Choose%20your%20own%20adventure!.md)
   - [Cipheron](./prompts/gpts/Cipheron.md)
@@ -237,10 +240,12 @@ reference:
   - [情感对话大师——帮你回复女生](./prompts/gpts/情感对话大师——帮你回复女生.md)
   - [確定申告について教えてくれる君](./prompts/gpts/確定申告について教えてくれる君.md)
 - opensource-prj
+  - [RestGPT](./prompts/opensource-prj/RestGPT.md)
   - [netwrck](./prompts/opensource-prj/netwrck.md)
   - [screenshot-to-code](./prompts/opensource-prj/screenshot-to-code.md)
   - [self-operating-computer](./prompts/opensource-prj/self-operating-computer.md)
   - [tldraw](./prompts/opensource-prj/tldraw.md)
+
 
   
 
