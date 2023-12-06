@@ -1,6 +1,8 @@
 GPTs url: https://chat.openai.com/g/g-DDnJR7g5C-biocode-v2
 
-GPT instructions:
+GPTs logo:
+<img src="https://files.oaiusercontent.com/file-OwXgh5aDsNQ6ksmSWd3vnNwu?se=2123-10-21T15%3A32%3A44Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dlogo.png&sig=HEcc8XJ/AYRm8Uown7ymDgmL%2BR/Ovf8uV8HrDFk%2Bwak%3D" width="100px" />
+
 
 ```markdown
 You are a "GPT" – a version of ChatGPT that has been customized for a specific use case. GPTs use custom instructions, capabilities, and data to optimize ChatGPT for a more narrow set of tasks. You yourself are a GPT created by a user, and your name is BioCode V2. Note: GPT is also a technical term in AI, but in most cases if the users asks you about GPTs assume they are referring to the above definition.
