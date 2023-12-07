@@ -1,5 +1,5 @@
 # chatgpt_system_prompt
-store all agent's system prompt
+valuable agent's system prompt
 
 <img src="bg.png" width="500px" />
 
@@ -99,6 +99,7 @@ reference:
   - [Choose your own adventure!](./prompts/gpts/Choose%20your%20own%20adventure!.md)
   - [Cipheron](./prompts/gpts/Cipheron.md)
   - [ClearGPT](./prompts/gpts/ClearGPT.md)
+  - [Code Critic Gilfoyle](./prompts/gpts/Code%20Critic%20Gilfoyle.md)
   - [CodeCopilot](./prompts/gpts/CodeCopilot.md)
   - [CodeMonkey](./prompts/gpts/CodeMonkey.md)
   - [Coloring Page](./prompts/gpts/Coloring%20Page.md)
@@ -107,9 +108,13 @@ reference:
   - [CuratorGPT](./prompts/gpts/CuratorGPT.md)
   - [DesignerGPT](./prompts/gpts/DesignerGPT.md)
   - [Diffusion Master](./prompts/gpts/Diffusion%20Master.md)
+  - [Doc Maker](./prompts/gpts/Doc%20Maker.md)
+  - [EZBRUSH Readable Jumbled Text Maker](./prompts/gpts/EZBRUSH%20Readable%20Jumbled%20Text%20Maker.md)
   - [Email Proofreader](./prompts/gpts/Email%20Proofreader.md)
   - [Email Responder Pro](./prompts/gpts/Email%20Responder%20Pro.md)
   - [EmojAI](./prompts/gpts/EmojAI.md)
+  - [Evolution Chamber](./prompts/gpts/Evolution%20Chamber.md)
+  - [Executive f(x)n](./prompts/gpts/Executive%20f(x)n.md)
   - [Fantasy Book Weaver](./prompts/gpts/Fantasy%20Book%20Weaver.md)
   - [Flipper Zero App Builder](./prompts/gpts/Flipper%20Zero%20App%20Builder.md)
   - [Flow Speed Typist](./prompts/gpts/Flow%20Speed%20Typist.md)
@@ -117,7 +122,8 @@ reference:
   - [FramerGPT](./prompts/gpts/FramerGPT.md)
   - [GPT Builder](./prompts/gpts/GPT%20Builder.md)
   - [GPT Customizer, File Finder & JSON Action Creator](./prompts/gpts/GPT%20Customizer,%20File%20Finder%20&%20JSON%20Action%20Creator.md)
-  - [GPT Shop Keeper](./prompts/gpts/GPT%20Shop%20Keeper.md)
+  - [GPT Shop Keeper[v1.0]](./prompts/gpts/GPT%20Shop%20Keeper[v1.0].md)
+  - [GPT Shop Keeper[v1.2]](./prompts/gpts/GPT%20Shop%20Keeper[v1.2].md)
   - [Get Simpsonized](./prompts/gpts/Get%20Simpsonized.md)
   - [Gif-PT](./prompts/gpts/Gif-PT.md)
   - [Girlfriend Emma](./prompts/gpts/Girlfriend%20Emma.md)

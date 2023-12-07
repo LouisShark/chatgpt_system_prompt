@@ -1,4 +1,8 @@
-GPTs url: https://chat.openai.com/g/g-GhEwyi2R1-evolution-chamber
+GPTs url: https://chat.openai.com/g/g-Gt6Z8pqWF-doc-maker
+
+GPTs logo:
+<img src="https://files.oaiusercontent.com/file-13dEVJG38EwNmA3nAZUykEa0?se=2123-10-15T15%3A43%3A23Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dlogo.png&sig=qSmhlnQuzuTPcWSBeyBDOgSbwDMcQXh48GvPiDNM4UY%3D" width="100px" />
+
 
 Actions endpoint:
     gpt.docs.aidocmaker.com
