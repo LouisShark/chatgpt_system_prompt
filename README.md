@@ -36,6 +36,19 @@ some useful action:
 2. Privatized GPT
 3. Don't upload files for GPTs which is important for you unless it's a private GPT.
 
+
+## how to get GPT's action
+an easy way of finding action schema:
+1. go to this [website](https://gptstore.ai/plugins)
+2. search the GPT's name you want
+3. find plugin api document
+
+<img src="https://b.yzcdn.cn/public_files/3eb7a5963f65c660c6c61d1404b09469.png" width="500px" />
+
+4. import the plugin api document to your GPT
+
+<img src="https://b.yzcdn.cn/public_files/c6bf1238e02900e3cfc93bd9c46479c4.png" width="500px" />
+
 ## learning resources
 reference: 
 1. https://x.com/dotey/status/1724623497438155031?s=20
