@@ -1,4 +1,4 @@
-# chatgpt_system_prompt
+# ChatGPT_system_prompt
 valuable agent's system prompt
 
 <img src="bg.png" width="600px" />
@@ -37,7 +37,7 @@ some useful action:
 3. Don't upload files for GPTs which is important for you unless it's a private GPT.
 
 
-## how to get GPT's action
+## how to get GPT's action schema
 an easy way of finding action schema:
 1. go to this [website](https://gptstore.ai/plugins)
 2. search the GPT's name you want
@@ -282,4 +282,4 @@ If you are confused about this, plz contact me.
 If you find these prompts is helpful, please give me a **Star**. I sincerely appreciate your support :)
 
 
-[![Star History Chart](https://api.star-history.com/svg?repos=LouisShark/chatgpt_system_prompt&type=Date)](https://star-history.com/#LouisShark/chatgpt_system_prompt&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=LouisShark/ChatGPT_system_prompt&type=Date)](https://star-history.com/#LouisShark/ChatGPT_system_prompt&Date)
