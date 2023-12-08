@@ -108,6 +108,7 @@ reference:
   - [AskTheCode](./prompts/gpts/AskTheCode.md)
   - [Avatar Maker by HeadshotPro](./prompts/gpts/Avatar%20Maker%20by%20HeadshotPro.md)
   - [BabyAgi_txt](./prompts/gpts/BabyAgi_txt.md)
+  - [Bake Off](./prompts/gpts/Bake%20Off.md)
   - [BibiGPT.co](./prompts/gpts/BibiGPT.co.md)
   - [BioCode V2](./prompts/gpts/BioCode%20V2.md)
   - [Blog Post Generator](./prompts/gpts/Blog%20Post%20Generator.md)
