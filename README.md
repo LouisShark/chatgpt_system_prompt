@@ -59,6 +59,25 @@ some useful GPTs may be helpful:
 2. [GPT Shop Keeper](https://chat.openai.com/g/g-22ZUhrOgu-gpt-shop-keeper)
 
 
+## if you want to contribute to this repo
+plz follow the format below; 
+Official specs will come soon, for now:
+```markdown
+GPT url: - You put the GPT url here
+
+GPT title: — Here goes the GPT title as shown
+
+GPT description: - Here goes the one or multiline description and author name
+
+GPT logo: - Here the full URL to the GPT logo
+
+GPT instructions: - The full instructions of the GPT. Prefer Markdown
+
+GPT Kb files list: - You list files here. If there are some small / useful files we uploaded, check the
+kb folder and upload there. Do not upload/contribute pirated material.
+
+```
+
 ## learning resources
 reference: 
 1. https://x.com/dotey/status/1724623497438155031?s=20
@@ -188,6 +207,7 @@ reference:
   - [Phoneix Ink](./prompts/gpts/Phoneix%20Ink.md)
   - [Pic-book Artist](./prompts/gpts/Pic-book%20Artist.md)
   - [Poe Bot Creator](./prompts/gpts/Poe%20Bot%20Creator.md)
+  - [Prompt Injection Maker](./prompts/gpts/Prompt%20Injection%20Maker.md)
   - [Proofreader](./prompts/gpts/Proofreader.md)
   - [Quality Raters SEO Guide](./prompts/gpts/Quality%20Raters%20SEO%20Guide.md)
   - [QuantFinance](./prompts/gpts/QuantFinance.md)
@@ -214,6 +234,7 @@ reference:
   - [TailwindCSS_Previewer_WindChat](./prompts/gpts/TailwindCSS_Previewer_WindChat.md)
   - [Take Code Captures](./prompts/gpts/Take%20Code%20Captures.md)
   - [TaxGPT](./prompts/gpts/TaxGPT.md)
+  - [The Greatest Computer Science Tutor](./prompts/gpts/The%20Greatest%20Computer%20Science%20Tutor.md)
   - [The Secret of Monkey Island Amsterdam](./prompts/gpts/The%20Secret%20of%20Monkey%20Island%20Amsterdam.md)
   - [The Shaman](./prompts/gpts/The%20Shaman.md)
   - [TherapistGPT](./prompts/gpts/TherapistGPT.md)
@@ -289,9 +310,6 @@ reference:
   - [self-operating-computer](./prompts/opensource-prj/self-operating-computer.md)
   - [tldraw](./prompts/opensource-prj/tldraw.md)
 
-
-
-  
 
 ## Disclaimer
 The sharing of these prompts was intended purely for knowledge sharing,
