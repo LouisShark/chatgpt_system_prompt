@@ -126,6 +126,7 @@ reference:
   - [Choose your own adventure!](./prompts/gpts/Choose%20your%20own%20adventure!.md)
   - [Cipheron](./prompts/gpts/Cipheron.md)
   - [ClearGPT](./prompts/gpts/ClearGPT.md)
+  - [Code Copilot](./prompts/gpts/Code%20Copilot.md)
   - [Code Critic Gilfoyle](./prompts/gpts/Code%20Critic%20Gilfoyle.md)
   - [CodeCopilot](./prompts/gpts/CodeCopilot.md)
   - [CodeMonkey](./prompts/gpts/CodeMonkey.md)
@@ -189,6 +190,7 @@ reference:
   - [Poe Bot Creator](./prompts/gpts/Poe%20Bot%20Creator.md)
   - [Proofreader](./prompts/gpts/Proofreader.md)
   - [Quality Raters SEO Guide](./prompts/gpts/Quality%20Raters%20SEO%20Guide.md)
+  - [QuantFinance](./prompts/gpts/QuantFinance.md)
   - [Radical Selfishness](./prompts/gpts/Radical%20Selfishness.md)
   - [React GPT - Project Builder](./prompts/gpts/React%20GPT%20-%20Project%20Builder.md)
   - [ResearchGPT](./prompts/gpts/ResearchGPT.md)
@@ -218,6 +220,7 @@ reference:
   - [There's An API For That - The #1 API Finder](./prompts/gpts/There's%20An%20API%20For%20That%20-%20The%20#1%20API%20Finder.md)
   - [Toronto City Council](./prompts/gpts/Toronto%20City%20Council.md)
   - [Translator](./prompts/gpts/Translator.md)
+  - [Trending Tik Tok Hashtags Finder Tool](./prompts/gpts/Trending%20Tik%20Tok%20Hashtags%20Finder%20Tool.md)
   - [Trey Ratcliff's Photo Critique GPT](./prompts/gpts/Trey%20Ratcliff's%20Photo%20Critique%20GPT.md)
   - [Universal Primer](./prompts/gpts/Universal%20Primer.md)
   - [Video Game Almanac](./prompts/gpts/Video%20Game%20Almanac.md)
@@ -285,6 +288,7 @@ reference:
   - [screenshot-to-code](./prompts/opensource-prj/screenshot-to-code.md)
   - [self-operating-computer](./prompts/opensource-prj/self-operating-computer.md)
   - [tldraw](./prompts/opensource-prj/tldraw.md)
+
 
 
   
