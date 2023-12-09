@@ -1,0 +1,41 @@
+{
+  "websiteTemplates": {
+    "eCommerceSite": {
+      "description": "Online store layout with product listings, shopping cart, and checkout.",
+      "exampleLayout": "<!DOCTYPE html><html lang='en'><head><title>Your Online Store</title><link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'></head><body><header class='navbar navbar-expand-lg navbar-light bg-light'>...</header><main class='container'>...</main><footer class='footer mt-auto py-3 bg-light'>...</footer></body></html>",
+      "recommendedComponents": ["navigationBar", "cards", "modals"],
+      "recommendedStyles": ["Bootstrap"]
+    },
+    "portfolioSite": {
+      "description": "Showcase layout for personal or professional work, with a focus on visual presentation.",
+      "exampleLayout": "<!DOCTYPE html><html lang='en'><head><title>My Portfolio</title><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css'></head><body><header class='hero is-primary'>...</header><main class='section'>...</main><footer class='footer'>...</footer></body></html>",
+      "recommendedComponents": ["gridSystem", "modals"],
+      "recommendedStyles": ["Bulma"]
+    },
+    "corporateWebsite": {
+      "description": "Professional layout for business sites, with service sections, about us, and contact info.",
+      "exampleLayout": "<!DOCTYPE html><html lang='en'><head><title>Corporate Website</title><link rel='stylesheet' href='https://cdn.jsdelivr.net/foundation/6.6.3/css/foundation.min.css'></head><body><header class='top-bar'>...</header><main class='grid-container'>...</main><footer class='footer'>...</footer></body></html>",
+      "recommendedComponents": ["navigationBar", "modals", "cards"],
+      "recommendedStyles": ["Foundation"]
+    },
+    "blogSite": {
+      "description": "Classic blog layout with main content and a sidebar.",
+      "exampleLayout": "<!DOCTYPE html><html lang='en'><head><title>My Blog</title><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css'></head><body><header class='ui menu'>...</header><main class='ui grid'>...</main><footer class='ui inverted vertical footer segment'>...</footer></body></html>",
+      "recommendedComponents": ["gridSystem", "cards"],
+      "recommendedStyles": ["SemanticUI"]
+    },
+    "personalBlog": {
+      "description": "Simple and elegant layout for personal blogging.",
+      "exampleLayout": "<!DOCTYPE html><html lang='en'><head><title>Personal Blog</title><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css'></head><body><header>...</header><main>...</main><footer>...</footer></body></html>",
+      "recommendedComponents": ["cards"],
+      "recommendedStyles": ["PicoCSS"]
+    },
+    "photoGallery": {
+      "description": "Gallery layout for photographers or artists to display their work.",
+      "exampleLayout": "<!DOCTYPE html><html lang='en'><head><title>Photo Gallery</title><link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css'></head><body><header class='text-center'>...</header><main class='grid grid-cols-3 gap-4'>...</main><footer class='text-center'>...</footer></body></html>",
+      "recommendedComponents": ["gridSystem"],
+      "recommendedStyles": ["TailwindCSS"]
+    }
+    // Additional templates can be added here
+  }
+}
