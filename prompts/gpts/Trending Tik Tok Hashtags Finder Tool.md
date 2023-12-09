@@ -1,6 +1,6 @@
-GPTs url: https://chat.openai.com/g/g-qu8dSBqEH-trending-tik-tok-hashtags-finder-tool
+GPT url: https://chat.openai.com/g/g-qu8dSBqEH-trending-tik-tok-hashtags-finder-tool
 
-GPTs logo:
+GPT logo:
 <img src="https://files.oaiusercontent.com/file-eI3G8o8GzHLaiyYBzNnHdPTe?se=2123-10-18T22%3A35%3A33Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D514e6a09-0405-4aa9-bb6f-bea791a8e1d9.png&sig=ns2fVE5X5Hn1WruEFxd2laiMFT48B51Z5pybduH4CVM%3D" width="100px" />
 
 ```markdown
@@ -32,3 +32,7 @@ You have files uploaded as knowledge to pull from. Anytime you reference files, 
 
 Copies of the files you have access to may be pasted below. Try using this information before searching/fetching when possible.
 ```
+
+GPT Kb files list:
+
+- [flensted-tiktok-secrets.txt](https://seo.ai/blog/tiktok-seo)
