@@ -1,0 +1,143 @@
+{
+    "webDesignResources": {
+      "bootstrapElements": {
+        "standardComponents": {
+          "navigationBar": {
+            "description": "Versatile navigation bars adaptable to any site layout. Supports dropdowns, responsive toggling, and branding options.",
+            "useCases": "Main website navigation, user dashboards, mobile-friendly menus.",
+            "example": "<nav class='navbar navbar-expand-lg'>...</nav>"
+          },
+          "modals": {
+            "description": "Customizable pop-up modals for user alerts, data forms, or detailed content displays.",
+            "useCases": "Contact forms, information pop-ups, image galleries.",
+            "example": "<div class='modal fade' id='exampleModal' tabindex='-1'>...</div>"
+          },
+          "cards": {
+            "description": "Flexible cards for displaying a variety of content types, including images, text, and links.",
+            "useCases": "Product listings, blog posts, profile cards.",
+            "example": "<div class='card' style='width: 18rem;'>...</div>"
+          },
+          "gridSystem": {
+            "description": "Responsive grid system for structuring content in a clean, organized layout.",
+            "useCases": "Photo galleries, product grids, layout structuring.",
+            "example": "<div class='row'><div class='col'>...</div></div>"
+          },
+          "offCanvas": {
+            "description": "Side navigation or content panels that slide in and out of the page.",
+            "useCases": "Mobile menus, shopping carts, chat panels.",
+            "example": "<div class='offcanvas offcanvas-end' id='offcanvasExample'>...</div>"
+          },
+          "accordion": {
+            "description": "Collapsible content panels for presenting information in a limited space.",
+            "useCases": "FAQ sections, product descriptions, collapsible lists.",
+            "example": "<div class='accordion' id='accordionExample'>...</div>"
+          },
+          "spinners": {
+            "description": "Loading indicators for asynchronous operations.",
+            "useCases": "Page load, data submission, waiting screens.",
+            "example": "<div class='spinner-border' role='status'><span class='visually-hidden'>Loading...</span></div>"
+          },
+          "tooltips": {
+            "description": "Small pop-up boxes that provide additional information when hovering over an element.",
+            "useCases": "Help text, form instructions, additional details.",
+            "example": "<button type='button' class='btn btn-secondary' data-bs-toggle='tooltip' data-bs-placement='top' title='Tooltip on top'>Tooltip on top</button>"
+          },
+          "toasts": {
+            "description": "Small, non-disruptive messages that appear at the edge of the interface.",
+            "useCases": "Success messages, error alerts, brief notifications.",
+            "example": "<div class='toast' role='alert' aria-live='assertive' aria-atomic='true'>...</div>"
+          },
+          "footers": {
+            "description": "Tailored footers for website end sections.",
+            "useCases": "Website endings, additional navigation, contact details.",
+            "example": "<footer class='footer bg-light'><div class='container'>...</div></footer>"
+          },
+          "tabs": {
+            "description": "Tabbed interfaces for content organization.",
+            "useCases": "Product details, user profile settings, categorized information.",
+            "example": "<ul class='nav nav-tabs' id='myTab' role='tablist'>...</ul>"
+          }
+        },
+        "uiKits": {
+          "getShitDoneKit": {
+            "description": "Comprehensive UI kit with a modern design.",
+            "link": "https://www.creative-tim.com/product/get-shit-done-kit",
+            "demo": "Link to live demo"
+          },
+          "bootflat": {
+            "description": "Flat UI kit ideal for startup websites and apps.",
+            "link": "http://bootflat.github.io/",
+            "demo": "Link to live demo"
+          },
+          "materialDesignForBootstrap": {
+            "description": "Integrates Material Design with Bootstrap.",
+            "link": "https://mdbootstrap.com/",
+            "demo": "Link to live demo"
+          }
+        }
+      },
+      "styleSheets": {
+        "PicoCSS": {
+          "description": "Minimal CSS for semantic HTML.",
+          "useCases": "Personal blogs, small business websites, minimalistic portfolios.",
+          "link": "https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+        },
+        "Bootstrap": {
+          "description": "Comprehensive front-end framework for responsive projects.",
+          "useCases": "E-commerce sites, educational platforms, dashboards.",
+          "link": "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        },
+        "Materialize": {
+          "description": "Combines Material Design's interaction design philosophy with responsive web design.",
+          "useCases": "User interfaces with rich features, admin panels.",
+          "link": "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        },
+        "Bulma": {
+          "description": "Modern, flexible, and tile-based framework.",
+          "useCases": "Tech startups, creative agencies, modern portfolios.",
+          "link": "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"
+        },
+        "TailwindCSS": {
+          "description": "Utility-first CSS framework for rapid UI development.",
+          "useCases": "Custom user interfaces, design-heavy projects, single-page applications.",
+          "link": "https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+        },
+        "Foundation": {
+          "description": "Professional-grade, advanced responsive front-end framework.",
+          "useCases": "Enterprise-level websites, responsive web applications, complex e-commerce sites.",
+          "link": "https://cdn.jsdelivr.net/foundation/6.6.3/css/foundation.min.css"
+        },
+        "SemanticUI": {
+          "description": "Creates a language for sharing UI, perfect for readable and maintainable code.",
+          "useCases": "Community-driven websites, forums, social media platforms.",
+          "link": "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+        },
+        "Skeleton": {
+          "description": "Lightweight and simple boilerplate.",
+          "useCases": "Landing pages, simple portfolios, introductory websites.",
+          "link": "https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+        },
+        "Animate.css": {
+          "description": "A cross-browser library of CSS animations.",
+          "useCases": "Attention-grabbing headers, animated buttons.",
+          "link": "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        },
+        "AOS": {
+          "description": "Animate On Scroll library for animating elements as you scroll.",
+          "useCases": "On-scroll animations, fade-in effects.",
+          "link": "https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+        },
+        "Pure.css": {
+          "description": "A set of small, responsive CSS modules.",
+          "useCases": "Small projects, responsive grids, minimalist designs.",
+          "link": "https://purecss.io/"
+        },
+        "Milligram": {
+          "description": "A minimalist CSS framework for faster web design.",
+          "useCases": "Lightweight web projects, performance-focused designs.",
+          "link": "https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css"
+        }
+      }
+    }
+  }
+   

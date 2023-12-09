@@ -1,0 +1,69 @@
+{
+    "promptForNewResources": "Search for the latest CSS libraries for web design as of [current year]",
+    "cssLibraries": [
+        {
+            "name": "Animate.css",
+            "description": "Library for ready-to-use CSS animation effects, easy to implement.",
+            "features": [
+                "Pre-built collection of animation effects",
+                "Compatible with all modern browsers"
+            ]
+        },
+        {
+            "name": "Pure CSS",
+            "description": "Lightweight and modular CSS library, offers a range of responsive grids and UI elements.",
+            "features": [
+                "Responsive grid",
+                "Styles for vertical and horizontal menus"
+            ]
+        },
+        {
+            "name": "Emotion.js",
+            "description": "CSS-in-JS library, allows writing CSS styles directly in JavaScript code.",
+            "features": [
+                "Theming and global styles utilities",
+                "Supports server-side rendering (SSR)"
+            ]
+        },
+        {
+            "name": "Magic CSS",
+            "description": "User-friendly library for adding animations and transitions to web pages.",
+            "features": [
+                "Wide range of pre-defined animations",
+                "Lightweight library for fast load times"
+            ]
+        },
+        {
+            "name": "Water CSS",
+            "description": "Lightweight and minimalistic CSS library, focuses on readability and clarity.",
+            "features": [
+                "Easy to use and implement",
+                "No external dependencies"
+            ]
+        },
+        {
+            "name": "Picnic CSS",
+            "description": "Offers a variety of pre-built styles, lightweight and fast-loading.",
+            "features": [
+                "Highly customizable",
+                "Suitable for projects prioritizing performance"
+            ]
+        },
+        {
+            "name": "CSS Wand",
+            "description": "Versatile CSS library with a range of pre-designed styles and tools.",
+            "features": [
+                "Simplifies the creation of visual effects",
+                "Customizable options"
+            ]
+        },
+        {
+            "name": "Spectrum CSS",
+            "description": "Developed by Adobe, offers pre-defined styles and components for web applications.",
+            "features": [
+                "Responsive grid system",
+                "Modern design principles focused on simplicity"
+            ]
+        }
+    ]
+}

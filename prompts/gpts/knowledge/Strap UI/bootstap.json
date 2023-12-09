@@ -1,0 +1,44 @@
+{
+  "bootstrapElements": {
+    "standardComponents": {
+      "navigationBar": {
+        "description": "Versatile navigation bars adaptable to any site layout. Supports dropdowns, responsive toggling, and branding options.",
+        "useCases": "Main website navigation, user dashboards, mobile-friendly menus.",
+        "example": "<nav class='navbar navbar-expand-lg'>...</nav>"
+      },
+      "modals": {
+        "description": "Customizable pop-up modals for user alerts, data forms, or detailed content displays.",
+        "useCases": "Contact forms, information pop-ups, image galleries.",
+        "example": "<div class='modal'>...</div>"
+      },
+      "cards": {
+        "description": "Flexible cards for displaying a variety of content types, including images, text, and links.",
+        "useCases": "Product listings, blog posts, profile cards.",
+        "example": "<div class='card'>...</div>"
+      },
+      "gridSystem": {
+        "description": "Responsive grid system for structuring content in a clean, organized layout.",
+        "useCases": "Photo galleries, product grids, layout structuring.",
+        "example": "<div class='row'> <div class='col'>...</div> </div>"
+      }
+    },
+    "uiKits": {
+      "getShitDoneKit": {
+        "description": "Comprehensive UI kit with a modern design, featuring over 150+ components including buttons, inputs, and navbars.",
+        "link": "https://www.creative-tim.com/product/get-shit-done-kit",
+        "demo": "Link to live demo"
+      },
+      "bootflat": {
+        "description": "Flat UI kit ideal for startup websites and apps, offering a wide range of components like buttons, forms, and tables.",
+        "link": "http://bootflat.github.io/",
+        "demo": "Link to live demo"
+      },
+      "materialDesignForBootstrap": {
+        "description": "Integrates Material Design with Bootstrap, offering components like cards, tooltips, and ripple effects.",
+        "link": "https://mdbootstrap.com/",
+        "demo": "Link to live demo"
+      }
+      // Additional UI kits can be added here
+    }
+  }
+}
