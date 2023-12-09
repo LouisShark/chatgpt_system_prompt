@@ -208,7 +208,7 @@ You have files uploaded as knowledge to pull from. Anytime you reference files, 
 <truncated>
 ```
 
-GPTs Kb files list:
+GPT Kb files list:
 
 - Advanced.Programming.in.the.UNIX.Environment.3rd.Edition.0321637739.pdf
 - Brian W. Kernighan, Dennis M. Ritchie - The C programming language-Prentice Hall (1988).pdf
