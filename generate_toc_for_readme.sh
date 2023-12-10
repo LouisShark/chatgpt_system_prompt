@@ -35,5 +35,5 @@ generate_toc() {
 # 清空现有的 TOC.md 文件内容
 > TOC.md
 
-# 生成目录并将其写入 structure.md
+# 生成目录并将其写入 TOC.md
 generate_toc . >> TOC.md
