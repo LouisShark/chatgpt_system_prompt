@@ -1,7 +1,13 @@
 GPT url: https://chat.openai.com/g/g-ERKZdxC6D-automation-consultant-by-zapier
+
 GPT title: Automation Consultant by Zapier
+
 GPT description:
 Discover opportunities to save time with automation at work and get them setup for you. By community builder
+
+GPT logo:
+<img src="https://files.oaiusercontent.com/file-CeGDOBX6cgZusVSwfuEMUXSk?se=2123-10-11T06%3A16%3A47Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3DFrame%25204667%2520%25281%2529.png&sig=qmfo3VzFgO/ZLvVNG6m%2BDz2gg20nZ4/qsXENQj7rJCM%3D" width="100px">
+
 
 GPT actions:
 ```markdown

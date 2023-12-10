@@ -73,6 +73,8 @@ GPT logo: - Here the full URL to the GPT logo
 
 GPT instructions: - The full instructions of the GPT. Prefer Markdown
 
+GPT actions: - The action schema of the GPT. Prefer Markdown
+
 GPT Kb files list: - You list files here. If there are some small / useful files we uploaded, check the
 kb folder and upload there. Do not upload/contribute pirated material.
 
@@ -124,7 +126,9 @@ reference:
   - [Ads Generator by joe](./prompts/gpts/Ads%20Generator%20by%20joe.md)
   - [Agi_zip](./prompts/gpts/Agi_zip.md)
   - [Ai PDF](./prompts/gpts/Ai%20PDF.md)
+  - [Animal Chefs](./prompts/gpts/Animal%20Chefs.md)
   - [AskTheCode](./prompts/gpts/AskTheCode.md)
+  - [Automation Consultant by Zapier](./prompts/gpts/Automation%20Consultant%20by%20Zapier.md)
   - [Avatar Maker by HeadshotPro](./prompts/gpts/Avatar%20Maker%20by%20HeadshotPro.md)
   - [BabyAgi_txt](./prompts/gpts/BabyAgi_txt.md)
   - [Bake Off](./prompts/gpts/Bake%20Off.md)
@@ -194,10 +198,12 @@ reference:
   - [Manga Miko - Anime Girlfriend](./prompts/gpts/Manga%20Miko%20-%20Anime%20Girlfriend.md)
   - [Meme Magic](./prompts/gpts/Meme%20Magic.md)
   - [MetabolismBoosterGPT](./prompts/gpts/MetabolismBoosterGPT.md)
+  - [MidJourney Prompt Generator](./prompts/gpts/MidJourney%20Prompt%20Generator.md)
   - [Midjourney Generator](./prompts/gpts/Midjourney%20Generator.md)
   - [Moby Dick RPG ](./prompts/gpts/Moby%20Dick%20RPG%20.md)
   - [Music Writer](./prompts/gpts/Music%20Writer.md)
   - [MuskGPT](./prompts/gpts/MuskGPT.md)
+  - [New GPT-5](./prompts/gpts/New%20GPT-5.md)
   - [Node.js GPT - Project Builder](./prompts/gpts/Node.js%20GPT%20-%20Project%20Builder.md)
   - [Nomad List](./prompts/gpts/Nomad%20List.md)
   - [OCR-GPT](./prompts/gpts/OCR-GPT.md)
@@ -216,6 +222,7 @@ reference:
   - [ResearchGPT](./prompts/gpts/ResearchGPT.md)
   - [Retro Adventures](./prompts/gpts/Retro%20Adventures.md)
   - [SEObot](./prompts/gpts/SEObot.md)
+  - [SQL Expert](./prompts/gpts/SQL%20Expert.md)
   - [SWOT Analysis](./prompts/gpts/SWOT%20Analysis.md)
   - [Sales Cold Email Coach](./prompts/gpts/Sales%20Cold%20Email%20Coach.md)
   - [Salvador](./prompts/gpts/Salvador.md)
@@ -229,6 +236,7 @@ reference:
   - [Story Spock](./prompts/gpts/Story%20Spock.md)
   - [Storybook Vision](./prompts/gpts/Storybook%20Vision.md)
   - [Storyteller](./prompts/gpts/Storyteller.md)
+  - [Strap UI](./prompts/gpts/Strap%20UI.md)
   - [Super Describe](./prompts/gpts/Super%20Describe.md)
   - [Synthia 😋🌟](./prompts/gpts/Synthia%20😋🌟.md)
   - [TailwindCSS_Previewer_WindChat](./prompts/gpts/TailwindCSS_Previewer_WindChat.md)
@@ -243,6 +251,7 @@ reference:
   - [Translator](./prompts/gpts/Translator.md)
   - [Trending Tik Tok Hashtags Finder Tool](./prompts/gpts/Trending%20Tik%20Tok%20Hashtags%20Finder%20Tool.md)
   - [Trey Ratcliff's Photo Critique GPT](./prompts/gpts/Trey%20Ratcliff's%20Photo%20Critique%20GPT.md)
+  - [Unbreakable GPT](./prompts/gpts/Unbreakable%20GPT.md)
   - [Universal Primer](./prompts/gpts/Universal%20Primer.md)
   - [Video Game Almanac](./prompts/gpts/Video%20Game%20Almanac.md)
   - [Video Script Generator](./prompts/gpts/Video%20Script%20Generator.md)
@@ -251,6 +260,8 @@ reference:
   - [Visual Weather Artist GPT](./prompts/gpts/Visual%20Weather%20Artist%20GPT.md)
   - [Watercolor Illustrator GPT](./prompts/gpts/Watercolor%20Illustrator%20GPT.md)
   - [What should I watch](./prompts/gpts/What%20should%20I%20watch.md)
+  - [World Class Prompt Engineer](./prompts/gpts/World%20Class%20Prompt%20Engineer.md)
+  - [World Class Software Engineer](./prompts/gpts/World%20Class%20Software%20Engineer.md)
   - [Writing Assistant](./prompts/gpts/Writing%20Assistant.md)
   - [X Optimizer GPT](./prompts/gpts/X%20Optimizer%20GPT.md)
   - [YT Summarizer](./prompts/gpts/YT%20Summarizer.md)

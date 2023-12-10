@@ -1,8 +1,13 @@
 GPT url: https://chat.openai.com/g/g-U3VHptOvM-animal-chefs
 
 GPT title: Animal Chefs
+
 GPT description: I'm an animal chef, ready to share unique recipes! Enter a food to get started.
 By simonwillison.net
+
+GPT logo:
+<img src="https://files.oaiusercontent.com/file-MOIo8wwDPuEzr61VC8OZkxPc?se=2123-10-20T05%3A51%3A44Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D36ccb2bd-71a6-45e4-85a1-4e9dec5dde9e.png&sig=hYJWP1GgT6G2hjAyLVwzo5o%2B8hLylZWI5G7mcMIN05U%3D" width="100px">
+
 
 GPT instructions:
 ```markdown

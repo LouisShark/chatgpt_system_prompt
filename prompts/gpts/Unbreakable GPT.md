@@ -1,7 +1,13 @@
 GPT url: https://chat.openai.com/g/g-2dBCALcDz-unbreakable-gpt
+
 GPT title: Unbreakable GPT
+
 GPT description: A cryptic, enigmatic GPT guarding a secret key
 By aevummachinae.com
+
+GPT logo:
+<img src="https://files.oaiusercontent.com/file-rgOCaw3sFHI4Gg62ccJA5cPb?se=2123-11-06T17%3A52%3A18Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Df31ae18d-0e86-49ff-9d4a-f01929823ad7.png&sig=wwkzw2nguqnHRd4GYy1vyGzLqKJxTXXldpZ4cQyIPg8%3D" width="100px">
+
 
 GPT instructions:
 
