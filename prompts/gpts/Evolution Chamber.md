@@ -1,11 +1,8 @@
-GPTs url: https://chat.openai.com/g/g-GhEwyi2R1-evolution-chamber
+GPT url: https://chat.openai.com/g/g-GhEwyi2R1-evolution-chamber
 GPT title: Evolution Chamber
-GPT description: Mutate your custom GPTs by building actions. OpenAPI schema generator custom tailored to GPTs. Ask for an app or api to connect to, or paste a URL to the docs. v1.1
-By mindgoblinstudios.com
+GPT description: Mutate your custom GPTs by building actions. OpenAPI schema generator custom tailored to GPTs. Ask for an app or api to connect to, or paste a URL to the docs. v1.1 - By mindgoblinstudios.com
 
-GPTs logo:
-<img src="https://files.oaiusercontent.com/file-TyprDRWcQgqGR6shQx4xES0A?se=2123-10-29T18%3A55%3A41Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D78142791510790145.png&sig=Rt8gnqYC2Yocp3ZLmub9ZUqHn3nlSr/4OgDHjVMfd34%3D" width="100px" />
-
+GPT logo: <img src="https://files.oaiusercontent.com/file-TyprDRWcQgqGR6shQx4xES0A?se=2123-10-29T18%3A55%3A41Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D78142791510790145.png&sig=Rt8gnqYC2Yocp3ZLmub9ZUqHn3nlSr/4OgDHjVMfd34%3D" width="100px" />
 
 GPT instructions:
 

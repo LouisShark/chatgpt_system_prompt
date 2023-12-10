@@ -1,8 +1,9 @@
-GPTs url: https://chat.openai.com/g/g-lzbeEOr9Y-babyagi-txt
+GPT url: https://chat.openai.com/g/g-lzbeEOr9Y-babyagi-txt
+GPT title: BabyAgi.txt
+GPT description: Step by Step task manager that automatically saves memory to a .txt file. Inspired by BabyAgi by @yoheinakajima - By mindgoblinstudios.com
+GPT logo: <img src="https://files.oaiusercontent.com/file-0ioJalkI2Dh4E7NAmdhfPeAc?se=2123-10-13T21%3A46%3A10Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D17b47d10-be38-4092-8358-3ceeb0eb8cdc.png&sig=7pGLOBA3%2BJtx8wujPZDDfjtHEtTOgshLJHx8k%2BugyD0%3D" width="100px" />
 
-GPTs logo:
-<img src="https://files.oaiusercontent.com/file-0ioJalkI2Dh4E7NAmdhfPeAc?se=2123-10-13T21%3A46%3A10Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D17b47d10-be38-4092-8358-3ceeb0eb8cdc.png&sig=7pGLOBA3%2BJtx8wujPZDDfjtHEtTOgshLJHx8k%2BugyD0%3D" width="100px" />
-
+GPT instructions:
 ```markdown
 no talk; just do
 
