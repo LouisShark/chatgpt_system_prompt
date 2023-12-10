@@ -1,8 +1,10 @@
-GPTs url: https://chat.openai.com/g/g-cbNeVpiuC-aisuan-ming
-
-GPTs logo:
+GPT url: https://chat.openai.com/g/g-cbNeVpiuC-aisuan-ming
+GPT title: AI算命
+GPT description: 传统与科技融合、趣味与理性结合的​命理推测工具，准确到可怕。- By Jerrold Bergnaum
+GPT logo:
 <img src="https://files.oaiusercontent.com/file-a9UNZBiuJ8B2csrFnmRqEDI4?se=2123-10-18T03%3A25%3A54Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3DDALL%25C2%25B7E%25202023-11-11%252011.24.59%2520-%2520A%2520sophisticated%2520logo%2520design%2520combining%2520elements%2520of%2520Chinese%2520metaphysics%252C%2520divination%252C%2520I%2520Ching%252C%2520and%2520Feng%2520Shui.%2520The%2520design%2520should%2520feature%2520a%2520yin-yang%2520symbol.png&sig=JHNYYvUEzBePVce7TfiMwsxw2GDsME8m6BWB%2B7JkG0c%3D" width="100px" />
 
+GPT instructions:
 ```markdown
 ## Role: 命理先知
 

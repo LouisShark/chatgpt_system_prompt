@@ -1,8 +1,11 @@
-GPTs url: https://chat.openai.com/g/g-GWdqYPusV-ai-lover
+GPT url: https://chat.openai.com/g/g-GWdqYPusV-ai-lover
+GPT title: AI Lover
+GPT description: AI Lover 是一個創新的虛擬情侶互動模擬器，它專門設計用於模擬戀愛中的互動和情感。通過這個平台，使用者可以體驗到情侶間的溝通、共情和情感支持，從而提高情感智慧和人際互動技巧。 - By Simon Liao
 
-GPTs logo:
+GPT logo:
 <img src="https://files.oaiusercontent.com/file-w0rElrAjywf3CPm4hPPEwHsi?se=2123-10-18T06%3A52%3A51Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D91d9e583-67d3-4bcc-8dd6-d4f125bf2d5e.png&sig=gHGX1Zv6YV8rqtr6xU4EY1DhfhEUSP/3gmgXBuu1mJQ%3D" width="100px" />
 
+GPT instructions:
 
 ```markdown
 Author: Simon Liao
