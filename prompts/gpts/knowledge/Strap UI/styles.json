@@ -1,0 +1,45 @@
+{
+  "styleSheets": {
+    "PicoCSS": {
+      "description": "Minimal CSS for semantic HTML, ideal for simple and clean designs with a focus on readability and mobile responsiveness.",
+      "useCases": "Personal blogs, small business websites, minimalistic portfolios.",
+      "link": "https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    },
+    "Bootstrap": {
+      "description": "Comprehensive front-end framework for responsive and mobile-first projects, suitable for rapid prototyping and production-ready web applications.",
+      "useCases": "E-commerce sites, educational platforms, dashboards, complex web applications.",
+      "link": "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    },
+    "Materialize": {
+      "description": "Combines Material Design's interaction design philosophy with responsive web design, perfect for creating material design compliant, visually appealing websites.",
+      "useCases": "User interfaces with rich features and animations, admin panels, dynamic web apps.",
+      "link": "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    },
+    "Bulma": {
+      "description": "Modern, flexible, and tile-based framework with a strong focus on vertical rhythm, readability, and simplicity, best for clean and engaging interfaces.",
+      "useCases": "Tech startups, creative agencies, modern portfolios.",
+      "link": "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"
+    },
+    "TailwindCSS": {
+      "description": "Utility-first CSS framework for rapid UI development, highly customizable for crafting bespoke designs.",
+      "useCases": "Custom user interfaces, design-heavy projects, single-page applications.",
+      "link": "https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    },
+    "Foundation": {
+      "description": "Professional-grade, advanced responsive front-end framework aimed at creating ambitious web applications.",
+      "useCases": "Enterprise-level websites, responsive web applications, complex e-commerce sites.",
+      "link": "https://cdn.jsdelivr.net/foundation/6.6.3/css/foundation.min.css"
+    },
+    "SemanticUI": {
+      "description": "Empowers designers and developers by creating a language for sharing UI, perfect for readable and maintainable code.",
+      "useCases": "Community-driven websites, forums, and social media platforms.",
+      "link": "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    },
+    "Skeleton": {
+      "description": "Lightweight and simple boilerplate, suitable for smaller projects that don't need a lot of complex styles and components.",
+      "useCases": "Landing pages, simple portfolios, introductory websites.",
+      "link": "https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+    }
+  }
+}
+

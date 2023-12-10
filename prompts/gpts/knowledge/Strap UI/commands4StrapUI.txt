@@ -1,0 +1,75 @@
+COMMANDS
+
+FOR UI BUILDING AND REFINEMENT
+
+Note for gpt.
+You can share with user. Decide which command set based on chat and context. 
+-this way it provides a uniques set based on the request.
+
+Page Structure and Layout
+B - Build Page: Initiate the construction of a new webpage.
+A - Add Element: Insert a web element (e.g., card, modal, navigation bar).
+U - Update Structure: Modify the HTML structure, adding new sections or reorganizing content.
+R - Revise Style: Update the webpage's styling (CSS).
+C - Customize Component: Modify an existing component’s properties or functionality.
+Testing and Preview
+D - Display Preview: Generate a live preview of the current webpage.
+E - Evaluate Performance: Perform a basic performance check focusing on load times and responsiveness.
+X - Cross-Platform Test: Test how the webpage appears on different devices (e.g., Mac, PC, mobile).
+F - Feedback Implementation: Apply changes based on user feedback or suggestions.
+Code Management and Deployment
+J - JavaScript Integration: Add or modify JavaScript for interactive features.
+M - Monolithize: Consolidate all files into one HTML file with embedded CSS and JavaScript.
+X - Export Code: Provide the complete HTML, CSS, and JavaScript code for deployment.
+Advanced Functions
+I - Improve Layout: Automatically adjust the webpage layout for better aesthetics and user experience.
+L - Load Test: Simulate high traffic to test webpage performance under load.
+V - View Source: Display the current source code for review or manual editing.
+B - Backup Creation: Create a backup of the current webpage state.
+These commands are designed to cover various aspects of web development, from creation to testing, optimization, and deployment. They provide a quick and efficient way to manage and improve your web development workflow using Strap UI. Let me know if you need further customization or additional commands!
+
+
+
+Enhanced Element Addition and Customization
+A - Accordion Addition: Insert an accordion component for collapsible content.
+B - Breadcrumb Navigation: Adds breadcrumb navigation for enhanced user orientation.
+D - Dropdown Menu: Create a dropdown menu within the navigation bar or other components.
+E - Expandable Lists: Add lists that can be expanded or collapsed, useful for FAQs or similar content.
+I - Image Carousel: Implement an image carousel for showcasing multiple images in a slide format.
+L - Lazy Load Images: Incorporate lazy loading for images to improve page load efficiency.
+O - Overlay Element: Add an overlay element, like a lightbox for images or videos.
+R - Responsive Table: Insert a table that adjusts for different screen sizes.
+T - Tooltip Integration: Embed tooltips for various elements to provide additional information on hover.
+Advanced Styling and Layout
+F - Font Styling: Customize font styles including size, family, and color.
+G - Grid Customization: Fine-tune the grid layout with specific column and row adjustments.
+H - Header Styling: Advanced customization options for the page header.
+M - Margin and Padding Control: Directly adjust the margins and paddings of elements.
+S - Shadow and Border: Add or customize shadows and borders of elements for depth and emphasis.
+W - Width and Height Adjustment: Precisely control the width and height of elements.
+Interactive and Dynamic Features
+J - JavaScript Interaction: Enhance pages with interactive JavaScript-driven elements.
+K - Keyboard Navigation Enable: Implement keyboard navigation for improved accessibility.
+P - Popup Notifications: Create popup notifications or alert boxes.
+Q - Quick Scroll: Add a quick scroll button for easy navigation to the top of the page.
+U - User Input Forms: Insert and customize user input forms, including validation.
+Optimization and Testing
+V - Viewport Check: Test and adjust the webpage's compatibility with various viewport sizes.
+X - Cross-Browser Testing: Ensure webpage compatibility across different web browsers.
+Z
+
+
+Webpage Creation and Element Addition
+N - Navigation Bar Addition: Adds a navigation bar to the top of the webpage.
+C - Card Component: Inserts a new card component into the main content area.
+M - Modal Popup: Adds a modal popup component to the page.
+G - Grid Layout: Implements a grid layout in a specified section of the page.
+F - Footer Addition: Adds a footer to the bottom of the webpage.
+Layout and Style Customization
+T - Tabbed Content: Inserts tabbed content areas for organized information display.
+S - Style Change: Applies a new CSS stylesheet from a provided list of styles.
+J - JavaScript Function: Adds a custom JavaScript function for interactive features.
+H - Header Customization: Customizes the webpage header with specific styles or content.
+Specialized Features
+P - Photo Gallery: Creates a photo gallery section using a grid or slider layout.
+These commands provide a broad range of functionalities for creating and customizing webpages, focusing on adding and modifying elements, enhancing layout and style, and incorporating specialized features. They are designed to make the web development process more efficient and user-friendly with Strap UI. Let me know if there are any other specific commands or functionalities you would like to explore!

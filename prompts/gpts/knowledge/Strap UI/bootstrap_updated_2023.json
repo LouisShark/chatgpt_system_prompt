@@ -1,0 +1,37 @@
+{
+    "promptForNewResources": "Search for the latest Bootstrap libraries and tools as of December 2023",
+    "bootstrapLibraries": [
+        {
+            "name": "Bootstrap 5.3.2",
+            "description": "The latest update with bug fixes, documentation improvements, and more enhancements for color modes.",
+            "url": "https://blog.getbootstrap.com/2023/09/14/bootstrap-5-3-2/",
+            "version": "5.3.2",
+            "highlights": [
+                "Deprecated passing a percentage unit to the global `abs()` function in Dart Sass.",
+                "Fixed issue with using multiple ids in a collapse target.",
+                "Increased color contrast of form range track background in light and dark modes.",
+                "Fixed table state rendering for color modes.",
+                "Allowed `<mark>` color customization for color modes."
+            ],
+            "documentation": "https://getbootstrap.com/docs/5.3/getting-started/introduction/",
+            "docsHighlights": [
+                "Added alternative CDNs section.",
+                "Added Discord and Bootstrap subreddit links for community support."
+            ],
+            "componentsRequiringJS": [
+                "Alerts for dismissing",
+                "Buttons for toggling states and checkbox/radio functionality",
+                "Carousel for all slide behaviors, controls, and indicators",
+                "Collapse for toggling visibility of content",
+                "Dropdowns for displaying and positioning (requires Popper)",
+                "Modals for displaying, positioning, and scroll behavior",
+                "Navbar for extending Collapse and Offcanvas plugins to implement responsive behaviors",
+                "Navs with the Tab plugin for toggling content panes",
+                "Offcanvases for displaying, positioning, and scroll behavior",
+                "Scrollspy for scroll behavior and navigation updates",
+                "Toasts for displaying and dismissing",
+                "Tooltips and popovers for displaying and positioning (requires Popper)"
+            ]
+        }
+    ]
+}
