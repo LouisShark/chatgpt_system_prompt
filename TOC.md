@@ -132,6 +132,7 @@
   - [SWOT Analysis](./prompts/gpts/SWOT%20Analysis.md)
   - [Sales Cold Email Coach](./prompts/gpts/Sales%20Cold%20Email%20Coach.md)
   - [Salvador](./prompts/gpts/Salvador.md)
+  - [Santa](./prompts/gpts/Santa.md)
   - [Sarcastic Humorist](./prompts/gpts/Sarcastic%20Humorist.md)
   - [ScholarAI](./prompts/gpts/ScholarAI.md)
   - [Screenplay GPT](./prompts/gpts/Screenplay%20GPT.md)

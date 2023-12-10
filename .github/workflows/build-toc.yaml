@@ -1,0 +1,19 @@
+name: Generate TOC on PR Merge
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run TOC generation script
+        run: |
+          chmod +x generate_toc_for_readme.sh
+          ./generate_toc_for_readme.sh
