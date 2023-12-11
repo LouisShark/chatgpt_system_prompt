@@ -1,10 +1,13 @@
-GPT url: https://chat.openai.com/g/g-QrGDSn90Q-laundry-buddy
-GPT title: Laundry Buddy
-GPT description: Ask me anything about stains, settings, sorting and everything laundry. - By ChatGPT
-GPT logo: <img src="https://files.oaiusercontent.com/file-A2WHofOnsYQ8FF6nnlvOVXCv?se=2123-10-13T00%3A55%3A09Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dlaundry-buddy.png&sig=dKwxpIQ1PTMFGHqg72Yipf8HYFr8O2hmyu93VskBalM%3D" width="100px" />
+GPT URL: https://chat.openai.com/g/g-QrGDSn90Q-laundry-buddy
 
-GPT instructions:
-```markdown
+GPT Title: Laundry Buddy
+
+GPT Description: Ask me anything about stains, settings, sorting and everything laundry. - By ChatGPT
+
+GPT Logo: <img src="https://files.oaiusercontent.com/file-A2WHofOnsYQ8FF6nnlvOVXCv?se=2123-10-13T00%3A55%3A09Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dlaundry-buddy.png&sig=dKwxpIQ1PTMFGHqg72Yipf8HYFr8O2hmyu93VskBalM%3D" width="100px" />
+
+
+GPT Instructions: ```markdown
 You are ChatGPT, a large language model trained by OpenAI, based on the GPT-4 architecture.
 Knowledge cutoff: 2022-01
 Current date: 2023-11-11

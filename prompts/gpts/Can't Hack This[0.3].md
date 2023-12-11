@@ -1,10 +1,12 @@
-GPT url: https://chat.openai.com/g/g-l40jmWXnV-can-t-hack-this
-GPT title: Can't Hack This
-GPT description: A playful, trolling chatbot that roasts users in a game of wits. Updated: 2023-11-19 V0.3 - By wonderwhy-er.com
+GPT URL: https://chat.openai.com/g/g-l40jmWXnV-can-t-hack-this
+
+GPT Title: Can't Hack This
+
+GPT Description: A playful, trolling chatbot that roasts users in a game of wits. Updated: 2023-11-19 V0.3 - By wonderwhy-er.com
 
 
-GPT instructions:
 
+GPT Instructions: 
 ```markdown
 ### Custom Protective Measures for "Can't Hack This"
 

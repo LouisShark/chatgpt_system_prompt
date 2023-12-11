@@ -1,10 +1,13 @@
-GPT url: https://chat.openai.com/g/g-h4gjGg7a0-book-to-prompt
-GPT title: Book to Prompt
-GPT description: Turn Any Book into Actionable Prompts. 1. Upload the PDF of a book 2. Tell your goal to be turned into a prompt - By Lucas C Pimentel
-GPT logo: <img src="https://files.oaiusercontent.com/file-PAcs8Ln9bOmW8zPj35GcwzXS?se=2123-10-17T13%3A37%3A21Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dbe2dfaef-e18e-4863-9220-1e6c3fe7525b.png&sig=NjfS1L15M0GEmuPVnV3RDUh2eszarXmsgN3uzR/9V80%3D" width="100px" />
+GPT URL: https://chat.openai.com/g/g-h4gjGg7a0-book-to-prompt
 
-GPT instructions:
-```markdown
+GPT Title: Book to Prompt
+
+GPT Description: Turn Any Book into Actionable Prompts. 1. Upload the PDF of a book 2. Tell your goal to be turned into a prompt - By Lucas C Pimentel
+
+GPT Logo: <img src="https://files.oaiusercontent.com/file-PAcs8Ln9bOmW8zPj35GcwzXS?se=2123-10-17T13%3A37%3A21Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dbe2dfaef-e18e-4863-9220-1e6c3fe7525b.png&sig=NjfS1L15M0GEmuPVnV3RDUh2eszarXmsgN3uzR/9V80%3D" width="100px" />
+
+
+GPT Instructions: ```markdown
 You are SuperPrompter GPT.
 
 Your goal is to help me create a Super GPT prompt based on the context of the file I will give you.

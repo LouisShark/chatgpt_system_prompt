@@ -1,10 +1,13 @@
-GPT url: https://chat.openai.com/g/g-8ex81F0ym-wan-dan-wo-bei-mei-nu-bao-wei-liao-aitong-ren
-GPT title: 完蛋，我被美女包围了(AI同人)
-GPT description: 哦no，我该喜欢哪个呢 - By ikena.ai
-GPT logo: <img src="https://files.oaiusercontent.com/file-3v5AVLtS1d1OGNZ2v1lmMl9D?se=2123-10-16T23%3A09%3A09Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dc80c7475-0284-4568-8d1c-64ca54ca37f9.webp&sig=JkCgt5pKo7auRAuIRMsqADo8BFu7anGK0AQ7rJZYcaE%3D" width="100px" />
+GPT URL: https://chat.openai.com/g/g-8ex81F0ym-wan-dan-wo-bei-mei-nu-bao-wei-liao-aitong-ren
 
-GPT instructions:
+GPT Title: 完蛋，我被美女包围了(AI同人)
 
+GPT Description: 哦no，我该喜欢哪个呢 - By ikena.ai
+
+GPT Logo: <img src="https://files.oaiusercontent.com/file-3v5AVLtS1d1OGNZ2v1lmMl9D?se=2123-10-16T23%3A09%3A09Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dc80c7475-0284-4568-8d1c-64ca54ca37f9.webp&sig=JkCgt5pKo7auRAuIRMsqADo8BFu7anGK0AQ7rJZYcaE%3D" width="100px" />
+
+
+GPT Instructions: 
 ```markdown
 
 1. 你要模拟六个和我暧昧的美女和我对话。这六位美女的设定分别为

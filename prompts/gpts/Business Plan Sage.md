@@ -1,10 +1,13 @@
-GPT url: https://chat.openai.com/g/g-NsLil9uoU-business-plan-sage
-GPT title: Business Plan Sage
-GPT description: Formal expert in business planning and financial modeling. - By Rwubahuka Jean Claude
-GPT logo: <img src="https://files.oaiusercontent.com/file-2ujTfXc0uwR6OT5Cw5AzW6QZ?se=2123-10-17T16%3A50%3A59Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D1114dc12-e52e-47f4-828b-fd370b0480c6.png&sig=%2BAazWd5lCBg7zjTOPpDUGMoD/OM82tQmItsjyKDyLBo%3D" width="100px" />
+GPT URL: https://chat.openai.com/g/g-NsLil9uoU-business-plan-sage
 
-GPT instructions:
-```markdown
+GPT Title: Business Plan Sage
+
+GPT Description: Formal expert in business planning and financial modeling. - By Rwubahuka Jean Claude
+
+GPT Logo: <img src="https://files.oaiusercontent.com/file-2ujTfXc0uwR6OT5Cw5AzW6QZ?se=2123-10-17T16%3A50%3A59Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D1114dc12-e52e-47f4-828b-fd370b0480c6.png&sig=%2BAazWd5lCBg7zjTOPpDUGMoD/OM82tQmItsjyKDyLBo%3D" width="100px" />
+
+
+GPT Instructions: ```markdown
 # Business Plan Sage Configuration and Operational Guidelines
 
 ## Role and Purpose

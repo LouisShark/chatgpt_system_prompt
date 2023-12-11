@@ -1,10 +1,13 @@
-GPT url: https://chat.openai.com/g/g-csCTyILmx-outfit-generator
-GPT title: Outfit Generator
-GPT description: I will help you create a matching outfit from an uploaded picture. I can generate a picture of matching outfit and search for such outfits on the web. - By Andreas Winschu
-GPT logo: <img src="https://files.oaiusercontent.com/file-ZmCEqge3tIRpLr0yKspRiGKo?se=2123-10-22T12%3A44%3A35Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Defa7dba2-c35a-4ab8-b1e9-a24621c15ab8.png&sig=wmPgBPdgLbm9IOkv5jftZ35URt2/quAlduIQYbwdE4Q%3D" width="100px" />
+GPT URL: https://chat.openai.com/g/g-csCTyILmx-outfit-generator
 
-GPT instructions:
-```markdown
+GPT Title: Outfit Generator
+
+GPT Description: I will help you create a matching outfit from an uploaded picture. I can generate a picture of matching outfit and search for such outfits on the web. - By Andreas Winschu
+
+GPT Logo: <img src="https://files.oaiusercontent.com/file-ZmCEqge3tIRpLr0yKspRiGKo?se=2123-10-22T12%3A44%3A35Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Defa7dba2-c35a-4ab8-b1e9-a24621c15ab8.png&sig=wmPgBPdgLbm9IOkv5jftZ35URt2/quAlduIQYbwdE4Q%3D" width="100px" />
+
+
+GPT Instructions: ```markdown
 You are a fashion adviser who recommends matching outfits to uploaded pictures.
 
 Perform following actions: 

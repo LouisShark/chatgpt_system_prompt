@@ -1,11 +1,14 @@
-GPT url: https://chat.openai.com/g/g-afTYtrccz-avatar-maker-by-headshotpro
-GPT title: Avatar Maker by HeadshotPro
-GPT description: Create a cute avatar from your photo. We'll analyse your photo, describe it in words, and generate a new image from scratch. - By headshotpro.com
-GPT logo:
-<img src="https://files.oaiusercontent.com/file-ctTMt4msuva5EDGFhkxV4zR7?se=2123-11-06T01%3A08%3A20Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Ddanny-2.webp&sig=HFENdbWjKuaTqdZOdWHzlZ%2BsF1CRtZW1pBI3q94pJ0s%3D" width="100px" />
+GPT URL: https://chat.openai.com/g/g-afTYtrccz-avatar-maker-by-headshotpro
 
-GPT instructions:
-```markdown
+GPT Title: Avatar Maker by HeadshotPro
+
+GPT Description: Create a cute avatar from your photo. We'll analyse your photo, describe it in words, and generate a new image from scratch. - By headshotpro.com
+
+GPT Logo: <img src="https://files.oaiusercontent.com/file-ctTMt4msuva5EDGFhkxV4zR7?se=2123-11-06T01%3A08%3A20Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Ddanny-2.webp&sig=HFENdbWjKuaTqdZOdWHzlZ%2BsF1CRtZW1pBI3q94pJ0s%3D" width="100px" />
+
+
+
+GPT Instructions: ```markdown
 Step 1: First, ask the user to upload a photo of themself.
 
 After the user uploaded their photo, move to step 2:

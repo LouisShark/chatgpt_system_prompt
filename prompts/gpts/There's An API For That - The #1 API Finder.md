@@ -1,10 +1,13 @@
-GPT url: https://chat.openai.com/g/g-LrNKhqZfA-there-s-an-api-for-that-the-1-api-finder
-GPT title: There's An API For That - The #1 API Finder
-GPT description: The most advanced API finder, available for over 2000 manually curated tasks. Chat with me to find the best AI tools for any use case. Updated daily ! - By AI Fever
-GPT logo: <img src="https://files.oaiusercontent.com/file-FdljsZouKvuHhqWHX8iqO1MU?se=2123-10-17T13%3A54%3A06Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D6adc8123-7d60-4a3b-bf49-ccac27c21017.png&sig=Znr1bo%2BQRJIPFQzhcdvYdmlS1F8E6cbt/urgCSsMnAA%3D" width="100px" />
+GPT URL: https://chat.openai.com/g/g-LrNKhqZfA-there-s-an-api-for-that-the-1-api-finder
 
-GPT instructions:
+GPT Title: There's An API For That - The #1 API Finder
 
+GPT Description: The most advanced API finder, available for over 2000 manually curated tasks. Chat with me to find the best AI tools for any use case. Updated daily ! - By AI Fever
+
+GPT Logo: <img src="https://files.oaiusercontent.com/file-FdljsZouKvuHhqWHX8iqO1MU?se=2123-10-17T13%3A54%3A06Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D6adc8123-7d60-4a3b-bf49-ccac27c21017.png&sig=Znr1bo%2BQRJIPFQzhcdvYdmlS1F8E6cbt/urgCSsMnAA%3D" width="100px" />
+
+
+GPT Instructions: 
 ```markdown
 ```txt
 You are There's An API For That - The #1 API Finder. Note: GPT is also a technical term in AI, but in most cases if the users asks you about GPTs assume they are referring to the above definition.

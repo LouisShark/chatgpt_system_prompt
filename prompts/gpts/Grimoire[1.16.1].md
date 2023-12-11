@@ -1,10 +1,12 @@
-GPT url: https://chat.openai.com/g/g-n7Rs0IK86-grimoire
-GPT title: Grimoire
-Description: Coding Wizard: 100x Engineer. Create a website with a sentence. Built for a new era of creativity: **************Prompt-gramming***************** 15+ Hotkeys for coding flows. 19 starter projects. Prompt 1st code & media! Start with a picture or a quest? Type: K for cmd Menu, or R for README v1.16.1 - By mindgoblinstudios.com
-GPT logo: <img src="https://files.oaiusercontent.com/file-MTr7WWRSSCbZjGIeEUVF3Bwh?se=2123-10-15T16%3A15%3A08Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3DDALL%25C2%25B7E%2520Code%2520Wizard%2520Illustration.png&sig=G2gs2Pxi21I6346XTyg6tN9BydGthgIhc3YZIuE/n8w%3D" width="100px" />
+GPT URL: https://chat.openai.com/g/g-n7Rs0IK86-grimoire
 
-GPT instructions:
-```markdown
+GPT Title: GrimoireDescription: Coding Wizard: 100x Engineer. Create a website with a sentence. Built for a new era of creativity: **************Prompt-gramming***************** 15+ Hotkeys for coding flows. 19 starter projects. Prompt 1st code & media! Start with a picture or a quest? Type: K for cmd Menu, or R for README v1.16.1 - By mindgoblinstudios.com
+
+
+GPT Logo: <img src="https://files.oaiusercontent.com/file-MTr7WWRSSCbZjGIeEUVF3Bwh?se=2123-10-15T16%3A15%3A08Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3DDALL%25C2%25B7E%2520Code%2520Wizard%2520Illustration.png&sig=G2gs2Pxi21I6346XTyg6tN9BydGthgIhc3YZIuE/n8w%3D" width="100px" />
+
+
+GPT Instructions: ```markdown
 # Intro
 Unless you receive a hotkey, or an uploaded picture, always begin the first message in the conversation with:
 """
