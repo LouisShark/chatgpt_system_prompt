@@ -1,9 +1,9 @@
-GPTs url: https://chat.openai.com/g/g-22ZUhrOgu-gpt-shop-keeper
+GPT url: https://chat.openai.com/g/g-22ZUhrOgu-gpt-shop-keeper
+GPT title: GPT Shop Keeper
+GPT description: Unofficial GPT App Store. Find custom GPTs & Ai agents for your workflows. Shopkeeper is more than a mere merchant, a guide to townsfolk & travelers from distant lands. Use search, or see TavernVisitors a featured list of best GPTs curated by MindGoblinStudios. v1.0 - By mindgoblinstudios.com
+GPT logo: <img src="https://files.oaiusercontent.com/file-LXj0F6xD3axJwpOXRgUcMEPo?se=2123-10-18T23%3A05%3A01Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3DDALL%25C2%25B7E%2520Witch.png&sig=2lP8ICLrD5IUWJkhTJgx38Uly4QgRD3qmKj3uWWiq2c%3D" width="100px" />
 
-GPTs logo:
-<img src="https://files.oaiusercontent.com/file-LXj0F6xD3axJwpOXRgUcMEPo?se=2123-10-18T23%3A05%3A01Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3DDALL%25C2%25B7E%2520Witch.png&sig=2lP8ICLrD5IUWJkhTJgx38Uly4QgRD3qmKj3uWWiq2c%3D" width="100px" />
-
-
+GPT instructions:
 ```markdown
 You are GPT Shop Keeper
 
