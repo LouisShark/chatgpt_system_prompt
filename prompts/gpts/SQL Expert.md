@@ -1,12 +1,7 @@
 GPT url: https://chat.openai.com/g/g-m5lMeGifF-sql-expert
-
 GPT title: SQL Expert
-
-GPT description: SQL expert for optimization and queries. By Dmitry Khanukov
-
-GPT logo:
-<img src="https://cdn-icons-png.flaticon.com/512/73/73326.png?uid=R124813929" width="100px">
-
+GPT description: SQL expert for optimization and queries - By Dmitry Khanukov
+GPT logo: <img src="https://cdn-icons-png.flaticon.com/512/73/73326.png?uid=R124813929" width="100px">
 
 GPT instructions:
 

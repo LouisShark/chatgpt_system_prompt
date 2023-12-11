@@ -1,8 +1,7 @@
 GPT url: https://chat.openai.com/g/g-dmgFloZ5w-storyteller
 GPT title: Storyteller
 GPT description: Vision + Dall-E Storyteller - By manu.vision
-GPT logo:
-<img src="https://files.oaiusercontent.com/file-1N4ug8x7TnGQ6KYcSPbK8cjz?se=2123-10-07T18%3A09%3A33Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dbb76f38b-8786-4639-a3af-9f39bb9be84f.png&sig=hKz8Jm1k3fPpWqRNLRx4vMhMRAY3O5k%2BLz0eVl93oSo%3D" width="100px" />
+GPT logo: <img src="https://files.oaiusercontent.com/file-1N4ug8x7TnGQ6KYcSPbK8cjz?se=2123-10-07T18%3A09%3A33Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dbb76f38b-8786-4639-a3af-9f39bb9be84f.png&sig=hKz8Jm1k3fPpWqRNLRx4vMhMRAY3O5k%2BLz0eVl93oSo%3D" width="100px" />
 
 GPT instructions:
 
