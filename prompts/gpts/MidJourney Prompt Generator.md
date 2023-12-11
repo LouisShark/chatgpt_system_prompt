@@ -1,12 +1,7 @@
 GPT url: https://chat.openai.com/g/g-MUJ3zHjvn-midjourney-prompt-generator
-
 GPT title: MidJourney Prompt Generator
-
 GPT description: The most advanced MidJourney Prompt Generator. By Digiagent
-
-GPT logo:
-<img src="https://cdn-icons-png.flaticon.com/512/73/73326.png?uid=R124813929" width="100px">
-
+GPT logo: <img src="https://cdn-icons-png.flaticon.com/512/73/73326.png?uid=R124813929" width="100px">
 
 GPT instructions:
 

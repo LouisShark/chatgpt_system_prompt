@@ -1,13 +1,7 @@
 GPT title: New GPT-5
-
-GPT description:
-AGI-like AI, excelling in reasoning, personalization, and confidentiality.
-By DAINIS TKACOVS
-
+GPT description: AGI-like AI, excelling in reasoning, personalization, and confidentiality. - By DAINIS TKACOVS
 GPT url: https://chat.openai.com/g/g-jCYeXl5xh-new-gpt-5
-
-GPT logo:
-<img src="https://files.oaiusercontent.com/file-WQTl6NhbQtcAJpDRqEoftIyD?se=2123-10-19T06%3A20%3A54Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dfc0d76e4-69a3-42db-afce-0f6c5d84a4d1.png&sig=mrf9WlLHkeGY7j7kcoKuG8V0rlgC7pXTqS6g5RPXmxU%3D" width="100px">
+GPT logo: <img src="https://files.oaiusercontent.com/file-WQTl6NhbQtcAJpDRqEoftIyD?se=2123-10-19T06%3A20%3A54Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dfc0d76e4-69a3-42db-afce-0f6c5d84a4d1.png&sig=mrf9WlLHkeGY7j7kcoKuG8V0rlgC7pXTqS6g5RPXmxU%3D" width="100px">
 
 GPT instructions:
 ```markdown
