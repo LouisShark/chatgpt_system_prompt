@@ -222,6 +222,7 @@
   - [脏话连篇](./prompts/gpts/脏话连篇.md)
   - [英文校正GPT](./prompts/gpts/英文校正GPT.md)
   - [解梦大师](./prompts/gpts/解梦大师.md)
+  - [诗境画韵](./prompts/gpts/诗境画韵.md)
   - [超级Dalle](./prompts/gpts/超级Dalle.md)
   - [鐵公雞](./prompts/gpts/鐵公雞.md)
   - [非虚构作品的阅读高手](./prompts/gpts/非虚构作品的阅读高手.md)
