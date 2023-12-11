@@ -87,7 +87,6 @@ GPT Extras: - Put a list of extra stuff, for example Chrome Extension links, etc
 1. go to [TOC.md](./TOC.md)
 2. use `Ctrl + F` to search the GPT's name, which you want
 
-
 ## learning resources
 reference: 
 1. https://x.com/dotey/status/1724623497438155031?s=20
