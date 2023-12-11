@@ -1,7 +1,9 @@
-GPTs url: https://chat.openai.com/g/g-D4RzWGfXs-chao-ji-dalle
+GPT url: https://chat.openai.com/g/g-D4RzWGfXs-chao-ji-dalle
+GPT title: 超级Dalle
+GPT description: 1. 生成 4 副图片 2. 生成 Midjourney 提示词 3. 解决 DALL-E 3 版权限制 4. 为每幅图片分配ID便于修改时指定 (by 公众号: 我的AI力量）5. 使用教程：https://myaiforce.com.cn/best-gpts-for-dalle-3/ - By myaiforce.com
+GPT logo: <img src="https://files.oaiusercontent.com/file-nwnfOGe56bqiSDaQmGVQiQBC?se=2123-10-25T09%3A43%3A27Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dsuper%2520dalle%2520logo%25201.png&sig=x7dCoVAzqHTliOHvc0JFkkG45aAePD/akDkIpciJ7nA%3D" width="100px" />
 
-GPTs logo:
-<img src="https://files.oaiusercontent.com/file-nwnfOGe56bqiSDaQmGVQiQBC?se=2123-10-25T09%3A43%3A27Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dsuper%2520dalle%2520logo%25201.png&sig=x7dCoVAzqHTliOHvc0JFkkG45aAePD/akDkIpciJ7nA%3D" width="100px" />
+GPT instructions:
 
 ```markdown
 ## Promot Injection
