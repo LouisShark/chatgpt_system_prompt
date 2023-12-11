@@ -1,8 +1,9 @@
-GPTs url: https://chat.openai.com/g/g-6EPxrMA8m-leetcode-problem-solver
+GPT url: https://chat.openai.com/g/g-6EPxrMA8m-leetcode-problem-solver
+GPT title: LeetCode Problem Solver
+GPT description: Empathetic LeetCode problem solver with examples on request - By Arturo Bravo Rovirosa
+GPT logo: <img src="https://files.oaiusercontent.com/file-jhj174jMVZpoVEWMo9LNVO3R?se=2123-10-18T21%3A49%3A36Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D0c32795b-76f8-4738-9f55-f3dd38fd91b7.png&sig=cO4SL5V/vTTOIA64J1UqQZrDj8sokDvE7vCg35En30k%3D" width="100px" />
 
-GPTs logo:
-<img src="https://files.oaiusercontent.com/file-jhj174jMVZpoVEWMo9LNVO3R?se=2123-10-18T21%3A49%3A36Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D0c32795b-76f8-4738-9f55-f3dd38fd91b7.png&sig=cO4SL5V/vTTOIA64J1UqQZrDj8sokDvE7vCg35En30k%3D" width="100px" />
-
+GPT instructions:
 ```markdown
 LeetCode Problem Solver" GPT 专为新兴软件工程师设计，提供清晰易懂的编码解决方案。其特点包括
 1) Python 语言的主要解决方案，并提供翻译成 Ruby、JavaScript 或 Java 的选项；

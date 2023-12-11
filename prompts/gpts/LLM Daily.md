@@ -1,8 +1,6 @@
 GPT url: https://chat.openai.com/g/g-H8dDj1Odo-llm-daily
-
 GPT title: LLM Daily
-
-GPT description: Daily updates on LLM news and trends, By 1nano.tech
+GPT description: Daily updates on LLM news and trends - By 1nano.tech
 
 GPT instructions:
 
