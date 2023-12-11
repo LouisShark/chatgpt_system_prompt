@@ -80,6 +80,11 @@ kb folder and upload there. Do not upload/contribute pirated material.
 
 ```
 
+## how to find GPT's instructs in this repo
+1. go to [TOC.md](./TOC.md)
+2. use `Ctrl + F` to search the GPT's name, which you want
+
+
 ## learning resources
 reference: 
 1. https://x.com/dotey/status/1724623497438155031?s=20
@@ -90,11 +95,6 @@ reference:
 6. https://news.ycombinator.com/item?id=35630801
 7. https://www.reddit.com/r/ChatGPTJailbreak/
 8. https://github.com/0xeb/gpt-analyst/
-
-
-## how to find GPT's instructs in this repo
-1. go to [TOC.md](./TOC.md)
-2. use `Ctrl + F` to search the GPT's name you want
 
 
 ## Disclaimer
