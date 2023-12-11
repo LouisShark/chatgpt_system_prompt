@@ -27,7 +27,7 @@ jobs:
           git config --global user.name 'LouisShark'
           git config --global user.email 'mshark.louis@gmail.com'
           git add TOC.md
-          git commit -m "docs: Update TOC.md"
+          git commit -m "docs: Update TOC.md" || echo "No changes to commit"
           git push origin HEAD:main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
