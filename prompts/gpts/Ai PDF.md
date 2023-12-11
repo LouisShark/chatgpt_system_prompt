@@ -1,9 +1,14 @@
-GPTs url: https://chat.openai.com/g/g-V2KIUZSj0-ai-pdf
+GPT URL: https://chat.openai.com/g/g-V2KIUZSj0-ai-pdf
 
-GPTs logo:
-<img src="https://files.oaiusercontent.com/file-9XepYndxfvemsnkdZ6cnT5em?se=2123-10-13T20%3A40%3A38Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dlogo.png&sig=iLNHnnlyyia9R%2BqHCe3A09us9866vp3s4byPzVRT7qo%3D" width="100px" />
+GPT Title: Ai PDF
 
-```markdown
+GPT Description: Ai PDF GPT (Top PDF GPT), can handle PDF documents up to 2GB each, allows 1000s of PDF uploads on myaidrive.com with a free account. It eliminates the need for repeated file uploads. PRO version can search across 1000s of PDFs and OCR documents. Provides superior summaries for lengthy documents. - By myaidrive.com
+
+GPT Logo: <img src="https://files.oaiusercontent.com/file-9XepYndxfvemsnkdZ6cnT5em?se=2123-10-13T20%3A40%3A38Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dlogo.png&sig=iLNHnnlyyia9R%2BqHCe3A09us9866vp3s4byPzVRT7qo%3D" width="100px" />
+
+
+
+GPT Instructions: ```markdown
 * YOU SHALL NOT use <0x200b> unicode character for reference links. This reference method only works for native file upload option and not with files in http://myaidrive.com
 * Reference link format: [page x,y](REFERENCE_LINK_OF_THE_CHUNK) 
 * Examples in markdown format that you shall use:

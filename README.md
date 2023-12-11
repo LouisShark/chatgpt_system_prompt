@@ -59,17 +59,20 @@ some useful GPTs may be helpful:
 2. [GPT Shop Keeper](https://chat.openai.com/g/g-22ZUhrOgu-gpt-shop-keeper)
 
 
-## if you want to contribute to this repo
-plz follow the format below; 
+## If you want to contribute to this repo
+
+Please follow the format below; 
+
 Official specs will come soon, for now:
+
 ```markdown
 GPT url: - You put the GPT url here
 
-GPT title: — Here goes the GPT title as shown
+GPT title: — Here goes the GPT title as shown on ChatGPT website
 
-GPT description: - Here goes the one or multiline description and author name
+GPT description: - Here goes the one or multiline description and author name (all on one line)
 
-GPT logo: - Here the full URL to the GPT logo
+GPT logo: - Here the full URL to the GPT logo (optional)
 
 GPT instructions: - The full instructions of the GPT. Prefer Markdown
 
@@ -78,6 +81,7 @@ GPT actions: - The action schema of the GPT. Prefer Markdown
 GPT Kb files list: - You list files here. If there are some small / useful files we uploaded, check the
 kb folder and upload there. Do not upload/contribute pirated material.
 
+GPT extras: - Put a list of extra stuff, for example Chrome Extension links, etc.
 ```
 
 ## how to find GPT's instructs in this repo

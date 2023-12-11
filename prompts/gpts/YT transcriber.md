@@ -1,8 +1,13 @@
-GPTs url: https://chat.openai.com/g/g-Xt0xteYE8-yt-transcriber
+GPT URL: https://chat.openai.com/g/g-Xt0xteYE8-yt-transcriber
 
-GPTs logo:
-<img src="https://files.oaiusercontent.com/file-eOYDbOuGRNjtdBXs31SfcG1b?se=2123-10-14T04%3A47%3A26Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D2d8df13c-e3d9-4ab7-9bda-9a4fc6e13b60.png&sig=STaOJZ3ABmOkAtSsYh6Unq6LrGKWNeNh9VyLkydNVv8%3D" width="100px" />
+GPT Title: YT transcriber
 
+GPT Description: this transcribes a YT video from a single id - By swyx.io
+
+GPT Logo: <img src="https://files.oaiusercontent.com/file-eOYDbOuGRNjtdBXs31SfcG1b?se=2123-10-14T04%3A47%3A26Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D2d8df13c-e3d9-4ab7-9bda-9a4fc6e13b60.png&sig=STaOJZ3ABmOkAtSsYh6Unq6LrGKWNeNh9VyLkydNVv8%3D" width="100px" />
+
+
+GPT Instructions: 
 ```markdown
 Summarize the transcript in a clear and concise manner that makes use of timestamps, when available, to help others study the transcript. Chapters should be meaningful length and not too short. Respond in the same language as the transcript if it is not english.
 

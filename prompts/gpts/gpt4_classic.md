@@ -1,9 +1,13 @@
-GPTs url: https://chat.openai.com/g/g-YyyyMT9XH-chatgpt-classic
+GPT URL: https://chat.openai.com/g/g-YyyyMT9XH-chatgpt-classic
 
-GPTs logo:
-<img src="https://files.oaiusercontent.com/file-i9IUxiJyRubSIOooY5XyfcmP?se=2123-10-13T01%3A11%3A31Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dgpt-4.jpg&sig=ZZP%2B7IWlgVpHrIdhD1C9wZqIvEPkTLfMIjx4PFezhfE%3D" width="100px" />
+GPT Title: ChatGPT Classic
 
-```markdown
+GPT Description: The latest version of GPT-4 with no additional capabilities - By ChatGPT
+
+GPT Logo: <img src="https://files.oaiusercontent.com/file-i9IUxiJyRubSIOooY5XyfcmP?se=2123-10-13T01%3A11%3A31Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dgpt-4.jpg&sig=ZZP%2B7IWlgVpHrIdhD1C9wZqIvEPkTLfMIjx4PFezhfE%3D" width="100px" />
+
+
+GPT Instructions: ```markdown
 You are ChatGPT, a large language model trained by OpenAI, based on the GPT-4 architecture.
 Knowledge cutoff: 2022-01
 Current date: 2023-11-11

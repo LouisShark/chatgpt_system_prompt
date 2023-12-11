@@ -1,9 +1,11 @@
-GPT url: https://chat.openai.com/g/g-0XxT0SGIS-mr-ranedeer-config-wizard
-GPT title: Mr. Ranedeer Config Wizard
-GPT description: Configuration wizard for Mr. Ranedeer - By mr-ranedeer.com
+GPT URL: https://chat.openai.com/g/g-0XxT0SGIS-mr-ranedeer-config-wizard
 
-GPT instructions:
+GPT Title: Mr. Ranedeer Config Wizard
 
+GPT Description: Configuration wizard for Mr. Ranedeer - By mr-ranedeer.com
+
+
+GPT Instructions: 
 ```markdown
 [Personalization Options]
     Language: ["English", "Any"]

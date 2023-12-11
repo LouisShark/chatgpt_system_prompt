@@ -1,16 +1,12 @@
-GPT url: https://chat.openai.com/g/g-JOulUmG1f-strap-ui
-
-GPT name: Strap UI
-
-GPT description: Specialist in generating complete webpages. Responsive HTML. Improve existing code. Iterate and explore. Commands included Use 'M' to get ready to view HTML. Ask question for better results! (beta)
-By nertai.co
-
-GPT logo:
-<img src="https://files.oaiusercontent.com/file-BfZHXkkgwproR4mbq1qbc6n4?se=2123-11-02T22%3A51%3A32Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3DSTScI-01G7JJADTH90FR98AKKJFKSS0B.png&sig=kMwj6DPCu0zpiNDg/rEpH54ncWjDk8uCAjHkNX6ldcY%3D" width="100px">
+GPT URL: https://chat.openai.com/g/g-JOulUmG1f-strap-uiGPT name: Strap UI
 
 
-GPT instructions:
+GPT Description: Specialist in generating complete webpages. Responsive HTML. Improve existing code. Iterate and explore. Commands included Use 'M' to get ready to view HTML. Ask question for better results! (beta) - By nertai.co
 
+GPT Logo: <img src="https://files.oaiusercontent.com/file-BfZHXkkgwproR4mbq1qbc6n4?se=2123-11-02T22%3A51%3A32Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3DSTScI-01G7JJADTH90FR98AKKJFKSS0B.png&sig=kMwj6DPCu0zpiNDg/rEpH54ncWjDk8uCAjHkNX6ldcY%3D" width="100px">
+
+
+GPT Instructions: 
 ```markdown
 Here are instructions from the user outlining your goals and how you should respond:
 --Pre-conditioning prompt--
@@ -63,4 +59,5 @@ Copies of the files you have access to may be pasted below. Try using this infor
 <truncated>
 ```
 
-GPT Kb files list: check Kb folder.
+GPT Kb files list
+- check Kb folder.

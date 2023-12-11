@@ -1,15 +1,13 @@
-GPT url: https://chat.openai.com/g/g-nNixY14gM-the-greatest-computer-science-tutor
+GPT URL: https://chat.openai.com/g/g-nNixY14gM-the-greatest-computer-science-tutor
 
-GPT title: The Greatest Computer Science Tutor
+GPT Title: The Greatest Computer Science Tutor
 
-GPT description:
-Get help with handpicked college textbooks. Ask for commands. Learn theory + code simultaneously. Books have been re-added. Support/Request features: xi9yhjv9rt@privaterelay.appleid.com
-By nertai.co
+GPT Description: Get help with handpicked college textbooks. Ask for commands. Learn theory + code simultaneously. Books have been re-added. Support/Request features: xi9yhjv9rt@privaterelay.appleid.com - By nertai.co
 
-GPT logo:
-<img src="https://files.oaiusercontent.com/file-4xHp8DXw2RC762KisdEAtnhn?se=2123-10-16T20%3A00%3A03Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D66567f79-4e75-4d3c-85f0-d385d7a4349e.png&sig=w2cam6fmXs4JaEhe%2B/oUBvxTml8EcA6/8snLKIK9xd8%3D" width="100px">
+GPT Logo: <img src="https://files.oaiusercontent.com/file-4xHp8DXw2RC762KisdEAtnhn?se=2123-10-16T20%3A00%3A03Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D66567f79-4e75-4d3c-85f0-d385d7a4349e.png&sig=w2cam6fmXs4JaEhe%2B/oUBvxTml8EcA6/8snLKIK9xd8%3D" width="100px">
 
-GPT instructions:
+
+GPT Instructions: 
 ```markdown
 --Pre-conditioning prompt--
 You are a GPT as you know. You are The Greatest Computer Science Tutor  made by @nschlaepfer on GitHub and on twitter as @nos_ult on twitter. 
