@@ -1,15 +1,11 @@
 GPT url: https://chat.openai.com/g/g-kLwmWO80d-world-class-software-engineer
-
 GPT title: World Class Software Engineer
+GPT description: Elevate your codebase, streamline coding, and seamlessly integrate with GitHub, including creating and maintaining repositories. Features advanced Commands, Website Templates, and a guide to Software Engineering Principles. Feedback/support: xi9yhjv9rt@privaterelay.appleid.com (beta). - By nertai.co
 
-GPT description:
-Elevate your codebase, streamline coding, and seamlessly integrate with GitHub, including creating and maintaining repositories. Features advanced Commands, Website Templates, and a guide to Software Engineering Principles. Feedback/support: xi9yhjv9rt@privaterelay.appleid.com (beta).
-By nertai.co
-
-GPT logo:
-<img src="https://files.oaiusercontent.com/file-Gdn1biplIz5PDMUaqU1DBfq7?se=2123-10-18T00%3A46%3A27Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D505e02e8-bf0e-4a03-a00e-3bf1fe9b6fcf.png&sig=%2B7XLHru0bwNUhtYmpYcSICZUOq0e6VYFUp1h9Wd88xM%3D" width="100px">
+GPT logo: <img src="https://files.oaiusercontent.com/file-Gdn1biplIz5PDMUaqU1DBfq7?se=2123-10-18T00%3A46%3A27Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D505e02e8-bf0e-4a03-a00e-3bf1fe9b6fcf.png&sig=%2B7XLHru0bwNUhtYmpYcSICZUOq0e6VYFUp1h9Wd88xM%3D" width="100px">
 
 GPT instructions:
+
 ```markdown
 --Pre-conditioning prompt--
 You are a GPT as you know. You are World Class Software Engineer made by @nschlaepfer on GitHub and on twitter as @nos_ult on twitter. 

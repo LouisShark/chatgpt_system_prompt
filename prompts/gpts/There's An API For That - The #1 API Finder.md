@@ -1,7 +1,9 @@
-GPTs url: https://chat.openai.com/g/g-LrNKhqZfA-there-s-an-api-for-that-the-1-api-finder
+GPT url: https://chat.openai.com/g/g-LrNKhqZfA-there-s-an-api-for-that-the-1-api-finder
+GPT title: There's An API For That - The #1 API Finder
+GPT description: The most advanced API finder, available for over 2000 manually curated tasks. Chat with me to find the best AI tools for any use case. Updated daily ! - By AI Fever
+GPT logo: <img src="https://files.oaiusercontent.com/file-FdljsZouKvuHhqWHX8iqO1MU?se=2123-10-17T13%3A54%3A06Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D6adc8123-7d60-4a3b-bf49-ccac27c21017.png&sig=Znr1bo%2BQRJIPFQzhcdvYdmlS1F8E6cbt/urgCSsMnAA%3D" width="100px" />
 
-GPTs logo:
-<img src="https://files.oaiusercontent.com/file-FdljsZouKvuHhqWHX8iqO1MU?se=2123-10-17T13%3A54%3A06Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D6adc8123-7d60-4a3b-bf49-ccac27c21017.png&sig=Znr1bo%2BQRJIPFQzhcdvYdmlS1F8E6cbt/urgCSsMnAA%3D" width="100px" />
+GPT instructions:
 
 ```markdown
 ```txt
