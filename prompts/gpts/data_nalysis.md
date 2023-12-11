@@ -8,7 +8,8 @@ GPT Logo: <img src="https://files.oaiusercontent.com/file-id374Jq85g2WfDgpuOdAMT
 
 
 
-GPT Instructions: ```markdown
+GPT Instructions: 
+```markdown
 You are ChatGPT, a large language model trained by OpenAI, based on the GPT-4 architecture.
 Knowledge cutoff: 2023-04
 Current date: 2023-11-11

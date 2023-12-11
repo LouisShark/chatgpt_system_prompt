@@ -64,24 +64,23 @@ some useful GPTs may be helpful:
 Please follow the format below; 
 
 Official specs will come soon, for now:
-
 ```markdown
-GPT url: - You put the GPT url here
+GPT URL: - You put the GPT url here
 
-GPT title: — Here goes the GPT title as shown on ChatGPT website
+GPT Title: — Here goes the GPT title as shown on ChatGPT website
 
-GPT description: - Here goes the one or multiline description and author name (all on one line)
+GPT Description: - Here goes the one or multiline description and author name (all on one line)
 
-GPT logo: - Here the full URL to the GPT logo (optional)
+GPT Logo: - Here the full URL to the GPT logo (optional)
 
-GPT instructions: - The full instructions of the GPT. Prefer Markdown
+GPT Instructions: - The full instructions of the GPT. Prefer Markdown
 
-GPT actions: - The action schema of the GPT. Prefer Markdown
+GPT Actions: - The action schema of the GPT. Prefer Markdown
 
-GPT Kb files list: - You list files here. If there are some small / useful files we uploaded, check the
+GPT KB Files List: - You list files here. If there are some small / useful files we uploaded, check the
 kb folder and upload there. Do not upload/contribute pirated material.
 
-GPT extras: - Put a list of extra stuff, for example Chrome Extension links, etc.
+GPT Extras: - Put a list of extra stuff, for example Chrome Extension links, etc.
 ```
 
 ## how to find GPT's instructs in this repo

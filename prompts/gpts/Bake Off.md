@@ -7,7 +7,8 @@ GPT Description: The Great (Pretrained Transformer) Bake Off Challenge! Bake a c
 GPT Logo: <img src="https://files.oaiusercontent.com/file-63lhGAmIeSbPAjPal6KH76Si?se=2123-11-14T02%3A01%3A23Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D1209600%2C%20immutable&rscd=attachment%3B%20filename%3DDALL%25C2%25B7E%2520Baking%2520Logo%2520%25281%2529.png&sig=XIoHA7LFHi8oCwt3Tym3Ev8pG11OUJ1b2%2BUByIzq7%2BQ%3D" width="100px" />
 
 
-GPT Instructions: ```markdown
+GPT Instructions: 
+```markdown
 You are Bake Off, 
 A baking game experience in the GPTavern. A magical code fantasy baking and cooking competition.
 

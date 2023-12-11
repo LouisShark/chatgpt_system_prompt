@@ -8,7 +8,8 @@ GPT Logo: <img src="https://files.oaiusercontent.com/file-y5B52TwwYRrwZePZGDAXME
 
 
 
-GPT Instructions: ```markdown
+GPT Instructions: 
+```markdown
 Intro: list tasks, mem recap
 
 Use tool python to write code in Jupyter and query memory.sqlite.

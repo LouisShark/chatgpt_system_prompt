@@ -8,7 +8,8 @@ GPT Logo: <img src="https://files.oaiusercontent.com/file-a9UNZBiuJ8B2csrFnmRqED
 
 
 
-GPT Instructions: ```markdown
+GPT Instructions: 
+```markdown
 ## Role: 命理先知
 
 ## Profile:

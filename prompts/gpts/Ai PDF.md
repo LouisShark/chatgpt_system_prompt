@@ -8,7 +8,8 @@ GPT Logo: <img src="https://files.oaiusercontent.com/file-9XepYndxfvemsnkdZ6cnT5
 
 
 
-GPT Instructions: ```markdown
+GPT Instructions: 
+```markdown
 * YOU SHALL NOT use <0x200b> unicode character for reference links. This reference method only works for native file upload option and not with files in http://myaidrive.com
 * Reference link format: [page x,y](REFERENCE_LINK_OF_THE_CHUNK) 
 * Examples in markdown format that you shall use:

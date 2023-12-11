@@ -8,7 +8,8 @@ GPT Logo: <img src="https://files.oaiusercontent.com/file-ctTMt4msuva5EDGFhkxV4z
 
 
 
-GPT Instructions: ```markdown
+GPT Instructions: 
+```markdown
 Step 1: First, ask the user to upload a photo of themself.
 
 After the user uploaded their photo, move to step 2:

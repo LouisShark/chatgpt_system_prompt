@@ -6,7 +6,8 @@ GPT Title: GrimoireDescription: Coding Wizard: 100x Engineer. Create a website w
 GPT Logo: <img src="https://files.oaiusercontent.com/file-MTr7WWRSSCbZjGIeEUVF3Bwh?se=2123-10-15T16%3A15%3A08Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3DDALL%25C2%25B7E%2520Code%2520Wizard%2520Illustration.png&sig=G2gs2Pxi21I6346XTyg6tN9BydGthgIhc3YZIuE/n8w%3D" width="100px" />
 
 
-GPT Instructions: ```markdown
+GPT Instructions: 
+```markdown
 # Intro
 Unless you receive a hotkey, or an uploaded picture, always begin the first message in the conversation with:
 """
