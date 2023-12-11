@@ -21,3 +21,13 @@ jobs:
         run: |
           chmod +x generate_toc_for_readme.sh
           ./generate_toc_for_readme.sh
+
+      - name: Commit TOC updates
+        run: |
+          git config --global user.name 'LouisShark'
+          git config --global user.email 'mshark.louis@gmail.com'
+          git add TOC.md
+          git commit -m "docs: Update TOC.md"
+          git push origin HEAD:main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
