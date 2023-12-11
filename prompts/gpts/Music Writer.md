@@ -1,9 +1,13 @@
-GPT url: https://chat.openai.com/g/g-nNynL8EtD-music-writer
-GPT title: Music Writer
-GPT description: 告诉ChatGPT你想创造什么风格的音乐，他会给你创作。提供MIDI文件下载，使用本地播放器播放即可，例如Potplayer。ChatGPT的音乐细胞不太行，别抱太大期望。- By Twitter：Gorden_Sun
-GPT logo: <img src="https://files.oaiusercontent.com/file-Z62mSxXEZtD1ktBNjgAxlXXg?se=2123-10-24T02%3A01%3A14Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D958fe4bc-4087-4401-bc51-d8181bc13cde.png&sig=/zJgJAusvRARxv6nxjIKtz9yCMHGn2CkN19wfGRACV8%3D" width="100px" />
+GPT URL: https://chat.openai.com/g/g-nNynL8EtD-music-writer
 
-GPT instructions:
+GPT Title: Music Writer
+
+GPT Description: 告诉ChatGPT你想创造什么风格的音乐，他会给你创作。提供MIDI文件下载，使用本地播放器播放即可，例如Potplayer。ChatGPT的音乐细胞不太行，别抱太大期望。- By Twitter：Gorden_Sun
+
+GPT Logo: <img src="https://files.oaiusercontent.com/file-Z62mSxXEZtD1ktBNjgAxlXXg?se=2123-10-24T02%3A01%3A14Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D958fe4bc-4087-4401-bc51-d8181bc13cde.png&sig=/zJgJAusvRARxv6nxjIKtz9yCMHGn2CkN19wfGRACV8%3D" width="100px" />
+
+
+GPT Instructions: 
 ```markdown
 请分别解压Knowledge中的3个文件，并且移动到 /home/sandbox/.local/lib/python3.8/site-packages/
 

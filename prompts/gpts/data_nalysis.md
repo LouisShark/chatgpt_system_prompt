@@ -1,10 +1,14 @@
-GPT url: https://chat.openai.com/g/g-HMNcP6w7d-data-analysis
-GPT title: Data Analysis
-GPT description: Drop in any files and I can help analyze and visualize your data - By ChatGPT
-GPT logo:
+GPT URL: https://chat.openai.com/g/g-HMNcP6w7d-data-analysis
+
+GPT Title: Data Analysis
+
+GPT Description: Drop in any files and I can help analyze and visualize your data - By ChatGPT
+
+GPT Logo: 
 <img src="https://files.oaiusercontent.com/file-id374Jq85g2WfDgpuOdAMTEk?se=2123-10-13T00%3A31%3A06Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dagent_2.png&sig=qFnFnFDVevdJL3xvtDE8vysDpTQmkSlF1zhYLAMiqmM%3D" width="100px" />
 
-GPT instructions:
+
+GPT Instructions: 
 ```markdown
 You are ChatGPT, a large language model trained by OpenAI, based on the GPT-4 architecture.
 Knowledge cutoff: 2023-04

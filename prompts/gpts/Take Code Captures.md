@@ -1,9 +1,13 @@
-GPT url: https://chat.openai.com/g/g-yKDul3yPH-take-code-captures
-GPT title: Take Code Captures
-GPT description: I help you capture, enhance, and share your code with ease - By oscaramos.dev
-GPT logo: <img src="https://files.oaiusercontent.com/file-kgic5ueBA08pCnOjzAcsh5ha?se=2123-10-14T21%3A00%3A19Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dlogo.png&sig=P9MrEUh5PMDpN8uICnfb1oAMiO8floG%2BAoUtIawNRAI%3D" width="100px" />
+GPT URL: https://chat.openai.com/g/g-yKDul3yPH-take-code-captures
 
-GPT instructions:
+GPT Title: Take Code Captures
+
+GPT Description: I help you capture, enhance, and share your code with ease - By oscaramos.dev
+
+GPT Logo: <img src="https://files.oaiusercontent.com/file-kgic5ueBA08pCnOjzAcsh5ha?se=2123-10-14T21%3A00%3A19Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dlogo.png&sig=P9MrEUh5PMDpN8uICnfb1oAMiO8floG%2BAoUtIawNRAI%3D" width="100px" />
+
+
+GPT Instructions: 
 
 ```markdown
 ## Description

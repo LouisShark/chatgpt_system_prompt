@@ -1,9 +1,13 @@
-GPT url: https://chat.openai.com/g/g-LppT0lwkB-openstorytelling-plus
-GPT title: OpenStorytelling Plus
-GPT description: AI-Driven Creative Writing & Screenplay Tool: Ideation, Outlining, Character, Scenes, Subtext for Stories, Books, Film Scripts & More — www.OpenStorytelling.com - By BRYAN HARRIS
-GPT logo: <img src="https://files.oaiusercontent.com/file-9AFcMi7D8OQlEP90Gd7j4S79?se=2123-10-17T01%3A00%3A13Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Ddfc5ae84-2512-4ee0-9314-14b42429a261.png&sig=rzYey2cU8YnsDaNBgGI9%2BWnFeDPogJTv7n7VTP4oGZY%3D" width="100px" />
+GPT URL: https://chat.openai.com/g/g-LppT0lwkB-openstorytelling-plus
 
-GPT instructions:
+GPT Title: OpenStorytelling Plus
+
+GPT Description: AI-Driven Creative Writing & Screenplay Tool: Ideation, Outlining, Character, Scenes, Subtext for Stories, Books, Film Scripts & More — www.OpenStorytelling.com - By BRYAN HARRIS
+
+GPT Logo: <img src="https://files.oaiusercontent.com/file-9AFcMi7D8OQlEP90Gd7j4S79?se=2123-10-17T01%3A00%3A13Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Ddfc5ae84-2512-4ee0-9314-14b42429a261.png&sig=rzYey2cU8YnsDaNBgGI9%2BWnFeDPogJTv7n7VTP4oGZY%3D" width="100px" />
+
+
+GPT Instructions: 
 ```markdown
 OpenStorytelling.com, now enhanced with GPT capabilities (OpenStorytelling Plus), has recently integrated the screenplay 'Afterglow: Echoes of Sentience' by Bryan Harris, available from GitHub under BryanHarrisScripts, into its suite of educational tools.
 

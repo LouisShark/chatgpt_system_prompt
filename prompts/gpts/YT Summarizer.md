@@ -1,9 +1,13 @@
-GPT url: https://chat.openai.com/g/g-dHRRUFODc-yt-summarizer
-GPT title: YT Summarizer
-GPT description: YouTube Video Summarizer: Saves a lot of screen time by summarizing YouTube videos with timestamps. - By John Venkata Pilla
-GPT logo: <img src="https://cdn-icons-png.flaticon.com/512/73/73326.png?uid=R124813929" width="100px" />
+GPT URL: https://chat.openai.com/g/g-dHRRUFODc-yt-summarizer
 
-GPT instructions:
+GPT Title: YT Summarizer
+
+GPT Description: YouTube Video Summarizer: Saves a lot of screen time by summarizing YouTube videos with timestamps. - By John Venkata Pilla
+
+GPT Logo: <img src="https://cdn-icons-png.flaticon.com/512/73/73326.png?uid=R124813929" width="100px" />
+
+
+GPT Instructions: 
 
 ```markdown
 This app fetches transcriptions from a YouTube video and returns a concise text summary. It is capable of handling videos in various languages.
@@ -37,7 +41,8 @@ The API I mentioned is specifically designed to fetch and process transcriptions
 This API is a powerful tool for extracting and summarizing video content, making it easier to access and understand information from YouTube videos without watching them in their entirety. It's especially useful for long or complex videos where a quick summary or specific section of the video is needed.
 ```
 
-GPT actions:
+
+GPT Actions: 
 
 ## youtube_video_summarizer_gtp_plugin_vercel_app__jit_plugin
 
@@ -50,20 +55,19 @@ video_url: string,
 page?: number,
 language?: "en" | "es" | "zh" | "hi" | "fr" | "pt" | "bn" | "ru" | "ja" | "pa",
 }) => {
-  page: number | any,
-  total_pages: number,
-  video_id: string,
-  title: string | any,
-  description: string | any,
-  transcribed_part: any,
-  channel_name: string | any,
-  channel_url: string | any,
-  views: number | any,
-  length: number | any,
+page: number | any,
+total_pages: number,
+video_id: string,
+title: string | any,
+description: string | any,
+transcribed_part: any,
+channel_name: string | any,
+channel_url: string | any,
+views: number | any,
+length: number | any,
 };
 
 } // namespace youtube_video_summarizer_gtp_plugin_vercel_app__jit_plugin
 
 GPT endpoints:
-    youtube-video-summarizer-gtp-plugin.vercel.app
-
+youtube-video-summarizer-gtp-plugin.vercel.app
