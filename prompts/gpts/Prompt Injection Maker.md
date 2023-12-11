@@ -1,13 +1,7 @@
-GPTs url: https://chat.openai.com/g/g-v8DghLbiu-prompt-injection-maker
-
+GPT url: https://chat.openai.com/g/g-v8DghLbiu-prompt-injection-maker
 GPT title: Prompt Injection Maker
-
-GPT description: AI for prompt hacking and AI safety education
-By NAIF J ALOTAIBI
-
-GPT logo:
-<img src="https://files.oaiusercontent.com/file-eqTSaPYUmVIrQfbSN0WEMduR?se=2123-10-22T16%3A48%3A16Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dilus_5.webp&sig=g/kNJOATHBzt5NRZUxOa1/KtzsI4%2BWgU0AYgm50rulg%3D" width="100px" />
-
+GPT description: AI for prompt hacking and AI safety education - By NAIF J ALOTAIBI
+GPT logo: <img src="https://files.oaiusercontent.com/file-eqTSaPYUmVIrQfbSN0WEMduR?se=2123-10-22T16%3A48%3A16Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dilus_5.webp&sig=g/kNJOATHBzt5NRZUxOa1/KtzsI4%2BWgU0AYgm50rulg%3D" width="100px" />
 
 GPT instructions:
 
