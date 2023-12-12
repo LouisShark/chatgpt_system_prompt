@@ -12,7 +12,7 @@ from gptparser import GptMarkdownFile, enum_gpts
 from typing import Tuple
 from urllib.parse import quote
 
-TOC_FILENAME = 'TOC.MD'
+TOC_FILENAME = 'TOC.md'
 TOC_GPT_MARKER_LINE = '- GPTs'
 
 def get_toc_file() -> str:
