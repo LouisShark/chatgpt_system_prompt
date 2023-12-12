@@ -1,5 +1,6 @@
 GPT URL: https://chat.openai.com/g/g-JOulUmG1f-strap-uiGPT name: Strap UI
 
+GPT Title: Strap UI
 
 GPT Description: Specialist in generating complete webpages. Responsive HTML. Improve existing code. Iterate and explore. Commands included Use 'M' to get ready to view HTML. Ask question for better results! (beta) - By nertai.co
 
