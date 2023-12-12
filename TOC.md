@@ -1,7 +1,5 @@
-  - [README](./README.md)
-  - [TOC](./TOC.md)
-- prompts
-    - [gpt-4-gizmo-20231116](./prompts/gpt-4-gizmo-20231116.md)
+- Prompts
+  - [gpt-4-gizmo-20231116](./prompts/gpt-4-gizmo-20231116.md)
   - [gpt35](./prompts/gpt35.md)
   - [gpt4_advanced_data_analysis_20231018](./prompts/gpt4_advanced_data_analysis_20231018.md)
   - [gpt4_dalle_browsing_analysis_20231110](./prompts/gpt4_dalle_browsing_analysis_20231110.md)
@@ -12,8 +10,16 @@
   - [gpt_all_tools](./prompts/gpt_all_tools.md)
   - [gpt_dalle](./prompts/gpt_dalle.md)
   - [gpt_voice](./prompts/gpt_voice.md)
-- gpts
-    - [! Breakdown_ Outline Any Topic](./prompts/gpts/!%20Breakdown_%20Outline%20Any%20Topic.md)
+
+- Opensource GPTs
+  - [RestGPT](./prompts/opensource-prj/RestGPT.md)
+  - [netwrck](./prompts/opensource-prj/netwrck.md)
+  - [screenshot-to-code](./prompts/opensource-prj/screenshot-to-code.md)
+  - [self-operating-computer](./prompts/opensource-prj/self-operating-computer.md)
+  - [tldraw](./prompts/opensource-prj/tldraw.md)
+
+- GPTs
+  - [! Breakdown_ Outline Any Topic](./prompts/gpts/!%20Breakdown_%20Outline%20Any%20Topic.md)
   - [! History of X](./prompts/gpts/!%20History%20of%20X.md)
   - [! Mind Hack](./prompts/gpts/!%20Mind%20Hack.md)
   - [! Negative Nancy](./prompts/gpts/!%20Negative%20Nancy.md)
@@ -228,9 +234,3 @@
   - [非虚构作品的阅读高手](./prompts/gpts/非虚构作品的阅读高手.md)
   - [骂醒恋爱脑](./prompts/gpts/骂醒恋爱脑.md)
   - [🎀My excellent classmates (Help with my homework!)](./prompts/gpts/🎀My%20excellent%20classmates%20(Help%20with%20my%20homework!).md)
-- opensource-prj
-    - [RestGPT](./prompts/opensource-prj/RestGPT.md)
-  - [netwrck](./prompts/opensource-prj/netwrck.md)
-  - [screenshot-to-code](./prompts/opensource-prj/screenshot-to-code.md)
-  - [self-operating-computer](./prompts/opensource-prj/self-operating-computer.md)
-  - [tldraw](./prompts/opensource-prj/tldraw.md)
