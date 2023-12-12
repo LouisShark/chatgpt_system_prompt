@@ -1,0 +1,37 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "idxtool.py -- Update Logo",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/.scripts/idxtool.py",
+            "args": ["--update-logo", "logo.png"],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "idxtool.py -- Rebuild TOC",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/.scripts/idxtool.py",
+            "args": ["--toc"],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "idxtool.py -- Find GPT File",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/.scripts/idxtool.py",
+            "args": ["--find-gptfile", "GPT3"],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "idxtool.py -- Help",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/.scripts/idxtool.py",
+            "args": ["--help"],
+            "console": "integratedTerminal"
+        }
+    ]
+}
