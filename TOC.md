@@ -11,7 +11,6 @@
   - [gpt_dalle](./prompts/gpt_dalle.md)
   - [gpt_voice](./prompts/gpt_voice.md)
 
-
 - Opensource GPTs
   - [RestGPT](./prompts/opensource-prj/RestGPT.md)
   - [netwrck](./prompts/opensource-prj/netwrck.md)
