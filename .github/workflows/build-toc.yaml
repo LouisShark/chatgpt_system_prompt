@@ -21,8 +21,8 @@ jobs:
 
       - name: Run TOC generation script
         run: |
-          chmod +x .script/idxtool.sh
-          python3 .script/idxtool.sh --toc
+          chmod +x .script/idxtool.py
+          python3 .script/idxtool.py --toc
 
       - name: Commit TOC updates
         run: |
