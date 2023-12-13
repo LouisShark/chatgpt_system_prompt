@@ -19,15 +19,15 @@ GptIdentifier = namedtuple('GptIdentifier', ['id', 'name'])
 
 # Description of the fields supported by GPT markdown files.
 SUPPORTED_FIELDS = {
-    'url':              GptFieldInfo(0, 'URL'),
-    'title':            GptFieldInfo(1, 'Title'),
-    'description':      GptFieldInfo(2, 'Description'),
-    'logo':             GptFieldInfo(3, 'Logo'),
-    'instructions':     GptFieldInfo(4, 'Instructions'),
-    'actions':          GptFieldInfo(5, 'Actions'),
-    'verif_status':     GptFieldInfo(6, 'Verification Status'),
-    'kb_files_list':    GptFieldInfo(6, 'KB Files List'),
-    'extras':           GptFieldInfo(7, 'Extras')
+    'url':              GptFieldInfo(10, 'URL'),
+    'title':            GptFieldInfo(20, 'Title'),
+    'description':      GptFieldInfo(30, 'Description'),
+    'logo':             GptFieldInfo(40, 'Logo'),
+    'verif_status':     GptFieldInfo(50, 'Verification Status'),
+    'instructions':     GptFieldInfo(60, 'Instructions'),
+    'actions':          GptFieldInfo(70, 'Actions'),
+    'kb_files_list':    GptFieldInfo(80, 'KB Files List'),
+    'extras':           GptFieldInfo(90, 'Extras')
 }
 """
 Dictionary of the fields supported by GPT markdown files:
