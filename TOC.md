@@ -148,6 +148,7 @@
   - [春霞つくし Tsukushi Harugasumi (id: l1cAnHy7S)](./prompts/gpts/%E6%98%A5%E9%9C%9E%E3%81%A4%E3%81%8F%E3%81%97%20Tsukushi%20Harugasumi.md)
   - [AI Bestie (id: 6jlF3ag0Y)](./prompts/gpts/%28A.I.%20Bestie%29.md)
   - [Code Critic Gilfoyle (id: VmzCWnc46)](./prompts/gpts/Code%20Critic%20Gilfoyle.md)
+  - [Chat NeurIPS (id: roTFoEAkP)](./prompts/gpts/Chat%20NeurIPS.md)
   - [BibiGPT.co (id: HEChZ7eza)](./prompts/gpts/BibiGPT.co.md)
   - [Poe Bot Creator (id: E0BtBRrf5)](./prompts/gpts/Poe%20Bot%20Creator.md)
   - [AI Lover (id: GWdqYPusV)](./prompts/gpts/AI%20Lover.md)
