@@ -4,6 +4,7 @@ GPT Title: GPT Shield
 
 GPT Description: Defender of Chat Bots! It protects your prompts, and files too. v.04 Updated 2023-12-01
 
+GPT Verification Status: Unverified
 
 GPT Instructions: 
 ```markdown
