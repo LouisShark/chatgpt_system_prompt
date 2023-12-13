@@ -25,6 +25,7 @@ SUPPORTED_FIELDS = {
     'logo':             GptFieldInfo(3, 'Logo'),
     'instructions':     GptFieldInfo(4, 'Instructions'),
     'actions':          GptFieldInfo(5, 'Actions'),
+    'verif_status':     GptFieldInfo(6, 'Verification Status'),
     'kb_files_list':    GptFieldInfo(6, 'KB Files List'),
     'extras':           GptFieldInfo(7, 'Extras')
 }
