@@ -113,6 +113,7 @@
   - [Pic-book Artist (id: wJVjE9bQs)](./prompts/gpts/Pic-book%20Artist.md)
   - [Grimoire 1.16.3 (id: n7Rs0IK86)](./prompts/gpts/Grimoire%5B1.16.3%5D.md)
   - [Email Proofreader (id: ebowB1582)](./prompts/gpts/Email%20Proofreader.md)
+  - [未来問 (id: iL2R6mcaP)](./prompts/gpts/%E6%9C%AA%E6%9D%A5%E5%95%8F.md)
   - [ALL IN GPT (id: G9xpNjjMi)](./prompts/gpts/ALL%20IN%20GPT.md)
   - [MidJourney Prompt Generator (id: MUJ3zHjvn)](./prompts/gpts/MidJourney%20Prompt%20Generator.md)
   - [20K Vocab builder (id: jrW2FRbTX)](./prompts/gpts/20K%20Vocab%20builder.md)
