@@ -147,7 +147,7 @@ def rebuild_toc(toc_out: str = '') -> Tuple[bool, str]:
             version = f" {gpt.get('version')}" if gpt.get('version') else ''
             out.append(f"  - [{gpt.get('title')}{version} (id: {id.id})]({file_link})\n")
         else:
-            print(f"[!] {gpt}")
+            print(f"[!] {gpt.filename}")
 
     ofile.writelines(out)
     ofile.close()
