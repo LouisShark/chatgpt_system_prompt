@@ -1,15 +1,16 @@
 name: Generate TOC on PR Merge
 
 on:
-  pull_request:
-    types: [closed]
+  pull_request_target:
+    types:
+      - closed
     branches:
       - main
 
 jobs:
-  run-script:
-    runs-on: ubuntu-latest
+  if_merged:
     if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
