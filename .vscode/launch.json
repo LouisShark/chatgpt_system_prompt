@@ -30,7 +30,7 @@
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/.scripts/idxtool.py",
-            "args": ["--rename", "*"],
+            "args": ["--rename"],
             "console": "integratedTerminal"
         }
     ]
