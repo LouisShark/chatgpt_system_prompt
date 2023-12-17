@@ -9,7 +9,7 @@ on:
 jobs:
   run-script:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true && github.base_ref == 'main'
+    if: github.event.pull_request.merged == true
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
