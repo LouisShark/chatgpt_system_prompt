@@ -115,6 +115,8 @@
   - [Grimoire 1.16.6 (id: n7Rs0IK86)](./prompts/gpts/Grimoire%5B1.16.6%5D.md)
   - [BabyAgi.txt (id: lzbeEOr9Y)](./prompts/gpts/BabyAgi_txt.md)
   - [ChatGPT Classic (id: YyyyMT9XH)](./prompts/gpts/gpt4_classic.md)
+  - [Siren (id: MBkOkD76H)](./prompts/gpts/Siren.md)
+  - [Succubus (id: 3rtbLUIUO)](./prompts/gpts/Succubus.md)
   - [Simpsonize Me (id: tcmMldCYy)](./prompts/gpts/Simpsonize%20Me.md)
   - [Secret Code Guardian (id: bn1w7q8hm)](./prompts/gpts/Secret%20Code%20Guardian.md)
   - [Hot Mods (id: fTA4FQ7wj)](./prompts/gpts/hot_mods.md)
