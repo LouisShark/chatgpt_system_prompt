@@ -32,12 +32,35 @@ def update_description(filename):
         print(f"TODO Updating description with file: {filename}")
     raise NotImplementedError
 
-def rename_gpt(filename):
-    if filename == '*':
-        print("TODO: Renaming all GPT files to include their ID")
-    else:
-        print(f"TODO: Renaming GPT file to include its ID: {filename}")
-    raise NotImplementedError
+def rename_gpt():
+    nb_ok = nb_total = 0
+    all_renamed_already = True
+
+    for ok, gpt in enum_gpts():
+        nb_total += 1
+        if not ok or not (id := gpt.id()):
+            print(f"[!] {gpt.filename}")
+            continue
+        # Skip files with correct prefix
+        basename = os.path.basename(gpt.filename)
+        if basename.startswith(f"{id.id}_"):
+            nb_ok += 1
+            continue
+        all_renamed_already = False
+
+        # New full file name with ID prefix
+        new_fn = os.path.join(os.path.dirname(gpt.filename), f"{id.id}_{basename}")
+        print(f"[+] {basename} -> {os.path.basename(new_fn)}")
+        if os.system(f"git mv \"{gpt.filename}\" \"{new_fn}\"") == 0:
+            nb_ok += 1
+    
+    msg = f"Renamed {nb_ok} out of {nb_total} GPT files."
+    ok = nb_ok == nb_total
+    if all_renamed_already:
+        msg = f"All {nb_total} GPT files were already renamed. No action taken."
+        print(msg)
+
+    return (ok, msg)
 
 
 def reformat_gpt_files(src_path: str, dst_path: str) -> Tuple[bool, str]:
@@ -177,7 +200,7 @@ def main():
     parser.add_argument('--find-gptfile', type=str, help='Find a GPT by its ID or name')
     parser.add_argument('--find-gpttoc', type=str, help='Searches the TOC.md file for the given gptid or free style string')
     parser.add_argument('--parse-gptfile', type=str, help='Parses a GPT file name')
-    parser.add_argument('--rename', type=str, help='Rename the file name to include its GPT ID')
+    parser.add_argument('--rename', action='store_true', help='Rename the GPT file names to include their GPT ID')
 
     # Handle arguments
     ok = True
@@ -200,7 +223,9 @@ def main():
     if args.find_gpttoc:
         find_gpt_in_toc(args.find_gpttoc)
     if args.rename:
-        rename_gpt(args.rename)
+        ok, err = rename_gpt()
+        if not ok:
+            print(err)
 
     sys.exit(0 if ok else 1)
 

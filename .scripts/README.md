@@ -26,7 +26,7 @@ options:
                         style string
   --parse-gptfile PARSE_GPTFILE
                         Parses a GPT file name
-  --rename RENAME       Rename the file name to include its GPT ID
+  --rename              Rename all the GPT file names to include their GPT ID
 ```
 
 ## Features
@@ -36,7 +36,7 @@ options:
 - Update Descriptions: Use `--update-description [filename]` to update the descriptions of the GPT file.
 - Find GPT File: Use `--find-gptfile [gptid or gpt name in quotes]` to find a GPT by its ID or name.
 - Find GPT in TOC: Use `--find-gpttoc [gptid or string]` to search the TOC.md file for a given gptid or free style string.
-- Rename GPT: Use `--rename [filename]` to rename the file name to include its GPT ID.
+- Rename GPT: Use `--rename` to rename all the GPTs to include their GPTID as prefix.
 - Help: Use `--help` to display the help message and usage instructions.
 
 ## Usage
