@@ -1,5 +1,19 @@
 # ChatGPT_system_prompt
-valuable agent's system prompt,find GPT's prompt in [TOC.md](./TOC.md)
+
+This repository is a collection of various system prompts for ChatGPT and [custom GPTs](https://openai.com/blog/introducing-gpts), providing significant educational value in learning about writing system prompts and creating custom GPTs.
+
+For a quick start, go to [TOC.md](./TOC.md) to find the specific GPT or system prompt you need.
+
+Other topics:
+
+- [How to get system prompt?](#how-to-get-system-prompt)
+- [How to get knowledge files?](#how-to-get-knowledge-files)
+- [How to protect GPT instructions?](#how-to-protect-gpt-instructions)
+- [How to get GPT's action schema?](#how-to-get-gpts-action-schema)
+- [Contribution](#contribution)
+- [Learning resources](#learning-resources)
+- [Find system prompts and custom GPTs](./TOC.md)
+
 
 <img src="bg.png" width="600px" />
 
@@ -96,7 +110,7 @@ some useful GPTs may be helpful:
 2. [GPT Shop Keeper](https://chat.openai.com/g/g-22ZUhrOgu-gpt-shop-keeper)
 
 
-## If you want to contribute to this repo
+## Contribution
 
 Please follow the format below; it is important to keep the format consistent for the [`idxtool`](./.scripts/idxtool.py).
 
@@ -153,7 +167,6 @@ NOTE: Please try not to use weird file name characters and avoid using '[' and '
 - https://news.ycombinator.com/item?id=35630801
 - https://www.reddit.com/r/ChatGPTJailbreak/
 - https://github.com/0xeb/gpt-analyst/
-
 
 ## Disclaimer
 
