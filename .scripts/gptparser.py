@@ -65,16 +65,8 @@ class GptMarkdownFile:
         Return the GPT identifier.
         :return: GptIdentifier object.
         """
-        url = self.fields.get('url')
-        if url and url.startswith(GPT_BASE_URL):
-            id = url[GPT_BASE_URL_L:].split('\n')[0]
-            i = id.find('-')
-            if i != -1:
-                return GptIdentifier(id[:i], id[i+1:].strip())
-            else:
-                return GptIdentifier(id, '')
-        return None
-
+        return parse_gpturl(self.fields.get('url'))
+            
     def __str__(self) -> str:
         sorted_fields = sorted(self.fields.items(), key=lambda x: SUPPORTED_FIELDS[x[0]].order)
         # Check if the field value contains the start marker of the markdown block and add a blank line before it
@@ -128,6 +120,15 @@ class GptMarkdownFile:
             return (True, None)
         except Exception as e:
             return (False, f"Failed to save file '{file_path}': {e}")
+
+def parse_gpturl(url: str) -> Union[GptIdentifier, None]:
+    if url and url.startswith(GPT_BASE_URL):
+        id = url[GPT_BASE_URL_L:].split('\n')[0]
+        i = id.find('-')
+        if i != -1:
+            return GptIdentifier(id[:i], id[i+1:])
+        else:
+            return GptIdentifier(id, '')
 
 
 def get_prompts_path() -> str:
