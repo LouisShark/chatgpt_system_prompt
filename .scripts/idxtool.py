@@ -8,7 +8,7 @@ idxtool is a script is used to perform various GPT indexing and searching tasks
 """
 
 import sys, os, argparse
-from gptparser import GptMarkdownFile, enum_gpts
+from gptparser import GptMarkdownFile, enum_gpts, parse_gpturl
 from typing import Tuple
 from urllib.parse import quote
 
@@ -32,7 +32,7 @@ def update_description(filename):
         print(f"TODO Updating description with file: {filename}")
     raise NotImplementedError
 
-def rename_gpt():
+def rename_gpts():
     nb_ok = nb_total = 0
     all_renamed_already = True
 
@@ -60,51 +60,6 @@ def rename_gpt():
         msg = f"All {nb_total} GPT files were already renamed. No action taken."
         print(msg)
 
-    return (ok, msg)
-
-
-def reformat_gpt_files(src_path: str, dst_path: str) -> Tuple[bool, str]:
-    """
-    Reformat all the GPT files in the source path and save them to the destination path.
-    :param src_path: str, path to the source directory.
-    :param dst_path: str, path to the destination directory.
-    """
-    if not os.path.exists(src_path):
-        return (False, f"Source path '{src_path}' does not exist.")
-
-    if not os.path.exists(dst_path):
-        os.makedirs(dst_path)
-
-    print(f"Reformatting GPT files in '{src_path}' and saving them to '{dst_path}'...")
-
-    nb_ok = nb_total = 0
-    for src_file_path in os.listdir(src_path):
-        _, ext = os.path.splitext(src_file_path)
-        if ext != '.md':
-            continue
-        nb_total += 1
-        dst_file_path = os.path.join(dst_path, src_file_path)
-        src_file_path = os.path.join(src_path, src_file_path)
-        ok, gpt = GptMarkdownFile.parse(src_file_path)
-        if ok:
-            ok, msg = gpt.save(dst_file_path)
-            if ok:
-                id = gpt.id()
-                if id:
-                    info = f"; id={id.id}"
-                    if id.name:
-                        info += f", name='{id.name}'"
-                else:
-                    info = ''
-                print(f"[+] saved '{os.path.basename(src_file_path)}'{info}")
-                nb_ok += 1
-            else:
-                print(f"[!] failed to save '{src_file_path}': {msg}")
-        else:
-            print(f"[!] failed to parse '{src_file_path}': {gpt}")
-
-    msg = f"Reformatted {nb_ok} out of {nb_total} GPT files."
-    ok = nb_ok == nb_total
     return (ok, msg)
 
 
@@ -181,14 +136,19 @@ def rebuild_toc(toc_out: str = '') -> Tuple[bool, str]:
         print(msg)
     return (ok, msg)
     
-
-def find_gptfile(keyword):
-    print(f"TODO: Finding GPT file with ID or name: {keyword}")
-    raise NotImplementedError
-
-
 def find_gpt_in_toc(gptid_or_string):
     print(f"TODO: Searching TOC.md for GPT ID or string: {gptid_or_string}")
+    raise NotImplementedError
+
+def find_gptfile(keyword):
+    keyword = keyword.strip().tolower()
+    # Response file with a set of GPT IDs
+    if keyword.startswith('@'):
+        print(f"TODO: Finding GPT file with ID: {keyword}")
+    if gpt_info := parse_gpturl(keyword):
+        keyword = gpt_info.id
+
+    print(f"TODO: Finding GPT with ID: {keyword}")
     raise NotImplementedError
 
 def main():
@@ -223,7 +183,7 @@ def main():
     if args.find_gpttoc:
         find_gpt_in_toc(args.find_gpttoc)
     if args.rename:
-        ok, err = rename_gpt()
+        ok, err = rename_gpts()
         if not ok:
             print(err)
 

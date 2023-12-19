@@ -8,6 +8,8 @@ import os, re
 from collections import namedtuple
 from typing import Union, Tuple, Generator
 
+compiled_pattern = re.compile(r'^([0-9a-z]{9})_([^\.]+)\.md$', re.IGNORECASE)
+
 GPT_BASE_URL = 'https://chat.openai.com/g/g-'
 GPT_BASE_URL_L = len(GPT_BASE_URL)
 FIELD_PREFIX = 'GPT'
@@ -15,9 +17,10 @@ FIELD_PREFIX = 'GPT'
 GPT_FILE_VERSION_RE = re.compile(r'\[([^]]*)\]\.md$', re.IGNORECASE)
 
 GptFieldInfo = namedtuple('FieldInfo', ['order', 'display'])
-GptIdentifier = namedtuple('GptIdentifier', ['id', 'name'])
 
-# Description of the fields supported by GPT markdown files.
+GptIdentifier = namedtuple('GptIdentifier', ['id', 'name'])
+"""Description of the fields supported by GPT markdown files."""
+
 SUPPORTED_FIELDS = {
     'url':              GptFieldInfo(10, 'URL'),
     'title':            GptFieldInfo(20, 'Title'),
@@ -132,7 +135,7 @@ def get_prompts_path() -> str:
     return os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'prompts', 'gpts'))
 
 def enum_gpts() -> Generator[Tuple[bool, Union[GptMarkdownFile, str]], None, None]:
-    """Enumerate all the GPT files in the prompts directory."""
+    """Enumerate all the GPT files in the prompts directory, parse them and return the parsed GPT object."""
     prompts_path = get_prompts_path()
     for file_path in os.listdir(prompts_path):
         _, ext = os.path.splitext(file_path)
@@ -144,3 +147,20 @@ def enum_gpts() -> Generator[Tuple[bool, Union[GptMarkdownFile, str]], None, Non
             yield (True, gpt)
         else:
             yield (False, f"Failed to parse '{file_path}': {gpt}")
+
+def enum_gpt_files() -> Generator[str, None, None]:
+    """
+    Enumerate all the GPT files in the prompts directory while relying on the files naming convention.
+    To normalize all the GPT file names, run the `idxtool.py --rename`
+    """
+    pattern = r'[a-z]{9}_[a-z]+\.[a-z]+'
+
+    prompts_path = get_prompts_path()
+    for file_path in os.listdir(prompts_path):
+        _, ext = os.path.splitext(file_path)
+        if ext != '.md':
+            continue
+        file_path = os.path.join(prompts_path, file_path)
+        yield file_path
+
+
