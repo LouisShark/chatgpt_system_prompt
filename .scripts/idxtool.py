@@ -116,7 +116,12 @@ def rebuild_toc(toc_out: str = '') -> Tuple[bool, str]:
             print(f"[!] {gpt}")
 
     # Consistently sort the GPTs by ID and GPTs title
-    gpts.sort(key=lambda x: (x[0].id, x[1].get('title')))
+    def gpts_sorter(key):
+        gpt_id, gpt = key
+        version = f"{gpt.get('version')}" if gpt.get('version') else ''
+        return f"{gpt.get('title')}{version} (id: {gpt_id.id}))"
+    gpts.sort(key=gpts_sorter)
+
     for id, gpt in gpts:
         file_link = f"./prompts/gpts/{quote(os.path.basename(gpt.filename))}"
         version = f" {gpt.get('version')}" if gpt.get('version') else ''
