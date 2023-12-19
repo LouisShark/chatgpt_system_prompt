@@ -6,15 +6,17 @@ The GPT markdown files have to adhere to a very specific format described in the
 
 import os, re
 from collections import namedtuple
-from typing import Union, Tuple, Generator
+from typing import Union, Tuple, Generator, Iterator
 
-compiled_pattern = re.compile(r'^([0-9a-z]{9})_([^\.]+)\.md$', re.IGNORECASE)
 
 GPT_BASE_URL = 'https://chat.openai.com/g/g-'
 GPT_BASE_URL_L = len(GPT_BASE_URL)
 FIELD_PREFIX = 'GPT'
 
+GPT_FILE_ID_RE = re.compile(r'^([0-9a-z]{9})_(.*)\.md$', re.IGNORECASE)
+"""GPT file name regex with ID and name capture."""
 GPT_FILE_VERSION_RE = re.compile(r'\[([^]]*)\]\.md$', re.IGNORECASE)
+"""GPT file name regex with version capture."""
 
 GptFieldInfo = namedtuple('FieldInfo', ['order', 'display'])
 
@@ -149,19 +151,15 @@ def enum_gpts() -> Generator[Tuple[bool, Union[GptMarkdownFile, str]], None, Non
         else:
             yield (False, f"Failed to parse '{file_path}': {gpt}")
 
-def enum_gpt_files() -> Generator[str, None, None]:
+def enum_gpt_files() -> Iterator[Tuple[str, str]]:
     """
     Enumerate all the GPT files in the prompts directory while relying on the files naming convention.
     To normalize all the GPT file names, run the `idxtool.py --rename`
     """
-    pattern = r'[a-z]{9}_[a-z]+\.[a-z]+'
-
     prompts_path = get_prompts_path()
     for file_path in os.listdir(prompts_path):
-        _, ext = os.path.splitext(file_path)
-        if ext != '.md':
+        m = GPT_FILE_ID_RE.match(file_path)
+        if not m:
             continue
         file_path = os.path.join(prompts_path, file_path)
-        yield file_path
-
-
+        yield (m.group(1), file_path)

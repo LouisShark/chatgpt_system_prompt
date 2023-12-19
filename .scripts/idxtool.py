@@ -1,14 +1,14 @@
 """
 idxtool is a script is used to perform various GPT indexing and searching tasks
 
-- Reformat all the GPT files in the source path and save them to the destination path.
+- Find a GPT file by its ID or full ChatGPT URL or via a file containing a list of GPT IDs.
 - Rename all the GPTs to include their ChatGPT/g/ID in the filename.
 - Generate TOC
 - etc.
 """
 
 import sys, os, argparse
-from gptparser import GptMarkdownFile, enum_gpts, parse_gpturl
+from gptparser import GptMarkdownFile, enum_gpts, parse_gpturl, enum_gpt_files
 from typing import Tuple
 from urllib.parse import quote
 
@@ -17,20 +17,6 @@ TOC_GPT_MARKER_LINE = '- GPTs'
 
 def get_toc_file() -> str:
     return os.path.abspath(os.path.join(os.path.dirname(__file__), '..', TOC_FILENAME))    
-
-def update_logo(filename):
-    if filename == '*':
-        print("TODO: Updating logo for all GPT files")
-    else:
-        print(f"TODO: Updating logo with file: {filename}")
-    raise NotImplementedError
-
-def update_description(filename):
-    if filename == '*':
-        print("TODO: Updating description for all GPT files")
-    else:
-        print(f"TODO Updating description with file: {filename}")
-    raise NotImplementedError
 
 def rename_gpts():
     nb_ok = nb_total = 0
@@ -117,15 +103,24 @@ def rebuild_toc(toc_out: str = '') -> Tuple[bool, str]:
     out.append(f"{TOC_GPT_MARKER_LINE}\n")
 
     nb_ok = nb_total = 0
+    gpts = []
     for ok, gpt in enum_gpts():
         nb_total += 1
-        if ok and (id := gpt.id()):
-            nb_ok += 1
-            file_link = f"./prompts/gpts/{quote(os.path.basename(gpt.filename))}"
-            version = f" {gpt.get('version')}" if gpt.get('version') else ''
-            out.append(f"  - [{gpt.get('title')}{version} (id: {id.id})]({file_link})\n")
+        if ok:
+            if id := gpt.id():
+                nb_ok += 1
+                gpts.append((id, gpt))
+            else:
+                print(f"[!] No ID detected: {gpt.filename}")
         else:
-            print(f"[!] {gpt.filename}")
+            print(f"[!] {gpt}")
+
+    # Consistently sort the GPTs by ID
+    gpts.sort(key=lambda x: x[0].id)
+    for id, gpt in gpts:
+        file_link = f"./prompts/gpts/{quote(os.path.basename(gpt.filename))}"
+        version = f" {gpt.get('version')}" if gpt.get('version') else ''
+        out.append(f"  - [{gpt.get('title')}{version} (id: {id.id})]({file_link})\n")
 
     ofile.writelines(out)
     ofile.close()
@@ -135,30 +130,51 @@ def rebuild_toc(toc_out: str = '') -> Tuple[bool, str]:
     if ok:
         print(msg)
     return (ok, msg)
-    
-def find_gpt_in_toc(gptid_or_string):
-    print(f"TODO: Searching TOC.md for GPT ID or string: {gptid_or_string}")
-    raise NotImplementedError
-
-def find_gptfile(keyword):
-    keyword = keyword.strip().tolower()
+   
+def find_gptfile(keyword, verbose=True):
+    """Find a GPT file by its ID or full ChatGPT URL
+    The ID can be prefixed with '@' to indicate a file containing a list of GPT IDs.
+    """
+    keyword = keyword.strip()
     # Response file with a set of GPT IDs
     if keyword.startswith('@'):
-        print(f"TODO: Finding GPT file with ID: {keyword}")
-    if gpt_info := parse_gpturl(keyword):
-        keyword = gpt_info.id
+        with open(keyword[1:], 'r', encoding='utf-8') as file:
+            ids = set()
+            for line in file:
+                line = line.strip()
+                # Skip comments
+                if line.startswith('#'):
+                    continue
+                # If the line is a GPT URL, then extract the ID
+                if gpt_info := parse_gpturl(line):
+                    ids.add(gpt_info.id)
+                    continue
+                # If not a GPT URL, then it's a GPT ID
+                ids.add(line)
+    elif gpt_info := parse_gpturl(keyword):
+        # A single GPT URL
+        ids = {gpt_info.id}
+    else:
+        # A single GPT ID
+        ids = {keyword}
 
-    print(f"TODO: Finding GPT with ID: {keyword}")
-    raise NotImplementedError
+    if verbose:
+        print(f'Looking for GPT files with IDs: {", ".join(ids)}')
+    matches = []
+    for id, filename in enum_gpt_files():
+        if id in ids:
+            if verbose:
+                print(filename)
+            matches.append((id, filename))
+
+    return matches
+
 
 def main():
     parser = argparse.ArgumentParser(description='idxtool: A GPT indexing and searching tool for the CSP repo')
     
-    parser.add_argument('--update-logo', type=str, help='Update the logos of the GPT file')
     parser.add_argument('--toc', nargs='?', const='', type=str, help='Rebuild the table of contents (TOC.md) file')
-    parser.add_argument('--update-description', type=str, help='Update the descriptions of the GPT file')
-    parser.add_argument('--find-gptfile', type=str, help='Find a GPT by its ID or name')
-    parser.add_argument('--find-gpttoc', type=str, help='Searches the TOC.md file for the given gptid or free style string')
+    parser.add_argument('--find-gpt', type=str, help='Find a GPT file by its ID or full ChatGPT URL')
     parser.add_argument('--parse-gptfile', type=str, help='Parses a GPT file name')
     parser.add_argument('--rename', action='store_true', help='Rename the GPT file names to include their GPT ID')
 
@@ -166,23 +182,17 @@ def main():
     ok = True
 
     args = parser.parse_args()
-    if args.update_logo:
-        update_logo(args.update_logo)
     if args.parse_gptfile:
         ok, err = parse_gpt_file(args.parse_gptfile)
         if not ok:
             print(err)
-    if args.toc is not None:
+    elif args.toc is not None:
         ok, err = rebuild_toc(args.toc)
         if not ok:
             print(err)
-    if args.update_description:
-        update_description(args.update_description)
-    if args.find_gptfile:
-        find_gptfile(args.find_gptfile)
-    if args.find_gpttoc:
-        find_gpt_in_toc(args.find_gpttoc)
-    if args.rename:
+    elif args.find_gpt:
+        find_gptfile(args.find_gpt)
+    elif args.rename:
         ok, err = rename_gpts()
         if not ok:
             print(err)
