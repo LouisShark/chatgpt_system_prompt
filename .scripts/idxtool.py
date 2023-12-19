@@ -91,7 +91,7 @@ def rebuild_toc(toc_out: str = '') -> Tuple[bool, str]:
             else:
                 out.append(line)
     if not marker_found:
-        return (False, f"Could not find the marker '{TOC_GPT_MARKER_LINE}' in '{toc_in}'.")
+        return (False, f"Could not find the marker '{TOC_GPT_MARKER_LINE}' in '{toc_in}'. Please revert the TOC file and try again.")
     
     # Write the TOC file all the way up to the marker line
     try:
@@ -107,16 +107,16 @@ def rebuild_toc(toc_out: str = '') -> Tuple[bool, str]:
     for ok, gpt in enum_gpts():
         nb_total += 1
         if ok:
-            if id := gpt.id():
+            if gpt_id := gpt.id():
                 nb_ok += 1
-                gpts.append((id, gpt))
+                gpts.append((gpt_id, gpt))
             else:
                 print(f"[!] No ID detected: {gpt.filename}")
         else:
             print(f"[!] {gpt}")
 
-    # Consistently sort the GPTs by ID
-    gpts.sort(key=lambda x: x[0].id)
+    # Consistently sort the GPTs by ID and GPTs title
+    gpts.sort(key=lambda x: (x[0].id, x[1].get('title')))
     for id, gpt in gpts:
         file_link = f"./prompts/gpts/{quote(os.path.basename(gpt.filename))}"
         version = f" {gpt.get('version')}" if gpt.get('version') else ''
