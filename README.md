@@ -98,7 +98,7 @@ some useful GPTs may be helpful:
 
 ## If you want to contribute to this repo
 
-Please follow the format below; it is important to keep the format consistent for the [`idxtool`](./scripts/idxtool.py).
+Please follow the format below; it is important to keep the format consistent for the [`idxtool`](./.scripts/idxtool.py).
 
 ```markdown
 GPT URL: You put the GPT url here
