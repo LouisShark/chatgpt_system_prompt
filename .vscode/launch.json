@@ -22,7 +22,7 @@
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/.scripts/idxtool.py",
-            "args": ["--find-gptfile", "GPT3"],
+            "args": ["--find-gptfile", "https://chat.openai.com/g/g-svehnI9xP-retro-adventures"],
             "console": "integratedTerminal"
         },
         {
