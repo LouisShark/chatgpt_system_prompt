@@ -1,5 +1,5 @@
 # ChatGPT_system_prompt
-valuable agent's system prompt
+valuable agent's system prompt,find GPT's prompt in [TOC.md](./TOC.md)
 
 <img src="bg.png" width="600px" />
 
