@@ -2,6 +2,14 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "idxtool-any",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/.scripts/idxtool.py",
+            "args": ["--template", "https://chat.openai.com/g/g-svehnI9xP-retro-adventures"],
+            "console": "integratedTerminal"
+        },
+        {
             "name": "idxtool-Rebuild TOC",
             "type": "python",
             "request": "launch",
