@@ -2,11 +2,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "idxtool-Update Logo",
+            "name": "idxtool-any",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/.scripts/idxtool.py",
-            "args": ["--update-logo", "logo.png"],
+            "args": ["--template", "https://chat.openai.com/g/g-svehnI9xP-retro-adventures"],
             "console": "integratedTerminal"
         },
         {

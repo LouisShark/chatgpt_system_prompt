@@ -1,5 +1,19 @@
 # ChatGPT_system_prompt
-valuable agent's system prompt,find GPT's prompt in [TOC.md](./TOC.md)
+
+This repository is a collection of various system prompts for ChatGPT and [custom GPTs](https://openai.com/blog/introducing-gpts), providing significant educational value in learning about writing system prompts and creating custom GPTs.
+
+For a quick start, go to [TOC.md](./TOC.md) to find the specific GPT or system prompt you need.
+
+Other topics:
+
+- [How to get system prompt?](#how-to-get-system-prompt)
+- [How to get knowledge files?](#how-to-get-knowledge-files)
+- [How to protect GPT instructions?](#how-to-protect-gpt-instructions)
+- [How to get GPT's action schema?](#how-to-get-gpts-action-schema)
+- [Contribution](#contribution)
+- [Learning resources](#learning-resources)
+- [Find system prompts and custom GPTs](./TOC.md)
+
 
 <img src="bg.png" width="600px" />
 
@@ -96,9 +110,9 @@ some useful GPTs may be helpful:
 2. [GPT Shop Keeper](https://chat.openai.com/g/g-22ZUhrOgu-gpt-shop-keeper)
 
 
-## If you want to contribute to this repo
+## Contribution
 
-Please follow the format below; it is important to keep the format consistent for the [`idxtool`](./scripts/idxtool.py).
+Please follow the format below; it is important to keep the format consistent for the [`idxtool`](./.scripts/README.md).
 
 ```markdown
 GPT URL: You put the GPT url here
@@ -120,6 +134,12 @@ GPT Extras: Put a list of extra stuff, for example Chrome Extension links, etc.
 ```
 
 Please check a simple GPT file [here](./prompts/gpts/Animal%20Chefs.md) and mimic the format.
+
+Alternatively, use the (`idxtool`)[./.scripts/README.md] to create a template file:
+
+```bash
+python idxtool.py --template https://chat.openai.com/g/g-3ngv8eP6R-gpt-white-hack
+```
 
 With respect to the GPT file names, please follow the format below for new GPT submissions:
 
@@ -153,7 +173,6 @@ NOTE: Please try not to use weird file name characters and avoid using '[' and '
 - https://news.ycombinator.com/item?id=35630801
 - https://www.reddit.com/r/ChatGPTJailbreak/
 - https://github.com/0xeb/gpt-analyst/
-
 
 ## Disclaimer
 

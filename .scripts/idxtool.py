@@ -8,15 +8,17 @@ idxtool is a script is used to perform various GPT indexing and searching tasks
 """
 
 import sys, os, argparse
-from gptparser import GptMarkdownFile, enum_gpts, parse_gpturl, enum_gpt_files
 from typing import Tuple
 from urllib.parse import quote
+
+import gptparser
+from gptparser import enum_gpts, parse_gpturl, enum_gpt_files, get_prompts_path
 
 TOC_FILENAME = 'TOC.md'
 TOC_GPT_MARKER_LINE = '- GPTs'
 
 def get_toc_file() -> str:
-    return os.path.abspath(os.path.join(os.path.dirname(__file__), '..', TOC_FILENAME))    
+    return os.path.abspath(os.path.join(os.path.dirname(__file__), '..', TOC_FILENAME))
 
 def rename_gpts():
     nb_ok = nb_total = 0
@@ -39,7 +41,7 @@ def rename_gpts():
         print(f"[+] {basename} -> {os.path.basename(new_fn)}")
         if os.system(f"git mv \"{gpt.filename}\" \"{new_fn}\"") == 0:
             nb_ok += 1
-    
+
     msg = f"Renamed {nb_ok} out of {nb_total} GPT files."
     ok = nb_ok == nb_total
     if all_renamed_already:
@@ -50,11 +52,11 @@ def rename_gpts():
 
 
 def parse_gpt_file(filename) -> Tuple[bool, str]:
-    ok, gpt = GptMarkdownFile.parse(filename)
+    ok, gpt = gptparser.GptMarkdownFile.parse(filename)
     if ok:
         file_name_without_ext = os.path.splitext(os.path.basename(filename))[0]
         dst_fn = os.path.join(
-            os.path.dirname(filename), 
+            os.path.dirname(filename),
             f"{file_name_without_ext}.new.md")
         gpt.save(dst_fn)
     else:
@@ -63,7 +65,7 @@ def parse_gpt_file(filename) -> Tuple[bool, str]:
     return (ok, gpt)
 
 
-def rebuild_toc(toc_out: str = '') -> Tuple[bool, str]:    
+def rebuild_toc(toc_out: str = '') -> Tuple[bool, str]:
     """
     Rebuilds the table of contents (TOC.md) file by reading all the GPT files in the prompts/gpts directory.
     """
@@ -79,7 +81,7 @@ def rebuild_toc(toc_out: str = '') -> Tuple[bool, str]:
     if not os.path.exists(toc_in):
         return (False, f"TOC File '{toc_in}' does not exist.")
 
-    
+
     # Read the TOC file and find the marker line for the GPT instructions
     out = []
     marker_found = False
@@ -91,8 +93,8 @@ def rebuild_toc(toc_out: str = '') -> Tuple[bool, str]:
             else:
                 out.append(line)
     if not marker_found:
-        return (False, f"Could not find the marker '{TOC_GPT_MARKER_LINE}' in '{toc_in}'.")
-    
+        return (False, f"Could not find the marker '{TOC_GPT_MARKER_LINE}' in '{toc_in}'. Please revert the TOC file and try again.")
+
     # Write the TOC file all the way up to the marker line
     try:
         ofile = open(toc_out, 'w', encoding='utf-8')
@@ -107,16 +109,21 @@ def rebuild_toc(toc_out: str = '') -> Tuple[bool, str]:
     for ok, gpt in enum_gpts():
         nb_total += 1
         if ok:
-            if id := gpt.id():
+            if gpt_id := gpt.id():
                 nb_ok += 1
-                gpts.append((id, gpt))
+                gpts.append((gpt_id, gpt))
             else:
                 print(f"[!] No ID detected: {gpt.filename}")
         else:
             print(f"[!] {gpt}")
 
-    # Consistently sort the GPTs by ID
-    gpts.sort(key=lambda x: x[0].id)
+    # Consistently sort the GPTs by ID and GPTs title
+    def gpts_sorter(key):
+        gpt_id, gpt = key
+        version = f"{gpt.get('version')}" if gpt.get('version') else ''
+        return f"{gpt.get('title')}{version} (id: {gpt_id.id}))"
+    gpts.sort(key=gpts_sorter)
+
     for id, gpt in gpts:
         file_link = f"./prompts/gpts/{quote(os.path.basename(gpt.filename))}"
         version = f" {gpt.get('version')}" if gpt.get('version') else ''
@@ -130,7 +137,40 @@ def rebuild_toc(toc_out: str = '') -> Tuple[bool, str]:
     if ok:
         print(msg)
     return (ok, msg)
-   
+
+def make_template(url, verbose=True):
+    """Creates an empty GPT template file from a ChatGPT URL"""
+    if not (gpt_info := parse_gpturl(url)):
+        msg = f"Invalid ChatGPT URL: '{url}'"
+        if verbose:
+            print(msg)
+        return (False, msg)
+
+    filename = os.path.join(get_prompts_path(), f"{gpt_info.id}_RENAMEME.md")
+    if os.path.exists(filename):
+        msg = f"File '{filename}' already exists."
+        if verbose:
+            print(msg)
+        return (False, msg)
+
+    with open(filename, 'w', encoding='utf-8') as file:
+        for field, info in gptparser.SUPPORTED_FIELDS.items():
+            if field == 'verif_status':
+                continue
+            if field == 'url':
+                file.write(f"{gptparser.FIELD_PREFIX} {info.display}: {url}\n\n")
+            elif field == 'instructions':
+                file.write(f"{gptparser.FIELD_PREFIX} {info.display}:\n```markdown\n{info.display} here...\n```\n\n")
+            elif field == 'logo':
+                file.write(f"{gptparser.FIELD_PREFIX} {info.display}: <img ...>\n\n")
+            else:
+                file.write(f"{gptparser.FIELD_PREFIX} {info.display}: {info.display} goes here...\n\n")
+
+    msg = f"Created template '{filename}' for URL '{url}'"
+    if verbose:
+        print(msg)
+    return (True, msg)
+
 def find_gptfile(keyword, verbose=True):
     """Find a GPT file by its ID or full ChatGPT URL
     The ID can be prefixed with '@' to indicate a file containing a list of GPT IDs.
@@ -172,9 +212,10 @@ def find_gptfile(keyword, verbose=True):
 
 def main():
     parser = argparse.ArgumentParser(description='idxtool: A GPT indexing and searching tool for the CSP repo')
-    
+
     parser.add_argument('--toc', nargs='?', const='', type=str, help='Rebuild the table of contents (TOC.md) file')
     parser.add_argument('--find-gpt', type=str, help='Find a GPT file by its ID or full ChatGPT URL')
+    parser.add_argument('--template', type=str, help='Creates an empty GPT template file from a ChatGPT URL')
     parser.add_argument('--parse-gptfile', type=str, help='Parses a GPT file name')
     parser.add_argument('--rename', action='store_true', help='Rename the GPT file names to include their GPT ID')
 
@@ -192,6 +233,8 @@ def main():
             print(err)
     elif args.find_gpt:
         find_gptfile(args.find_gpt)
+    elif args.template:
+        make_template(args.template)
     elif args.rename:
         ok, err = rename_gpts()
         if not ok:
