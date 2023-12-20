@@ -112,7 +112,7 @@ some useful GPTs may be helpful:
 
 ## Contribution
 
-Please follow the format below; it is important to keep the format consistent for the [`idxtool`](./.scripts/idxtool.py).
+Please follow the format below; it is important to keep the format consistent for the [`idxtool`](./.scripts/README.md).
 
 ```markdown
 GPT URL: You put the GPT url here
