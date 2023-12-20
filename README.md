@@ -135,7 +135,7 @@ GPT Extras: Put a list of extra stuff, for example Chrome Extension links, etc.
 
 Please check a simple GPT file [here](./prompts/gpts/Animal%20Chefs.md) and mimic the format.
 
-Alternatively, use the (`idxtool`)[./.scripts/README.md] to create a template file:
+Alternatively, use the [`idxtool`](./.scripts/README.md) to create a template file:
 
 ```bash
 python idxtool.py --template https://chat.openai.com/g/g-3ngv8eP6R-gpt-white-hack
