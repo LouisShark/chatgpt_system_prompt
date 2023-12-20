@@ -27,6 +27,7 @@ jobs:
 
       - name: Commit TOC updates
         run: |
+          git pull --rebase
           git config --global user.name 'LouisShark'
           git config --global user.email 'mshark.louis@gmail.com'
           git add TOC.md
