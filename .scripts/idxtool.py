@@ -41,6 +41,15 @@ def rename_gpts():
         print(f"[+] {basename} -> {os.path.basename(new_fn)}")
         if os.system(f"git mv \"{gpt.filename}\" \"{new_fn}\"") == 0:
             nb_ok += 1
+            continue
+
+        # If git mv failed, then try os.rename
+        try:
+            os.rename(gpt.filename, new_fn)
+            nb_ok += 1
+            continue
+        except OSError as e:
+            print(f"Rename error: {e.strerror}")
 
     msg = f"Renamed {nb_ok} out of {nb_total} GPT files."
     ok = nb_ok == nb_total
