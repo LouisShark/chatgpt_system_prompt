@@ -173,6 +173,7 @@ NOTE: Please try not to use weird file name characters and avoid using '[' and '
 - https://news.ycombinator.com/item?id=35630801
 - https://www.reddit.com/r/ChatGPTJailbreak/
 - https://github.com/0xeb/gpt-analyst/
+- https://arxiv.org/abs/2312.14302 (Exploiting Novel GPT-4 APIs to Break the Rules)
 
 ## Disclaimer
 
