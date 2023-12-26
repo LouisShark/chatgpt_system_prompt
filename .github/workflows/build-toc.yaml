@@ -29,7 +29,7 @@ jobs:
         run: |
           git config --global user.name 'LouisShark'
           git config --global user.email 'mshark.louis@gmail.com'
-          git add TOC.md
+          git add .
           git commit -m "docs: Update TOC.md" || echo "No changes to commit"
           git pull --rebase
           git push origin HEAD:main
