@@ -1,4 +1,5 @@
 # ChatGPT_system_prompt
+[![Generate TOC on PR Merge](https://github.com/LouisShark/chatgpt_system_prompt/actions/workflows/build-toc.yaml/badge.svg?branch=main)](https://github.com/LouisShark/chatgpt_system_prompt/actions/workflows/build-toc.yaml)
 
 This repository is a collection of various system prompts for ChatGPT and [custom GPTs](https://openai.com/blog/introducing-gpts), providing significant educational value in learning about writing system prompts and creating custom GPTs.
 
