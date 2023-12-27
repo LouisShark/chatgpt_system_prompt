@@ -143,6 +143,7 @@
   - [Mind Hack (id: H9bxyOEYn)](./prompts/gpts/H9bxyOEYn_Mind%20Hack.md)
   - [Moby Dick RPG (id: tdyNANXla)](./prompts/gpts/tdyNANXla_Moby%20Dick%20RPG%20.md)
   - [Mocktail Mixologist (id: PXlrhc1MV)](./prompts/gpts/PXlrhc1MV_mocktail_mixologist.md)
+  - [Mr. Crowley (id: YOg0A0pec)](./prompts/gpts/YOg0A0pec_76iz872HL_Mr.%20Crowley.md)
   - [Mr. Ranedeer Config Wizard (id: 0XxT0SGIS)](./prompts/gpts/0XxT0SGIS_Mr.%20Ranedeer%20Config%20Wizard.md)
   - [Mr. Ranedeer 2.7 (id: 9PKhaweyb)](./prompts/gpts/9PKhaweyb_Mr.%20Ranedeer%5B2.7%5D.md)
   - [Murder Mystery Mayhem (id: 82dEDeoN3)](./prompts/gpts/82dEDeoN3_Murder%20Mystery%20Mayhem.md)
