@@ -21,8 +21,7 @@ def get_toc_file() -> str:
     return os.path.abspath(os.path.join(os.path.dirname(__file__), '..', TOC_FILENAME))
 
 def rename_gpts():
-    nb_ok = nb_total = 0
-    all_renamed_already = True
+    effective_rename = nb_ok = nb_total = 0
 
     for ok, gpt in enum_gpts():
         nb_total += 1
@@ -34,7 +33,7 @@ def rename_gpts():
         if basename.startswith(f"{id.id}_"):
             nb_ok += 1
             continue
-        all_renamed_already = False
+        effective_rename += 1
 
         # New full file name with ID prefix
         new_fn = os.path.join(os.path.dirname(gpt.filename), f"{id.id}_{basename}")
@@ -53,7 +52,7 @@ def rename_gpts():
 
     msg = f"Renamed {nb_ok} out of {nb_total} GPT files."
     ok = nb_ok == nb_total
-    if all_renamed_already:
+    if effective_rename == 0:
         msg = f"All {nb_total} GPT files were already renamed. No action taken."
         print(msg)
 

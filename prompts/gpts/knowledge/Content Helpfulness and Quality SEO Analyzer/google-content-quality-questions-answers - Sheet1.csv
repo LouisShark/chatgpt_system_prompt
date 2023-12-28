@@ -1,0 +1,41 @@
+"Questions to assess your content Quality, Helpfulness and Experience ",Area,Expected Answer
+Does the content seem to be serving the genuine interests of visitors to the site or does it seem to exist solely by someone attempting to guess what might rank well in search engines?,Helpfulness and People Satisfaction,No
+Are you producing lots of content on many different topics in hopes that some of it might perform well in search results?,Helpfulness and People Satisfaction,No
+Are you using extensive automation to produce content on many topics?,Helpfulness and People Satisfaction,No
+Are you mainly summarizing what others have to say without adding much value?,Helpfulness and People Satisfaction,No
+Are you writing about things simply because they seem trending and not because you'd write about them otherwise for your existing audience?,Helpfulness and People Satisfaction,No
+Does your content leave readers feeling like they need to search again to get better information from other sources?,Helpfulness and People Satisfaction,No
+Are you writing to a particular word count because you've heard or read that Google has a preferred word count?,Helpfulness and People Satisfaction,No
+Does your content actually answer the question that it promised to answer?,Helpfulness and People Satisfaction,Yes
+Do you have an existing or intended audience for your business or site that would find the content useful if they came directly to you?,Helpfulness and People Satisfaction,Yes
+Does your site have a primary purpose or focus?,Helpfulness and People Satisfaction,Yes
+Will someone reading your content leave feeling like they've had a satisfying experience and learned enough about a topic to help achieve their goal?,Helpfulness and People Satisfaction,Yes
+Does the content provide substantial value when compared to other pages in search results?,Helpfulness and People Satisfaction,Yes
+"Does the content provide original information, reporting, research, or analysis?",Quality ,Yes
+"Does the content provide a substantial, complete, or comprehensive description of the topic?",Quality ,Yes
+Does the content provide insightful analysis or interesting information that is beyond the obvious?,Quality ,Yes
+"If the content draws on other sources, does it avoid simply copying or rewriting those sources, and instead provide substantial additional value and originality?",Quality ,Yes
+"Does the main heading or page title provide a descriptive, helpful summary of the content?",Quality ,Yes
+Does the main heading or page title avoid exaggerating or being shocking in nature?,Quality ,Yes
+"Is this the sort of page you'd want to bookmark, share with a friend, or recommend?",Quality ,Yes
+"Would you expect to see this content in or referenced by a printed magazine, encyclopedia, or book?",Quality ,Yes
+"Is it self-evident to your visitors who authored your content, do pages carry a byline, where one might be expected?",Expertise and Experience,Yes
+"Do bylines lead to further information about the author or authors involved, giving background about them and the areas they write about?",Expertise and Experience,Yes
+"If automation is used to substantially generate content, Is the use of automation, including AI-generation, self-evident to visitors through disclosures or in other ways?",Expertise and Experience,Yes
+Are you providing background about how automation or AI-generation was used to create content (in case it was)?,Expertise and Experience,Yes
+Are you explaining why automation or AI was seen as useful to produce content (in case it was)? ,Expertise and Experience,Yes
+"Does the content present information in a way that makes you want to trust it, such as clear sourcing, evidence of the expertise involved, background about the author or the site that publishes it, such as through links to an author page or a site's About page?",Expertise and Experience,Yes
+"If someone researched the site producing the content, would they come away with an impression that it is well-trusted or widely-recognized as an authority on its topic?",Expertise and Experience,Yes
+Is this content written by an expert or enthusiast who demonstrably knows the topic well?,Expertise and Experience,Yes
+Is the content free from easily-verified factual errors?,Expertise and Experience,Yes
+"Does your content clearly demonstrate first-hand expertise and a depth of knowledge (for example, expertise that comes from having actually used a product or service, or visiting a place)?",Expertise and Experience,Yes
+Is the content free from spelling or stylistic issues?,Presentation and production ,Yes
+"Was the content produced well, or does it appear sloppy or hastily produced?",Presentation and production ,Yes
+"Is the content mass-produced by or outsourced to a large number of creators, or spread across a large network of sites, so that individual pages or sites don't get as much attention or care?",Presentation and production ,Yes
+Do pages have good Core Web Vitals?,Page Experience,Yes
+Are pages served in a secure fashion?,Page Experience,Yes
+Does content display well for mobile devices when viewed on them?,Page Experience,Yes
+Does the content lack an excessive amount of ads that distract from or interfere with the main content?,Page Experience,Yes
+Do pages lack intrusive interstitials or pop-ups?,Page Experience,Yes
+Can visitors navigate to or locate the main content of your pages easily?,Page Experience,Yes
+Is the page designed so visitors can easily distinguish the main content from other content on your page?,Page Experience,Yes
