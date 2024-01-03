@@ -1,0 +1,22 @@
+{
+    "Python": "NumPy, SciPy, Pandas, Numba, TensorFlow, PyTorch, Scikit-learn, Dask, Cython, Matplotlib, Keras, CuPy",
+    "C": "GSL, FFTW, PETSc, SLEPc, PLASMA, FLAME, CBLAS, LAPACK, Magma, HDF5, NetCDF, GMP",
+    "C++": "Eigen, Boost, Armadillo, Dlib, MLpack, OpenCV, Intel TBB, PCL, CGAL, Qt, STL, BLAS",
+    "Java": "Apache Commons Math, Deeplearning4j, ND4J, EJML, JGraphT, JAMA, Weka, Lucene, BioJava, JSci, Colt, JGraphX",
+    "JavaScript": "TensorFlow.js, Math.js, Plotly.js, D3.js, Three.js, Brain.js, NumJS, Simplex Noise, Learning.js, Chart.js, Science.js, Pts.js",
+    "R": "ggplot2, dplyr, tidyr, caret, shiny, lme4, randomForest, forecast, rmarkdown, data.table, plotly, zoo",
+    "Swift": "Swift for TensorFlow, SwiftAI, Surge, Swift Numerics, Plotly Swift, SwiftLint, AlamoFire, Vapor, Kitura, Perfect, SwiftNIO, GRDB",
+    "Go": "GoNum, Gonum Plot, GoLearn, GoCV, Gorgonia, Gota, GoTorch, Go-HEP, GoDS, Hugo, Ebiten, Fyne",
+    "Kotlin": "Koma, Krangl, KTensor, Fuel, Exposed, TornadoFX, Arrow, Squash, Ktor, Spek, MockK, Detekt",
+    "Ruby": "SciRuby, NMatrix, Nyaplot, Statsample, Daru, Rubyplot, Rumale, Roo, Ruby-DNN, GR.rb, Gosu, Opal",
+    "MATLAB": "MATLAB Parallel Computing Toolbox, Image Processing Toolbox, Deep Learning Toolbox, Signal Processing Toolbox, Computer Vision Toolbox, Optimization Toolbox, Statistics and Machine Learning Toolbox, Bioinformatics Toolbox, Global Optimization Toolbox, Econometrics Toolbox, Control System Toolbox, Robotics System Toolbox",
+    "PHP": "MathPHP, PhpScience, Tensor, NumPHP, PHP-ML, PHP Math, Brick Math, Spatie Regex, PHP AI, Hoa Math, PhpSpreadsheet, Laminas Math",
+    "Rust": "ndarray, RustFFT, Rust-ML, Rusty-machine, Linfa, Plotlib, Statrs, Polars, Tensor, Rust-Bio, Rust-GSL, Petgraph",
+    "TypeScript": "TensorFlow.js, Mathjax, Danfo.js, Plotly.js, Three.js, RxJS, MobX, Chart.js, Brain.js, D3.js, Machinelearn.js, Math.js",
+    "Scala": "Breeze, Spire, Algebird, Saddle, Akka, Spark, ScalaNLP, Scalala, Scalaz, Chill, FS2, Cats",
+    "Perl": "PDL, Math::GSL, Math::Primality, Math::BigInt, BioPerl, GD, Imager, Graphics::Raylib, Chart, Prima, Moose, Catalyst",
+    "Lua": "LuaJIT, Torch, LuaGL, Lua-NumLua, LuaRocks, L\u00d6VE, LuaSec, LuaSocket, Middleclass, LuaFileSystem, Busted, Penlight",
+    "Haskell": "hmatrix, repa, accelerate, diagrams, gloss, tensor, ad, hasktorch, hblas, hnn, haddock, pandoc",
+    "Dart": "TensorFlow for Dart, Dart Stats, DartML, RxDart, Flutter, Angel, Dartson, Dartagnan, StageXL, Aqueduct, Dart JTS, Mongodart",
+    "Objective-C": "Core ML, Accelerate, OpenCV, CocoaPods, AFNetworking, SDWebImage, ReactiveCocoa, JSONModel, Mantle, YapDatabase"
+}
