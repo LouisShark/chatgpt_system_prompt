@@ -104,11 +104,10 @@ An easy way of finding action schema:
 <img src="https://b.yzcdn.cn/public_files/c6bf1238e02900e3cfc93bd9c46479c4.png" width="500px" />
 
 
-## If you only want to find a GPT for a specific task instead of creating
-some useful GPTs may be helpful:
+## Useful GPT index sites/tools
 
 1. [GPTsdex](https://chat.openai.com/g/g-lfIUvAHBw-gptsdex)
-2. [GPT Shop Keeper](https://chat.openai.com/g/g-22ZUhrOgu-gpt-shop-keeper)
+2. [GPT Search](https://suefel.com/gpts)
 
 
 ## Contribution
