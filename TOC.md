@@ -1,4 +1,4 @@
-- Prompts
+- System prompts
   - [gpt-4-gizmo-20231116](./prompts/gpt-4-gizmo-20231116.md)
   - [gpt35](./prompts/gpt35.md)
   - [gpt4_advanced_data_analysis_20231018](./prompts/gpt4_advanced_data_analysis_20231018.md)
@@ -10,6 +10,7 @@
   - [gpt_all_tools](./prompts/gpt_all_tools.md)
   - [gpt_dalle](./prompts/gpt_dalle.md)
   - [gpt_voice](./prompts/gpt_voice.md)
+  - [GPT Builder](./prompts/gpt_builder.md)
 
 - Opensource GPTs
   - [RestGPT](./prompts/opensource-prj/RestGPT.md)
