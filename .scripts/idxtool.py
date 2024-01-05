@@ -109,12 +109,16 @@ def rebuild_toc(toc_out: str = '') -> Tuple[bool, str]:
     except:
         return (False, f"Failed to open '{toc_out}' for writing.")
 
+    # Count GPTs
+    enumerated_gpts = list(enum_gpts())
+    nb_ok = sum(1 for ok, gpt in enumerated_gpts if ok and gpt.id())    
+
     # Write the marker line and each GPT entry
-    out.append(f"{TOC_GPT_MARKER_LINE}\n")
+    out.append(f"{TOC_GPT_MARKER_LINE} ({nb_ok} total)\n")
 
     nb_ok = nb_total = 0
     gpts = []
-    for ok, gpt in enum_gpts():
+    for ok, gpt in enumerated_gpts:
         nb_total += 1
         if ok:
             if gpt_id := gpt.id():
