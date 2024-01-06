@@ -19,7 +19,7 @@
   - [self-operating-computer](./prompts/opensource-prj/self-operating-computer.md)
   - [tldraw](./prompts/opensource-prj/tldraw.md)
 
-- GPTs (292 total)
+- GPTs (293 total)
   - [10x Engineer (id: nUwUAwUZm)](./prompts/gpts/nUwUAwUZm_10x%20Engineer.md)
   - [11:11 Eternal Wisdom Portal 11:11 (id: YY0LlPneH)](./prompts/gpts/YY0LlPneH_1111%20Eternal%20Wisdom%20Portal.md)
   - [20K Vocab builder (id: jrW2FRbTX)](./prompts/gpts/jrW2FRbTX_20K%20Vocab%20builder.md)
@@ -88,6 +88,7 @@
   - [Content Helpfulness and Quality SEO Analyzer (id: WxhtjcFNs)](./prompts/gpts/WxhtjcFNs_Content%20Helpfulness%20and%20Quality%20SEO%20Analyzer.md)
   - [ConvertAnything (id: kMKw5tFmB)](./prompts/gpts/kMKw5tFmB_ConvertAnything.md)
   - [Cosmic Dream (id: FdMHL1sNo)](./prompts/gpts/FdMHL1sNo_Cosmic%20Dream.md)
+  - [Cosmic Dream v2 (id: FdMHL1sNo)](./prompts/gpts/FdMHL1sNo_Cosmic%20Dream%5Bv2%5D.md)
   - [Council: The GP-Tavern-6 (id: DCphW3eJr)](./prompts/gpts/DCphW3eJr_Council-The%20GP-Tavern-6.md)
   - [Creative Writing Coach (id: lN1gKFnvL)](./prompts/gpts/lN1gKFnvL_creative_writing_coach.md)
   - [CuratorGPT (id: 3Df4zQppr)](./prompts/gpts/3Df4zQppr_CuratorGPT.md)
