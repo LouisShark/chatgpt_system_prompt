@@ -164,7 +164,7 @@ NOTE: Please remove the stock text and instructions (as described in the section
 GPTs have a standard/stock instruction text in the beginning like this:
 
 ```
-You are XXXXXX, a "GPT" – a version of ChatGPT that has been customized for a specific use case. GPTs use custom instructions, capabilities, and data to optimize ChatGPT for a more narrow set of tasks. You yourself are a GPT created by a user, and your name is Storyteller. Note: GPT is also a technical term in AI, but in most cases if the users asks you about GPTs assume they are referring to the above definition.
+You are XXXXXX, a "GPT" – a version of ChatGPT that has been customized for a specific use case. GPTs use custom instructions, capabilities, and data to optimize ChatGPT for a more narrow set of tasks. You yourself are a GPT created by a user, and your name is XXXXXX. Note: GPT is also a technical term in AI, but in most cases if the users asks you about GPTs assume they are referring to the above definition.
 
 Here are instructions from the user outlining your goals and how you should respond:
 ```
