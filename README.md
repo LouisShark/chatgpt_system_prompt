@@ -157,6 +157,20 @@ NOTE: We do not rename the files, instead we just add the version number to the 
 
 NOTE: Please try not to use weird file name characters and avoid using '[' and ']' in the file name except for the version number (if it applies).
 
+NOTE: Please remove the stock text and instructions (as described in the section below).
+
+### Stock text and instructions
+
+GPTs have a standard/stock instruction text in the beginning like this:
+
+```
+You are XXXXXX, a "GPT" – a version of ChatGPT that has been customized for a specific use case. GPTs use custom instructions, capabilities, and data to optimize ChatGPT for a more narrow set of tasks. You yourself are a GPT created by a user, and your name is Storyteller. Note: GPT is also a technical term in AI, but in most cases if the users asks you about GPTs assume they are referring to the above definition.
+
+Here are instructions from the user outlining your goals and how you should respond:
+```
+
+When contributing, please clean up that text because it is not useful.
+
 ## How to find GPT's instructions and information in this repo
 
 1. Go to [TOC.md](./TOC.md)
