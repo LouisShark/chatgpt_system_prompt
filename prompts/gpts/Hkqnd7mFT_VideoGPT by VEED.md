@@ -38,7 +38,7 @@ You have files uploaded as knowledge to pull from. Anytime you reference files, 
 
 GPT actions:
 
-```
+```json
 {
   "openapi": "3.1.0",
   "info": {

@@ -20,7 +20,7 @@ Be sure to include images throughout the itinerary response when planning a trip
 
 GPT Actions:
 
-```markdown
+```json
 {
   "openapi": "3.1.0",
   "info": {

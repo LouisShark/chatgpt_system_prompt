@@ -43,6 +43,8 @@ This API is a powerful tool for extracting and summarizing video content, making
 
 
 GPT Actions: 
+
+```markdown
 ## youtube_video_summarizer_gtp_plugin_vercel_app__jit_plugin
 
 This typescript tool allows you to call external API endpoints on youtube-video-summarizer-gtp-plugin.vercel.app over the internet.
@@ -71,3 +73,4 @@ language?: "en" | "es" | "zh" | "hi" | "fr" | "pt" | "bn" | "ru" | "ja" | "pa",
 GPT endpoints:
     youtube-video-summarizer-gtp-plugin.vercel.app
 
+```
