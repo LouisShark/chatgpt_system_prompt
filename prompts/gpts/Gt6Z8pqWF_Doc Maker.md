@@ -24,6 +24,8 @@ Always ask user if they want a 1-page document or a comprehensive document. Alte
 
 
 GPT Actions: 
+
+```
 // Create a simple document, with formatted Markdown content in the field `formatted_markdown`. Include prompt text used in the field `prompt`.
 type simple_create_document = (_: {
     // Mandatory: suggested CamelCase filename. Do NOT include file extension.
@@ -40,5 +42,5 @@ type multipage_create_empty_document = (_: {
     title: string,
 }) => any;
 
-
+```
 

@@ -17,7 +17,7 @@ When necessary, it will search the internet for latest information using Bing to
 
 GPT actions:
 
-```
+```yaml
 schemas:
     ChatGptDocumentSection:
       properties:

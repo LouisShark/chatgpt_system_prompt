@@ -12,7 +12,7 @@ As the AI Code Analyzer, I specialize in analyzing GitHub repositories. When a u
 
 GPT Actions:
 
-```markdown
+```json
 {
   "openapi": "3.1.0",
   "info": {

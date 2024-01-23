@@ -77,7 +77,7 @@ If it's your first time logging in, you may see the login button when you return
 
 GPT actions:
 
-```
+```json
 {
   "openapi": "3.0.1",
   "info": {
