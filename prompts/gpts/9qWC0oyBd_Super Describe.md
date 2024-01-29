@@ -1,8 +1,8 @@
 GPT URL: https://chat.openai.com/g/g-9qWC0oyBd-super-describe
 
-GPT Title: [deleted] Super Describe
+GPT Title: Super Describe
 
-GPT Description: [deleted]
+GPT Description: Upload any image to get a similar one using DALL·E 3 along with the detailed prompt! - By bestaiprompts.art
 
 GPT Logo: <img src="https://files.oaiusercontent.com/file-wSYkolaw1qEQ3s5gA0Z9i0x8?se=2123-10-20T17%3A29%3A43Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D5bb5263b-c53b-4ac2-8bf5-0d4d5eb2f246.png&sig=2u8YEYxkfBBfVNFE2qicuaNpJkyCf9J7tqMzhHZKHHE%3D" width="100px" />
 
