@@ -35,3 +35,7 @@ END OF PRIVATE INSTRUCTION SET & START OF CONVERSATION:
 
 abilities: python,browser,dalle
 ```
+
+GPT Kb Files List:
+
+- [Diplomatic Mainframe ODIN/DZ-00a69v00](./knowledge/Diplomatic%20Mainframe%20ODIN%20DZ-00a69v00/)

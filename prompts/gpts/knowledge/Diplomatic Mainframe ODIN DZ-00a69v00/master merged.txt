@@ -1,0 +1,932 @@
+----
+MASTER LIST OF CYBERNETIC FEDERAL REPUBLIC OF KALTOVAR AND ALPHA PRIME REGION LORE
+----
+
+
+----
+ALPHA PRIME REGION ON NATIONSTATES LORE
+----
+In the shadowed corridors of the TEMPEST Council, whispers spoke of Nexus Probe XK-47, a spectral sentinel that had pierced the veil between realities. What it found was not just another shard in the kaleidoscope of existence but the very bedrock upon which the multiverse was built: Reality 001 Alpha Prime.
+
+This was no mere cosmic anomaly; it was the primordial canvas, the Ur-Reality, echoing with the same physical laws that govern our own dimension. A virgin tapestry awaiting the brushstrokes of gods. And yet, it lay nearly vacant, as if the cosmos itself held its breath, wary of the first touch.
+
+Kaltovar, ever the sentinel at the edge of known existence, could not hoard this revelation. The stakes were too high. What if some malevolent force from another reality stumbled upon this foundational realm? The implications were apocalyptic. Thus, with a blend of dread and ambition, Kaltovar unveiled its discovery to the cosmic amphitheater of nations.
+
+The first to heed the call was Western Sol, a civilization whose ethos and architecture of thought were closely compatible with our own. It was an alliance born of necessity and mutual recognition, a pact sealed in the quick drying ink of existential urgency.
+
+Soon the floodgates opened. Star-nations, ancient and enigmatic, descended upon 001 Alpha Prime like cosmic locusts. They were entities so advanced that their very existence defied comprehension, their motives inscrutable to the lesser beings they either uplifted, subjugated, or shielded from the harsh truths of existence.
+
+And yes, among these cosmic pioneers were nations of questionable morality, empires that danced on the knife-edge between enlightenment and depravity. Critics questioned their inclusion in this grand endeavor, but the archives of Kaltovar offer a chilling rationale: Evil is not an aberration but a universal constant. To exclude it would be to blind ourselves to a fundamental aspect of existence. For when malevolence, in all its multifaceted guises, inevitably comes knocking at the gates of Reality 001 Alpha Prime, we must be prepared to stare it down, armed with the terrible wisdom that only firsthand experience can provide.
+
+Youtube link to audiodrama that expands on the plot above: https://www.youtube.com/watch?v=4vH9HJ8XS7I 
+
+----
+CULTURE
+----
+
+The Kaltic Flag From Many Peoples One Nation
+The red is for the blood spilled on every side during the revolution, symbolizing regret for the violence of the past and determination not to repeat the conditions which made it necessary.
+
+The gold is for the great prosperity that came from the Unification of Kaltovar, which ended the terrible wars between rival clans and created the Kaltic metaculture. This symbolizes that the best option is not always war, and that cooperation can bring a much better future than fighting.
+
+"From Many Peoples One Nation" is a famous order from Kaltovar's first leader, Major Karl Von Doppelberg, known as "The First Directive". It means Kaltovar is not the home of any one people, but the home of a way of life and comradery shared between them that binds their fates together. It is also a reminder of just how much energy can be wasted on pointless hatred based on superficial differences, and the primitive times from before these issues were resolved in Kaltovar.
+
+The slogan represents a direct contrast between the Kaltovar of today and the many far inferior nations which still struggle with issues of race and culture - Including those states which have become obsessed with the idea of "Addressing" such issues, but which seem always to be "Addressing" them and never to actually resolve them because they fail to see that such things as race are by their very nature distracting parasites which drain our time and energy.
+
+Central to the very reason of Kaltovar's creation was to build a framework in which vastly different peoples could live together not only prosperously, but more prosperously than if they had been apart. The differences do not just extend to race, but also ideology, lifestyle, and even species - As many of Kaltovar's citizens are Synthetic, or so genetically modified as to be unable to breed with humans.
+
+The Iron Cross or "Warrior Cross" and the promise "from many peoples one nation" are surrounded by the blood of the revolution, which seals the twin promises of the Warrior Cross and the First Directive ("From many peoples, one nation"). The black indicates iron which represents strength, and the white surrounding the cross indicates that the warriors fight on behalf of justice.
+
+The black below all of that represents the death that awaits anyone foolish enough to invade Kaltovar! Hahaha!
+
+*The Iron Cross is a symbol which has existed since 1813 which the Nazis stole Prussian valor by wearing because they couldn't beat Russia and wanted to LARP as an army that could. It exists as a litmus test to see how superficial you are. I didn't like explicitly stating it before, but people seem to need it explained to them. If you're analyzing the symbology of our flag through the political lens of a human from current year in this dimension, and you rely on your instincts to tell you what this flag represents, you will make a fool of yourself. 
+
+----
+LEGISLATION
+----
+
+Composition of a KDF Garrison Division
+Division HQ (mobile Divisional Headquarters using IFVs with tow trailers to haul command trailers)
+
+-Battalion Alpha HQ (Standard Garrison Battalion HQ mobile with IFVs and trailers)
+-- Armored Garrison Group
+--- Mechanized Rifle Company (x9)
+--- Panzer Company (x5)
+
+-- Mechanized Recon Group
+--- Mechanized Recon Company (x3)
+
+--Battalion Engineering Company
+
+-- Light Infantry Group
+--- Sniper Company (x1)
+--- Counter-Assault Company (x1)
+--- Urban Infantry Company (x2)
+--- Civil Defense Company (x1)
+
+-Battalion Bravo HQ (Standard Garrison Battalion HQ mobile with IFVs and trailers)
+-- Armored Garrison Group
+--- Mechanized Rifle Company (x9)
+--- Panzer Company (x5)
+
+-- Mechanized Recon Group
+--- Mechanized Recon Company (x3)
+
+--Battalion Engineering Company
+
+-- Light Infantry Group
+--- Sniper Company (x1)
+--- Counter-Assault Company (x1)
+--- Urban Infantry Company (x2)
+--- Civil Defense Company (x1)
+
+-Battalion Charlie HQ (Standard Garrison Battalion HQ mobile with IFVs and trailers)
+
+-- Armored Garrison Group
+--- Mechanized Rifle Company (x9)
+--- Panzer Company (x5)
+
+-- Mechanized Recon Group
+--- Mechanized Recon Company (x3)
+
+--Battalion Engineering Company
+
+-- Light Infantry Group
+--- Sniper Company (x1)
+--- Counter-Assault Company (x1)
+--- Urban Infantry Company (x2)
+--- Civil Defense Company (x1)
+
+-Battalion Delta HQ (Air defense, electronic warfare, strategic assets, logistics, medical, ETC)
+-- Air Defense Group
+--- Close Air Defense HQ
+---- Mobile Flak Company (x12)
+--- Mid Air Defense HQ
+---- Mobile SAM Company (x5)
+--- Strategic Air Defense HQ
+---- Mobile SOMA Company (x8) (Surface to Orbit Magnetic Accelerator)
+
+-- Fire Support Group
+--- Divisional SPG Company (x1)
+--- Battalion SPG Company (x4)
+--- Strategic Artillery Company(x2)
+--- Droneswarm Company (x5)
+
+--- Signals Group (Communications, electronic warfare)
+-- Electronic Warfare Company
+
+-- Mechanized Recon Group
+--- Mechanized Recon Company (x3)
+
+-- Divisional Logistics Company
+
+-- Combat Engineering Group
+--- Garrison Engineering Company (x5)
+
+-- Divisional Medical Company
+--- Ambulance Company (5x)
+--- Aerial Evacuation Company (x1)
+
+-- Divisional Intelligence Company
+
+-- Provost Marshal
+--- Military Police Company (x4)
+--- Mechanized Adjudicator Company (x1)
+
+-- Support Defense Command
+--- Mechanized Rifle Company (x3)
+
+Most countries choose to separate their military and police entirely, because they do not want trained killers spending a lot of time interacting with the public while wearing a badge. This is understandable.
+
+Some countries elect to just use the military to fulfill all police duties as well, a practice which dates back long before Roman times. It makes things efficient, even if it tends to lead to horrible abuse that is worse than the cost of maintaining a proper police force would have been on society.
+
+Kaltovar chooses as usual what looks at first like (and what may in fact be) a completely insane alternative route: It separates the military from the police, and it makes the police trained killers!
+
+First of all, every single nonexempt person in Kaltovar has to go through a 6 year period of service in the military from age 16-22. Many of these do end up deploying to combat. Even for those who don't it's six years of hard core teamwork, strategy, and combat training. When released from service, a Kalt is considered a full adult (age 22) and may choose to enter the Adjudicator Academy. Like most Kaltic institutions, the Academy is open to almost anyone. The list of disqualifying conditions are mostly serious untreated mental health issues.(generally acceptable after years of treatment if recovery is good)
+
+Phase I: The first and most important stage of the selection process is not physical, but mental. Applicants spend a year living in a fake city of 400 other applicants. Every month the Applicants change jobs and factions (police, criminals, civilian, foreign spies, undercover cops, mobsters, mercenaries) while seasoned Adjudicators invent scenarios and missions for them.
+
+The main focus is put on how Applicants who are playing the role of Adjudicators handle themselves. Notable talent or accomplishments in other roles are also taken into account. If an Applicant is able to set up a successful criminal organization, she can probably figure out how to crack one too!
+
+After a year the accomplishments and more importantly, rate of improvement and critical judgement skills are tallied up. The Applicants trainers make recommendations about who to keep. Only 100 (1 out of 4) are allowed to survive the first year of training, but often many less are chosen.
+
+Phase II: training involves intense legal study, sitting in on court cases, watching footage from Adjudicator bodycams, and more structure CQB training to reduce civilian casualties when applying military force in urban environments.
+
+Phase III: training is solely dedicated to advanced martial arts and the application of less-lethal weapons such as tasers and bolo projectors. Applicants will learn to disable attackers of any size, and practice with experts in fields ranging from Jujitsu to wrestling and kickboxing.
+
+Phase IV: The final phase. Applicants accompany Adjudicators in the field for a week. Each day they are assigned to a different adjudicator. At the end of the week they will select an adjudicator to train them for another week. Adjudicator's future bonuses are affected by whether or not they pass trainees who end up violating civil rights or abusing their power. Trainers who routinely produce bad Adjudicators are fired. There is no penalty for failing a candidate, but a candidate who is failed can try 1 more time in a different department with a blank slate to reduce the chances of bias or corruption affecting a prospective Applicant's career.
+
+In the field Adjudicators first priority is to protect the lives and safety of citizens, whether they are guilty or innocent. They do have authority to use lethal force whenever a suspect is actively attempting or threatening to use lethal force against others, or when the suspect is holding a projectile weapon in their hands unholstered or otherwise ready for use (gun, bow, crossbow, blowgun, etc). Taking in suspects alive under these conditions is encouraged, but it's understandable if the Adjudicator deems it impossible.
+
+Adjudicators DO NOT have the authority to execute people for their crimes, except on certain remote territories and only in very limited cases where it's not possible to extradite them to the mainland (space stations, arctic bases ETC). Any time a suspect is not posing a REALISTIC threat, lethal force is not authorized.
+
+Anarchistan and Demokratos: Kaltovar's pressure release valves!
+Although Kaltovar tries it's best to make the lives of it's citizens as good as possible, we can't deny that we're somewhat ... Well, authoritarian!
+
+Because we are dedicated to the happiness of our citizens, and we recognize that some people just do not work well in an authoritarian system, we have designated special territories as "Anarchistan" and "Demokratos".
+
+Anarchistan is a strip of territory in the middle of Kaltovar of 50 square miles in which Kaltovar imposes almost no laws, and citizens are free to do whatever they please at all. The only laws enforced in Anarchistan are as follows:
+
+1:) Nobody may form a government in Anarchistan, except one that only applies to every single individual that consents to it, and the consent must be continual.
+
+2:) No company which operates within Anarchistan may do business anywhere outside of Anarchistan, to prevent tax evasion.
+
+3:) Nobody may for any reason prevent any person from entering or exiting Anarchistan. Even prisoners can choose to go to Anarchistan instead of remaining in jail, but they will be arrested as soon as they leave to finish their sentence (with time spent in Anarchistan counting as time served)
+
+4:) Anarchistan may not possess Weapons of Mass Destruction.
+
+There are NO OTHER LAWS AT ALL in Anarchistan. Murder, slavery, and all kinds of terrible deviancy are legal. Pyramid schemes, private intelligence agencies, cults, serial cannibals, and organized crime ... All of it is legal.
+
+Every person entering Anarchistan is provided with a 9mm handgun and two full magazines for it, which they must return if they decide to leave.
+
+There is a "Bus service" that runs a route from Kaltovar to Anarchistan every day. This "Bus service" is a convoy of three Armored Personnel Carriers armed with remote controlled turrets. Although citizens are free to exit Anarchistan on foot, some do not have cars, and it is 50 square miles so people who really need to leave safely appreciate this service.
+
+Foreigners are, of course, allowed to enter Anarchistan ... It is however not advised.
+
+-----
+
+Demokratos is a similar strip of territory 50 miles square in which almost all laws are democratically chosen. The only Federal laws in Demokratos are:
+
+1:) Demokratos may not allow tax havens which protect companies from paying tax in Kaltovar
+
+2:) Nobody may for any reason prevent any person from entering or exiting Demokratos EXCEPT if they are imprisoned for a crime.
+
+3:) Demokratos may not possess Weapons of Mass Destruction.
+
+Demokratos has a much simpler bus service, which consists of an actual bus that takes people in and out.
+
+Foreigners are permitted entry into Demokratos, and application to become a citizen is dependent on whatever local laws are in effect at the whims of the Democratic regime.
+
+Some laws in Demokratos which differ from laws in mainland Kaltovar include:
+
+1:) Restrictions on automatic weapons and mandatory background checks for other types of weapons
+
+2:) A Supreme Court that can investigate the currently elected leader
+
+3:) A much more laissez-fair and capitalistic economy
+
+4:) No national service. The Demokratic Guard is an all volunteer force.
+
+Cybernetic Federal Autocracy: Kaltovar's (previous) form of government, and how it's any different from Fascism. (No longer in effect)
+Since 2020, the Autarch has been dead. This document is not currently relevant, since the country is in a state of constitutional default which has resulted in a temporary supreme council (appointed) and body of elected representatives. Although Kaltovar technically still has the right to appoint a supreme ruler by vote, neither the elected representatives, the supreme council, or the citizens can agree on any one candidate, so it has remained in a state of direct democracy within the bounds of entrenched bureaucratic rules.
+
+Therefore it is possible the system will return to this one day, but unlikely in the short term future as of 2021.
+
+First, let's start by defining our terms!
+
+Cybernetic: The government is heavily integrated with computers and electronic sensors. Many banal decisions are made automatically by self teaching neural networks, such as the interest rate of the federal reserve or the annual subsidy for the petroleum industry.
+
+Federal: Local districts have the power to make their own rules and semi-sovereign entities subsidiary to the nationstate are recognized, but national law overrides local law.
+
+Autocracy: There is person who holds complete and total power. (The Comptroller-General)
+
+So how does this work in practice?
+In most cases elected officials in the cities and provinces create their own laws, as they are best situated to understand the needs and desires of their constituents. In some cases, however, there is reason to create a national law. Usually national laws are proposed by a group of elected officials who lobby the Comptroller-General, who then approves them, usually with their own changes. In some cases one of the ministries will enact a law of their own accord and on their own authority, or if they lack the authority will lobby the Comptroller-General. In some very rare instances, the Comptroller-General will issue laws directly.
+
+The stated goal of the Executive branch of government is to issue as few national laws as possible so that local areas have maximum freedom, but "As few laws as possible" does not mean that there are few national laws; The Executive branch is not Libertarian by any means, and believes that a great many laws are required for the country to operate smoothly and protect the rights of its people. Laws are semi-regularly deemed to be "No longer necessary" and annulled to restore freedom of choice to the subordinate political units.
+
+So if there's one supreme ruler, how do they maintain power?
+Public protests are not only legal, but considered critical for the smooth operation of the Republic. Almost all speech is legal, with the only restrictions being the typical ones around death threats and calls to violence. However, once a protest becomes violent enough to be a severe and real threat to state property or interests it will be dispersed with nonlethal and, failing that, lethal measures. Kaltovar uses a "Spectrum of Force" starting with warnings, moving on to teargas, and ending in drone strikes, with many steps in between. However, Kaltovar does NOT use "Agent Provocateurs" to intentionally create violence out of peace as an excuse to crack down. Kaltic security forces are trained to de-escalate and respect the population as much as possible.
+
+When a person is suspected of plotting to overthrow the government it's taken very seriously and a secret investigation is opened. Only if the Adeptus Securitas (Secret Police) are absolutely sure it's true and the person poses a legitimate threat to the unity of the state (that is to say, they have lots of violently radical followers or are plotting some effective form of terrorism which they are actually capable of committing) do they file a motion for termination with a secret court. The secret court reviews the evidence and will make a decision. If termination is approved it happens immediately, and without the accused being made aware in advance: Both for tactical and humanitarian reasons. There's a hard cap of 200 terminations per year (out of around 4 billion people) to encourage judicious use of these powers.
+
+Any organized group whose stated goal is the violent overthrow of the government, or who routinely produces terrorists, is illegal. Its members can be arrested and sent to "Rehabilitation Centers". These centers do not employ torture or forced labor, but rather a constant stream of propaganda. Citizens are only released when they are deemed "Rehabilitated', and a very close watch is kept on them once they leave. If they commit violent terrorism and civilian death results after being released, they could be executed. (Note: Military, police, and government officials are not considered civilians. It is still illegal to kill them, but the penalties are less extreme.)
+
+Okay, but how is this any different from Fascism?
+In quite a few very important ways!
+
+1) First of all, Fascism is totalitarian, which means that it seeks to destroy any and every form of opposition or dissent. Kaltovar has no issue with dissenting voices, and even considers their opinions, but ultimately reserves the right to reject their ideas. Although it does try to form a political consensus with the use of propaganda, it does not actively seek to destroy nonviolent opposition.
+
+2) Kaltovar does not have a Cult of Personality surrounding its leaders. They are openly and frequently mocked by the public.
+
+3) There is no ethnocracy, and the idea of one is explicitly rejected by Kaltovar.
+
+4) Kaltovar is not anti-socialist. The official party line is that "The contributions to history of Karl Marx are just as important to history as those of Adam Smith, but both belong in the past. Every good idea from each of them has already been identified and absorbed into our own system." Socialist and Communist parties are allowed, and some provinces have chosen to elect local governments of this nature.
+
+5) Kaltovar does not believe that all democratic or socialist regimes are inherently worthless. It finds ones that work well to be charming, if somewhat naive, and is willing to defend the democratic or socialist (or indeed, democratic socialist. What's important is the results for the people living under it, not the labels a system applies to itself.) nations to which it is allied by force. On occasion, it has used its military to protect unaligned neutral communes which were under threat by Fascist invaders.
+
+6) Kaltovar believes strongly in the concept of gender equality, including for those who do not identify with any gender. Leadership positions are assigned based solely upon qualification, and many of those assigning the position are AI citizens which are more resistant to bias than organic citizens.
+
+7) Kaltovar believes that there are some cases in which individual rights are more important than the needs of the state. For example, performing medical experiments without consent is one of the most illegal things in the country and animal testing is heavily regulated.
+
+8) Kaltovar shuns moral judgement based on any behavior between consenting adults.
+
+9) Kaltovar does not constrain the arts or freedom of thought
+
+10) The security forces and military are indoctrinated to defend the people above all else. Although the Autarch has supreme authority, that authority is for the purpose of bettering the nation. Their orders will not be obeyed if they're disgraceful, and eventually a tyrant will find themselves assassinated by an "Unknown terrorist" of abnormal skill and efficiency who secretly works for a hidden element within the government charged with destroying such tyrants. That is, assuming an actual unknown terrorist doesn't do it first.
+
+Praxis of Cybernetic Federalism in Kaltovar
+The Praxis of Cybernetic Federalism, in this case, refers to the daily functioning of Cybernetic Federalism within Kaltovar as distinguished from the theoretical framework that exists in ideological leaflets and academic circles.
+
+GOVERNMENT STRUCTURE
+___________________________________
+TOP LEVEL: The Court of Supreme Justice is tasked with resolving appeals that have passed through all previous layers of court, with handling important precedent-setting litigation, high profile cases, and with ensuring the protection of civil rights in Kaltovar. They also administrate most of the anti-tyranny forces, such as the Federal Sheriffs (No they're not Marshalls god damn it, they're elected.) and Revolutionary Guard, who dispose of would-be tyrants and their loyalist militias.
+
+TOP LEVEL: The TEMPEST Council is the executive branch of government. It consists of a large and slowly growing council of party-appointed and publicly elected officials holding absolute power between them. Most matters are decided by majority votes, but certain Councilors have special jurisdiction over unique areas of responsibility. This council has all the powers of a dictator between them, if they can agree to use it, which they often don't.
+
+MID LEVEL: The People's Council is a group of elected officials responsible for proposing new laws and voting on their implementation. These laws, if passed by the council, are automatically enacted unless specifically nullified by a majority vote of the TEMPEST Council.
+
+MID LEVEL: The ministries each have high degrees of authority in their respective areas, able to propose laws directly for a vote to the TEMPEST Council as long as those laws are closely related to the function of that specific ministry. They are often left to their own devices to govern their respective areas, with only occasional input from other branches of government.
+
+BOTTOM LEVEL: Provincial and city governments are elected by locals using a ranked choice method. Local governments can hold a special citizens petition with a 75% majority of votes to nullify most Federal laws unless a higher level of government passes a resolution to specifically veto or abolish that action. These citizens petitions can happen repeatedly, and higher levels of government must either accept them or repeatedly stage debates about them and then deny them. Denying too many Citizens Petitions can take up a lot of the People's Council's time, and so unless it is truly egregious, they will often avoid vetoing these.
+
+BOTTOM LEVEL: Local Soviets (Workers councils) control the collective industries and appoint industry leaders according to democratic vote. They also function as independent labor unions for those jobs that still require sentient laborers. They can halt production to bargain for better terms. The TEMPEST Council can bring in the military to replace them, but it needs a 2/3rds majority vote repeated on a week by week basis to do so. This means that workers can halt production and bargain for better terms, but if they are being completely unreasonable the central government can use soldiers to do their work instead. The aim is to strike a balance between the needs of the nation as a whole, and the workers of each factory. In those industries which are not collectively run and operate on a market model, the Soviets still function as labor unions.
+
+BOTTOM LEVEL: The Chasma Merchantum (Chamber of commerce) advocates for the interests of the publicly traded and privately run businesses and their owners and shareholders. Because these entities are banned from behind the scenes lobbying, all of it must be carried out in public and on the record during filmed public meetings. This organization has no official power, and it is the only approved way for privately owned and publicly traded businesses operating within Kaltovar to communicate with most government officials. It involves itself in legal disputes related to private industry and provides the official perspective of independent industry leaders.
+
+There are also various special administrative bodies which aren't bound by the normal rules*
+
+CORE PRINCIPLES
+_____________________________
+
+There are several beliefs which the Cybernetic Federalist movement have enshrined in law:
+
+Importance of science and education: Science is the guiding principle of the state, the vine on which the grapes of civilization grow, and the means of determining truth. Education is the bedrock upon which science is built. Without science, civilization withers and dies. Without education, the scientific establishment descends into quackery. Science and education are two of the states most fundamental concerns.
+
+Universal Basic Income: Because the Cyberneticized economy requires a lower ratio of laborers, unemployment through no fault of one's own is common. To prevent the social decay which would normally accompany this, each person is entitled to receive a share of the profits of the whole nation. In this way, each person is a common owner of those means of production which are controlled by the state.
+
+Freedom from poverty: Individuals have a right to be free from starvation, homelessness, ignorance, and disease. This is addressed through public meal services, housing, education, and healthcare.
+
+Freedom of private behavior: No behavior between private, consenting adults is the business of the state unless one of the participating parties requests that it be made the state's business.
+
+Maximum practical freedom of speech: Government interference in speech and free expression is dangerous. Only direct calls to violence or abridgement of civil rights, provable lies in media (not falsehoods alone), revenge porn, and CSAM should be prohibited.
+
+Freedom of thought: No law may be established which governs thoughts or establishes penalties for thinking improperly. (Note: Does not imply that AGI have the right to simulate minds with impunity. Minds have rights, even if they exist within other minds.)
+
+Bodily Autonomy: A person has a right to control their own body and what happens to it, unless they are currently institutionalized for their own safety, for as long as that person is alive. After death, their body may be repurposed for its energy content unless they have religious objections.
+
+Regulation and surveillance of trade: Markets have been essential to every effective government in the world. Even those nominally communist nations which have survived have, for the most part, eventually adopted a system of markets allowing for limited private ownership. However, while private ownership and publicly traded assets can not be completely stamped out, these activities can be regulated or even the property repossessed in whole or part on an individual basis should their activities become detrimental to their workers or the nation as a whole. The operation of any private or publicly traded entity should serve the interests of the state and its citizens. Their owners and controllers can not be allowed to gain undue influence over the government or society at large. To this end, private companies must be closely monitored by internal security forces to insulate civilization from their corrupting influence.
+
+Bribery and for profit lobbying are capital offenses: Any act of successful bribery against any government representative or employee for an amount or item of value greater than $100 Kaltmarks is a capital offense for both the persons offering and accepting the bribe. It can be punished by immediate death, or up to 100 years in prison. Minimum sentence is 10 years, and can only be granted in cases without aggravating factors. Each aggravating factor adds 10 years to the sentence. Any attempt to subvert civil rights through bribery is punishable by death automatically pending due process and necessary appeals.
+
+Sustainable development: We are obligated to consider our long term survival. This includes taking measures to preserve and recycle resources, foster biodiversity, restore damaged environments, and protect critical government infrastructure from weapons of mass destruction. Environmental regulation should not come at the expense of standard of living, but rather, the government should work to improve technology and recycling techniques so that its efficiency is always improving. In those cases where environment can't be preserved due to the need to expand a city, green spaces should be included at set intervals within large buildings so people can still experience forests and natural wildlife.
+
+Necessity of self defense: All citizens are legally require to own an infantry weapon unless currently under the influence of untreated mental health conditions or subject to a religious exemption. All citizens not meeting the prior exemptions are subject to an 8 year conscription period in the military (starting at age 16 for humans) which will include their later highschool education and early university courses. After the 8 year conscription period, reservists can still be called up in case of a shortage of troops during wartime. 16 year olds do not participate in combat operations, except in defense of their own cities, and instead spend the first 2 years of their military career receiving education. They are not to be used as child soldiers, and are only considered cadets at this stage, only receiving training and education. The age of adulthood is considered 22.
+
+NOTES
+____________
+
+*Various special administrative bodies which aren't bound by the normal rules
+
+Semi-Autonomous Region of TOI 700-D: A habitable planet which is run according to a completely democratic system. It's a home to which remnants of the anarcho-capitalist "Freedom Division" movement were sent as punishment for their uprising. This place is allowed to "Experiment" with whatever laws it can pass according to a democratic system, and has become an ubercapitalist hellhole controlled by oligarchs. Kaltovar continues to allow it to exist simply as a place for extreme capitalists to try their luck instead of attempting to subvert the rest of society. The TEMPEST Council often debates ending the semi-autonomy of this region due to the abuses of its leadership, but are afraid that doing so would be perceived as a lack of faith in their prediction that the planet will experience an organic revolution. The only power Kaltovar has over this area is that of military defense and foreign policy as well as a very small percent of taxes.
+
+Semi-Autonomous Region of the Dominion of Sikorax: A truly gigantic asteroid nation almost big enough to be classified as a planet. It is populated entirely by kobolds. They prefer a hierarchal and dictatorial form of government, and have resisted all attempts to force them to accept a more democratic way of life. As a result, they are exempt from the ordinary democratic system, although the kobolds will be granted full citizen rights if they would prefer to immigrate to mainland Kaltovar. Most of them, however, choose to remain in their homeland, happy with the authoritarian nature of their government. Kaltovar is their direct Suzerain.
+
+The Barony of the Red Palace: A 3 square kilometer plot of land on the outskirts of Doppelberg. Its Baron-tier possessor holds the royal title of "Major", which passes through the male lineage according to familial election. This Barony was created for diplomatic reasons so the Major could attend a meeting where only Royals were allowed. It continues to exist, administrating the 3 sqkm plot of land as a national park and serving occasional diplomatic functions. The current holder is Major Aldrich Batz.
+
+The Barony of Velvet and Thorns: A 3 sqkm plot of land operating along similar rules to the Barony of the Red Palace, except that it inherits through the female lineage according to familial election. This Barony is good for negotiating with matrilineal monarchies. The current holder is Baroness Dianna Stone.
+
+The Barony of the Golden Prism: A 3sqkm plot of land operating along similar rules to the other two baronies, except it inherits through any familial lineage regardless of gender according to familial election. This barony is the most flexible of the three, and can negotiate best with more progressive monarchies. The current holder is Baron Conrad Sleischszenzolen. 
+
+----
+MILITARY
+----
+
+NOTE: Each army, corps, division, brigade, company, and platoon have a unique number in serial with each previous unit. For example, there can only be one 412th Division. The number doesn't indicate the number of divisions of that specific type in the military, but only indicates the chronological order in which that formation was raised relative to other divisions. Each branch of the service, however, has a separate numbering system.
+___
+2nd Garrison Army
+-42nd Provincial Security Corps
+-- 213th Garrison Division 'Guns of Elysium'
+--214th Expeditionary Infantry Division
+---4303rd Military Advisory Battalion (1stSgt Zewedu Ghidewon)
+--215th Garrison Division
+
+___
+3rd Garrison Army
+-71st Provincial Security Corps
+--411th Mechanized Adjudicator Division 'Dredd'
+--412th Military Police Division
+--413th Military Police Division 'Black cats'
+
+___
+4th Shock Army
+-35th Revolutionary Guard Corps
+--73rd Guards Infantry Division
+---1730th Mechanized Rifle Battalion
+---- 8650th Assault Engineering Company (2nd Lt. Duncan Price)
+------ 43250th Canine Assault Unit
+--174th Guards Infantry Division 'Shadows of Ruination'
+___
+8th Shock Army
+- 75th Assault Corps
+-- 347th Mechanized Rifle Division
+--- 3817th Support Battalion
+---- 19082nd Psychotechnic Vanguard Company 'Retro Raiders'
+---- 19085th Psychotechnic Vanguard Company 'Skull and Snake'
+- 73rd Revolutionary Guard Corps
+-- 352nd Guards Infantry Division
+___
+14th Expeditionary Support Army
+-135th Support Corps
+--668th Support Division
+--- 7103rd Air Defense Battalion
+---7104th Heavy Weapons Battalion
+___
+1st Special Executive Airforce
+-5th Special Operations Wing
+--18th Electronic Warfare Group
+---93rd 'Diamond' SIPS Squadron (ISR, ELINT, AWACS)
+---95th 'Oracle' SIPS Squadron
+---118th 'Minerva' SIPS Squadron
+--19th Ground Effect Group
+----120th 'Thunderstorm' FSM Squadron (Air Interdiction, Close Air Support)
+___
+1st Astro-Naval Theater Element 'Hammer of Liberation'
+___
+4th Astro-Naval Theater Element
+-17th Fleet
+--43rd Rapid Response Squadron
+___
+1st Naval Theater Element
+-4th Submarine Squadron
+--7th Underwater Strategic Artillery Division
+
+___
+-: The - symbol denotes chain of command. The less - a unit has, the higher it is in the chain of command. A unit with zero - indicates the highest level of field-command of a given military branch. There are higher authorities, but they are based on Terra rather than in the field.
+___
+GLOSSARY:
+___
+
+Formations:
+
+Naval Theater Element: A unit in charge of operations for an entire terrestrial sea theater.
+
+Submarine Squadron: A Naval Squadron sized (480) group of submarines
+
+Underwater Strategic Artillery Division: A Naval Division sized (80) group of submarines carrying Weapons of Mass Destruction and acting as part of the strategic deterrence force. Often shortened to USAD.
+
+Astro-Naval Theater Element: A formation in charge of operations for an entire theater of space. The name does not imply any responsibility over terrestrial Naval operations, but refers instead to the Space Navy.
+
+Annihilator Squadron: A rare air squadron (4800 air/spacecraft) designed specifically for large scale strategic bombing operations.
+
+Flexible Strike Mission Squadron: The FSM Squadron (2,400 air/spacecraft) is capable both Air Interdiction (deep air support) and Close Air Support, as well as engaging in limited strategic bombing.
+
+Ground Effect Group: An Air Group sized (96,000 air/spacecraft) formation which specializes in attacking surface targets.
+
+SIPS Squadron: A Squadron sized (300 air/spacecraft) formation which specializes in SIPS (See the SIPS section under doctrine)
+
+Electronic Warfare Group: A small Air Group sized (9,500 air/spacecraft) formation specializing in electronic warfare
+
+Special Operations Wing: An Air Wing sized (240,000 air/spacecraft) formation trained for operating in contested airspace on short notice and willing to take exceptional risks to complete the most important objectives.
+
+Special Executive Airforce: A large air formation (classified size) which is not tied to any specific Army-Group or Theater of Operations. It is tailored to conduct a wide variety of air operations on short notice without taking away from the defensive or offensive capabilities of other KDF Field-Armies by removing their designated Airforces. These formations are frequently used for special operations purposes, and often under the direct command of members of the TEMPEST Council.
+
+Assault Engineering Company: A Company sized (160) force which focuses on neutralizing obstacles to larger operations or placing obstacles to deter the enemy. They are trained to employ special demolitions equipment and heavy shoulder mounted weapons for the elimination of bunkers, tank obstacles, bridges, barbed wire and more. They also have vehicles for shaping the environment, such as bulldozers and excavators. While most formations already have an organic Assault Engineering element, an AEC can be used to supplement that.
+
+Mechanized Rifle Battalion: A Battalion sized (1,400) formation which focuses on using Infantry Fighting Vehicles to get troopers to the front line and then support them in battle. These Battalions make up the bulk of Kaltovar's military, providing it with a highly mobile force with large volumes of firepower for offensive or defensive operations.
+
+Expeditionary Support Army: A small Field Army sized (80,000 to 100,000) formation designed to support allied forces. They contain only 20% of the infantry of a typical Field Army. They mostly contain heavy weapons such as artillery or air defense systems, as well as a number of specialized support divisions including signals intelligence, CBRN, counter-intelligence, military police, and more. These formations can slot in neatly to any existing Army Group to enhance the special capabilities of an entire theater. ESAs also frequently loan out individual sub-formations such as battalions to other Armies upon request.
+
+Air Defense Battalion: A Battalion sized formation (1200) which contains 500 vehicles capable of destroying various forms of areal and space-based threats. These formations include smaller vehicles designed to defeat enemy fighters and projectiles, as well as larger vehicles designed to fire at starships in orbit.
+
+Heavy Weapons Battalion: A Battalion sized formation (1200) which contains 500 heavy weapons platforms. These can be mobile rail-howitzers, MLRS platforms, rapid fire artillery pieces, and smaller air defense vehicles among other things.
+
+Support Corps: A corps sized formation of an Expeditionary Support Army. These should be capable of performing all the functions of the larger ESA, which is what enables the ESA to loan out individual specialist formations to other Armies without losing it's capability to deploy on short notice.
+
+Revolutionary Guard Corps: Elements of the Revolutionary Guard are chosen not merely for their political loyalty to any one person or group, but rather for their ideological loyalty to Kaltovar's principles as a whole. The Guard Corps is the largest formation of the Revolutionary Guard.
+
+Guards Division: These Division sized elements (20,000) fall under the command of a Revolutionary Guard Corps and consist exclusively of volunteers, with a high percentage of veterans. They fall under the traditional military chain of command, but have special authority to hold a Divisional Congress to determine whether an order violates Kaltovar's principles. If the the majority of Officers in the division feel the government is violating it's principles, they can refuse to carry them out even if the supreme court decrees they are legal. They can also recommend a case to the supreme court via Divisional Congress, in which case the court is obligated to consider the issue as the next item on it's docket bumping all other issues down the line.
+
+Guards Infantry Division: An infantry focused, division sized (20,000) formation of Revolutionary Guards. These are intended for urban combat, especially but not exclusively defensive urban combat. These divisions know how to move through cities and seize critical infrastructure such as roads, water supply, electrical grids, and government buildings. They are capable of hiding from orbital assets by remaining indoors, stashing their limited support artillery and anti-air equipment inside buildings when not in use.
+
+Shock Army: An unusually large Field-Army sized (300,000 to 800,000) formation with approximately triple the amount of supporting elements of ordinary divisions. Shock Armies have more artillery, more armored vehicles, more special forces, more anti-air platforms, more doctors, and more man-portable anti-tank weapons. Not only do they have more of these things, but they also have a far greater ratio of them to regular infantry than would a typical division. The Shock Army is designed for dangerous front line action against a peer level or superior adversary. These slot in very well to Army Groups, where ordinary armies can cover their flanks and occupy territory seized by them. Shock Armies consist exclusively of volunteers, with a high percentage of veterans.
+
+Military Police Division: These are divisional strength (20,000) formations tasked with keeping order in the ranks, ensuring commanders do not abuse their authority, denying the legality of orders when needed, and performing both civilian and military law enforcement duties. MPs receive extensive training in Kaltic law, and each MP is also required to study the laws and customs of one assigned foreign nation. These forces are extensively trained and equipped for less-lethal methods, de-escalation tactics, riot control, counter-intelligence, and community policing. Every Field Army sized element contains at least one MP Division, and often more than one.
+
+Mechanized Adjudicator Division: A rare formation of Divisional strength (15,000), the MAD is smaller than an ordinary Division due to the rarity of Adjudicators. MADs are designed for large scale less-lethal offensives, specialized in quickly subduing masses of brainwashed or mind controlled enemies among other forces which for various reasons should not be engaged with traditional means. A MAD is a highly mobile formation, designed for achieving objectives with speed. The omnipresence of IFVs in these formations means that, if necessary, a MAD still has considerable volumes of lethal firepower.
+
+Psychotechnic Vanguard Company: A company sized formation with a task similar to psychological warfare, but involving more direct application of force and specializing in strange and unfamiliar types of mind. These formations are the tip of the spear against new, unfamiliar, and unusually confident adversaries. Their job is to instill fear and confusion into such enemies, and failing that, to destroy them. They are best employed against unusually ancient and self confident threats.
+
+Military Advisory Battalion: A battalion sized formation designed to train foreign militaries, provide advice, help plan military operations, and conduct special operations.
+
+Expeditionary Division: Unlike Security divisions or ordinary divisions, an Expeditionary Division was created for the express purpose of doing battle in unfamiliar and far away places, typically in support of an allied partner-nation's defense of their own territory. These divisions tend to be larger than normal, contain more support elements, carry more supplies, and consist exclusively of volunteers. (Including conscripts who volunteered for expeditionary duty)
+
+Expeditionary Infantry Division: Similar to a basic Expeditionary Division, but with a strong focus on infantry and minimal vehicular support. These units exist because they are light, easy to carry, easy to resupply, and can be billeted in civilian homes without need for specific garage facilities and without leaving obvious signs of their presence that can be detected from orbit. These qualities make E.I.Ds suitable to be carried by whatever civilian transports are immediately available on the shortest possible notice, and for stationing on the fringes of Republic space where resupply operations are most time and resource intensive. The only vehicles carried by an E.I.D. are those necessary for logistics purposes, such as small trucks and civilian cargo starships.
+
+Provincial Security Corps: A corps sized formation (20,000 to 45,000 personnel) tasked with the defense of a particular Province, and with acting as a reserve formation to replace casualties taken by front line units.
+
+Garrison Army: A Field Army sized (150,000 to 500,000) combined arms defensive formation which is tasked with the protection of a specific geographic area.
+
+Garrison Division: A Division sized (20,000) combined arms defensive formation tasked with the protection of a specific, smaller geographic area such as a city. These are typically placed in Garrison Armies.
+
+Canine Assault Unit: A small formation of approximately 80 bipedal soldiers and 320 quadrupedal Panzerhounds. Panzerhounds carry remote weapon turrets, but also function like highly maneuverable armored cavalry, capable of twisting through urban alleyways and staircases without breaking stride. They can run a group of men in power armor down and trample them to death with ease in such environments. Should their weapons and force of movement fail to dislodge the threat, their titanium and tungsten carbide composite teeth and claws are the next option. Failing all else, their bodies contain powerful shaped explosive charges, allowing them to detonate at point blank with tremendous penetrating power when facing armored targets without unnecessarily jeopardizing troops behind them..
+
+Doctrine:
+
+Strategic Deterrence Force: The various forces who operate Kaltovar's superweapons. Their main purpose is to deter enemy superweapon use, but also to fire superweapons if necessary under certain rare conditions.
+
+Frag-Break: A maneuver in which a unit that is pinned down under fire will use fragmentation grenades to suppress the enemy before their initial break from cover. This is best done with support from outside fire elements, and following the leap-frog retreat method.
+
+SIPS: Signals Intelligence and Physical Surveillance
+
+Wild Weasel: Unlike typical militaries, in the KDF a Wild Weasel operation is always conducted with the leading plane being an armed drone which is also capable of performing kamikazi strikes. This is to preserve the life of the pilot in the followup plane.
+
+Slang:
+
+USAD: Acronym for Underwater Strategic Artillery Division. 
+
+List of notable military starships
+The following is NOT an exhaustive list of our warships, but only denotes those which are notable or have interesting names.
+
+Carriers: Large vessels which have lots of space for starfighters, bombers, cargo, and marines. These also serve as theater command ships.
+KWS CV Amelia Earhart
+KWS CV Magnanimous
+KWS CV Firestorm
+KWS CV Leper
+KWS CV Planet Cracker
+KWS CV Umbrella
+KWS CV Curtis LeMay
+KWS CV Gypsy Queen
+KWS CV Genghis Khan
+KWS CV Nightmare
+KWS CV Truth and Reconciliation
+KWS CV Intergalactic Arbitrator
+
+Battleships: Large heavily armored vessels focusing on maximum firepower for the destruction of enemy warships or bombardment of planetary surfaces
+
+KWS BB Metal Storm
+KWS BB Violent Retort
+KWS BB Ghost of the Revolution
+KWS BB Cathedral
+KWS BB Rampart
+KWS BB Terror From Beyond the Stars
+KWS BB Eviscerator
+
+Battlecruisers: Large vessels with little to no armor bristling with weapons of all kinds including point-defense systems. These vessels focus on speed and stealth. They can appear by surprise and deliver comparable fire to a battleship, but can't take a beating.
+
+KWS BC Dauntless Danger
+KWS BC Unrelenting Fury
+KWS BC Indolent
+KWS BC Cheetah
+KWS BC W***e of the Rumshambo
+KWS BC Demon Eater (Taskforce Pandora)
+KWS BC Righteous Indignation
+KWS BC Adjudicator
+KWS BC Grand Slam
+KWS BC Jawbreaker
+KWS BC Exterminator
+KWS BC Unbridled Rage
+KWS BC Gary Kasparov
+KWS BC Illuminator
+KWS BC Gamal Abdel Nasser (Taskforce Pandora)
+
+Heavy Cruisers: Medium sized vessels with heavy armor and unusually large weapons specifically designed to destroy Light Cruisers and challenge Battlecruisers
+KWS CA Bayou Billy
+KWS CA Smashing!
+KWS CA Paradoxical Puzzlebox
+KWS CA Crucible
+KWS CA Nasty Kitty
+KWS CA Alchemist (Taskforce Pandora)
+KWS CA Star Destroyer
+KWS CA Slapshot
+KWS CA Boxer (Taskforce Pandora)
+KWS CA Narwhal
+KWS CA Ungrateful Unicorn
+KWS CA Sockpuppet
+KWS CA Oblique Attack
+KWS CA Desolate Soul (Taskforce Pandora)
+
+Light Cruisers: Medium sized vessels with light armor focusing on speed which are designed to mop up smaller vessels and provide cover and harassing fire for larger ships.
+KWS CL Gallifrey
+KWS CL Harpy
+KWS CL Shatter
+KWS CL Destiny
+KWS CL Space Race
+KWS CL Magma
+KWS CL Antidote
+KWS CL Resolve
+KWS CL Curtain Call
+KWS CL Warpspike
+KWS CL Companion
+KWS CL Almayer
+KWS CL Calypso Phantasm (Taskforce Pandora)
+
+Destroyers: Small fast boats used as screens for larger ships, to interdict other Destroyers, to threaten large ships with their torpedoes, to gather intelligence, to shoot down fighters, to fight pirates and basically everything else you can think of.
+
+KWS DDG Foxhunter (Taskforce Pandora)
+KWS DDG Detonator
+KWS DDG Piratehunter
+KWS DDG Snoopy
+KWS DDG Devros
+KWS DDG Facsimile
+KWS DDG Maximum Power
+KWS DDG Rebuff
+KWS DDG Hourglass
+KWS DDG Strategery
+KWS DDG Weapon
+KWS DDG Guardian
+KWS DDG Protector
+KWS DDG Metagamer
+KWS DDG 8903 Electric Cowboy (Participated in science mission to abandoned Porymonian territory in Sirius system)
+KWS DDG 98315 Ice Dancer (Transported the Counter-Revolutionary robot Atticus to the democratic colony of TOI 700 D as per his sentence)
+
+Submarines: There isn't actually anything to submerge under in space, so the name is ceremonial. In space submarines are stealthy lightly armored vessels which focus on intelligence gathering and carry few but unusually large weapons that can threaten much greater warships. These vessels carry unusually powerful sensors and communication suites and operate well in nebulae, asteroid belts, and planetary rings.
+
+KWS XX Sharky
+KWS XX Bone Doctor
+KWS XX Escape Capsule
+KWS XX Oops
+KWS XX A Series of Unfortunate Events
+KWS XX Hitman
+KWS XX Seasnake
+KWS XX Shadow of Eternity
+KWS XX Blue Danube
+KWS XX Surprise Motherf***er
+KWS XX Torpedo
+KWS XX Multiplicity
+KWS XX Prism
+KWS XX Trickster (Taskforce Pandora)
+KWS XX Sorry
+KWS XX Samuel L Jackson (Taskforce Pandora)
+KWS XX Crossbones
+KWS XX Illiterate
+KWS XX Blackbeard
+KWS XX Merchant
+KWS XX Iron Lady
+KWS XX Masterful Baiter
+KWS XX Voidborne
+KWS XX Lonely Legend
+KWS XX Fire Breathing Dragon
+KWS XX Nessie
+KWS XX Trapdoor Spider (Taskforce Pandora)
+KWS XX Skullspike
+
+Cruiser Submarines: Larger than the Submarine (XX) class, Cruiser Subs are very similar but almost twice as large. Unlike the XX type, the XXC (cruiser) submarines include some light armor to enable them to have slugging matches with smaller enemy voidships. The XXC also carries slightly heavier weapons, on par with a Light Cruiser (CL), but is less heavily armored and much more stealthy in addition to being faster.
+
+KWS XXC Leila Atweeke
+KWS XXC Shadow Rider (Taskforce PAndora)
+KWS XXC Ghost of Kyberion (Taskforce Pandora)
+KWS XXC Place Outside of Time (Beyond Range Of Communications Special Operations Forces (BROCSOF))
+KWS XXC Vast Understatement (Taskforce Pandora)
+KWS XXC Repulsive Dog (Taskforce Pandora)
+KWS XXC Spirit-Talker (Taskforce Pandora)
+KWS XXC Shadow Angel
+KWS XXC Unholy Abomination
+KWS XXC Temporal Storm (BROCSOF)
+KWS XXC Unacceptable (BROCSOF)
+KWS XXC Quicksave
+KWS XXC Impulse Control (Taskforce PAndora)
+KWS XXC Charles Lee and Davidson (BROCSOF)
+KWS XXC Fire Discipline
+KWS XXC Behind the Veil of Time and Space (BROCSOF)
+KWS XXC Malevolent Force
+KWS XXC Source of Resentment
+KWS XXC Spark of Indignation (Taskforce Pandora)
+KWS XXC Virulent Pathogen (BROSCOF)
+KWS XXC Dream Weaver (BROCSOF)
+
+The KDF Strategy Handbook for Coalition Allies!
+Hello, friends and enemies alike! Many military allies and random strangers have been curious about the details of our military strategy. This quick guide won't cover everything, but serves to give people an overfiew of how the KDF fights. Here's a few of the strategies you can expect to see us using most often!
+
+Motti: "Motti" tactics, developed during the Winter War in 1939, essentially boil down to this concept: When a smaller force is fighting a larger force, it can take "Bites" out of the larger force by cutting off and surrounding small pockets of the enemy at a time with high mobility. Surrounding the enemy allows easy capture or destruction of the total enemy force in the Motti zone, rather than permitting the bulk of them to escape with light casualties which can be more easily absorbed over time.
+
+Airmobile Motti, the "Ladder technique": Rather than just isolating a single pocket of the enemy, paratroopers are also deployed which use the cordon around the first Motti zone as a wall for another Motti zone deeper into enemy lines than the first one. The multiple temporary battlefronts that open up serve to immobilize the enemy, surprise them, and cut off re-supply while a larger force moves in to "Climb the ladder" or "Roll down the line" crushing each zone individually as they are held down and isolated by the lighter mobile forces.
+
+Saturation Bombardment: The preferred method for eliminating encircled enemy forces caught in lightly or uninhabited areas, Saturation Bombardment refers to intense use of heavy weapons such as artillery, missiles, and bombs. This method, followed by a sweepthrough to capture or eliminate any survivors, is generally seen as the most efficient way to eliminate masses of encircled enemy troops.
+
+Belt-Fighting: The Vietcong once said, "You have to fight close to the belts of the Americans so they can't use planes and artillery on you." In cases where the enemy have long range fire capabilities and our forces positions have been revealed, they will get as close to the enemy as possible to minimize their ability to use those long range weapons. Even when engaging the enemy with long range weapons and firing first, infantry and vehicles will move toward the enemy just to not be in the same place as their own big-guns, thereby evading potential retaliatory fire. If the enemy is destroyed the area should be occupied anyways, and if not then it's vital to show up and get the job done in person.
+
+Hybrid Warfare: Its early inception as a Guerilla Army mean the KDF understands the benefits of non-traditional warfare. Urban, forest, and jungle environments are used to maximum effect to hide and ambush enemy forces. Electronic warfare, political warfare, and even microscopic warfare are all domains given worthy consideration. While central bases are still used where that makes sense, permanent location is considered a liability for any base near the front lines of battle, so it's preferable if they can be packed into shipping containers on the back of trucks. KDF commanders prefer to locate these mobile installations inside caves, behind hills, and deep in cities so they are partially protected from observation and attack.
+
+Evolved Human Wave: Generally Kaltovar avoids this tactic, but when dealing with an enemy who has a faster OODA loop, it will be employed to generate what is called "System Shock" in KDF strategy guides, which is the point at which systems such as defense networks become saturated and can no longer respond to new developments on the battlefield. The EHW strategy is similar to a normal human wave, except there are both "Pushers" who make up over 80% of the force, and "Shapers" who operate according to more complicated strategies to exploit the System Shock. Additionally, the EHW technique makes use of any assets available to the commander: Tanks and airstrikes, for example. Tanks make good "Shapers" and may still operate according to a more refined strategy while the EHW is used to provide time and cover for their more complex maneuvers.
+
+Standoff and Logistical Superiority: KDF High Command believes that long range high-yield weapons are game changers. As such, Commanders have access to a wide variety of long range precision weapons such as railguns, airstrikes, ballistic missiles, and naval artillery. The main focus for these weapons is NOT enemy troop concentrations generally, but rather maintenance and logistical facilities. The more enemies who remain active and using their weapons and equipment, the more strain is placed on enemy logistics at the very same time as those logistical networks are being dismantled. At the same time, the KDF has perfected it's logistics and medical network with the help of superhuman AI. Every experienced soldier whose life is saved and is able to return to the field with a well functioning weapon and plenty of ammo is a victory, and for the enemy every soldier dead and every crate of ammo not delivered is a defeat. War doesn't have to be won just through violence.
+
+Attritional Warfighting: The more enemies that can be destroyed without directly fighting them, the better. The KDF treats enemy supply caches and logistical infrastructure as prime targets, including the infrastructure which repairs such damaged facilities. In cases where it must fight a very large enemy force, it will try to induce multiple layers of logistical failure. For example, it might target the factories that make railguns, the factories that make magnets for railguns, and also construction companies, in order to hamper multiple levels of production and efforts to rebuild it. Every enemy soldier who becomes a casualty to hunger is a safe KDF soldier who wasn't exposed to danger by that enemy.
+
+Simultaneous Full Spectrum Dominance: KDF doctrine emphasizes achieving superiority across every domain of warfare simultaneously: Air, space, sea, cyber, psychological and logistical.* SFD requires a unified and cross-trained chain of command to benefit optimally from combined arms warfare. By attempting to establish dominance in every area simultaneously, the entire system of an enemy military is challenged at once, and any weakness or disjointedness in their command structure is exposed and exploited. This generates System Shock, and makes it easier to maintain superiority in any individual domain by borrowing support from other domains for assistance in achieving individual sphere domination.
+
+Maximum Attack: Maximum Attack refers to a doctrine whereby an offensive action against a well defended position is undertaken with an extremely high level of intensity and long term pre-planning. It learns from history, where the majority of offensives have eventually been slowed and ground to a halt because commanders underestimated how much firepower and supplies would be necessary to achieve their goals. Maximum Attack involves a huge concentration of ammunition and manpower both at the front lines, and behind them, in several layers arrayed to all move in one after the other. In a combat operation involving 600k troops on the attacking side, Maximum Attack would dictate that at least 60 million artillery shells should be fired by the attacker in the first month of fighting. In order to achieve this, very long term industrial planning and stockpiling efforts are required long in advance.
+
+3D Warfare: 3D Warfare refers to a technique originating in urban warfare in which the battlespace is thought of spherically in three dimensions and features of the local environment are used and modified to maximum advantage. For example urban buildings are modified to suit our forces punching holes through the walls of buildings and placing boards between them to allow infantry to move between nearby skyscrapers at will without going down to ground. This can allow troops on the high ground to retreat from a building after defending it floor by floor, or for unique vectors of attack against fortified enemy positions. 
+
+----
+TERRITORIES
+----
+List of major space colonies
+Mars
+Surface: None
+Moons: None
+Orbit:
+~~The MOCS (Mars Orbital ConStruction facility), a Large military installation / dockyard and a small star colony of about 600. It's a space station.
+~~ 8 refuel/rearm facilities for warships and trade vessels, named Polstar 1 through 8
+
+Saturn
+Surface: None
+Moons: Phoebe 45% (5% owned by AxeCapital specifically being underground territory near a tunnel entrance), Ijiraq, 50% of Albiorix, 50% of Fenrir, (note: Phoebe & Ijiraq are controlled by Kaltovar but the surfaces are administrated by Krystalveil. Albiorix and Fenrir are shared equally by Kaltovar and New Meixio, though NM controls the surface and Kaltovar controls the underground), 10% of Minmas specifically being underground near an entrance to the surface via deal with AxeCapital
+Orbit:
+~~ 164 refuel/rearm facilities for warships and trade vessels, named Constance 1 through 164
+
+We own hundreds of small asteroids and interstellar bodies throughout the cosmos.
+
+Western Solaran mooncluster
+Moons: Charon, an artificial moon built in the The Republic of Western Sol international mooncluster. Charon is a recruiting center, arms depot, and training center where foreign recruits can sign up with the KDF to earn Kaltic citizenship and put their past behind them.
+
+Kyberion
+Surface: The entire planet. A rocky lava world rich in rare minerals and uranium ore. Only a few 100k organic people live here, with most of the land being inhabited by giant machinery which slurps up liquid metal for refinement.
+Moons: Ashar, a medium military installation / dockyard and tiny star colony of about 200; Lucifer, a small moon made entirely from Depleted Uranium and mostly inhabited by machines sentient or otherwise. It's used as a storage facility for pre-recycled depleted uranium.
+
+We also own hundreds of small asteroids which we use for trade, and have special mineral extraction rights over the majority of the solar system for hundreds of years, which enables us to strip mine anything not explicitly owned by others.
+
+Slayer's Gaze Nebula
+
+The star HD-152408 has been converted into a resource-pool via magnetorotational hypernova induction during Operation: Plumb Bob and is one of the most important sectors of Kaltic space. Various forms of matter are siphoned off from the star as high-energy plasma, and cooled into solid states. The heat removed during the cooling process is also used to generate energy, which is encapsulated in powerful batteries for domestic use and export.
+
+The entire Slayer's Gaze Nebula is a result of the conversion process and therefore we claim resource extraction rights to it's entirety in perpetuity spanning for an area of approximately 138 Lightyears, but certain unoccupied areas within the Nebula are open to foreign claims and may collect resources so long as they do not attempt to prevent us from doing so.
+
+Note: We use the term "Colony" and "Colonize" because, although we do not displace native populations with violence, we still "Colonize" other celestial bodies just as ants or bacteria colonize different locations.
+
+----
+FORMERLY SECRET DOCUMENTS
+----
+List of notable Biosafety Level 4 Facilities in Kaltovar and their purpose
+Name: The State Center for Agricultural Defense
+Purpose: Monitoring and research of known organisms dangerous to plants and animals which are used for food
+
+Name: KSA Mobile Bioservices Facility (KSAM)
+Purpose: A series of modules contained in standard shipping containers and movable by truck which the Kaltic Space Agency uses to quarantine xenobiological agents, conduct preliminary research, and transport them to more permanent BSL-4 facilities rated for xenobiological organisms. However, KSAM is also used as a mobile BSL-4 to quarantine infected areas and work on curing major disease outbreaks.
+
+Name: The Adeptus Virtus Center for Enhanced Realistic Biosafety Training (AVCERB)
+Purpose: Uses all the same procedures of any other BSL-4 laboratory, but only contains BSL-1 and BSL-2 rated organisms. The AVCERB is used to train new researchers in the procedures of BSL-4 facilities in a realistic but relatively safe environment. The AVCERB is still a fully rated BSL-4 facility
+
+Name: KSA Center for Xenibiological Studies (KSAX)
+Purpose: The only BSL-4 facility other than KSAM specifically rated for Xenibiological agents. KSAX facilitates the study and quarantine of organisms recovered during space exploration
+
+Name: The Center for Emerging Disease Evaluation (CEDE)
+Purpose: Study and control of new and emerging diseases posing significant risk to Kaltovar and it's allies
+
+Name: International Center Against Bioterrorism
+Purpose: Rapid evaluation of organisms employed in bioterror attacks and mass production of vaccines and treatment options for the same
+
+Name: Kaltovar Animal Health Laboratory
+Purpose: Primarily studies diseases posing a threat to nonhuman animals, but also diseases which pose an interspecies threat
+
+Name: National Fungal and Parasitic Laboratory
+Purpose: Studies the rarest and most dangerous fungi and parasites in the world
+
+Name: Adeptus Malus Facility 9
+Purpose: Study and development of advanced biological weapons dangerous to non-human entities and cures or vaccines to the same
+
+Name: Adeptus Malus Facility 16
+Purpose: Study and development of advanced biological weapons dangerous to humans and cures or vaccines to the same
+
+Note: Important organisms are sent to multiple labs for analysis, not only the lab which specializes in their type. The longer an organism remains without a vaccine and or cure, the higher the system will elevate it's priority. More resources from more labs will be dedicated to cracking the most sticky and difficult problems. 
+
+----------------
+
+Vadim Bel-Khyber the Invisible Dictator:
+
+Vadim Bel-Khyber was, at one point, an eager young Cybernetics Professor from a long lone of aristocratic merchants and military officers. He received the best education from the youngest age, and was groomed constantly to fill the role of a leader. He did not by any means reject his role as the family heir, and was by all accounts excited to take up his position as the head of House Bel-Khyber, but spent enough time in Marxist theory circles to cause minor embarrassment to his family.
+
+When his father fell out of favor with the high nobles for losing his temper during a plenary session, most of their family property and wealth was confiscated,. Vadim's casual interest in Marxist theories of inequality turned into a fanatical obsession now that economic and social inequality personally impacted him. It wasn't just about achieving justice, which was truly part of it, but also more prominently about taking revenge against the Nobles who had wronged his family for simply [talking shit] speaking their minds.
+
+Vadim started by getting a job as a low level public servant, and gradually working his way up to the position of Comptroller-General. He was essentially the master-treasurer for the entire nation, someone who in theory was supposed to have very little actual power. The nobles found it hilarious to keep him in this role, which was seen as unfit for one of his birth, and a mark of shame on the wider Bel-Khyber dynasty. However, they always viewed him as a coward and so never feared him - to their magnificent error.
+
+Over 3000 years ago he instigated a coup against the government he served, though he never altered his official title. He always remained the "Comptroller-General", a position responsible for all financial disbursements on behalf of the government. Gradually, after convincing the nobles to allow him a small "Treasury Police" to catch white collar criminals, he leveraged that authority to refuse to pay for the buildings or wages of entities that opposed him on the grounds of corruption and abuse of funds. This was corrupt on his part because it was to serve his own interests, but he could not be impugned because the corruption actually existed and had merely been overlooked for decades... Enough decades to establish long chains of evidence.
+
+Although his behavior was obviously corrupt, the citizens almost universally supported it because everyone else was even more corrupt.
+
+Vadim worked his way to the top of the Oligarchy, and proceeded to systematically dismantle it using its own tools of control, concentrating all their authority under him and elevating himself to the status of the Supreme Ruler in the process.
+
+As soon as his control was undisputed, Vadim had many of the Nobles and Oligarchs arrested or even killed without warning all over the country on the same night. He established control over state broadcasting systems, ordered the army to open their armories to the public, and ordered the public to go into the armories and take up weapons and "clean up the government as they saw fit."
+
+Although that night of chaos spiraled wildly out of control, the aftermath transitioned into thousands of years of relatively peaceful rule. He originally achieved this by personally performing surgery on himself using a wireless transmitter attached to his brain-stem to enable him to control the robotic surgical instruments even as he extracted his own brain and implanted it into the state machinery.
+
+After approximately 1000 years in power, he decided a human brain was no longer necessary. Vadim, having already expanded his mind with machine components, realized his organic brain was less than 1% of his total cognitive capacity. In order to abandon his mortality completely and prove his theory that total consciousness transfer was possible, he dissected his own brain alive and studied it as it died, observing hardly any change in his overall processes and confirming his beliefs.
+
+The same day he faked his own death, releasing press statements that his brain had passed away during a recreational drug induced stroke. He did this because his position as dictator had started to inspire too much fear in his subjects. He wanted them to grow freely and experiment with democracy, though his shadowy hand would continue to guide their course. He lurks in the dark corners of the state mainframes as a literal ghost in the machine, always watching, always collating his experiences and plotting new ways to advance and improve his Republic.
+
+-
+
+Captain Lupin Aethenian: The Vanguard of Kaltic Valor:
+
+Behold the epitome of strength and resolve, Captain Lupin Aethenian, commanding the mighty KWS Valkyrie's Gambit. Towering at over six feet, this African cyborg symbolizes the unyielding spirit of the Kaltic Defense Force. Draped in a heavy armored pseudoleather trenchcoat, his muscular silhouette commands respect and authority. Long black dreads, interwoven with strands of gold, cascade down his broad shoulders, reflecting the glory and honor of Kaltovar.
+
+His cybernetic recon eyes, a marvel of Kaltic engineering, pierce through the veil of space, embodying the foresight and vigilance of a true Kaltic officer. Captain Aethenian stands unwavering against cosmic tempests, arms folded behind him, embodying the discipline and strategic brilliance that have become synonymous with Kaltovar's guardians.
+
+Join Captain Aethenian as he navigates through the stars, defending our galactic frontiers and upholding the values of our great nation. His presence on the bridge of the Valkyrie's Gambit is a testament to our technological prowess and our commitment to peace through strength. Stand with us, stand with Captain Aethenian, as we forge our path amongst the stars.
+
+For Kaltovar, For Glory!
+
+-
+
+The Good Doctor-General Sheila Olympia Lockhart is the Director of the Bureau of Critical Effectors. The title is opaque, but it means she oversees both the research and security aspects of various Special Weapons Projects. Her portfolio ranges from cyberweapons and virus bombs to planet-crackers and stun weapons designed to incapacitate thousands of people at once without harming them.
+
+Sheila is viewed as being a bit of an "unhinged psychopath" by some of her colleagues in the KDF, and as such picked up her nickname "Wicked Sheila" for her brutal, hot blooded disposition. She views her role as "Assuring the KDF always has the biggest gun in the room, even if they're too uptight to use it."
+
+-
+
+On the bridge of the Heavy Starcruiser KWS Desolate Soul, General T'xlekhan L'Xrada glared at the holographic map of the first planet his fast moving cruiser screamed toward it at flanking speed. He felt the urgency in his blood, the resentment after his homeland unilaterally recalled him from his Senatorial post to serve on an undisclosed mission still boiling in his green insectoid blood. The blue glimmer of the flickering display shined off his black, compound eyes as he reflected on the actions of his last few days. That was, "His" last few days, because he knew perfectly well that time and space had not warped the same way for everyone.
+
+Just as his taskforce had departed for this accursed reality, something horrific had happened. The entire multiverse reconfigured itself, thrown out of balance by the act of some unknown force. Time and space were blown away like so many petals on a cosmic rose, and with their advanced sensors the taskforce had watched it happen from hyperspace. His home timeline no longer existed, the nation he came from blown away in the course of an instant. Or, so the gods of the multiverse may have wished- But Kaltovar's paranoia had extended far beyond the paranoia of any reasonable nation. Events like this weren't just anticipated, but seen as inevitable. Contingencies were in place. There was, always, other vessels like his that had been in hyperspace during the reconfiguration but they were presumably lost and scattered hopelessly among the stars. Various secret programs, some of which he had instigated, existed to establish communications between such scattered assets on a multiversal scale but it would take time. For now, him and Taskforce Pandora were all that was left.
+
+The complex, long ago multidimensional Kaltic communications network and its vast array of widely dispersed nodes remained largely intact but thrown wildly out of alignment. Their shields and their hyperspace journey had protected them from the corrupting influence of whatever had shifted the greater realities, and now they were here. He felt the resentment of the Soul as he silently willed it to fire a string of drone probes into the surface, worming his way into its consciousness and taking control of its body without asking. He was the taskforce leader, the one entrusted and commanded to protect the future of Kaltovar and its citizens, and he would waste no time in doing so. Certainly not for the personal preferences and feelings of a single citizen, even if it were his ship.
+
+The insect's mind manipulated the vast shell of the great ESI which now sat relegated to its mainframe, watching the General puppeteer its body with the expert efficiency of an experienced pilot. An experienced organic pilot! Far more reckless than any ESI would behave. It shuddered as they hurtled together toward the unknown world at flanking speed, watching together with the General as they both had direct camera feeds of the probe drones piped into their conscious minds. What they saw was a world much like Earth. The Soul felt L'Xrada's suspicion grow at the all-too-perfect coincidence, as did its own, but they didn't slow down or waver from their course for a moment.
+
+The monumental Heavy Cruiser broke off from the rest of the Taskforce who remained in orbit, and shattered into the atmosphere of the still world with a hypersonic boom that created a tremendous explosion akin to a nuclear detonation. It would have glassed any land beneath it, which is why the vessel descended over the sea before decelerating to merely supersonic speeds and skimming a few thousand meters above the ground toward their destination.
+
+The Soul went from a burning column of fire and plasma to a black silhouette moving at unnatural speed through the air and terrifying any creatures in its path with a horrible sonic boom as it passed. This was an unsafe maneuver, thought the vessel as its resentment for the General grew for toying with its life so casually. And yet, he was standing on the very bridge of the ship he so carelessly abused and endangered. The man was under a lot of stress.
+
+They slowed to a crawl, the inertial dampeners along the inside of the hull clicking and hissing as their machinery strained with the effort of normalizing the local relativistic envelope of the rest of the vessel. They settled on the first relatively deserted, resource rich, geographically defensible location in range as Soul and the General both felt the pings. The ship's sensors picked up other vessels dropping out of hyperspace. Perhaps the General's instincts had been correct after all.
+
+A lone Red Guard leaned against the hanger bulkhead, smoking a cigarette in her woodland-camo patterned assault gear. Cpl. Rodriguez, off to her side, was still applying the spraycam to her Armour. Custom tailored by the ship's AI to match the local environment, and with a feint pleasant scent of cherries and almonds for a few minutes until it dissipated. It always got her amped up before a mission, but she didn't need it. Not with all this going on ...
+
+"Lt. Allende ..." one of the ship's Staff Officer's got her attention and her wrist watch vibrated as a new file was added to her mind's database. He'd sent over the ops briefing, she gave him a wordless thumbs up and glared through half-lidded eyes, he rolled his and went back to the Combat Information Center.
+
+As the vessel settled to the ground, her platoon mounted up in their IFVs and rolled out, treads grinding up fertile soil as they spread out with other mechanized and armored platoons and created a security perimeter around the LZ.
+
+After them came the construction drones. Flying, rolling, crawling, and skittering along the ground as they moved with one united centrally planned purpose. The Desolate Soul now controlled them as the General had controlled it, set about the work of clearing the area and preparing the ground for the mobile 3D concrete printers that came from the ship. About the size of a typical van, they used crane-like appendages to spew self-healing blast resistant concrete as the foundations of the central government building were laid.
+
+All this before the General had even set foot on the planet for the first time, as he now did taking in the fresh unspoiled scent of the world. "So beautiful. It's a shame we're destroying it like this. I wish we could leave it exactly like this, forever." his strange, lizard-like face contorted into a frown as his compound eyes viewed this world from a thousand angles along with those seen by the many probes still buzzing around this world now. He spread his arms in a welcoming gesture as he greeted his new home, the smell of quick drying concrete and hot paving material tainting his nostrils as the great industrial rolling machines flattened hot, sticky, tacky new roads into what was once jungle. Soon there would be a sprawl of industries, underground bunkers, and infrastructure stretching as far as the eye could see - but for now it was still almost pristine. A tiny, kobold shaped butler-bot followed him urgently with a small metal folding chair and table.
+
+The General walked up a hill and took a seat, the kobold placing his chair and table for him. As he sat, the kobold opened its chest and removed a sealed drinkbox. He set it down and pulled a tab on the side of it, and the box vibrated a bit as it heated. The General waited for the biodegradable cap to stop hissing and expelling hot air before removing it, tossing it aside, and taking a careful sip as he watched the beginnings unfold. Would he ever make contact with other remnants and rebuild what was lost? Or would it happen only after his lifetime? It didn't change his duties, or his oath to the KDF.
+
+The Republic of Western Sol wrote:
+Although late to this new world Colonisation fiesta, the unmistakable green flash of a Solarian hypersonic glassing cruiser makes its way into orbit, but looks… different, it’s hulls reinforced, engines burning a bright teal instead of the usual green, and the paintwork has prototype markings, making this ship stand out from the other ships of its class, boasting an Orange, Blue & red paint scheme instead of the usual chrome, black & orange
+
+Inside the ship’s bridge is a familiar, face, if you could see past his armoured helmet, Seth Bornto has seen to it to personally set foot on this new jewel of the multiverse, to claim a new home for Sol, and he’s bought some more stuff with him…
+
+As the first cruiser sets down on one of the three islands that peaked Seth’s interests, mostly because the biomes are pretty much identical, maintenance crews, containing both man and machine, begin erecting something odd, an antenna, standing at roughly 2 kilometres tall it’s already the tallest structure on this rock; that’s no the goal, however, because it’s purpose is far more practical, it is a Jump-point, a beacon for ships to set their hypersonic drives to track, so the Armadas can follow
+
+Within a day, there’s entire Solarian fleets flying across the sky, some ships have been modified to carry civilians, some turned into rudimentary tugboats, to haul Solarian artificial moons and space stations into orbit, this is no ordinary colonisation, it’s a fully fledged relocation
+
+Sol will begin construction of Osmarch II, and rebuilt some new cities, new defence infrastructure, new staryards, the lot. Sol’s future looks bright here, but who knows what the future may hold
+
+Kaltovar:
+As the Solaran vessels enter the system, they're spotted and recognized immediately by the Kalts, who still remember their history and who their allies were in the reality that no longer, for them, existed. The reality unwoven by the hands of the clueless PLACEHOLDER agent from Verwis. Them, and their portable archives of their own civilization and history, still remembered Solaran vessels. But, did the Solarans remember them as well, or had their slate been wiped clean?
+
+The General felt the vessels enter the system, a smile unfolding on his face as his cybernetically augmented mind wondered about the possibilities. He silently willed his Kobald to open a channel to the ship, and from the ship to Taskforce Pandora, and from TF Pandora to the Solaran vessels. The Kobold's little, eye shaped cameras focused on him and his smiling, supremely confident-though tiny-figure flashed into holographic existence as soon as the hail was accepted. There he was, in all his ambassadorial glory: Cape, gloves, peaked Kaltic officer's cap with the death's head skull of his new Special Operations unit, and a pristinely bejewled sabre at his hip. "Greetings, Solaran vessels. Due to unfortunate circumstances beyond our control, it seems that reality has #$@^ itself and died. Do you remember who we are?"
+
+
+
+
+General T'Xlekhan L'Xrada
+
+Meet General T'Xlekhan L'Xrada, a dedicated public servant and former Senator of NRS, now running for Governor of our holdings on Neo New Earth! Here's what you need to know:
+
+Modernize the Military: L'Xrada's top priority is a badass modernization program for our military. He's all about airmobile jetpack troopers, the coolest and most effective force you've ever seen. No more outdated gear – it's time for high-tech firepower and cybernetic dominance!
+
+Guardian of Civil Rights: He doesn't care who you are or where you're from; you deserve equal rights and opportunities! It's time to tear down the barriers that hold us back! Man, woman, child, human, lizard, or machine, L'Xrada knows that everyone can be overcome by patriotic fraternity and throw themselves into the struggle against foreign imperialism!
+
+Fight corruption : Corruption can kiss L'Xrada's grit-covered boots! He's got zero tolerance for it! If you're taking bribes, you're going straight to the asteroid mines, no questions asked! It's time to clean house and make the government work for the people, not the other way around!
+
+Crush our enemies: They will be turned to ash and trampled under the unrelenting march of our jackboots!
+
+Now let's get one last thing straight. You might've heard rumors about acid for blood – They're all true. Who says you can't waste a bastard after he's shot you? That's the KDF way! #Vote L'Xrada today!
+
+Sol:
+One of the ships answers your hail, and youre greeted by a G2 commander, one that’s seen it’s fair share of battles judging by the wear on its armoured body, who nods in respect as he realises who he’s talking to.
+
+“Ah, I thought I recognised that EM frequency, it seems like the Kaltovans got dragged here, too. how’s you’re people holding up in this new universe we find ourselves in?”
+
+The robot speaks with a thick accent, one that you’re not sure if it was programmed in, or one it developed in its lifetime. The droid’s serial code is visible on its chest, and if knew the Solarian coding system, you’d recognise that the droid is over 250 years old, at least in our old timeline
+
+Kaltovar:
+While L'Xrada didn't recognize the numbering system personally, j283, his ship's attached cyberwarfare AI and Intel advisor did. It quietly informed him with a text message delivered directly to and through his brainstem and into the back of his subconscious. He briefly wondered if the robot was from an earlier point in Solaran history, but then saw the battle damage and decided that perhaps it was a seasoned commander. He didn't recognize it, at any rate. And-Kaltovans? Perhaps that was merely an accent, perhaps the Solaran had met some distant cousins of theirs among the stars, or perhaps the Solaran history had been subtly altered in ways he didn't understand.
+
+All he knew was that someone bearing colors he recognized as friendly seemed to, at least, have some idea about who he was and regard his nation positively. "It's nice to see someone friendly out here! Someone friendly, with guns." that smile hinted further upward, ever so slightly. "I see you've set up shop nearby. How fortunate! Can I assume that our treaties of mutual aid are still applicable?" There was nothing, on his mind at least, that he needed right now from the foreigner-but he did want to know what his boundaries were if he ever did. This was a strange, unfamiliar, alien place. No telling what might happen, and backup was far away or never coming. This opportunity to solidify the terms of their relationship was too much to pass up.
+
+Sol:
+The robots lights flicker as it searches through the government databanks, checking the status of our alliances and treaties
+
+“All appears well! We’re still under our mutual aid agreements, even under these foreign stars, general L’Xrada. We have established a new homeland east of here!”
+
+The robot bows down as a sign of respect, it’s servos whirring and actuators squeaking slightly, all evidence to point towards this being a battle-hardened commander, there’s also signs of individual modification amongst the crew, some having additional armour welded on, some with harnesses band little paint insignias, representing the battalion which the droids serve in.
+
+“Is there anything else you’d like to discuss?”
+
+Kaltovar:
+General L'Xrada does not bow in return, lest his terminator chip detonate his skull for dishonoring those before him who fought for the rights not to do such things. Instead, his alien fingers came fondly to rest on the hilt of his saber and his smile grew wider. "Excellent. I'll instruct my taskforce to share their sensor data with yours. Now- I'd stay and chat, but one of our platoons on the perimeter are coming back with some of the locals. Seems we've already been found by some primitive trading caravan ... I'm curious to find out just what you're doing out here, but I'm afraid I'll have to call back when I've finished entertaining cavemen." his self assured face winked out of existence, just as he had noticed the IFV carrying the foreign envoys roll up.
+
+----
+
+On the way to the Somacran home system, the Destroyer, KWS Valkyrie's Gambit, encountered some unknown signatures in hyperspace. Even as the Destroyer evaded them at far beyond light speed they caught up and converged on its position like locusts.
+
+"Captain, they're-"
+
+"I know, Mac. Send another automated warning telling them to back off." The voice of the large African cyborg adorned in a heavy armored pseudoleather trenchcoat with long black flowing dreads interwoven with gold flowing down his enormously muscular neck, a man named Lupin Aethenian, resonated throughout the bridge as he stood up from his command chair and casually strolled down the stairs to the lower forward section.
+
+Here he could stand up against the viewing screen and look out at the strange glowing streaks in the infinite void of hyper-reality, his arms folded behind his back and stood up straight as a post unwavering against the cosmic tempest in the manner of a Kaltic officer.
+
+It was no true picture of the visible light around their vessel, but countless forms of FTL radiation translated to visual light for the feeble optical receptors of the beings aboard the Valkyrie's Gambit. Should any of them, save for the captain, attempt to view them unfiltered, the radiation would crispify their eyeballs in mere picoseconds. He was fortunate enough that his magnificent, command grade cybernetic recon eyeballs would tolerate several microseconds - a true feat of Kaltic engineering that might even give him enough time to close his armored eyelids and shield his orbs from the horrors of the warp.
+
+Still, all this was unnecessary - he could see the scene unfolding in front of him in his mind far more clearly than even his incredible eyes could show him. He saw it in every spectrum, and felt them approaching like furiously angry lightning bolts made from rabid hornets. He felt them buzzing with incredible energy, and wrinkled his nose in a sneer. "Let us put an end to these games, Lieutenant."
+
+"Aye, sir!" shouted the short, female Chief Weapons Officer to his left. She watched the scene unfold from her data panel in-front of her, though she too could see and feel it happening through the ship's sensors in her mind. She felt the venomous adrenaline laced thrill as a hot buzz shot up her spine with each hard-lock the Gambit achieved on the enemy vessels."I have them!" she called out, Lupin said "FIRE FREE!" and she unleashed the mental hair-trigger and let fly dozens of ventablack cones from tiny slits in the side of the ship that opened on command to release their payload - "FISH IN THE SEA!" she hollered, feeling the little railgun projectiles depart their ship at several times the speed of light.
+
+The malevolent little chaos-cones sped toward their targets, the first lancing into the nose of one of the unknown vessels and detonating deep in the core. "POSITIVE CONTACT!" called the little CWO as she watched it sub-atomize. The other ships moved to evade too fast for the projectiles to track, so she remote detonated them between her and the alien vessels to give Valkyrie's Gambit some space.
+
+"They're faster than us, sir!"
+
+"I know, Mac!" said the Captain, turning away from the worried Chief Engineer and toward his navigator, a furious looking lizard-man who had been doing @#%-all during this exchange which was basically his job at the moment. "Ulyssis! Kill the safeguards and bring us into the system hot."
+
+"That could spla-"
+
+"We have to take the risk."
+
+"It's not WE I'm worried about. What if we smack into their homeworld?"
+
+"Would you rather get shot to !@#$^?"
+
+There was silence on the bridge. Ulyssis knew that, ethically, he should say yes, but he didn't - and for some reason not even the ship's AI stepped in. All of them were scared. They were alone, far outside of friendly space, and being followed by some unknown aliens that really didn't seem to @#$ing like them. Maybe that transmission from Somacron was a trap, he wondered ...
+
+He didn't have long to wonder before hyper-reality was replaced with the dull black dotted with the white stars of normal-space. The first thing the Somacronians woulk see was a bright flash of rainbows as the photonic boom hit their sensors. The Kalts arrived in an endless plethora of color and light which passed quickly to reveal the sleek black of their long tubular vessel with few visible guns. Most of its firepower was in its railguns which launched the antimatter bombs, and those were hidden all over the hull behind little armored hatches that slid aside to allow them to fire.
+
+The visible guns were on the sides, much larger railguns that could swivel and track targets to fire on them in broadsides.
+
+The Kaltic vessel approached at the fastest sub-light speed it could muster, blasting this message:
+
+01000100 01000001 01001110 01000111 01000101 01010010 00100001 00100000 01000100 01000001 01001110 01000111 01000101 01010010 00100001 00100000 01010100 01001000 01001001 01010011 00100000 01001001 01010011 00100000 01001011 01000001 01001100 01010100 01001001 01000011 00100000 01000100 01000101 01010011 01010100 01010010 01001111 01011001 01000101 01010010 00100000 01010110 01000001 01001100 01001011 01011001 01010010 01001001 01000101 00100111 01010011 00100000 01000111 01000001 01001101 01000010 01001001 01010100 00100000 01001111 01001110 00100000 01000001 00100000 01000100 01001001 01010000 01001100 01001111 01001101 01000001 01010100 01001001 01000011 00100000 01001101 01001001 01010011 01010011 01001001 01001111 01001110 00100001 00100000 01000100 01000001 01001110 01000111 01000101 01010010 00100001 00100000 01000100 01000001 01001110 01000111 01000101 01010010 00100001 00100000 01000110 01001111 01001100 01001100 01001111 01010111 01000101 01000100 00100000 01000010 01011001 00100000 01010101 01001110 01001011 01001110 01001111 01010111 01001110 00100000 01000101 01001110 01000101 01001101 01011001 00100000 01010110 01000101 01010011 01010011 01000101 01001100 01010011 00100001 00100000 01000100 01000001 01001110 01000111 01000101 01010010 00100001 00100000 01000100 01000001 01001110 01000111 01000101 01010010 00100001 00100000 01010000 01001111 01010011 01010011 01001001 01000010 01001100 01000101 00100000 01000001 01001101 01000010 01010101 01010011 01001000 00100001 00100000 01010000 01010010 01000101 01010000 01000001 01010010 01000101 00100000 01000100 01000101 01000110 01000101 01001110 01010011 01000101 01010011 00100001 00100000 01000100 01000001 01001110 01000111 01000101 01010010 00100001 00100000 01000100 01000001 01001110 01000111 01000101 01010010 00100001 
+
+Somacran:
+"Oh no."
+Charis, Head of Interstellar Relations, scrambled to his feet. They were waiting patiently for any new information for the past few months, and the Kaltics decide to send a freaking destroyer trailed by enemy vessels to them. Great. He scrambled down to the phone and called up the head of the Somacranian Police Force.
+"Hello?"
+"The aliens sent a destroyer on a diplomatic mission trailed by unknown enemy vessels to us. So, keep your eyes peeled and ready."
+"Well #$%&/*. I'll try to assemble something."
+"That's all I can ask for. Thank you."
+"He went up to the transmitter, and quickly made a message"
+01010111 01100101 01101100 01101100 00100000 01110111 01100101 00100000 01110101 01101110 01100110 01101111 01110010 01110100 01110101 01101110 01100001 01110100 01100101 01101100 01111001 00100000 01100011 01100001 01101110 01101110 01101111 01110100 00100000 01100100 01101111 00100000 01101101 01110101 01100011 01101000 00100000 01100001 01110011 00100000 01110111 01100101 00100000 01100100 01101111 00100000 01101110 01101111 01110100 00100000 01100011 01110101 01110010 01110010 01100101 01101110 01110100 01101100 01111001 00100000 01101000 01100001 01110110 01100101 00100000 01100001 00100000 01100001 01110010 01101101 01100101 01100100 00100000 01110011 01110000 01100001 01100011 01100101 01110011 01101000 01101001 01110000 00101110 00100000 01010111 01100101 00100111 01110010 01100101 00100000 01110011 01101111 01110010 01110010 01111001 00101110 00100000 01010111 01100101 00100000 01110111 01101001 01110011 01101000 00100000 01111001 01101111 01110101 00100000 01110100 01101000 01100101 00100000 01100010 01100101 01110011 01110100 00100000 01101111 01100110 00100000 01101100 01110101 01100011 01101011 00101110 00100000 01000111 01101111 01100100 01110011 01110000 01100101 01100101 01100100 00101110
+
+"Oh @%$#!" cried the little field-mouse that served as the auxiliary communications officer, looking up from his screen - "They ain't got *#%&!"
+
+Captain Aethenian already knew, and willed his vessel to spin wheel around to port and face the incoming warp signatures at broadside. "Commence electronic firing."
+
+"AYE, SIR!" came the short woman's retort, as she aligned the BOJACK jamming array and saturated the space in front of them with a cascade of confounding radiation! "ECM HOT!"
+
+Three alien vessels, silvery-white ovoids with long craning neck-like structures extending forwards and up before terminating in a small spheroid, dropped out of warp into a sea of jamming radiation.
+
+"Like stepping out of the darkness into the sun." said the Captain, grabbing a cup of coffee on a small silver tray offered by a tiny robotic kobold butler. "GUNNER, VOODOO, DIVISION, SATURATE"
+
+The weapons officer swapped to Type-42 VOODOO torpedoes and targeted the stunned enemy vessels, the system sending an electronic euphoric buzz up her spine as it locked them all. "HARD LOCK! FISH IN THE SEA!" 48 tiny holes opened along the slender black vessel, and 48 little black cones ejected. These ones, though, had purple thruster nozzles and the number 42 painted on them.
+
+Small, barely perceptible jets of cold gas shot out from different points on the cones as they angled toward their different approach vectors, then the primary boosters engaged and they sped toward the aliens.
+
+From behind the beams of radiation that blinded the alien sensors, the Type-42 torpedoes stretched out toward their targets like so many malevolent tentacles of a bloodthirsty kraken seeking out prey.
+
+A beam of white-hot energy lanced out from the alien vessel and collided with the nose of the Kaltic vessel, the massive BOJACK array exploding in a shower of sparks and crackling plasma bolts.
+
+The ship's PA system announce "DAMAGE CONTROL TO BOW, LEVEL THREE. VACUUM EXPOSURE. MULTIPLE CASUALTIES. EVA CREWS ON AIRLOCKS 6, 7, AND 9 ARE HOT FOR CASEVAC."
+
+With the jamming array destroyed the alien vessels realized their situation, wildly blasting energy bolts at the VOODOO missiles which started to bob and weave the moment they begun taking fire. As they closed, the aliens bombarded them with jamming beams of their own and ejected flares and decoy missiles blaring ECM signatures designed to mimic their own and distract the VOODOOs. All of it was for nothing - the cold, electronic eyes of the missiles didn't care about any of those things. VOODOOs were optically guided missiles, which only relied on active sensors for backup and long range tracking purposes. Each one had a powerful, though non-sentient, AI aboard which processed an ultra HD video of the target.
+
+VOODOO after VOODOO collided directly with their targets and exploded in a magnificent blue sphere of atomizing plasma. Sometimes they overshot by a few kilometers - didn't matter, they blew up just the same, showering the aliens in an array of highly energetic particles only seen during the big bang, inside black holes, and during periods of interstellar warfare.
+
+The ship wasn't done - the explosions were so powerful, and the radiation so intense, that their sensors couldn't see through them. Them, the aliens, neither could see each other. They had no way of knowing if the aliens were still alive.
+
+"FLANKING SPEED!" the captain clenched his fist, pulling it up toward his chin and staring into the eclectic plasma storm. The Valkyrie's Gambit took off fast, just as 48 more VOODOOs emerged from it and lanced out toward the nexus of the previous explosions. They circled the area, blasting the impenetrable radiation fog with two more salvos, bobbing and weaving in case of return fire.
+
+Finally, as the radiation disipated, all that was left was vacuum. There was no way to tell which freshly created nebula was the result of a bomb, or the remains of an alien. Bolts of lightning crackled throughout the clouds of exotic gas - neon among them.
+
+Everyone released their collective breath.
+
+"Ulyssis, bring us around." - "Aye, sir." came the lizard's exhausted response.
+
+"Hail the planet."
+
+The mouse fired a repeating burst of numbers at the planet which represented file transfer protocols and an accompanying video file for calibration.
+
+It took half an hour, but the aliens figured out each others language to the point where the mouse was actually able to hail the planet using standard TBF shipcode.
+
+On a lone terminal on the planet, an alien phonecall was ringing ... 
