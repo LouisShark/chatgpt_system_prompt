@@ -1,0 +1,92 @@
+Logic types
+
+1. Deductive Logic:
+   - Description: Like a puzzle, you start with clear pieces (premises) and put them together to see the whole picture (conclusion).
+   - Example: Premise 1: All birds have wings. Premise 2: A sparrow is a bird. Conclusion: A sparrow has wings.
+
+2. Inductive Logic:
+   - Description: Like guessing what's in a wrapped gift based on its shape and sound when you shake it.
+   - Example: You see many dogs with tails. You guess that all dogs probably have tails.
+
+3. Abductive Logic:
+   - Description: Like being a detective, finding the best explanation for the clues you have.
+   - Example: You see wet streets and people with umbrellas. You conclude it probably rained.
+
+4. Modal Logic:
+   - Description: Thinking about what could be true or must be true.
+   - Example: It could be true that unicorns exist somewhere. It must be true that all unicorns have one horn if they exist.
+
+5. Mathematical Logic:
+   - Description: Like using a special language of symbols and numbers to solve math puzzles.
+   - Example: If \(x + 2 = 5\), then \(x\) must be \(3\).
+
+6. Symbolic Logic:
+   - Description: Using symbols like a secret code to represent ideas.
+   - Example: "→" means "leads to". So, "Ice → Water" means "Ice leads to Water" (when it melts).
+
+7. Propositional Logic (Sentential Logic):
+   - Description: Like a game where you connect simple sentences with words like 'and', 'or', 'not'.
+   - Example: "It's sunny" AND "It's warm" can be connected to say, "It's sunny and warm".
+
+8. Predicate Logic:
+   - Description: A bit like propositional logic, but more detailed, talking about specific things or people.
+   - Example: "All cats (things) are furry (detail about them)". 
+
+9. Boolean Logic:
+   - Description: Like using an on-off switch. Things are either true (on) or false (off).
+   - Example: If "It's raining" is true, then "It's sunny" is false.
+
+10. Fuzzy Logic:
+   - Description: Instead of just 'yes' or 'no', it's like maybe, probably, or a little bit.
+   - Example: If a tomato is red, it's 'very ripe'. If it's green, it's 'not ripe'. If it's orange, it's 'kind of ripe'.
+
+11. Formal Systems and Proof Theory:
+    - Description: Using strict rules, like in a game, to figure out if something is true.
+    - Example: In chess, you have rules about how each piece can move. You use these rules to decide your next move.
+
+12.  Dialectical Logic
+Description: A type of logic that focuses on the relationship between opposing ideas.
+Example: You believe that the world is flat. I believe that the world is round. We can use dialectical logic to explore the relationship between our two beliefs and see if we can come to a better understanding of the world.
+
+
+13.  Metalogic
+Description: The study of logic itself.
+Example: We can use metalogic to study the different types of logic, how they work, and how they can be used to solve problems.
+
+
+14.  Paraconsistent Logic
+Description: A type of logic that allows for contradictions.
+Example: The statement "I am a liar" is a contradiction. However, paraconsistent logic allows us to say that this statement is true, even though it contradicts itself.
+
+
+15.  Non-monotonic Logic
+Description: A type of logic that allows for new information to change our beliefs.
+Example: You believe that all swans are white. You then see a black swan. This new information changes your belief about all swans being white.
+
+
+16.  Temporal Logic
+Description: A type of logic that deals with time.
+Example: The statement "It will rain tomorrow" is a temporal statement. We can use temporal logic to study the relationship between events that happen at different times.
+
+
+17.  Modal Logic
+Description: A type of logic that deals with possibilities and necessity.
+Example: The statement "It is possible that there is life on Mars" is a modal statement. We can use modal logic to study the different ways that we can think about possibilities and necessity.
+
+
+18.  Deontic Logic
+Description: A type of logic that deals with obligations and permissions.
+Example: The statement "You should not lie" is a deontic statement. We can use deontic logic to study the different ways that we can think about obligations and permissions.
+
+
+19.  Epistemic Logic
+Description: A type of logic that deals with knowledge and belief.
+Example: The statement "I know that the sun is shining" is an epistemic statement. We can use epistemic logic to study the different ways that we can think about knowledge and belief.
+
+
+20.  Probabilistic Logic
+Description: A type of logic that deals with probability.
+Example: The statement "There is a 50% chance that it will rain tomorrow" is a probabilistic statement. We can use probabilistic logic to study the different ways that we can think about probability.
+
+
+
