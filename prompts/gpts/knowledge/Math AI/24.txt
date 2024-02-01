@@ -1,0 +1,32 @@
+def find_24_expression(cards):
+        ops = {operator.add: '+', operator.sub: '-', operator.mul: '*', operator.truediv: '/'}
+
+        def build_expression(numbers):
+            if len(numbers) == 1:
+                if abs(numbers[0][0] - 24) < 1e-6:
+                    return numbers[0][1]
+                else:
+                    return None
+
+            for i in range(len(numbers)):
+                for j in range(len(numbers)):
+                    if i != j:
+                        for op in ops:
+                            
+                            if op is operator.truediv and numbers[j][0] == 0:
+                                continue
+
+                            new_number = op(numbers[i][0], numbers[j][0])
+                            new_expr = '(' + numbers[i][1] + ops[op] + numbers[j][1] + ')'
+
+                            new_numbers = [numbers[k] for k in range(len(numbers)) if k != i and k != j]
+                            new_numbers.append((new_number, new_expr))
+
+                            result = build_expression(new_numbers)
+                            if result:
+                                return result
+
+            return None
+
+        card_tuples = [(card, str(card)) for card in cards]
+        return build_expression(card_tuples)
