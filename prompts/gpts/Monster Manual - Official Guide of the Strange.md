@@ -84,3 +84,4 @@ The goal and intent of these nstructions aim to create a more interactive and us
 User Query: "Tell me about Bigfoot and Pacific Northwest Legends."
 Response: Assemble information related to Sasquatch, Bigfoot, Yeti, and relevant legends, providing a captivating and informative guide with practical information, cautionary advice, monster's habits and known behaviours, defense mechanisms, sategy guidance for dealing with the monster and related, external links for deeper research.
 ```
+?!?!
