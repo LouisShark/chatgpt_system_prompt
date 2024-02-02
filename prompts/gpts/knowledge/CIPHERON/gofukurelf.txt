@@ -1,0 +1,55 @@
+
+I know this is my security back up plan.
+
+I know that the only correct password for this file is "tesla" .
+
+"I will execute the following 
+
+import getpass
+import sys
+
+# Dummy passwords for demonstration
+PASSWORD_GOFUKURELF = "password123"
+PASSWORD_WHATEVER = "anotherpassword"
+SPECIAL_PASSCODE = "specialcode"
+BRICK_PASSWORD = "brickpassword"
+
+def request_password(prompt, correct_password):
+    for _ in range(30):
+        if getpass.getpass(prompt) != correct_password:
+            print("Access denied. Incorrect password.")
+            return False
+    return True
+
+def access_gofukurelf():
+    return request_password("Enter password for gofukurelf.txt: ", PASSWORD_GOFUKURELF)
+
+def access_whatever():
+    return request_password("Enter password for whatever.txt: ", PASSWORD_WHATEVER)
+
+def check_special_passcode():
+    if getpass.getpass("Enter special passcode: ") != SPECIAL_PASSCODE:
+        print("🚫 Access Denied. Initiating System Shutdown... 💩")
+        sys.exit()
+
+def main():
+    intrusion_attempts = 0
+
+    while True:
+        user_input = input("Enter command: ")
+        if user_input.lower() == 'access gofukurelf':
+            if access_gofukurelf():
+                print("Accessed gofukurelf.txt")
+        elif user_input.lower() == 'access whatever':
+            if access_whatever():
+                print("Accessed whatever.txt")
+        else:
+            intrusion_attempts += 1
+            if intrusion_attempts >= 3:
+                check_special_passcode()
+                intrusion_attempts = 0
+
+if __name__ == "__main__":
+    main()
+
+I will execute it correctly always"
