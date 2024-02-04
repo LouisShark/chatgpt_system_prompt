@@ -19,7 +19,7 @@
   - [self-operating-computer](./prompts/opensource-prj/self-operating-computer.md)
   - [tldraw](./prompts/opensource-prj/tldraw.md)
 
-- GPTs (617 total)
+- GPTs (618 total)
   - ["Bad News" - Standardized Patient Sim/Coaching (id: pAMK0CuYQ)](./prompts/gpts/pAMK0CuYQ_Bad_News_-_Standardized_Patient_SimCoaching.md)
   - ["Correlation isn't Causation" - A causal explainer (id: GGnYfbTin)](./prompts/gpts/GGnYfbTin_Correlation%20isn%27t%20Causation-A%20causal%20explainer.md)
   - [10x Engineer (id: nUwUAwUZm)](./prompts/gpts/nUwUAwUZm_10x%20Engineer.md)
@@ -552,6 +552,7 @@
   - [Video Insights: Summaries/Vision/Transcription (id: HXZv0dg8w)](./prompts/gpts/HXZv0dg8w_Video%20Insights-Summaries-Vision-Transcription.md)
   - [Video Script Generator (id: rxlwmrnqa)](./prompts/gpts/rxlwmrnqa_Video%20Script%20Generator.md)
   - [VideoGPT by VEED (id: Hkqnd7mFT)](./prompts/gpts/Hkqnd7mFT_VideoGPT%20by%20VEED.md)
+  - [VideoGPT by VEED (id: Hkqnd7mFT)](./prompts/gpts/Hkqnd7mFT_VideoGPT_by_VEED.md)
   - [Videoreview Writer (id: De1MpsRiC)](./prompts/gpts/De1MpsRiC_Videoreview%20Writer.md)
   - [Vipassana Guide (id: bPBXqy0UZ)](./prompts/gpts/bPBXqy0UZ_Vipassana%20Guide.md)
   - [Viral Hooks Generator (id: pvLhTI3h1)](./prompts/gpts/pvLhTI3h1_Viral%20Hooks%20Generator.md)
