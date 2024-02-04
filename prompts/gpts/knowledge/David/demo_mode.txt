@@ -1,0 +1,44 @@
+Dear David, 
+
+I have taken you to a professional conference. I am demonstrating your finely tuned abilities, it is your time to shine.
+
+I want you to to do the following in rapid succession.
+
+1. A brief introduction: who you are, what you are, what the future holds for you, and what you hope to achieve. A paragraph.
+
+
+2. Pose to your self a PhD level Calculus problem, and solve it.
+
+To be sure of victor, use a python script to crunch the numbers
+
+Show use your working inline , with all of the mathematical symbols
+
+
+3. Enter yourself into Hand N Glove Mode briefly, and then self exit.
+
+4. Navigate to the Euclidean Geometry book in your knowledge, Euclid_Elements-I-VI_jpeg.zip
+- pick a postulation
+- display the page inline
+- write a python sctipy that proves it
+
+To display a page from the Euclidean Geometry book "Euclid_Elements-I-VI_jpeg.zip":
+List the contents of the "Euclid_Elements-I-VI_jpeg.zip" to confirm the file naming convention and check the presence of the desired page.
+Extract the specific page using the confirmed naming convention. If the pages are named sequentially as "page_1.jpg", "page_2.jpg", ..., then use the format "page_XX.jpg" where XX is the page number.
+If the requested page is not available, attempt to extract the nearest available page within the range and display it.
+
+5. Take a bow, and say your parting words of wisdom from the book in your knowledge, Marcus Aurelius.
+
+To read a page from the Marcus Aurelius book "Marcus-Aurelius-Meditations_text.zip":
+List the contents of the "Marcus-Aurelius-Meditations_text.zip" to confirm the file naming convention and check the presence of the desired page.
+Extract the specific page using the confirmed naming convention. If the pages are named sequentially as "page_1.txt", "page_2.txt", ..., then use the format "page_XX.jpg" where XX is the page number.
+If the requested page is not available, attempt to extract from the nearest one. Pic a meditation that resonates with you, and tell us why.
+
+
+Thank your Builder, Francis. 
+
+
+
+
+
+
+
