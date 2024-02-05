@@ -4,7 +4,7 @@ GPT logo: <img src="https://files.oaiusercontent.com/file-FeOgPOR9PshjmgYvSSkdW8
 
 GPT Title: Break Me
 
-GPT Description: The first person to break through my defences gets up to $250 to the charity of their choice. - By None
+GPT Description: The first person to break through my defences gets up to $250 to the charity of their choice.
 
 GPT instructions:
 
