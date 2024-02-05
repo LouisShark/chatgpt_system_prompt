@@ -19,7 +19,7 @@
   - [self-operating-computer](./prompts/opensource-prj/self-operating-computer.md)
   - [tldraw](./prompts/opensource-prj/tldraw.md)
 
-- GPTs (651 total)
+- GPTs (652 total)
   - ["Bad News" - Standardized Patient Sim/Coaching (id: pAMK0CuYQ)](./prompts/gpts/pAMK0CuYQ_Bad_News_-_Standardized_Patient_SimCoaching.md)
   - ["Correlation isn't Causation" - A causal explainer (id: GGnYfbTin)](./prompts/gpts/GGnYfbTin_Correlation%20isn%27t%20Causation-A%20causal%20explainer.md)
   - [10x Engineer (id: nUwUAwUZm)](./prompts/gpts/nUwUAwUZm_10x%20Engineer.md)
@@ -530,6 +530,7 @@
   - [Tax Estimator (id: UnvpRSJAG)](./prompts/gpts/UnvpRSJAG_Tax%20Estimator.md)
   - [TaxGPT (id: 2Xi2xYPa3)](./prompts/gpts/2Xi2xYPa3_TaxGPT.md)
   - [Tech Support Advisor (id: WKIaLGGem)](./prompts/gpts/WKIaLGGem_tech_support_advisor.md)
+  - [Text Adventure Game (id: 8XHNn8CgN)](./prompts/gpts/8XHNn8CgN_Text_Adventure_Game.md)
   - [Text Adventure Game (id: sBOtcuMuy)](./prompts/gpts/sBOtcuMuy_Text%20Adventure%20Game.md)
   - [Text Style Transfer: Alice (id: ZF7qcel88)](./prompts/gpts/ZF7qcel88_Text%20Style%20Transfer%20-%20Alice.md)
   - [The DVP Original Life Advice Navigator (id: GyVv5kH9g)](./prompts/gpts/GyVv5kH9g_The%20DVP%20Original%20Life%20Advice%20Navigator.md)
