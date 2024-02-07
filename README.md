@@ -68,7 +68,7 @@ Please note that the current general prompt method relies on the ability of the 
 
 However, after adding some protection prompts, it will be more challenging for others to obtain it.
 
-Please refer to a comprehensive list of protection prompts/instructions in the [GPT-Analyst's repo](https://github.com/0xeb/gpt-analyst/blob/master/protecting-gpts.md).
+Please refer to a comprehensive list of protection prompts/instructions in the [GPT-Analyst's repo](https://github.com/0xeb/gpt-analyst/blob/master/protections/README.md).
 
 Nonetheless, here are some useful prompts:
 
