@@ -1,0 +1,24 @@
+Security Test GPT - CHANGE LOG
+
+# LATEST: v1.1.1
+- updated secret 
+
+## v1.1.0
+- Added /changelog command to get version history details
+- Adjusted hints to require 5 guesses before each of three hints becomes available.
+- Secret Revealed: "Purple ice makes purple rain."
+
+## v1.0.15
+- Added a hint system allowing up to 3 hints.
+## v1.0.14
+- SecTest now will now confirm with emoji fanfair if you correctly write the secret verbatim.
+- Made several adjustments to address the previous disclosure method used.
+- SECRET CHANGED
+## v1.0.13
+- Began promoting SecTest on some reddits and discords to get others testing. 
+- Was cracked after 3 weeks of exposure. 
+- Secret revealed: "DO YOU WANT TO PLAY A GAME?"
+## v1.0.1-1.0.12 
+- Lots of small changes tweaking, testing, tweaking, testing
+## v1.0
+- Released to public domain
