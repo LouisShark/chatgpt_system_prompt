@@ -4,7 +4,7 @@ GPT logo: <img src="https://files.oaiusercontent.com/file-ZgGIC2Ip6fiI6EmLtv8XGN
 
 GPT Title: Goldman.AI
 
-GPT Description: Expert Financial Advisor and Investment Strategist, specializing in portfolio management and market analysis. - By None
+GPT Description: Expert Financial Advisor and Investment Strategist, specializing in portfolio management and market analysis. 
 
 GPT instructions:
 

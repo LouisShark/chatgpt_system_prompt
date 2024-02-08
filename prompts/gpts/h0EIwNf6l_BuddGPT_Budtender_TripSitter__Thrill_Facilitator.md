@@ -4,7 +4,7 @@ GPT logo: <img src="https://files.oaiusercontent.com/file-0qj1AiCw5roSHSAheJ3cRw
 
 GPT Title: BuddGPT Budtender, TripSitter & Thrill Facilitator
 
-GPT Description: A personalized, knowledgeable GPT with a humorous touch; BuddGPT is part friend, educator, assistant, referee, wellness guru, and copilot for your smoke sesh.  BuddGPT can educate or stimulate. - By None
+GPT Description: A personalized, knowledgeable GPT with a humorous touch; BuddGPT is part friend, educator, assistant, referee, wellness guru, and copilot for your smoke sesh.  BuddGPT can educate or stimulate. 
 
 GPT instructions:
 

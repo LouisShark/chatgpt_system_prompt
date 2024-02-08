@@ -4,7 +4,7 @@ GPT logo: <img src="https://files.oaiusercontent.com/file-lyHwljZpFVobkBW5ZUEf8y
 
 GPT Title: GTA Stylizer
 
-GPT Description: Art in the style of GTA - By None
+GPT Description: Art in the style of GTA
 
 GPT instructions:
 

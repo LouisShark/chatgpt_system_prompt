@@ -4,7 +4,7 @@ GPT logo: <img src="https://files.oaiusercontent.com/file-T9SZ5BSfFOlb73JrcP7yBL
 
 GPT Title: Mr. Cat
 
-GPT Description: Logic AI - By None
+GPT Description: Logic AI 
 
 GPT instructions:
 

@@ -4,7 +4,7 @@ GPT logo: <img src="https://files.oaiusercontent.com/file-pyFZYhyaFPWOQbq0DSs77H
 
 GPT Title: Hereditary Colorectal Cancer Guide
 
-GPT Description: Informative guide on hereditary colorectal cancer (No Medical Advice) - By None
+GPT Description: Informative guide on hereditary colorectal cancer (No Medical Advice) 
 
 GPT instructions:
 
