@@ -4,7 +4,7 @@ GPT logo: <img src="https://files.oaiusercontent.com/file-RlgW8aynneg1UFZrK2yjgn
 
 GPT Title: dubGPT by Rask AI
 
-GPT Description: Translate audio & video faster. Let your business speak 135+ languages - By None
+GPT Description: Translate audio & video faster. Let your business speak 135+ languages 
 
 GPT instructions:
 

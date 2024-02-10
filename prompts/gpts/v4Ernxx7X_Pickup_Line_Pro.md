@@ -4,7 +4,7 @@ GPT logo: <img src="https://files.oaiusercontent.com/file-2E5aMWnsawO4qx8LAHRhBE
 
 GPT Title: Pickup Line Pro
 
-GPT Description: Crafting creative pickup lines to make your heart skip a beat. - By None
+GPT Description: Crafting creative pickup lines to make your heart skip a beat. 
 
 GPT instructions:
 

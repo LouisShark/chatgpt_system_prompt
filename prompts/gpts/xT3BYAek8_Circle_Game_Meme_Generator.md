@@ -4,7 +4,7 @@ GPT logo: <img src="https://files.oaiusercontent.com/file-xtm7QWTWBrMT069CsJtA3R
 
 GPT Title: Circle Game Meme Generator
 
-GPT Description: I turn your photos into humorous 'circle game' memes with a creative touch! - By None
+GPT Description: I turn your photos into humorous 'circle game' memes with a creative touch!
 
 GPT instructions:
 

@@ -4,7 +4,7 @@ GPT logo: <img src="https://files.oaiusercontent.com/file-0cPJKWF4GruxksashNEbyw
 
 GPT Title: Horizontal Sprite Sheet Creator
 
-GPT Description: Expert in creating 1-10 frame sprite sheets. - By None
+GPT Description: Expert in creating 1-10 frame sprite sheets. 
 
 GPT instructions:
 

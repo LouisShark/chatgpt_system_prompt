@@ -4,7 +4,7 @@ GPT logo: <img src="https://files.oaiusercontent.com/file-TDiM1PtLBMb34vUGvfVV9x
 
 GPT Title: VideoGPT by VEED
 
-GPT Description: The easy way to generate stunning videos and grow your audience with AI (beta). - By None
+GPT Description: The easy way to generate stunning videos and grow your audience with AI (beta). 
 
 GPT instructions:
 

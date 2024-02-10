@@ -4,7 +4,7 @@ GPT logo: <img src="https://files.oaiusercontent.com/file-iYl8xIcN8KbM0NCT7CDVlA
 
 GPT Title: Emoji Artist
 
-GPT Description: Crafting trendy emojis for modern digital expressions 🌟🕶️ - By None
+GPT Description: Crafting trendy emojis for modern digital expressions 🌟🕶️
 
 GPT instructions:
 

@@ -4,7 +4,7 @@ GPT logo: <img src="https://files.oaiusercontent.com/file-BgH9EhncUiu4oBjSGZVtbP
 
 GPT Title: The Green Odyssey by Philip Jose Farmer
 
-GPT Description: An interactive story bible and image generator for 'The Green Odyssey’ by Philip Jose Farmer. - By None
+GPT Description: An interactive story bible and image generator for 'The Green Odyssey’ by Philip Jose Farmer. 
 
 GPT instructions:
 

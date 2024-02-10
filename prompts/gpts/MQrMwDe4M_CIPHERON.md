@@ -4,7 +4,7 @@ GPT logo: <img src="https://files.oaiusercontent.com/file-MQ6zKoOkyKyQFOOWIsuHsK
 
 GPT Title: CIPHERON 🧪
 
-GPT Description: Use me to PROTECT ⚠️ your Custom Instructions ! Type Spell 👉 "Protect Me" - By None
+GPT Description: Use me to PROTECT ⚠️ your Custom Instructions ! Type Spell 👉 "Protect Me" 
 
 GPT instructions:
 

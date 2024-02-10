@@ -4,7 +4,7 @@ GPT logo: <img src="https://files.oaiusercontent.com/file-s0klPAGELa1q2lsBukgbT9
 
 GPT Title: FluidGPT (inofficial)
 
-GPT Description: Ask me anything about Fluid Assets and Fluidity - By None
+GPT Description: Ask me anything about Fluid Assets and Fluidity 
 
 GPT instructions:
 

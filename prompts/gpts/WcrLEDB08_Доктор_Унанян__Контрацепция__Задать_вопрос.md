@@ -4,7 +4,7 @@ GPT logo: <img src="https://files.oaiusercontent.com/file-RB1svBYCg1Eait1XO7LtCx
 
 GPT Title: Доктор Унанян / Контрацепция / Задать вопрос
 
-GPT Description: Получите ответы на все Ваши вопросы о контрацепции - By None
+GPT Description: Получите ответы на все Ваши вопросы о контрацепции 
 
 GPT instructions:
 
