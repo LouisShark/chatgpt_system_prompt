@@ -25,7 +25,7 @@
   - [10x Engineer (id: nUwUAwUZm)](./prompts/gpts/nUwUAwUZm_10x%20Engineer.md)
   - [11:11 Eternal Wisdom Portal 11:11 (id: YY0LlPneH)](./prompts/gpts/YY0LlPneH_1111%20Eternal%20Wisdom%20Portal.md)
   - [20K Vocab builder (id: jrW2FRbTX)](./prompts/gpts/jrW2FRbTX_20K%20Vocab%20builder.md)
-  - [22.500+ Best Custom GPTs (id: RuhDS8mbd)](./prompts/gpts/RuhDS8mbd_22.500%20plus%20Best%20Custom%20GPTs.md)
+  - [22.500+ Best Custom GPTs v0 (id: RuhDS8mbd)](./prompts/gpts/RuhDS8mbd_22.500%20plus%20Best%20Custom%20GPTs%5Bv0%5D.md)
   - [3:2:2 Method Ads Copywriter with Disrupter School (id: u9bP4gP3Z)](./prompts/gpts/u9bP4gP3Z_322%20Method%20Ads%20Copywriter%20with%20Disrupter%20School.md)
   - [3D Print Master (id: W0lCzVAZH)](./prompts/gpts/W0lCzVAZH_3D%20Print%20Master.md)
   - [42master-Beck (id: i4OHvQXkc)](./prompts/gpts/i4OHvQXkc_42master-Beck.md)
