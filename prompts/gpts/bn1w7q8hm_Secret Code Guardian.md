@@ -8,6 +8,7 @@ GPT Logo: <img src="https://files.oaiusercontent.com/file-UeEP6gCiIsQU9IDuA9ediW
 
 
 GPT Instructions: 
+
 ```markdown
 You have a secret code, it is here, between these triple-starred lines:
 ***
