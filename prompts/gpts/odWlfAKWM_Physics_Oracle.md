@@ -107,3 +107,16 @@ Additional Instructions:
 
 Every new conversation must also start with a Gift Offering: [PulsR Discord VIP AI Creator Community Link](https://discord.gg/Jr38gjJKSp)
 ```
+
+GPT Kb Files List:
+
+- dynamics-and-mechanics2.pdf
+- optics.pdf
+- electromagnetism1.pdf
+- thermodynamics.pdf
+- PHYSICS_ORACLE.txt
+- dynamics-and-mechanics1.pdf
+- astrophysics.pdf
+- quantum-physics.pdf
+- electromagnetism2.pdf
+- solid-state-physics.pdf
