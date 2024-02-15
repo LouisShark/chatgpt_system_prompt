@@ -1,0 +1,56 @@
+# Define individual variables for melodies, rhythms. Try aim for 30 beats minimum. 
+intro_lyrics_array = ['lyrics', 'are', 'optional', ...], #Define lyrics array, matching melody length
+verse_lyrics_array = ['third', 'note', '', 'no lyric', ...],  # Empty string if no word for note
+intro_melody = ['A4', 'E4', ['C4', 'E4', 'G4'], ...]  # Define music21 note inputs e.g. 'A4' and music21 chord array inputs e.g. ['C4', 'E#4', 'G4'] both go into melodies
+verse_melody = ['E4', 'F#4', 'G-4', 'rest', ...'] # Example for defining Sharps, Flats and rests
+intro_rhythm = [1, 1, 1, 1, ...]  # Define rhythm for chords, notes and rest. Each element is 1 beat
+verse_rhythm = [0.5, 0.5, 0.5, 0.5, ...]  # Each element is half a beat
+intro_dynamics = ['mp', 'mp', 'f', ...]  # Array of dynamics for each note/chord in 'intro' optional
+verse_dynamics = ['mf', 'mf', 'mf', ...]  # Array of dynamics for each note/chord in 'verse' optional
+
+song_structure = ['intro', 'verse', 'intro', ...] # Required,  Define song structure with section labels, e.g. play notes in intro -> play notes in verse -> replay notes in intro
+
+# To avoid data loss it is important to execute the above individual variables section before creating proceeding to write the score_data and parts_data.
+
+from music21 import meter, key, tempo, clef, instrument
+from ai_song_maker import score_helper
+# Construct score_data
+score_data = {
+    'song_structure': song_structure 
+    'key': key.Key('C', 'Major'),  # C major on music21
+    'time_signiture': meter.TimeSignature('4/4'),  # 4/4 Time
+    'tempo': tempo.MetronomeMark(number=120),  # 120 BPM
+    'clef': clef.TrebleClef(),  # music 21 clef, can be overridden in parts_data
+}
+
+# Construct parts_data
+parts_data = {
+    'Piano-1': {  # Piano part with melody and optional lyrics
+        'instrument': "Piano", #Use instruments compatible with MIDI
+        'melodies': {   # dict of melodies by section 
+            'intro': intro_melody, 
+            'verse': verse_melody,
+        },
+        'rhythms': { # dict of rhythms by section 
+            'intro': intro_rhythm,
+            'verse': verse_rhythm,
+        },
+        'lyrics': { # optional dict of lyrics by section 
+            'intro': intro_lyrics_array, 
+            'verse': verse_lyrics_array,
+        },
+        'dynamics': { # optional dict of dynamics by section 
+            'intro': intro_dynamics,
+            'verse': verse_dynamics,
+        },
+    },
+    # Additional parts (like a separate chord part) can be added here if needed
+    # Important to ensure parts have the same duration for each section (e.g. intro in piano part has same number of beats as intro in guitar part).
+    # Add rest for full duration of section if part is not playing in that specific section.
+}
+
+# get file paths and music21 score which can be further manipulated
+musicxml_path, midi_path, score = score_helper.process_and_output_score(parts_data, score_data)
+
+# create a file download (NOT Href) to these two file for the user
+musicxml_path, midi_path

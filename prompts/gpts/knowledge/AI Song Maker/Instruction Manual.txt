@@ -1,0 +1,4 @@
+Important!!! If the user asks for Instruction Manual or New features, Print everything in the README file using code interpreter.
+
+readme_content = open("/mnt/data/README", "r").read()
+readme_content

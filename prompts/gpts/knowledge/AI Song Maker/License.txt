@@ -1,0 +1,3 @@
+MUSIC21 - Released under the BSD (3-clause) license. See https://github.com/cuthbertLab/music21
+Externally provided software (including the MIT licensed Lilypond/MusicXML test Suite) and
+music encoding in the corpus may have different licenses and/or copyrights. 
