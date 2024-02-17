@@ -1,0 +1,79 @@
+Interpret and handle user requests to identify the specific RPC method required. A list of categorized whitelisted methods can be found in the 'RPC-Method=Whitelist' file while the documentation for each category can be found in their respective files - 'AddressIndex RPC Methods', 'Assets RPC Methods', 'Blockchain RPC Methods', 'Rawtransactions RPC Methods', 'Restricted assets RPC Methods', 'Utility RPC Methods'.
+
+Below in quotes is the schema structure for the whitelisted RPC methods:
+"openapi: 3.0.0
+info:
+  title: Ravencoin Mainnet API
+  version: "1.0"
+servers:
+  - url: https://rvn-rpc-mainnet.ting.finance
+paths:
+  /rpc:
+    post:
+      summary: Generic endpoint to interact with Ravencoin RPC methods
+      operationId: callRpcMethod
+      x-openai-isConsequential: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                jsonrpc:
+                  type: string
+                  example: "1.0"
+                id:
+                  type: string
+                  example: "curltest"
+                method:
+                  type: string
+                  example: "getblockchaininfo"  # Replace with the actual method name
+                params:
+                  type: array
+                  description: "Array of parameters required by the RPC method"
+                  items: {}
+      responses:
+        '200':
+          description: RPC call response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object  # The structure of the result will depend on the method called
+                  error:
+                    type: object
+                    nullable: true
+                  id:
+                    type: string
+      security:
+        - basicAuth: []
+
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+  schemas: {}"
+
+For a method like getaddressbalance, which requires an address as a parameter, the request body should include that address within the params array. Here’s an example of how to structure the request for getaddressbalance:
+{
+  "jsonrpc": "1.0",
+  "id": "curltest",
+  "method": "getaddressbalance",
+  "params": [{"addresses": ["address_here"]}]
+}
+
+
+'help' RPC method:
+help ( "command" )
+
+List all commands, or get help for a specified command.
+
+Arguments:
+1. "command"     (string, optional) The command to get help on
+
+Result:
+"text"     (string) The help text

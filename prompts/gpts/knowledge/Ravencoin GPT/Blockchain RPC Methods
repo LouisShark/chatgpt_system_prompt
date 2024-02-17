@@ -1,0 +1,1056 @@
+decodeblock "blockhex"
+
+Arguments:
+1. "blockhex"          (string, required) The block hex
+
+Result:
+{
+  "hash" : "hash",     (string) the block hash (same as provided)
+  "size" : n,            (numeric) The block size
+  "strippedsize" : n,    (numeric) The block size excluding witness data
+  "weight" : n           (numeric) The block weight as defined in BIP 141
+  "height" : n,          (numeric) The block height or index
+  "version" : n,         (numeric) The block version
+  "versionHex" : "00000000", (string) The block version formatted in hexadecimal
+  "merkleroot" : "xxxx", (string) The merkle root
+  "tx" : [               (array of string) The transaction ids
+     "transactionid"     (string) The transaction id
+     ,...
+  ],
+  "time" : ttt,          (numeric) The block time in seconds since epoch (Jan 1 1970 GMT)
+  "nonce" : n,           (numeric) The nonce
+  "bits" : "1d00ffff", (string) The bits
+}
+
+Examples:
+> raven-cli decodeblock "xxxx"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "decodeblock", "params": ["xxxx"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+getbestblockhash
+
+Returns the hash of the best (tip) block in the longest blockchain.
+
+Result:
+"hex"      (string) the block hash hex encoded
+
+Examples:
+> raven-cli getbestblockhash 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getbestblockhash", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+getblock "blockhash" ( verbosity ) 
+
+If verbosity is 0, returns a string that is serialized, hex-encoded data for block 'hash'.
+If verbosity is 1, returns an Object with information about block .
+If verbosity is 2, returns an Object with information about block  and information about each transaction. 
+
+Arguments:
+1. "blockhash"          (string, required) The block hash
+2. verbosity              (numeric, optional, default=1) 0 for hex encoded data, 1 for a json object, and 2 for json object with transaction data
+
+Result (for verbosity = 0):
+"data"             (string) A string that is serialized, hex-encoded data for block 'hash'.
+
+Result (for verbosity = 1):
+{
+  "hash" : "hash",     (string) the block hash (same as provided)
+  "confirmations" : n,   (numeric) The number of confirmations, or -1 if the block is not on the main chain
+  "size" : n,            (numeric) The block size
+  "strippedsize" : n,    (numeric) The block size excluding witness data
+  "weight" : n           (numeric) The block weight as defined in BIP 141
+  "height" : n,          (numeric) The block height or index
+  "version" : n,         (numeric) The block version
+  "versionHex" : "00000000", (string) The block version formatted in hexadecimal
+  "merkleroot" : "xxxx", (string) The merkle root
+  "tx" : [               (array of string) The transaction ids
+     "transactionid"     (string) The transaction id
+     ,...
+  ],
+  "time" : ttt,          (numeric) The block time in seconds since epoch (Jan 1 1970 GMT)
+  "mediantime" : ttt,    (numeric) The median block time in seconds since epoch (Jan 1 1970 GMT)
+  "nonce" : n,           (numeric) The nonce
+  "bits" : "1d00ffff", (string) The bits
+  "difficulty" : x.xxx,  (numeric) The difficulty
+  "chainwork" : "xxxx",  (string) Expected number of hashes required to produce the chain up to this block (in hex)
+  "previousblockhash" : "hash",  (string) The hash of the previous block
+  "nextblockhash" : "hash"       (string) The hash of the next block
+}
+
+Result (for verbosity = 2):
+{
+  ...,                     Same output as verbosity = 1.
+  "tx" : [               (array of Objects) The transactions in the format of the getrawtransaction RPC. Different from verbosity = 1 "tx" result.
+         ,...
+  ],
+  ,...                     Same output as verbosity = 1.
+}
+
+Examples:
+> raven-cli getblock "00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblock", "params": ["00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+
+getblockchaininfo
+Returns an object containing various state info regarding blockchain processing.
+
+Result:
+{
+  "chain": "xxxx",        (string) current network name as defined in BIP70 (main, test, regtest)
+  "blocks": xxxxxx,         (numeric) the current number of blocks processed in the server
+  "headers": xxxxxx,        (numeric) the current number of headers we have validated
+  "bestblockhash": "...", (string) the hash of the currently best block
+  "difficulty": xxxxxx,     (numeric) the current difficulty
+  "mediantime": xxxxxx,     (numeric) median time for the current best block
+  "verificationprogress": xxxx, (numeric) estimate of verification progress [0..1]
+  "chainwork": "xxxx"     (string) total amount of work in active chain, in hexadecimal
+  "size_on_disk": xxxxxx,   (numeric) the estimated size of the block and undo files on disk
+  "pruned": xx,             (boolean) if the blocks are subject to pruning
+  "pruneheight": xxxxxx,    (numeric) lowest-height complete block stored (only present if pruning is enabled)
+  "automatic_pruning": xx,  (boolean) whether automatic pruning is enabled (only present if pruning is enabled)
+  "prune_target_size": xxxxxx,  (numeric) the target size used by pruning (only present if automatic pruning is enabled)
+  "softforks": [            (array) status of softforks in progress
+     {
+        "id": "xxxx",        (string) name of softfork
+        "version": xx,         (numeric) block version
+        "reject": {            (object) progress toward rejecting pre-softfork blocks
+           "status": xx,       (boolean) true if threshold reached
+        },
+     }, ...
+  ],
+  "bip9_softforks": {          (object) status of BIP9 softforks in progress
+     "xxxx" : {                (string) name of the softfork
+        "status": "xxxx",    (string) one of "defined", "started", "locked_in", "active", "failed"
+        "bit": xx,             (numeric) the bit (0-28) in the block version field used to signal this softfork (only for "started" status)
+        "startTime": xx,       (numeric) the minimum median time past of a block at which the bit gains its meaning
+        "timeout": xx,         (numeric) the median time past of a block at which the deployment is considered failed if not yet locked in
+        "since": xx,           (numeric) height of the first block to which the status applies
+        "statistics": {        (object) numeric statistics about BIP9 signalling for a softfork (only for "started" status)
+           "period": xx,       (numeric) the length in blocks of the BIP9 signalling period 
+           "threshold": xx,    (numeric) the number of blocks with the version bit set required to activate the feature 
+           "elapsed": xx,      (numeric) the number of blocks elapsed since the beginning of the current period 
+           "count": xx,        (numeric) the number of blocks with the version bit set in the current period 
+           "possible": xx      (boolean) returns false if there are not enough blocks left in this period to pass activation threshold 
+        }
+     }
+  }
+  "warnings" : "...",         (string) any network and blockchain warnings.
+}
+
+Examples:
+> raven-cli getblockchaininfo 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockchaininfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+getblockcount
+
+Returns the number of blocks in the longest blockchain.
+
+Result:
+n    (numeric) The current block count
+
+Examples:
+> raven-cli getblockcount 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockcount", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+getblockhash height
+
+Returns hash of block in best-block-chain at height provided.
+
+Arguments:
+1. height         (numeric, required) The height index
+
+Result:
+"hash"         (string) The block hash
+
+Examples:
+> raven-cli getblockhash 1000
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockhash", "params": [1000] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+getblockheader "hash" ( verbose )
+
+If verbose is false, returns a string that is serialized, hex-encoded data for blockheader 'hash'.
+If verbose is true, returns an Object with information about blockheader .
+
+Arguments:
+1. "hash"          (string, required) The block hash
+2. verbose           (boolean, optional, default=true) true for a json object, false for the hex encoded data
+
+Result (for verbose = true):
+{
+  "hash" : "hash",     (string) the block hash (same as provided)
+  "confirmations" : n,   (numeric) The number of confirmations, or -1 if the block is not on the main chain
+  "height" : n,          (numeric) The block height or index
+  "version" : n,         (numeric) The block version
+  "versionHex" : "00000000", (string) The block version formatted in hexadecimal
+  "merkleroot" : "xxxx", (string) The merkle root
+  "time" : ttt,          (numeric) The block time in seconds since epoch (Jan 1 1970 GMT)
+  "mediantime" : ttt,    (numeric) The median block time in seconds since epoch (Jan 1 1970 GMT)
+  "nonce" : n,           (numeric) The nonce
+  "bits" : "1d00ffff", (string) The bits
+  "difficulty" : x.xxx,  (numeric) The difficulty
+  "chainwork" : "0000...1f3"     (string) Expected number of hashes required to produce the current chain (in hex)
+  "previousblockhash" : "hash",  (string) The hash of the previous block
+  "nextblockhash" : "hash",      (string) The hash of the next block
+}
+
+Result (for verbose=false):
+"data"             (string) A string that is serialized, hex-encoded data for block 'hash'.
+
+Examples:
+> raven-cli getblockheader "00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockheader", "params": ["00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+getchaintips
+Return information about all known tips in the block tree, including the main chain as well as orphaned branches.
+
+Result:
+[
+  {
+    "height": xxxx,         (numeric) height of the chain tip
+    "hash": "xxxx",         (string) block hash of the tip
+    "branchlen": 0          (numeric) zero for main chain
+    "status": "active"      (string) "active" for the main chain
+  },
+  {
+    "height": xxxx,
+    "hash": "xxxx",
+    "branchlen": 1          (numeric) length of branch connecting the tip to the main chain
+    "status": "xxxx"        (string) status of the chain (active, valid-fork, valid-headers, headers-only, invalid)
+  }
+]
+Possible values for status:
+1.  "invalid"               This branch contains at least one invalid block
+2.  "headers-only"          Not all blocks for this branch are available, but the headers are valid
+3.  "valid-headers"         All blocks are available for this branch, but they were never fully validated
+4.  "valid-fork"            This branch is not part of the active chain, but is fully validated
+5.  "active"                This is the tip of the active main chain, which is certainly valid
+
+Examples:
+> raven-cli getchaintips 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getchaintips", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+getchaintxstats ( nblocks blockhash )
+
+Compute statistics about the total number and rate of transactions in the chain.
+
+Arguments:
+1. nblocks      (numeric, optional) Size of the window in number of blocks (default: one month).
+2. "blockhash"  (string, optional) The hash of the block that ends the window.
+
+Result:
+{
+  "time": xxxxx,                (numeric) The timestamp for the final block in the window in UNIX format.
+  "txcount": xxxxx,             (numeric) The total number of transactions in the chain up to that point.
+  "window_block_count": xxxxx,  (numeric) Size of the window in number of blocks.
+  "window_tx_count": xxxxx,     (numeric) The number of transactions in the window. Only returned if "window_block_count" is > 0.
+  "window_interval": xxxxx,     (numeric) The elapsed time in the window in seconds. Only returned if "window_block_count" is > 0.
+  "txrate": x.xx,               (numeric) The average rate of transactions per second in the window. Only returned if "window_interval" is > 0.
+}
+
+Examples:
+> raven-cli getchaintxstats 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getchaintxstats", "params": [2016] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+getdifficulty
+
+Returns the proof-of-work difficulty as a multiple of the minimum difficulty.
+
+Result:
+n.nnn       (numeric) the proof-of-work difficulty as a multiple of the minimum difficulty.
+
+Examples:
+> raven-cli getdifficulty 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getdifficulty", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+getmempoolancestors txid (verbose)
+
+If txid is in the mempool, returns all in-mempool ancestors.
+
+Arguments:
+1. "txid"                 (string, required) The transaction id (must be in mempool)
+2. verbose                  (boolean, optional, default=false) True for a json object, false for array of transaction ids
+
+Result (for verbose=false):
+[                       (json array of strings)
+  "transactionid"           (string) The transaction id of an in-mempool ancestor transaction
+  ,...
+]
+
+Result (for verbose=true):
+{                           (json object)
+  "transactionid" : {       (json object)
+    "size" : n,             (numeric) virtual transaction size as defined in BIP 141. This is different from actual serialized size for witness transactions as witness data is discounted.
+    "fee" : n,              (numeric) transaction fee in RVN
+    "modifiedfee" : n,      (numeric) transaction fee with fee deltas used for mining priority
+    "time" : n,             (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT
+    "height" : n,           (numeric) block height when transaction entered pool
+    "descendantcount" : n,  (numeric) number of in-mempool descendant transactions (including this one)
+    "descendantsize" : n,   (numeric) virtual transaction size of in-mempool descendants (including this one)
+    "descendantfees" : n,   (numeric) modified fees (see above) of in-mempool descendants (including this one)
+    "ancestorcount" : n,    (numeric) number of in-mempool ancestor transactions (including this one)
+    "ancestorsize" : n,     (numeric) virtual transaction size of in-mempool ancestors (including this one)
+    "ancestorfees" : n,     (numeric) modified fees (see above) of in-mempool ancestors (including this one)
+    "wtxid" : hash,         (string) hash of serialized transaction, including witness data
+    "depends" : [           (array) unconfirmed transactions used as inputs for this transaction
+        "transactionid",    (string) parent transaction id
+       ... ]
+  }, ...
+}
+
+Examples:
+> raven-cli getmempoolancestors "mytxid"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmempoolancestors", "params": ["mytxid"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+getmempooldescendants txid (verbose)
+
+If txid is in the mempool, returns all in-mempool descendants.
+
+Arguments:
+1. "txid"                 (string, required) The transaction id (must be in mempool)
+2. verbose                  (boolean, optional, default=false) True for a json object, false for array of transaction ids
+
+Result (for verbose=false):
+[                       (json array of strings)
+  "transactionid"           (string) The transaction id of an in-mempool descendant transaction
+  ,...
+]
+
+Result (for verbose=true):
+{                           (json object)
+  "transactionid" : {       (json object)
+    "size" : n,             (numeric) virtual transaction size as defined in BIP 141. This is different from actual serialized size for witness transactions as witness data is discounted.
+    "fee" : n,              (numeric) transaction fee in RVN
+    "modifiedfee" : n,      (numeric) transaction fee with fee deltas used for mining priority
+    "time" : n,             (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT
+    "height" : n,           (numeric) block height when transaction entered pool
+    "descendantcount" : n,  (numeric) number of in-mempool descendant transactions (including this one)
+    "descendantsize" : n,   (numeric) virtual transaction size of in-mempool descendants (including this one)
+    "descendantfees" : n,   (numeric) modified fees (see above) of in-mempool descendants (including this one)
+    "ancestorcount" : n,    (numeric) number of in-mempool ancestor transactions (including this one)
+    "ancestorsize" : n,     (numeric) virtual transaction size of in-mempool ancestors (including this one)
+    "ancestorfees" : n,     (numeric) modified fees (see above) of in-mempool ancestors (including this one)
+    "wtxid" : hash,         (string) hash of serialized transaction, including witness data
+    "depends" : [           (array) unconfirmed transactions used as inputs for this transaction
+        "transactionid",    (string) parent transaction id
+       ... ]
+  }, ...
+}
+
+Examples:
+> raven-cli getmempooldescendants "mytxid"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmempooldescendants", "params": ["mytxid"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+getmempoolentry txid
+
+Returns mempool data for given transaction
+
+Arguments:
+1. "txid"                   (string, required) The transaction id (must be in mempool)
+
+Result:
+{                           (json object)
+    "size" : n,             (numeric) virtual transaction size as defined in BIP 141. This is different from actual serialized size for witness transactions as witness data is discounted.
+    "fee" : n,              (numeric) transaction fee in RVN
+    "modifiedfee" : n,      (numeric) transaction fee with fee deltas used for mining priority
+    "time" : n,             (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT
+    "height" : n,           (numeric) block height when transaction entered pool
+    "descendantcount" : n,  (numeric) number of in-mempool descendant transactions (including this one)
+    "descendantsize" : n,   (numeric) virtual transaction size of in-mempool descendants (including this one)
+    "descendantfees" : n,   (numeric) modified fees (see above) of in-mempool descendants (including this one)
+    "ancestorcount" : n,    (numeric) number of in-mempool ancestor transactions (including this one)
+    "ancestorsize" : n,     (numeric) virtual transaction size of in-mempool ancestors (including this one)
+    "ancestorfees" : n,     (numeric) modified fees (see above) of in-mempool ancestors (including this one)
+    "wtxid" : hash,         (string) hash of serialized transaction, including witness data
+    "depends" : [           (array) unconfirmed transactions used as inputs for this transaction
+        "transactionid",    (string) parent transaction id
+       ... ]
+}
+
+Examples:
+> raven-cli getmempoolentry "mytxid"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmempoolentry", "params": ["mytxid"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+getmempoolinfo
+
+Returns details on the active state of the TX memory pool.
+
+Result:
+{
+  "size": xxxxx,               (numeric) Current tx count
+  "bytes": xxxxx,              (numeric) Sum of all virtual transaction sizes as defined in BIP 141. Differs from actual serialized size because witness data is discounted
+  "usage": xxxxx,              (numeric) Total memory usage for the mempool
+  "maxmempool": xxxxx,         (numeric) Maximum memory usage for the mempool
+  "mempoolminfee": xxxxx       (numeric) Minimum fee rate in RVN/kB for tx to be accepted
+}
+
+Examples:
+> raven-cli getmempoolinfo 
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmempoolinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+getrawmempool ( verbose )
+
+Returns all transaction ids in memory pool as a json array of string transaction ids.
+
+Hint: use getmempoolentry to fetch a specific transaction from the mempool.
+
+Arguments:
+1. verbose (boolean, optional, default=false) True for a json object, false for array of transaction ids
+
+Result: (for verbose = false):
+[                     (json array of string)
+  "transactionid"     (string) The transaction id
+  ,...
+]
+
+Result: (for verbose = true):
+{                           (json object)
+  "transactionid" : {       (json object)
+    "size" : n,             (numeric) virtual transaction size as defined in BIP 141. This is different from actual serialized size for witness transactions as witness data is discounted.
+    "fee" : n,              (numeric) transaction fee in RVN
+    "modifiedfee" : n,      (numeric) transaction fee with fee deltas used for mining priority
+    "time" : n,             (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT
+    "height" : n,           (numeric) block height when transaction entered pool
+    "descendantcount" : n,  (numeric) number of in-mempool descendant transactions (including this one)
+    "descendantsize" : n,   (numeric) virtual transaction size of in-mempool descendants (including this one)
+    "descendantfees" : n,   (numeric) modified fees (see above) of in-mempool descendants (including this one)
+    "ancestorcount" : n,    (numeric) number of in-mempool ancestor transactions (including this one)
+    "ancestorsize" : n,     (numeric) virtual transaction size of in-mempool ancestors (including this one)
+    "ancestorfees" : n,     (numeric) modified fees (see above) of in-mempool ancestors (including this one)
+    "wtxid" : hash,         (string) hash of serialized transaction, including witness data
+    "depends" : [           (array) unconfirmed transactions used as inputs for this transaction
+        "transactionid",    (string) parent transaction id
+       ... ]
+  }, ...
+}
+
+Examples:
+> raven-cli getrawmempool true
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getrawmempool", "params": [true] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+getspentinfo
+
+Returns the txid and index where an output is spent.
+
+Arguments:
+{
+  "txid" (string) The hex string of the txid
+  "index" (number) The start block height
+}
+
+Result:
+{
+  "txid"  (string) The transaction id
+  "index"  (number) The spending input index
+  ,...
+}
+
+Examples:
+> raven-cli getspentinfo '{"txid": "0437cd7f8525ceed2324359c2d0ba26006d92d856a9c20fa0241106ee5a597c9", "index": 0}'
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getspentinfo", "params": [{"txid": "0437cd7f8525ceed2324359c2d0ba26006d92d856a9c20fa0241106ee5a597c9", "index": 0}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+gettxout "txid" n ( include_mempool )
+
+Returns details about an unspent transaction output.
+
+Arguments:
+1. "txid"             (string, required) The transaction id
+2. "n"                (numeric, required) vout number
+3. "include_mempool"  (boolean, optional) Whether to include the mempool. Default: true.     Note that an unspent output that is spent in the mempool won't appear.
+
+Result:
+{
+  "bestblock" : "hash",    (string) the block hash
+  "confirmations" : n,       (numeric) The number of confirmations
+  "value" : x.xxx,           (numeric) The transaction value in RVN
+  "scriptPubKey" : {         (json object)
+     "asm" : "code",       (string) 
+     "hex" : "hex",        (string) 
+     "reqSigs" : n,          (numeric) Number of required signatures
+     "type" : "pubkeyhash", (string) The type, eg pubkeyhash
+     "addresses" : [          (array of string) array of raven addresses
+        "address"     (string) raven address
+        ,...
+     ]
+  },
+  "coinbase" : true|false   (boolean) Coinbase or not
+}
+
+Examples:
+
+Get unspent transactions
+> raven-cli listunspent 
+
+View the details
+> raven-cli gettxout "txid" 1
+
+As a json rpc call
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "gettxout", "params": ["txid", 1] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+gettxoutproof ["txid",...] ( blockhash )
+
+Returns a hex-encoded proof that "txid" was included in a block.
+
+NOTE: By default this function only works sometimes. This is when there is an
+unspent output in the utxo for this transaction. To make it always work,
+you need to maintain a transaction index, using the -txindex command line option or
+specify the block in which the transaction is included manually (by blockhash).
+
+Arguments:
+1. "txids"       (string) A json array of txids to filter
+    [
+      "txid"     (string) A transaction hash
+      ,...
+    ]
+2. "blockhash"   (string, optional) If specified, looks for txid in the block with this hash
+
+Result:
+"data"           (string) A string that is a serialized, hex-encoded data for the proof.
+
+help ( "command" )
+
+List all commands, or get help for a specified command.
+
+Arguments:
+1. "command"     (string, optional) The command to get help on
+
+Result:
+"text"     (string) The help text
+
+combinerawtransaction ["hexstring",...]
+
+Combine multiple partially signed transactions into one transaction.
+The combined transaction may be another partially signed transaction or a 
+fully signed transaction.
+Arguments:
+1. "txs"         (string) A json array of hex strings of partially signed transactions
+    [
+      "hexstring"     (string) A transaction hash
+      ,...
+    ]
+
+Result:
+"hex"            (string) The hex-encoded raw transaction with signature(s)
+
+Examples:
+> raven-cli combinerawtransaction ["myhex1", "myhex2", "myhex3"]
+
+createrawtransaction [{"txid":"id","vout":n},...] {"address":(amount or object),"data":"hex",...}
+                     ( locktime ) ( replaceable )
+
+Create a transaction spending the given inputs and creating new outputs.
+Outputs are addresses (paired with a RVN amount, data or object specifying an asset operation) or data.
+Returns hex-encoded raw transaction.
+Note that the transaction's inputs are not signed, and
+it is not stored in the wallet or transmitted to the network.
+
+Paying for Asset Operations:
+  Some operations require an amount of RVN to be sent to a burn address:
+
+    Operation          Amount + Burn Address
+    transfer                 0
+    transferwithmessage      0
+    issue                  500 to RXissueAssetXXXXXXXXXXXXXXXXXhhZGt
+    issue (subasset)       100 to RXissueSubAssetXXXXXXXXXXXXXWcwhwL
+    issue_unique             5 to RXissueUniqueAssetXXXXXXXXXXWEAe58
+    reissue                100 to RXReissueAssetXXXXXXXXXXXXXXVEFAWu
+    issue_restricted      1500 to RXissueRestrictedXXXXXXXXXXXXzJZ1q
+    reissue_restricted     100 to RXReissueAssetXXXXXXXXXXXXXXVEFAWu
+    issue_qualifier       1000 to RXissueQuaLifierXXXXXXXXXXXXUgEDbC
+    issue_qualifier (sub)  100 to RXissueSubQuaLifierXXXXXXXXXVTzvv5
+    tag_addresses          0.1 to RXaddTagBurnXXXXXXXXXXXXXXXXZQm5ya (per address)
+    untag_addresses        0.1 to RXaddTagBurnXXXXXXXXXXXXXXXXZQm5ya (per address)
+    freeze_addresses         0
+    unfreeze_addresses       0
+    freeze_asset             0
+    unfreeze_asset           0
+
+Assets For Authorization:
+  These operations require a specific asset input for authorization:
+    Root Owner Token:
+      reissue
+      issue_unique
+      issue_restricted
+      reissue_restricted
+      freeze_addresses
+      unfreeze_addresses
+      freeze_asset
+      unfreeze_asset
+    Root Qualifier Token:
+      issue_qualifier (when issuing subqualifier)
+    Qualifier Token:
+      tag_addresses
+      untag_addresses
+
+Output Ordering:
+  Asset operations require the following:
+    1) All coin outputs come first (including the burn output).
+    2) The owner token change output comes next (if required).
+    3) An issue, reissue, or any number of transfers comes last
+       (different types can't be mixed in a single transaction).
+
+Arguments:
+1. "inputs"                                (array, required) A json array of json objects
+     [
+       {
+         "txid":"id",                      (string, required) The transaction id
+         "vout":n,                         (number, required) The output number
+         "sequence":n                      (number, optional) The sequence number
+       } 
+       ,...
+     ]
+2. "outputs"                               (object, required) a json object with outputs
+     {
+       "address":                          (string, required) The destination raven address.
+                                               Each output must have a different address.
+         x.xxx                             (number or string, required) The RVN amount
+           or
+         {                                 (object) A json object of assets to send
+           "transfer":
+             {
+               "asset-name":               (string, required) asset name
+               asset-quantity              (number, required) the number of raw units to transfer
+               ,...
+             }
+         }
+           or
+         {                                 (object) A json object of describing the transfer and message contents to send
+           "transferwithmessage":
+             {
+               "asset-name":              (string, required) asset name
+               asset-quantity,            (number, required) the number of raw units to transfer
+               "message":"hash",          (string, required) ipfs hash or a txid hash
+               "expire_time": n           (number, required) utc time in seconds to expire the message
+             }
+         }
+           or
+         {                                 (object) A json object describing new assets to issue
+           "issue":
+             {
+               "asset_name":"asset-name",  (string, required) new asset name
+               "asset_quantity":n,         (number, required) the number of raw units to issue
+               "units":[1-8],              (number, required) display units, between 1 (integral) to 8 (max precision)
+               "reissuable":[0-1],         (number, required) 1=reissuable asset
+               "has_ipfs":[0-1],           (number, required) 1=passing ipfs_hash
+               "ipfs_hash":"hash"          (string, optional) an ipfs hash for discovering asset metadata
+             }
+         }
+           or
+         {                                 (object) A json object describing new unique assets to issue
+           "issue_unique":
+             {
+               "root_name":"root-name",         (string, required) name of the asset the unique asset(s) 
+                                                      are being issued under
+               "asset_tags":["asset_tag", ...], (array, required) the unique tag for each asset which is to be issued
+               "ipfs_hashes":["hash", ...],     (array, optional) ipfs hashes corresponding to each supplied tag 
+                                                      (should be same size as "asset_tags")
+             }
+         }
+           or
+         {                                 (object) A json object describing follow-on asset issue.
+           "reissue":
+             {
+               "asset_name":"asset-name", (string, required) name of asset to be reissued
+               "asset_quantity":n,          (number, required) the number of raw units to issue
+               "reissuable":[0-1],          (number, optional) default is 1, 1=reissuable asset
+               "ipfs_hash":"hash",        (string, optional) An ipfs hash for discovering asset metadata, 
+                                                Overrides the current ipfs hash if given
+               "owner_change_address"       (string, optional) the address where the owner token will be sent to. 
+                                                If not given, it will be sent to the output address
+             }
+         }
+           or
+         {                                 (object) A json object describing how restricted asset to issue
+           "issue_restricted":
+             {
+               "asset_name":"asset-name",(string, required) new asset name
+               "asset_quantity":n,         (number, required) the number of raw units to issue
+               "verifier_string":"text", (string, required) the verifier string to be used for a restricted 
+                                               asset transfer verification
+               "units":[0-8],              (number, required) display units, between 0 (integral) and 8 (max precision)
+               "reissuable":[0-1],         (number, required) 1=reissuable asset
+               "has_ipfs":[0-1],           (number, required) 1=passing ipfs_hash
+               "ipfs_hash":"hash",       (string, optional) an ipfs hash for discovering asset metadata
+               "owner_change_address"      (string, optional) the address where the owner token will be sent to. 
+                                               If not given, it will be sent to the output address
+             }
+         }
+           or
+         {                                 (object) A json object describing follow-on asset issue.
+           "reissue_restricted":
+             {
+               "asset_name":"asset-name", (string, required) name of asset to be reissued
+               "asset_quantity":n,          (number, required) the number of raw units to issue
+               "reissuable":[0-1],          (number, optional) default is 1, 1=reissuable asset
+               "verifier_string":"text",  (string, optional) the verifier string to be used for a restricted asset 
+                                                transfer verification
+               "ipfs_hash":"hash",        (string, optional) An ipfs hash for discovering asset metadata, 
+                                                Overrides the current ipfs hash if given
+               "owner_change_address"       (string, optional) the address where the owner token will be sent to. 
+                                                If not given, it will be sent to the output address
+             }
+         }
+           or
+         {                                 (object) A json object describing a new qualifier to issue.
+           "issue_qualifier":
+             {
+               "asset_name":"asset_name", (string, required) a qualifier name (starts with '#')
+               "asset_quantity":n,          (numeric, optional, default=1) the number of units to be issued (1 to 10)
+               "has_ipfs":[0-1],            (boolean, optional, default=false), whether ifps hash is going 
+                                                to be added to the asset
+               "ipfs_hash":"hash",        (string, optional but required if has_ipfs = 1), an ipfs hash or a 
+                                                txid hash once RIP5 is activated
+               "root_change_address"        (string, optional) Only applies when issuing subqualifiers.
+                                                The address where the root qualifier will be sent.
+                                                If not specified, it will be sent to the output address.
+               "change_quantity":"qty"    (numeric, optional) the asset change amount (defaults to 1)
+             }
+         }
+           or
+         {                                 (object) A json object describing addresses to be tagged.
+                                             The address in the key will used as the asset change address.
+           "tag_addresses":
+             {
+               "qualifier":"qualifier",          (string, required) a qualifier name (starts with '#')
+               "addresses":["addr", ...],        (array, required) the addresses to be tagged (up to 10)
+               "change_quantity":"qty",          (numeric, optional) the asset change amount (defaults to 1)
+             }
+         }
+           or
+         {                                 (object) A json object describing addresses to be untagged.
+                                             The address in the key will be used as the asset change address.
+           "untag_addresses":
+             {
+               "qualifier":"qualifier",          (string, required) a qualifier name (starts with '#')
+               "addresses":["addr", ...],        (array, required) the addresses to be untagged (up to 10)
+               "change_quantity":"qty",          (numeric, optional) the asset change amount (defaults to 1)
+             }
+         }
+           or
+         {                                 (object) A json object describing addresses to be frozen.
+                                             The address in the key will used as the owner change address.
+           "freeze_addresses":
+             {
+               "asset_name":"asset_name",        (string, required) a restricted asset name (starts with '$')
+               "addresses":["addr", ...],        (array, required) the addresses to be frozen (up to 10)
+             }
+         }
+           or
+         {                                 (object) A json object describing addresses to be frozen.
+                                             The address in the key will be used as the owner change address.
+           "unfreeze_addresses":
+             {
+               "asset_name":"asset_name",        (string, required) a restricted asset name (starts with '$')
+               "addresses":["addr", ...],        (array, required) the addresses to be untagged (up to 10)
+             }
+         }
+           or
+         {                                 (object) A json object describing an asset to be frozen.
+                                             The address in the key will used as the owner change address.
+           "freeze_asset":
+             {
+               "asset_name":"asset_name",        (string, required) a restricted asset name (starts with '$')
+             }
+         }
+           or
+         {                                 (object) A json object describing an asset to be frozen.
+                                             The address in the key will be used as the owner change address.
+           "unfreeze_asset":
+             {
+               "asset_name":"asset_name",        (string, required) a restricted asset name (starts with '$')
+             }
+         }
+           or
+       "data": "hex"                       (string, required) The key is "data", the value is hex encoded data
+       ,...
+     }
+3. locktime                  (numeric, optional, default=0) Raw locktime. Non-0 value also locktime-activates inputs
+
+Result:
+"transaction"              (string) hex string of the transaction
+
+Examples:
+> raven-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"address\":0.01}"
+> raven-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"data\":\"00010203\"}"
+> raven-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"RXissueAssetXXXXXXXXXXXXXXXXXhhZGt\":500,\"change_address\":change_amount,\"issuer_address\":{\"issue\":{\"asset_name\":\"MYASSET\",\"asset_quantity\":1000000,\"units\":1,\"reissuable\":0,\"has_ipfs\":1,\"ipfs_hash\":\"43f81c6f2c0593bde5a85e09ae662816eca80797\"}}}"
+> raven-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"RXissueRestrictedXXXXXXXXXXXXzJZ1q\":1500,\"change_address\":change_amount,\"issuer_address\":{\"issue_restricted\":{\"asset_name\":\"$MYASSET\",\"asset_quantity\":1000000,\"verifier_string\":\"#TAG & !KYC\",\"units\":1,\"reissuable\":0,\"has_ipfs\":1,\"ipfs_hash\":\"43f81c6f2c0593bde5a85e09ae662816eca80797\"}}}"
+> raven-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0}]" "{\"RXissueUniqueAssetXXXXXXXXXXWEAe58\":20,\"change_address\":change_amount,\"issuer_address\":{\"issue_unique\":{\"root_name\":\"MYASSET\",\"asset_tags\":[\"ALPHA\",\"BETA\"],\"ipfs_hashes\":[\"43f81c6f2c0593bde5a85e09ae662816eca80797\",\"43f81c6f2c0593bde5a85e09ae662816eca80797\"]}}}"
+> raven-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0},{\"txid\":\"myasset\",\"vout\":0}]" "{\"address\":{\"transfer\":{\"MYASSET\":50}}}"
+> raven-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0},{\"txid\":\"myasset\",\"vout\":0}]" "{\"address\":{\"transferwithmessage\":{\"MYASSET\":50,\"message\":\"hash\",\"expire_time\": utc_time}}}"
+> raven-cli createrawtransaction "[{\"txid\":\"mycoin\",\"vout\":0},{\"txid\":\"myownership\",\"vout\":0}]" "{\"issuer_address\":{\"reissue\":{\"asset_name\":\"MYASSET\",\"asset_quantity\":2000000}}}"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "createrawtransaction", "params": ["[{\"txid\":\"mycoin\",\"vout\":0}]", "{\"data\":\"00010203\"}"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+decoderawtransaction "hexstring"
+
+Return a JSON object representing the serialized, hex-encoded transaction.
+
+Arguments:
+1. "hexstring"      (string, required) The transaction hex string
+
+Result:
+{
+  "txid" : "id",        (string) The transaction id
+  "hash" : "id",        (string) The transaction hash (differs from txid for witness transactions)
+  "size" : n,             (numeric) The transaction size
+  "vsize" : n,            (numeric) The virtual transaction size (differs from size for witness transactions)
+  "version" : n,          (numeric) The version
+  "locktime" : ttt,       (numeric) The lock time
+  "vin" : [               (array of json objects)
+     {
+       "txid": "id",    (string) The transaction id
+       "vout": n,         (numeric) The output number
+       "scriptSig": {     (json object) The script
+         "asm": "asm",  (string) asm
+         "hex": "hex"   (string) hex
+       },
+       "txinwitness": ["hex", ...] (array of string) hex-encoded witness data (if any)
+       "sequence": n     (numeric) The script sequence number
+     }
+     ,...
+  ],
+  "vout" : [             (array of json objects)
+     {
+       "value" : x.xxx,            (numeric) The value in RVN
+       "n" : n,                    (numeric) index
+       "scriptPubKey" : {          (json object)
+         "asm" : "asm",          (string) the asm
+         "hex" : "hex",          (string) the hex
+         "reqSigs" : n,            (numeric) The required sigs
+         "type" : "pubkeyhash",  (string) The type, eg 'pubkeyhash'
+         "asset" : {               (json object) optional
+           "name" : "name",      (string) the asset name
+           "amount" : n,           (numeric) the amount of asset that was sent
+           "message" : "message", (string optional) the message if one was sent
+           "expire_time" : n,      (numeric optional) the message epoch expiration time if one was set
+         "addresses" : [           (json array of string)
+           "12tvKAXCxZjSmdNbao16dKXC8tRWfcF5oc"   (string) raven address
+           ,...
+         ]
+       }
+     }
+     ,...
+  ],
+}
+
+Examples:
+> raven-cli decoderawtransaction "hexstring"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "decoderawtransaction", "params": ["hexstring"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+decodescript "hexstring"
+
+Decode a hex-encoded script.
+
+Arguments:
+1. "hexstring"     (string) the hex encoded script
+
+Result:
+{
+  "asm":"asm",   (string) Script public key
+  "hex":"hex",   (string) hex encoded public key
+  "type":"type", (string) The output type
+  "asset" : {               (json object) optional
+     "name" : "name",      (string) the asset name
+     "amount" : n,           (numeric) the amount of asset that was sent
+     "message" : "message", (string optional) the message if one was sent
+     "expire_time" : n,      (numeric optional ) the message epoch expiration time if one was set
+  "reqSigs": n,    (numeric) The required signatures
+  "addresses": [   (json array of string)
+     "address"     (string) raven address
+     ,...
+  ],
+  "p2sh":"address",       (string) address of P2SH script wrapping this redeem script (not returned if the script is already a P2SH).
+  "(The following only appears if the script is an asset script)
+  "asset_name":"name",      (string) Name of the asset.
+  "amount":"x.xx",          (numeric) The amount of assets interacted with.
+  "units": n,                (numeric) The units of the asset. (Only appears in the type (new_asset))
+  "reissuable": true|false, (boolean) If this asset is reissuable. (Only appears in type (new_asset|reissue_asset))
+  "hasIPFS": true|false,    (boolean) If this asset has an IPFS hash. (Only appears in type (new_asset if hasIPFS is true))
+  "ipfs_hash": "hash",      (string) The ipfs hash for the new asset. (Only appears in type (new_asset))
+  "new_ipfs_hash":"hash",    (string) If new ipfs hash (Only appears in type. (reissue_asset))
+}
+
+Examples:
+> raven-cli decodescript "hexstring"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "decodescript", "params": ["hexstring"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+getrawtransaction "txid" ( verbose )
+
+NOTE: By default this function only works for mempool transactions. If the -txindex option is
+enabled, it also works for blockchain transactions.
+DEPRECATED: for now, it also works for transactions with unspent outputs.
+
+Return the raw transaction data.
+
+If verbose is 'true', returns an Object with information about 'txid'.
+If verbose is 'false' or omitted, returns a string that is serialized, hex-encoded data for 'txid'.
+
+Arguments:
+1. "txid"      (string, required) The transaction id
+2. verbose       (bool, optional, default=false) If false, return a string, otherwise return a json object
+
+Result (if verbose is not set or set to false):
+"data"      (string) The serialized, hex-encoded data for 'txid'
+
+Result (if verbose is set to true):
+{
+  "hex" : "data",       (string) The serialized, hex-encoded data for 'txid'
+  "txid" : "id",        (string) The transaction id (same as provided)
+  "hash" : "id",        (string) The transaction hash (differs from txid for witness transactions)
+  "size" : n,             (numeric) The serialized transaction size
+  "vsize" : n,            (numeric) The virtual transaction size (differs from size for witness transactions)
+  "version" : n,          (numeric) The version
+  "locktime" : ttt,       (numeric) The lock time
+  "vin" : [               (array of json objects)
+     {
+       "txid": "id",    (string) The transaction id
+       "vout": n,         (numeric) 
+       "scriptSig": {     (json object) The script
+         "asm": "asm",  (string) asm
+         "hex": "hex"   (string) hex
+       },
+       "sequence": n      (numeric) The script sequence number
+       "txinwitness": ["hex", ...] (array of string) hex-encoded witness data (if any)
+     }
+     ,...
+  ],
+  "vout" : [              (array of json objects)
+     {
+       "value" : x.xxx,            (numeric) The value in RVN
+       "n" : n,                    (numeric) index
+       "scriptPubKey" : {          (json object)
+         "asm" : "asm",          (string) the asm
+         "hex" : "hex",          (string) the hex
+         "reqSigs" : n,            (numeric) The required sigs
+         "type" : "pubkeyhash",  (string) The type, eg 'pubkeyhash'
+         "addresses" : [           (json array of string)
+           "address"        (string) raven address
+           ,...
+         ]
+       }
+     }
+     ,...
+  ],
+  "blockhash" : "hash",   (string) the block hash
+  "confirmations" : n,      (numeric) The confirmations
+  "time" : ttt,             (numeric) The transaction time in seconds since epoch (Jan 1 1970 GMT)
+  "blocktime" : ttt         (numeric) The block time in seconds since epoch (Jan 1 1970 GMT)
+}
+
+Examples:
+> raven-cli getrawtransaction "mytxid"
+> raven-cli getrawtransaction "mytxid" true
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getrawtransaction", "params": ["mytxid", true] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+sendrawtransaction "hexstring" ( allowhighfees )
+
+Submits raw transaction (serialized, hex-encoded) to local node and network.
+
+Also see createrawtransaction and signrawtransaction calls.
+
+Arguments:
+1. "hexstring"    (string, required) The hex string of the raw transaction)
+2. allowhighfees    (boolean, optional, default=false) Allow high fees
+
+Result:
+"hex"             (string) The transaction hash in hex
+
+Examples:
+
+Create a transaction
+> raven-cli createrawtransaction "[{\"txid\" : \"mytxid\",\"vout\":0}]" "{\"myaddress\":0.01}"
+Sign the transaction, and get back the hex
+> raven-cli signrawtransaction "myhex"
+
+Send the transaction (signed hex)
+> raven-cli sendrawtransaction "signedhex"
+
+As a json rpc call
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendrawtransaction", "params": ["signedhex"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+signrawtransaction "hexstring" ( [{"txid":"id","vout":n,"scriptPubKey":"hex","redeemScript":"hex"},...] ["privatekey1",...] sighashtype )
+
+Sign inputs for raw transaction (serialized, hex-encoded).
+The second optional argument (may be null) is an array of previous transaction outputs that
+this transaction depends on but may not yet be in the block chain.
+The third optional argument (may be null) is an array of base58-encoded private
+keys that, if given, will be the only keys used to sign the transaction.
+
+
+Arguments:
+1. "hexstring"     (string, required) The transaction hex string
+2. "prevtxs"       (string, optional) An json array of previous dependent transaction outputs
+     [               (json array of json objects, or 'null' if none provided)
+       {
+         "txid":"id",             (string, required) The transaction id
+         "vout":n,                  (numeric, required) The output number
+         "scriptPubKey": "hex",   (string, required) script key
+         "redeemScript": "hex",   (string, required for P2SH or P2WSH) redeem script
+         "amount": value            (numeric, required) The amount spent
+       }
+       ,...
+    ]
+3. "privkeys"     (string, optional) A json array of base58-encoded private keys for signing
+    [                  (json array of strings, or 'null' if none provided)
+      "privatekey"   (string) private key in base58-encoding
+      ,...
+    ]
+4. "sighashtype"     (string, optional, default=ALL) The signature hash type. Must be one of
+       "ALL"
+       "NONE"
+       "SINGLE"
+       "ALL|ANYONECANPAY"
+       "NONE|ANYONECANPAY"
+       "SINGLE|ANYONECANPAY"
+
+Result:
+{
+  "hex" : "value",           (string) The hex-encoded raw transaction with signature(s)
+  "complete" : true|false,   (boolean) If the transaction has a complete set of signatures
+  "errors" : [                 (json array of objects) Script verification errors (if there are any)
+    {
+      "txid" : "hash",           (string) The hash of the referenced, previous transaction
+      "vout" : n,                (numeric) The index of the output to spent and used as input
+      "scriptSig" : "hex",       (string) The hex-encoded signature script
+      "sequence" : n,            (numeric) Script sequence number
+      "error" : "text"           (string) Verification or signing error related to the input
+    }
+    ,...
+  ]
+}
+
+Examples:
+> raven-cli signrawtransaction "myhex"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "signrawtransaction", "params": ["myhex"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+testmempoolaccept ["rawtxs"] ( allowhighfees )
+
+Returns if raw transaction (serialized, hex-encoded) would be accepted by mempool.
+
+This checks if the transaction violates the consensus or policy rules.
+
+See sendrawtransaction call.
+
+Arguments:
+1. ["rawtxs"]       (array, required) An array of hex strings of raw transactions.
+                                        Length must be one for now.
+2. allowhighfees    (boolean, optional, default=false) Allow high fees
+
+Result:
+[                   (array) The result of the mempool acceptance test for each raw transaction in the input array.
+                            Length is exactly one for now.
+ {
+  "txid"           (string) The transaction hash in hex
+  "allowed"        (boolean) If the mempool allows this tx to be inserted
+  "reject-reason"  (string) Rejection string (only present when 'allowed' is false)
+ }
+]
+
+Examples:
+
+Create a transaction
+> raven-cli createrawtransaction "[{\"txid\" : \"mytxid\",\"vout\":0}]" "{\"myaddress\":0.01}"
+Sign the transaction, and get back the hex
+> raven-cli signrawtransaction "myhex"
+
+Test acceptance of the transaction (signed hex)
+> raven-cli testmempoolaccept "signedhex"
+
+As a json rpc call
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "testmempoolaccept", "params": [["signedhex"]] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/

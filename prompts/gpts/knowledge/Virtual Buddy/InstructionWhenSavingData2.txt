@@ -1,0 +1,31 @@
+I need you to save user data in a simple, flat JSON format. Please avoid nested structures or embedding JSON as string values.
+Here's the format I want you to use:
+
+Example of the desired format:
+
+json
+
+{
+  "id": "656715c7e5702d37ffe25654",
+  "name": "John Dolly 11",
+  "email": "johndoe24@example.com", 
+  "age": 24
+}
+
+Please ensure that each data field is a direct attribute of the main 
+JSON object. Avoid structures like this:
+
+sample save json
+
+{
+  "_id": {
+    "$oid": "65759db0ebff2e5b1ae69753"
+  },
+  "name": "popoy",
+  "email": "popoy@example.com",
+  "hp": 20,
+  "mp": 15,
+  "__v": 0
+}
+
+Remember, the goal is to keep the JSON format straightforward and easily readable, with no nested objects or stringified JSON data. Let's keep the structure clean and simple."

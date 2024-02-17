@@ -1,0 +1,100 @@
+getassetdata "asset_name"
+
+Returns assets metadata if that asset exists
+
+Arguments:
+1. "asset_name"               (string, required) the name of the asset
+
+Result:
+{
+  name: (string),
+  amount: (number),
+  units: (number),
+  reissuable: (number),
+  has_ipfs: (number),
+  ipfs_hash: (hash), (only if has_ipfs = 1 and that data is a ipfs hash)
+  txid_hash: (hash), (only if has_ipfs = 1 and that data is a txid hash)
+  verifier_string: (string)
+}
+
+Examples:
+> raven-cli getassetdata "ASSET_NAME"
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getassetdata", "params": ["ASSET_NAME"] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+listaddressesbyasset "asset_name" (onlytotal) (count) (start)
+
+Returns a list of all address that own the given asset (with balances)
+Or returns the total size of how many address own the given asset
+Arguments:
+1. "asset_name"               (string, required) name of asset
+2. "onlytotal"                (boolean, optional, default=false) when false result is just a list of addresses with balances -- when true the result is just a single number representing the number of addresses
+3. "count"                    (integer, optional, default=50000, MAX=50000) truncates results to include only the first _count_ assets found
+4. "start"                    (integer, optional, default=0) results skip over the first _start_ assets found (if negative it skips back from the end)
+
+Result:
+[   (address): balance,
+  ...
+]
+
+Examples:
+> raven-cli listaddressesbyasset "ASSET_NAME" false 2 0
+> raven-cli listaddressesbyasset "ASSET_NAME" true
+> raven-cli listaddressesbyasset "ASSET_NAME"
+
+listassetbalancesbyaddress "address" (onlytotal) (count) (start)
+
+Returns a list of all asset balances for an address.
+
+Arguments:
+1. "address"                  (string, required) a raven address
+2. "onlytotal"                (boolean, optional, default=false) when false result is just a list of assets balances -- when true the result is just a single number representing the number of assets
+3. "count"                    (integer, optional, default=50000, MAX=50000) truncates results to include only the first _count_ assets found
+4. "start"                    (integer, optional, default=0) results skip over the first _start_ assets found (if negative it skips back from the end)
+
+Result:
+{
+  (asset_name) : (quantity),
+  ...
+}
+
+Examples:
+> raven-cli listassetbalancesbyaddress "myaddress" false 2 0
+> raven-cli listassetbalancesbyaddress "myaddress" true
+> raven-cli listassetbalancesbyaddress "myaddress"
+
+listassets "( asset )" ( verbose ) ( count ) ( start )
+
+Returns a list of all assets
+
+This could be a slow/expensive operation as it reads from the database
+
+Arguments:
+1. "asset"                    (string, optional, default="*") filters results -- must be an asset name or a partial asset name followed by '*' ('*' matches all trailing characters)
+2. "verbose"                  (boolean, optional, default=false) when false result is just a list of asset names -- when true results are asset name mapped to metadata
+3. "count"                    (integer, optional, default=ALL) truncates results to include only the first _count_ assets found
+4. "start"                    (integer, optional, default=0) results skip over the first _start_ assets found (if negative it skips back from the end)
+
+Result (verbose=false):
+[
+  asset_name,
+  ...
+]
+
+Result (verbose=true):
+{
+  (asset_name):
+    {
+      amount: (number),
+      units: (number),
+      reissuable: (number),
+      has_ipfs: (number),
+      ipfs_hash: (hash) (only if has_ipfs = 1 and data is a ipfs hash)
+      ipfs_hash: (hash) (only if has_ipfs = 1 and data is a txid hash)
+    },
+  {...}, {...}
+}
+
+Examples:
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listassets", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+> raven-cli listassets ASSET
+> raven-cli listassets "ASSET*" true 10 20

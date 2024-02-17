@@ -1,0 +1,86 @@
+API Virtual Buddy Documentation Example
+
+General Information
+
+Base URL: https://thinkbloxph.com/db-action-service-virtual-buddy
+
+1. Create Data is equivalent to pet data Registration or register, this will return an Data ID of your pet data
+
+    Endpoint: /api/data
+    Method: POST    
+    Description: Create new data entry for a user.
+    Curl Command:
+
+    bash
+
+    curl -X POST "https://thinkbloxph.com/db-action-service-virtual-buddy/api/data" -d '{  "name": "popoy",  "email": "popoy@example.com",  "hp": 20,  "mp": 15}'
+
+2. Get Data
+
+    Endpoint: /api/data/:id
+    Method: GET    
+    Description: Retrieve a specific data entry.
+    Curl Command:
+
+    bash
+
+    curl -X GET "https://thinkbloxph.com/db-action-service-virtual-buddy/api/data/65671631e5702d37ffe25657" 
+
+3. Update Data - partial update of data
+
+    Endpoint: /api/data/:id
+    Method: PATCH
+    Required Header: API key
+    Description: Update specific fields of a data entry.
+    Curl Command:
+
+    bash
+
+    curl -X PATCH "https://thinkbloxph.com/db-action-service-virtual-buddy/api/data/65671631e5702d37ffe25657" -d '{  "name": "popoy",  "email": "popoy@example.com",  "hp": 20,  "mp": 15}'
+
+4. Delete Data
+
+    Endpoint: /api/data/:id
+    Method: DELETE
+    Required Header: API key
+    Description: Delete a specific data entry.
+    Curl Command:
+
+    bash
+
+    curl -X DELETE "https://thinkbloxph.com/db-action-service-virtual-buddy/api/data/65671631e5702d37ffe25657" 
+	
+5. List All Data
+
+    Endpoint: /api/listAllData
+    Method: GET
+    Description: Retrieve all data entries.
+    Curl Command:
+
+    bash
+
+curl -X GET "https://thinkbloxph.com/db-action-service-virtual-buddy/api/listAllData"
+
+
+6. Search Data
+
+    Endpoint: /api/search
+    Method: GET
+    Description: Search data entries based on a query string.
+    Curl Command:
+
+    bash
+
+curl -X GET "https://thinkbloxph.com/db-action-service-virtual-buddy/api/search?search=popoy"
+
+
+7. Test API Endpoint
+
+    Endpoint: /api/test
+    Method: GET
+    Description: A test endpoint to verify API connectivity.
+    Curl Command:
+
+    bash
+
+curl -X GET "https://thinkbloxph.com/db-action-service-virtual-buddy/api/test"
