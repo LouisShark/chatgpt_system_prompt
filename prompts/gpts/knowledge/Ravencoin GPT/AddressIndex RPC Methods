@@ -1,0 +1,165 @@
+getaddressbalance
+
+Returns the balance for an address(es) (requires addressindex to be enabled).
+
+Arguments:
+{
+  "addresses:"
+    [
+      "address"  (string) The base58check encoded address
+      ,...
+    ]
+},
+"includeAssets" (boolean, optional, default false)  If true this will return an expanded result which includes asset balances
+
+
+Result:
+{
+  "balance"  (string) The current balance in satoshis
+  "received"  (string) The total number of satoshis received (including change)
+}
+OR
+[
+  {
+    "assetName"  (string) The asset associated with the balance (RVN for Ravencoin)
+    "balance"  (string) The current balance in satoshis
+    "received"  (string) The total number of satoshis received (including change)
+  },...
+
+]
+Examples:
+> raven-cli getaddressbalance '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
+> raven-cli getaddressbalance '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}', true
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressbalance", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressbalance", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}, true] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+getaddressdeltas
+
+Returns all changes for an address (requires addressindex to be enabled).
+
+Arguments:
+{
+  "addresses"
+    [
+      "address"  (string) The base58check encoded address
+      ,...
+    ]
+  "start" (number) The start block height
+  "end" (number) The end block height
+  "chainInfo" (boolean) Include chain info in results, only applies if start and end specified
+  "assetName"   (string, optional) Get deltas for a particular asset instead of RVN.
+}
+
+Result:
+[
+  {
+    "assetName"  (string) The asset associated with the deltas (RVN for Ravencoin)
+    "satoshis"  (number) The difference of satoshis
+    "txid"  (string) The related txid
+    "index"  (number) The related input or output index
+    "height"  (number) The block height
+    "address"  (string) The base58check encoded address
+  }
+]
+
+Examples:
+> raven-cli getaddressdeltas '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressdeltas", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+> raven-cli getaddressdeltas '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"],"assetName":"MY_ASSET"}'
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressdeltas", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"],"assetName":"MY_ASSET"}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+getaddressmempool
+
+Returns all mempool deltas for an address (requires addressindex to be enabled).
+
+Arguments:
+{
+  "addresses"
+    [
+      "address"  (string) The base58check encoded address
+      ,...
+    ]
+},
+"includeAssets" (boolean, optional, default false)  If true this will return an expanded result which includes asset deltas
+
+Result:
+[
+  {
+    "address"  (string) The base58check encoded address
+    "assetName"  (string) The name of the associated asset (RVN for Ravencoin)
+    "txid"  (string) The related txid
+    "index"  (number) The related input or output index
+    "satoshis"  (number) The difference of satoshis
+    "timestamp"  (number) The time the transaction entered the mempool (seconds)
+    "prevtxid"  (string) The previous txid (if spending)
+    "prevout"  (string) The previous transaction output index (if spending)
+  }
+]
+
+Examples:
+> raven-cli getaddressmempool '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressmempool", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+> raven-cli getaddressmempool '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}', true
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressmempool", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}, true] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+getaddresstxids
+
+Returns the txids for an address(es) (requires addressindex to be enabled).
+
+Arguments:
+{
+  "addresses"
+    [
+      "address"  (string) The base58check encoded address
+      ,...
+    ]
+  "start" (number, optional) The start block height
+  "end" (number, optional) The end block height
+},
+"includeAssets" (boolean, optional, default false)  If true this will return an expanded result which includes asset transactions
+
+Result:
+[
+  "transactionid"  (string) The transaction id
+  ,...
+]
+
+Examples:
+> raven-cli getaddresstxids '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddresstxids", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+> raven-cli getaddresstxids '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}', true
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddresstxids", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}, true] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+
+getaddressutxos
+
+Returns all unspent outputs for an address (requires addressindex to be enabled).
+
+Arguments:
+{
+  "addresses"
+    [
+      "address"  (string) The base58check encoded address
+      ,...
+    ],
+  "chainInfo",  (boolean, optional, default false) Include chain info with results
+  "assetName"   (string, optional) Get UTXOs for a particular asset instead of RVN ('*' for all assets).
+}
+
+Result
+[
+  {
+    "address"  (string) The address base58check encoded
+    "assetName" (string) The asset associated with the UTXOs (RVN for Ravencoin)
+    "txid"  (string) The output txid
+    "height"  (number) The block height
+    "outputIndex"  (number) The output index
+    "script"  (strin) The script hex encoded
+    "satoshis"  (number) The number of satoshis of the output
+  }
+]
+
+Examples:
+> raven-cli getaddressutxos '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}'
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressutxos", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"]}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/
+> raven-cli getaddressutxos '{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"],"assetName":"MY_ASSET"}'
+> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressutxos", "params": [{"addresses": ["12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX"],"assetName":"MY_ASSET"}] }' -H 'content-type: text/plain;' http://127.0.0.1:8766/

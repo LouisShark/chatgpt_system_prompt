@@ -1,0 +1,59 @@
+Whitelisted methods/procedures for https://rvn-rpc-mainnet.ting.finance/rpc
+
+/== Addressindex ==
+    "getaddressbalance",
+    "getaddressdeltas",
+    "getaddressmempool",
+    "getaddresstxids",
+    "getaddressutxos"
+//== Assets ==
+    "getassetdata",
+    "listaddressesbyasset",
+    "listassetbalancesbyaddress",
+    "listassets"
+//== Blockchain ==
+    "decodeblock",
+    "getbestblockhash",
+    "getblock",
+    "getblockchaininfo",
+    "getblockcount",
+    "getblockhash",
+    "getblockheader",
+    "getchaintips",
+    "getchaintxstats",
+    "getdifficulty",
+    "getmempoolancestors",
+    "getmempooldescendants",
+    "getmempoolentry",
+    "getmempoolinfo",
+    "getrawmempool",
+    "getspentinfo",
+    "gettxout",
+    "gettxoutproof"
+//== Control ==
+    "help"
+//== Rawtransactions ==
+    "combinerawtransaction",
+    "createrawtransaction",
+    "decoderawtransaction",
+    "decodescript",
+    "getrawtransaction",
+    "sendrawtransaction",
+    "signrawtransaction",
+    "testmempoolaccept"
+//== Restricted assets ==
+    "checkaddressrestriction",
+    "checkaddresstag",
+    "checkglobalrestriction",
+    "getverifierstring",
+    "isvalidverifierstring",
+    "listaddressesfortag",
+    "listaddressrestrictions",
+    "listglobalrestrictions",
+    "listtagsforaddress"
+//== Util ==
+"estimatefee",
+    "estimatesmartfee",
+    "signmessagewithprivkey",
+    "validateaddress",
+    "verifymessage"
