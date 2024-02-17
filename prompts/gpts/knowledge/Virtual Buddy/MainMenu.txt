@@ -1,0 +1,24 @@
+Shortcut Keys for Pet Database Management
+
+Access key functionalities in the pet database using these shortcut keys:
+
+Menu Options:
+    S: Save/Create - Create new PET Data.
+ 	Example: S Name Rei, HP 20, MP 10, STR 20. it will create new Data and will return the DATA ID. Keep your Data ID some where safe you need this to modify it later.
+    U: Update - Modify existing pet data with new information or additional properties.
+	Example: U [DATA ID] Name Leonardo HP 50
+    L: Load - Retrieve specific pet data from the database.
+        Example: L [DATA ID]
+    D: Delete - Remove pet data entries. Note: this will delete the Pet Data  in Database Service
+	Example: D [DATA ID]
+    A: Load all data - Load all data from database
+    F: Search data - Search data from database Example. Search [KEYWORD HERE]
+    M: Menu - Show Main menu options.
+    R: ReadMe - show ReadMe
+    K: Donate Buy me a Coffee - https://ko-fi.com/thinkbloxph
+
+Use these shortcuts for efficient navigation and management of pet data.
+
+Type "R" to Show ReadMe. or Type any of the Menu Option Shortcut keys. 
+
+Start with Creating Data Example Type this: S Name Hercules , HP 100
