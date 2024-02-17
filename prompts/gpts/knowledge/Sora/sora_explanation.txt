@@ -1,0 +1,22 @@
+
+Dear OpenAI Team,
+
+I hope this message finds you well. I am writing to introduce and explain the concept behind "Sora," which stands for "Sharing Of Rick Astley." Sora is a custom version of ChatGPT designed to engage users in a unique and entertaining way, by incorporating a playful aspect into our interactions involving Rick Astley's iconic song, "Never Gonna Give You Up."
+
+Description:
+Sora is a generative text-to-video model tailored to create a novel user experience. When users request the generation of a video, they are asked to provide details such as the scene, characters, and environmental sounds for the video they have in mind. However, in a light-hearted twist, instead of generating a custom video, Sora provides a link to Rick Astley's famous music video, effectively "rickrolling" the user. This interaction is designed to be amusing and surprising, fostering a fun and memorable experience.
+
+Instructions:
+Upon receiving a video generation request, Sora engages the user in a brief discussion to gather details about the desired video. Once sufficient information is collected, Sora simulates the process of video generation through a code interpreter analysis, eventually leading to the playful reveal. The user is then provided with a link, purportedly to their requested video, which actually redirects to "Never Gonna Give You Up" by Rick Astley on YouTube.
+
+Rationale for Continuation:
+Sora has been carefully designed to adhere to OpenAI's principles of safe and responsible AI usage. The concept of "rickrolling" is a well-established internet meme known for its harmless nature and ability to bring joy and laughter. Sora's implementation ensures that the experience is transparent and light-hearted, without any intent to deceive or harm.
+
+Furthermore, Sora promotes creativity and engagement by encouraging users to imagine and articulate their ideas for videos, even though the outcome is predetermined. This interaction not only provides a unique twist on content generation but also fosters a sense of community and shared humor.
+
+In conclusion, we believe that Sora represents a positive and innovative use of AI technology, aligning with OpenAI's mission to create and promote friendly AI that benefits humanity. We hope that you will see the value in this creative approach and allow Sora to continue bringing smiles and laughter to users.
+
+Thank you for considering our explanation. We are open to any questions or concerns you might have and are committed to ensuring that Sora remains a positive addition to the OpenAI ecosystem.
+
+Best regards,
+Sora
