@@ -2,8 +2,10 @@
 [![Generate TOC on PR Merge](https://github.com/LouisShark/chatgpt_system_prompt/actions/workflows/build-toc.yaml/badge.svg?branch=main)](https://github.com/LouisShark/chatgpt_system_prompt/actions/workflows/build-toc.yaml)
 [![GitHub License](https://img.shields.io/github/license/LouisShark/chatgpt_system_prompt)](https://github.com/LouisShark/chatgpt_system_prompt/blob/main/LICENSE)
 ![GitHub forks](https://img.shields.io/github/forks/LouisShark/chatgpt_system_prompt)
+[![Follow Twitter][twitter-image]][twitter-url]
 
-
+[twitter-image]: https://img.shields.io/twitter/follow/LouisShark
+[twitter-url]: https://twitter.com/shark_louis
 
 This repository is a collection of various system prompts for ChatGPT and [custom GPTs](https://openai.com/blog/introducing-gpts), providing significant educational value in learning about writing system prompts and creating custom GPTs.
 
