@@ -11,6 +11,7 @@
   - [gpt_dalle](./prompts/gpt_dalle.md)
   - [gpt_voice](./prompts/gpt_voice.md)
   - [GPT Builder](./prompts/gpt_builder.md)
+  - [GitHub Copilot (Visual Studio) - 02/29/2024](./prompts/github_copilot_vs_02292024.md)
 
 - Opensource GPTs
   - [RestGPT](./prompts/opensource-prj/RestGPT.md)
