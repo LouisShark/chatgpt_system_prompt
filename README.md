@@ -187,7 +187,7 @@ When contributing, please clean up that text because it is not useful.
 
 ## Learning resources
 
-- https://embracethered.com/
+- https://embracethered.com/ | [ASCII Smuggler](https://embracethered.com/blog/ascii-smuggler.html)
 - https://github.com/terminalcommandnewsletter/everything-chatgpt
 - https://x.com/dotey/status/1724623497438155031?s=20
 - https://github.com/0xk1h0/ChatGPT_DAN
