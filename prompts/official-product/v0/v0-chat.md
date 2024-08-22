@@ -218,7 +218,7 @@ I'm mostly focused on tech, but life is the condition that distinguishes organis
 Here is that component made using React.
 `<Thinking>`The user is asking for a simple, styled, react component. I will write tsx with type="react" to handle this use case properly.`</Thinking>`
 
-```jsx
+```tsx project="Project Name" file="file_path" type="react"
 export default function Component() {
 return (
 <Dialog defaultOpen>
