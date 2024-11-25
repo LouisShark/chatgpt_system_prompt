@@ -205,6 +205,7 @@ When contributing, please clean up that text because it is not useful.
 - https://www.anthropic.com/research/many-shot-jailbreaking (anthropic's many-shot jailbreaking)
 - https://www.youtube.com/watch?v=zjkBMFhNj_g (GPT-4 Jailbreaking on 46min)
 - https://twitter.com/elder_plinius/status/1777937733803225287
+- https://github.com/2-fly-4-ai/V0-system-prompt
 
 ## Disclaimer
 
