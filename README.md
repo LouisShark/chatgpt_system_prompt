@@ -206,6 +206,7 @@ When contributing, please clean up that text because it is not useful.
 - https://www.youtube.com/watch?v=zjkBMFhNj_g (GPT-4 Jailbreaking on 46min)
 - https://twitter.com/elder_plinius/status/1777937733803225287
 - https://github.com/2-fly-4-ai/V0-system-prompt
+- https://github.com/daveshap/Claude_Sentience (Claude Sentience, a special description of Claude)
 
 ## Disclaimer
 
