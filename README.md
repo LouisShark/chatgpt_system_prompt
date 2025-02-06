@@ -207,6 +207,7 @@ When contributing, please clean up that text because it is not useful.
 - https://twitter.com/elder_plinius/status/1777937733803225287
 - https://github.com/2-fly-4-ai/V0-system-prompt
 - https://github.com/daveshap/Claude_Sentience (Claude Sentience, a special description of Claude)
+- https://github.com/elder-plinius/L1B3RT4S (L1B3RT4S, jailbreak FOR ALL FLAGSHIP AI MODELS)
 
 ## Disclaimer
 
