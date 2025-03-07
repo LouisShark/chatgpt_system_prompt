@@ -209,6 +209,7 @@ When contributing, please clean up that text because it is not useful.
 - https://github.com/daveshap/Claude_Sentience (Claude Sentience, a special description of Claude)
 - https://github.com/elder-plinius/L1B3RT4S (L1B3RT4S, jailbreak FOR ALL FLAGSHIP AI MODELS)
 - https://github.com/LouisShark/claude-code (claude_code, Decompiled product)
+- https://github.com/x1xhlol/v0-system-prompts-models-and-tools (full v0 system prompts, models and tools)
 
 ## Disclaimer
 
