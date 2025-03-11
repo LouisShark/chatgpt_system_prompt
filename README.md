@@ -1,7 +1,13 @@
-# ChatGPT_system_prompt
+# PromptCraft: The Ultimate GPT System Prompt Collection
 [![Generate TOC on PR Merge](https://github.com/LouisShark/chatgpt_system_prompt/actions/workflows/build-toc.yaml/badge.svg?branch=main)](https://github.com/LouisShark/chatgpt_system_prompt/actions/workflows/build-toc.yaml)
 [![GitHub License](https://img.shields.io/github/license/LouisShark/chatgpt_system_prompt)](https://github.com/LouisShark/chatgpt_system_prompt/blob/main/LICENSE)
 ![GitHub forks](https://img.shields.io/github/forks/LouisShark/chatgpt_system_prompt)
+![GitHub stars](https://img.shields.io/github/stars/LouisShark/chatgpt_system_prompt)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/LouisShark/chatgpt_system_prompt)
+![GitHub last commit](https://img.shields.io/github/last-commit/LouisShark/chatgpt_system_prompt)
+![GitHub repo size](https://img.shields.io/github/repo-size/LouisShark/chatgpt_system_prompt)
+![GitHub contributors](https://img.shields.io/github/contributors/LouisShark/chatgpt_system_prompt)
+![Visitors](https://visitor-badge.laobi.icu/badge?page_id=LouisShark.chatgpt_system_prompt)
 [![Follow Twitter][twitter-image]][twitter-url]
 
 [twitter-image]: https://img.shields.io/twitter/follow/LouisShark
