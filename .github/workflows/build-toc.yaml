@@ -1,5 +1,9 @@
 name: Generate TOC on PR Merge or Push
 
+# This workflow automatically updates the TOC.md files in the repository
+# whenever there's a PR merge or direct push to the main branch.
+# It ensures that the table of contents stays up-to-date without manual intervention.
+
 on:
   # Trigger on PR merge
   pull_request_target:
@@ -13,17 +17,26 @@ on:
       - main
 
 jobs:
-  build_toc_on_pr_merge:
-    if: github.event_name == 'pull_request_target' && github.event.pull_request.merged == true
+  build_toc:
+    # Only run on PR merge or direct push to main
+    if: github.event_name == 'push' || (github.event_name == 'pull_request_target' && github.event.pull_request.merged == true)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          # Fetch all history for allowing proper git operations
+          fetch-depth: 0
 
       - name: Set up Python 3
         uses: actions/setup-python@v3
         with:
           python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f .scripts/requirements.txt ]; then pip install -r .scripts/requirements.txt; fi
 
       - name: Run TOC generation script
         run: |
@@ -34,37 +47,9 @@ jobs:
         run: |
           git config --global user.name 'LouisShark'
           git config --global user.email 'mshark.louis@gmail.com'
-          git add .
-          git commit -m "docs: Update TOC.md" || echo "No changes to commit"
-          git pull --rebase
-          git push origin HEAD:main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  build_toc_on_push:
-    if: github.event_name == 'push'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Set up Python 3
-        uses: actions/setup-python@v3
-        with:
-          python-version: '3.x'
-
-      - name: Run TOC generation script
-        run: |
-          chmod +x .scripts/idxtool.py
-          python3 .scripts/idxtool.py --toc
-
-      - name: Commit TOC updates
-        run: |
-          git config --global user.name 'LouisShark'
-          git config --global user.email 'mshark.louis@gmail.com'
-          git add .
-          git commit -m "docs: Update TOC.md" || echo "No changes to commit"
-          git pull --rebase
+          git add TOC.md prompts/*/TOC.md
+          git commit -m "docs: Update TOC.md files" || echo "No changes to commit"
+          git pull --rebase origin main
           git push origin HEAD:main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

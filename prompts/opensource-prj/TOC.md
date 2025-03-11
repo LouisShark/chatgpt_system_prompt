@@ -1,4 +1,4 @@
-# opensource-prj 
+# opensource-prj - Table of Contents
 
 - [Claude_Sentience](./Claude_Sentience.md)
 - [RestGPT](./RestGPT.md)

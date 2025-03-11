@@ -96,7 +96,7 @@ def rebuild_toc(toc_out: str = '') -> Tuple[bool, str]:
 
     # Write a header for the TOC file
     out = []
-    out.append("# ChatGPT System Prompts - Table of Contents\n\n")
+    out.append("# ChatGPT System Prompts \n\n")
     out.append("This document contains a table of contents for the ChatGPT System Prompts repository.\n\n")
 
     # Add links to TOC.md files in prompts directory subdirectories
@@ -197,21 +197,37 @@ def find_gptfile(keyword, verbose=True):
 
 def generate_toc_for_prompts_dirs() -> Tuple[bool, str]:
     """
-    Generates a single TOC.md file for each of the three main directories under prompts:
-    gpts, official-product, and opensource-prj.
-    For gpts directory, uses the original GPT-specific TOC generation logic.
-    For other directories, includes all markdown files in the directory and its subdirectories.
+    Generates a single TOC.md file for each directory under prompts:
+    - For the gpts directory, uses the original GPT-specific TOC generation logic.
+    - For all other directories (including newly added ones), uses the generic recursive logic.
+
+    This function automatically detects all subdirectories under prompts, ensuring future-proof
+    extensibility without requiring code changes when new directories are added.
     """
     prompts_base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'prompts'))
     if not os.path.exists(prompts_base_path):
         return (False, f"Prompts directory '{prompts_base_path}' does not exist.")
 
-    print(f"Generating TOC.md files for main directories under '{prompts_base_path}'")
+    print(f"Generating TOC.md files for all directories under '{prompts_base_path}'")
     success = True
     messages = []
 
-    # Main directories we want to process
-    main_dirs = ["gpts", "official-product", "opensource-prj"]
+    # Dynamically discover all directories under prompts/
+    try:
+        all_dirs = [d for d in os.listdir(prompts_base_path)
+                  if os.path.isdir(os.path.join(prompts_base_path, d))]
+    except Exception as e:
+        return (False, f"Error scanning prompts directory: {str(e)}")
+
+    if not all_dirs:
+        return (False, "No subdirectories found under prompts/")
+
+    # Define which directory needs special GPT-specific handling
+    # If you need to change the behavior, you only need to change this constant
+    SPECIAL_DIR = "gpts"
+
+    # Track if special directory was found and processed
+    special_dir_processed = False
 
     def collect_files_recursively(dir_path, base_path=None):
         """
@@ -278,8 +294,16 @@ def generate_toc_for_prompts_dirs() -> Tuple[bool, str]:
         return result
 
     def generate_gpts_toc(dir_path):
-        """Generate TOC.md for gpts directory using the original GPT-specific logic.
-        The file is completely regenerated, not preserving any existing content."""
+        """
+        Generate TOC.md for gpts directory using the original GPT-specific logic.
+        The file is completely regenerated, not preserving any existing content.
+
+        Args:
+            dir_path: Path to the gpts directory
+
+        Returns:
+            A tuple (success, message) indicating success/failure and a descriptive message
+        """
         toc_path = os.path.join(dir_path, TOC_FILENAME)
         try:
             with open(toc_path, 'w', encoding='utf-8') as toc_file:
@@ -321,14 +345,15 @@ def generate_toc_for_prompts_dirs() -> Tuple[bool, str]:
             return (False, f"Error generating TOC.md for 'gpts': {str(e)}")
 
     # Process each top-level directory under prompts/
-    for dirname in main_dirs:
+    for dirname in sorted(all_dirs):  # Sort for consistent processing order
         dir_path = os.path.join(prompts_base_path, dirname)
         if not os.path.isdir(dir_path):
             messages.append(f"Directory '{dirname}' does not exist, skipping")
             continue
 
         # For gpts directory, use the original GPT-specific logic
-        if dirname == "gpts":
+        if dirname == SPECIAL_DIR:
+            special_dir_processed = True
             ok, msg = generate_gpts_toc(dir_path)
             success = success and ok
             messages.append(msg)
@@ -397,6 +422,10 @@ def generate_toc_for_prompts_dirs() -> Tuple[bool, str]:
         except Exception as e:
             success = False
             messages.append(f"Error generating TOC.md for '{dirname}': {str(e)}")
+
+    # Warn if special directory was expected but not found
+    if not special_dir_processed and SPECIAL_DIR in all_dirs:
+        messages.append(f"Warning: Special directory '{SPECIAL_DIR}' was found but could not be processed")
 
     result_message = "\n".join(messages)
     return (success, result_message)
