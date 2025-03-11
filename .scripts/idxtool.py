@@ -75,7 +75,9 @@ def parse_gpt_file(filename) -> Tuple[bool, str]:
 
 def rebuild_toc(toc_out: str = '') -> Tuple[bool, str]:
     """
-    Rebuilds the table of contents (TOC.md) file by reading all the GPT files in the prompts/gpts directory.
+    Rebuilds the table of contents (TOC.md) file, generating only the Prompt Collections section
+    that links to the TOC.md files in the prompts subdirectories.
+    The TOC file is completely regenerated, not preserving any existing content.
     """
     if not toc_out:
         print(f"Rebuilding Table of Contents (TOC.md) in place")
@@ -86,69 +88,41 @@ def rebuild_toc(toc_out: str = '') -> Tuple[bool, str]:
     if not toc_out:
         toc_out = toc_in
 
-    if not os.path.exists(toc_in):
-        return (False, f"TOC File '{toc_in}' does not exist.")
-
-
-    # Read the TOC file and find the marker line for the GPT instructions
-    out = []
-    marker_found = False
-    with open(toc_in, 'r', encoding='utf-8') as file:
-        for line in file:
-            if line.startswith(TOC_GPT_MARKER_LINE):
-                marker_found = True
-                break
-            else:
-                out.append(line)
-    if not marker_found:
-        return (False, f"Could not find the marker '{TOC_GPT_MARKER_LINE}' in '{toc_in}'. Please revert the TOC file and try again.")
-
-    # Write the TOC file all the way up to the marker line
+    # Open the output file for writing (overwriting any existing content)
     try:
         ofile = open(toc_out, 'w', encoding='utf-8')
     except:
         return (False, f"Failed to open '{toc_out}' for writing.")
 
-    # Count GPTs
-    enumerated_gpts = list(enum_gpts())
-    nb_ok = sum(1 for ok, gpt in enumerated_gpts if ok and gpt.id())    
+    # Write a header for the TOC file
+    out = []
+    out.append("# ChatGPT System Prompts - Table of Contents\n\n")
+    out.append("This document contains a table of contents for the ChatGPT System Prompts repository.\n\n")
 
-    # Write the marker line and each GPT entry
-    out.append(f"{TOC_GPT_MARKER_LINE} ({nb_ok} total)\n")
+    # Add links to TOC.md files in prompts directory subdirectories
+    prompts_base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'prompts'))
+    if os.path.exists(prompts_base_path):
+        prompt_dirs = []
+        for dirname in os.listdir(prompts_base_path):
+            dir_path = os.path.join(prompts_base_path, dirname)
+            toc_path = os.path.join(dir_path, TOC_FILENAME)
+            # Only include directories that have a TOC.md file
+            if os.path.isdir(dir_path) and os.path.exists(toc_path):
+                prompt_dirs.append(dirname)
 
-    nb_ok = nb_total = 0
-    gpts = []
-    for ok, gpt in enumerated_gpts:
-        nb_total += 1
-        if ok:
-            if gpt_id := gpt.id():
-                nb_ok += 1
-                gpts.append((gpt_id, gpt))
-            else:
-                print(f"[!] No ID detected: {gpt.filename}")
-        else:
-            print(f"[!] {gpt}")
-
-    # Consistently sort the GPTs by ID and GPTs title
-    def gpts_sorter(key):
-        gpt_id, gpt = key
-        version = f"{gpt.get('version')}" if gpt.get('version') else ''
-        return f"{gpt.get('title')}{version} (id: {gpt_id.id}))"
-    gpts.sort(key=gpts_sorter)
-
-    for id, gpt in gpts:
-        file_link = f"./prompts/gpts/{quote(os.path.basename(gpt.filename))}"
-        version = f" {gpt.get('version')}" if gpt.get('version') else ''
-        out.append(f"  - [{gpt.get('title')}{version} (id: {id.id})]({file_link})\n")
+        if prompt_dirs:
+            out.append("## Prompt Collections\n\n")
+            prompt_dirs.sort()  # Sort alphabetically
+            for dirname in prompt_dirs:
+                # Create a relative link to the subdirectory TOC file
+                link = f"./prompts/{dirname}/{TOC_FILENAME}"
+                out.append(f"- [{dirname} Collection]({link})\n")
 
     ofile.writelines(out)
     ofile.close()
-    msg = f"Generated TOC with {nb_ok} out of {nb_total} GPTs."
+    msg = f"Generated TOC with Prompt Collections only."
 
-    ok = nb_ok == nb_total
-    if ok:
-        print(msg)
-    return (ok, msg)
+    return (True, msg)
 
 def make_template(url, verbose=True):
     """Creates an empty GPT template file from a ChatGPT URL"""
@@ -221,6 +195,211 @@ def find_gptfile(keyword, verbose=True):
 
     return matches
 
+def generate_toc_for_prompts_dirs() -> Tuple[bool, str]:
+    """
+    Generates a single TOC.md file for each of the three main directories under prompts:
+    gpts, official-product, and opensource-prj.
+    For gpts directory, uses the original GPT-specific TOC generation logic.
+    For other directories, includes all markdown files in the directory and its subdirectories.
+    """
+    prompts_base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'prompts'))
+    if not os.path.exists(prompts_base_path):
+        return (False, f"Prompts directory '{prompts_base_path}' does not exist.")
+
+    print(f"Generating TOC.md files for main directories under '{prompts_base_path}'")
+    success = True
+    messages = []
+
+    # Main directories we want to process
+    main_dirs = ["gpts", "official-product", "opensource-prj"]
+
+    def collect_files_recursively(dir_path, base_path=None):
+        """
+        Recursively collect all markdown files from a directory and its subdirectories.
+
+        Args:
+            dir_path: The current directory being processed
+            base_path: The base directory path used for computing relative paths
+
+        Returns:
+            A list of tuples (relative_path, filename, title) where:
+            - relative_path is the path relative to the base directory
+            - filename is the name of the file
+            - title is the extracted title from the file
+        """
+        if base_path is None:
+            base_path = dir_path
+
+        result = []
+
+        try:
+            items = os.listdir(dir_path)
+        except (FileNotFoundError, PermissionError) as e:
+            print(f"Warning: Could not access directory '{dir_path}': {str(e)}")
+            return result
+
+        for item in items:
+            item_path = os.path.join(dir_path, item)
+
+            # Skip TOC.md
+            if item == TOC_FILENAME:
+                continue
+
+            try:
+                if os.path.isfile(item_path) and item.endswith('.md'):
+                    # Check if file exists and is readable
+                    if not os.path.exists(item_path):
+                        print(f"Warning: The file {item_path} does not exist")
+                        continue
+
+                    # Get relative path from the base directory to the file's directory
+                    rel_dir_path = os.path.relpath(os.path.dirname(item_path), base_path)
+                    if rel_dir_path == '.':
+                        rel_dir_path = ''
+
+                    # Extract title from the file
+                    title = os.path.splitext(item)[0]
+                    try:
+                        with open(item_path, 'r', encoding='utf-8') as f:
+                            first_line = f.readline().strip()
+                            if first_line.startswith('# '):
+                                title = first_line[2:].strip()
+                    except Exception as e:
+                        print(f"Warning: Could not read file '{item_path}': {str(e)}")
+
+                    result.append((rel_dir_path, item, title))
+
+                elif os.path.isdir(item_path):
+                    # Recursively collect files from subdirectories using the same base_path
+                    result.extend(collect_files_recursively(item_path, base_path))
+            except Exception as e:
+                print(f"Warning: Error processing '{item_path}': {str(e)}")
+
+        return result
+
+    def generate_gpts_toc(dir_path):
+        """Generate TOC.md for gpts directory using the original GPT-specific logic.
+        The file is completely regenerated, not preserving any existing content."""
+        toc_path = os.path.join(dir_path, TOC_FILENAME)
+        try:
+            with open(toc_path, 'w', encoding='utf-8') as toc_file:
+                toc_file.write(f"# gpts \n\n")
+
+                # Count GPTs
+                enumerated_gpts = list(enum_gpts())
+                nb_ok = sum(1 for ok, gpt in enumerated_gpts if ok and gpt.id())
+
+                toc_file.write(f"## GPTs ({nb_ok} total)\n\n")
+
+                nb_ok = nb_total = 0
+                gpts = []
+                for ok, gpt in enumerated_gpts:
+                    nb_total += 1
+                    if ok:
+                        if gpt_id := gpt.id():
+                            nb_ok += 1
+                            gpts.append((gpt_id, gpt))
+                        else:
+                            print(f"[!] No ID detected: {gpt.filename}")
+                    else:
+                        print(f"[!] {gpt}")
+
+                # Consistently sort the GPTs by title
+                def gpts_sorter(key):
+                    gpt_id, gpt = key
+                    version = f"{gpt.get('version')}" if gpt.get('version') else ''
+                    return f"{gpt.get('title')}{version} (id: {gpt_id.id}))"
+                gpts.sort(key=gpts_sorter)
+
+                for id, gpt in gpts:
+                    file_link = f"./{quote(os.path.basename(gpt.filename))}"
+                    version = f" {gpt.get('version')}" if gpt.get('version') else ''
+                    toc_file.write(f"- [{gpt.get('title')}{version} (id: {id.id})]({file_link})\n")
+
+            return (True, f"Generated TOC.md for 'gpts' with {nb_ok} out of {nb_total} GPTs.")
+        except Exception as e:
+            return (False, f"Error generating TOC.md for 'gpts': {str(e)}")
+
+    # Process each top-level directory under prompts/
+    for dirname in main_dirs:
+        dir_path = os.path.join(prompts_base_path, dirname)
+        if not os.path.isdir(dir_path):
+            messages.append(f"Directory '{dirname}' does not exist, skipping")
+            continue
+
+        # For gpts directory, use the original GPT-specific logic
+        if dirname == "gpts":
+            ok, msg = generate_gpts_toc(dir_path)
+            success = success and ok
+            messages.append(msg)
+            continue
+
+        # For other directories, use the new recursive logic
+        # Collect all markdown files in this directory and its subdirectories
+        md_files = collect_files_recursively(dir_path)
+
+        if not md_files:
+            messages.append(f"No markdown files found in '{dirname}' or its subdirectories, skipping TOC generation")
+            continue
+
+        # Generate TOC.md for this directory
+        toc_path = os.path.join(dir_path, TOC_FILENAME)
+        try:
+            with open(toc_path, 'w', encoding='utf-8') as toc_file:
+                toc_file.write(f"# {dirname} \n\n")
+
+                # Group files by their subdirectory
+                files_by_dir = {}
+                for rel_dir_path, filename, title in md_files:
+                    if rel_dir_path not in files_by_dir:
+                        files_by_dir[rel_dir_path] = []
+                    files_by_dir[rel_dir_path].append((filename, title))
+
+                # First list files in the root directory
+                if '' in files_by_dir:
+                    root_files = files_by_dir['']
+                    root_files.sort()  # Sort alphabetically
+
+                    for filename, title in root_files:
+                        toc_file.write(f"- [{title}](./{quote(filename)})\n")
+
+                    # Add a separator if we have subdirectories
+                    if len(files_by_dir) > 1:
+                        toc_file.write("\n")
+
+                # Then list files in subdirectories
+                subdirs = [d for d in files_by_dir.keys() if d != '']
+                if subdirs:
+                    toc_file.write("## Subdirectories\n\n")
+
+                    # Sort subdirectories alphabetically
+                    subdirs.sort()
+
+                    for subdir in subdirs:
+                        # Write the subdirectory name as a heading
+                        display_subdir = subdir.replace('\\', '/') # Ensure consistent path display
+                        toc_file.write(f"### {display_subdir}\n\n")
+
+                        # Sort files in this subdirectory alphabetically
+                        subdir_files = files_by_dir[subdir]
+                        subdir_files.sort()
+
+                        for filename, title in subdir_files:
+                            # Create a link with the correct relative path to the file
+                            # Use os.path.join for correct path construction then replace backslashes for display
+                            link_path = os.path.join(subdir, filename).replace('\\', '/')
+                            toc_file.write(f"- [{title}](./{quote(link_path)})\n")
+
+                        toc_file.write("\n")
+
+            messages.append(f"Generated TOC.md for '{dirname}' with {len(md_files)} total files")
+
+        except Exception as e:
+            success = False
+            messages.append(f"Error generating TOC.md for '{dirname}': {str(e)}")
+
+    result_message = "\n".join(messages)
+    return (success, result_message)
 
 def main():
     parser = argparse.ArgumentParser(description='idxtool: A GPT indexing and searching tool for the CSP repo')
@@ -240,7 +419,16 @@ def main():
         if not ok:
             print(err)
     elif args.toc is not None:
-        ok, err = rebuild_toc(args.toc)
+        if args.toc:
+            ok, err = rebuild_toc(args.toc)
+        else:
+            # First rebuild the main TOC file
+            ok, msg = rebuild_toc('')
+            print(msg)
+            # Then generate TOC files for subdirectories under prompts/
+            sub_ok, sub_err = generate_toc_for_prompts_dirs()
+            ok = ok and sub_ok
+            err = sub_err if not sub_ok else ""
         if not ok:
             print(err)
     elif args.find_gpt:

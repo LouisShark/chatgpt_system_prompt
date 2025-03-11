@@ -1,0 +1,118 @@
+# official-product 
+
+## Subdirectories
+
+### Grok
+
+- [Grok2](./Grok/Grok2.md)
+- [Grok3](./Grok/Grok3.md)
+- [Grok3WithDeepSearch](./Grok/Grok3WithDeepSearch.md)
+- [GrokJailbreakPrompt](./Grok/GrokJailbreakPrompt.md)
+
+### Venice.ai
+
+- [Venice](./Venice.ai/Venice.md)
+
+### Voilà
+
+- [Voilà](./Voil%C3%A0/Voil%C3%A0.md)
+
+### amazon
+
+- [Rufus](./amazon/Rufus.md)
+
+### claude
+
+- [AnthropicAgentLLMPrompter](./claude/AnthropicAgentLLMPrompter.md)
+- [Claude3](./claude/Claude3.md)
+- [ClaudeWithCode](./claude/ClaudeWithCode.md)
+- [readme](./claude/readme.md)
+
+### cursor
+
+- [CursorAgileModeSystemPrompt](./cursor/CursorAgileModeSystemPrompt.md)
+- [CursorChatSystemPrompt](./cursor/CursorChatSystemPrompt.md)
+- [CursorComposerSystemPrompt](./cursor/CursorComposerSystemPrompt.md)
+
+### deepseek
+
+- [R1](./deepseek/R1.md)
+
+### github
+
+- [github_copilot_agent](./github/github_copilot_agent.md)
+- [1](./github/github_copilot_vs_02292024.md)
+- [github_copilot_vscode_02292024](./github/github_copilot_vscode_02292024.md)
+
+### google
+
+- [gemini-20240410](./google/gemini-20240410.md)
+- [gemini-pro-20240603](./google/gemini-pro-20240603.md)
+- [notebooklm](./google/notebooklm.md)
+
+### manus
+
+- [agentloop](./manus/agentloop.md)
+- [Manus AI Assistant Capabilities](./manus/capabilities.md)
+- [Manus AI Assistant Capabilities](./manus/prompt.md)
+
+### meta
+
+- [MetaAIHiddenPrompt](./meta/MetaAIHiddenPrompt.md)
+
+### microsoft
+
+- [GraphRAG](./microsoft/GraphRAG.md)
+
+### nvidia
+
+- [LLAMA-3.1-NEMOTRON-70B](./nvidia/LLAMA-3.1-NEMOTRON-70B.md)
+
+### openai
+
+- [gpt-4-gizmo-20231116](./openai/gpt-4-gizmo-20231116.md)
+- [gpt35](./openai/gpt35.md)
+- [gpt4-5](./openai/gpt4-5.md)
+- [gpt40_for_deep_research](./openai/gpt40_for_deep_research.md)
+- [gpt40_with_canvas](./openai/gpt40_with_canvas.md)
+- [gpt4_advanced_data_analysis_20231018](./openai/gpt4_advanced_data_analysis_20231018.md)
+- [gpt4_dalle_browsing_analysis_20231110](./openai/gpt4_dalle_browsing_analysis_20231110.md)
+- [gpt4_iOS_20231111](./openai/gpt4_iOS_20231111.md)
+- [gpt4_plugins](./openai/gpt4_plugins.md)
+- [gpt4o-advanced-voice-mode-20240927](./openai/gpt4o-advanced-voice-mode-20240927.md)
+- [gpt4v_bing](./openai/gpt4v_bing.md)
+- [gpt4v_default](./openai/gpt4v_default.md)
+- [gpt_all_tools](./openai/gpt_all_tools.md)
+- [gpt_builder](./openai/gpt_builder.md)
+- [gpt_dalle](./openai/gpt_dalle.md)
+- [gpt_voice](./openai/gpt_voice.md)
+- [o3_cot_summarizer](./openai/o3_cot_summarizer.md)
+- [openai_optimization_system_prompt_playground](./openai/openai_optimization_system_prompt_playground.md)
+- [operator](./openai/operator.md)
+
+### other
+
+- [MultiOn](./other/MultiOn.md)
+- [coding_prompt](./other/coding_prompt.md)
+- [smaug](./other/smaug.md)
+- [wegic](./other/wegic.md)
+
+### poe
+
+- [SummarizeWithInsight](./poe/SummarizeWithInsight.md)
+
+### v0
+
+- [v0-chat-v1](./v0/v0-chat-v1.md)
+- [v0-chat](./v0/v0-chat.md)
+- [v0-system-context(hypothesized example-openv0)](./v0/v0-system-context%28hypothesized%20example-openv0%29.md)
+- [v0-system-prompt-20241124](./v0/v0-system-prompt-20241124.md)
+
+### windsurf
+
+- [WinSurfChatModeSystemPrompt](./windsurf/WinSurfChatModeSystemPrompt.md)
+
+### wordware-ai
+
+- [twitter](./wordware-ai/twitter.md)
+
