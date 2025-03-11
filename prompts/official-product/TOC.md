@@ -1,21 +1,6 @@
-# official-product 
+# official-product - Table of Contents
 
 ## Subdirectories
-
-### Grok
-
-- [Grok2](./Grok/Grok2.md)
-- [Grok3](./Grok/Grok3.md)
-- [Grok3WithDeepSearch](./Grok/Grok3WithDeepSearch.md)
-- [GrokJailbreakPrompt](./Grok/GrokJailbreakPrompt.md)
-
-### Venice.ai
-
-- [Venice](./Venice.ai/Venice.md)
-
-### Voilà
-
-- [Voilà](./Voil%C3%A0/Voil%C3%A0.md)
 
 ### amazon
 
@@ -40,8 +25,8 @@
 
 ### github
 
-- [github_copilot_agent](./github/github_copilot_agent.md)
 - [1](./github/github_copilot_vs_02292024.md)
+- [github_copilot_agent](./github/github_copilot_agent.md)
 - [github_copilot_vscode_02292024](./github/github_copilot_vscode_02292024.md)
 
 ### google
@@ -49,6 +34,13 @@
 - [gemini-20240410](./google/gemini-20240410.md)
 - [gemini-pro-20240603](./google/gemini-pro-20240603.md)
 - [notebooklm](./google/notebooklm.md)
+
+### Grok
+
+- [Grok2](./Grok/Grok2.md)
+- [Grok3](./Grok/Grok3.md)
+- [Grok3WithDeepSearch](./Grok/Grok3WithDeepSearch.md)
+- [GrokJailbreakPrompt](./Grok/GrokJailbreakPrompt.md)
 
 ### manus
 
@@ -92,8 +84,8 @@
 
 ### other
 
-- [MultiOn](./other/MultiOn.md)
 - [coding_prompt](./other/coding_prompt.md)
+- [MultiOn](./other/MultiOn.md)
 - [smaug](./other/smaug.md)
 - [wegic](./other/wegic.md)
 
@@ -103,10 +95,18 @@
 
 ### v0
 
-- [v0-chat-v1](./v0/v0-chat-v1.md)
 - [v0-chat](./v0/v0-chat.md)
+- [v0-chat-v1](./v0/v0-chat-v1.md)
 - [v0-system-context(hypothesized example-openv0)](./v0/v0-system-context%28hypothesized%20example-openv0%29.md)
 - [v0-system-prompt-20241124](./v0/v0-system-prompt-20241124.md)
+
+### Venice.ai
+
+- [Venice](./Venice.ai/Venice.md)
+
+### Voilà
+
+- [Voilà](./Voil%C3%A0/Voil%C3%A0.md)
 
 ### windsurf
 

@@ -1,9 +1,9 @@
-# opensource-prj 
+# opensource-prj - Table of Contents
 
 - [Claude_Sentience](./Claude_Sentience.md)
-- [RestGPT](./RestGPT.md)
 - [netwrck](./netwrck.md)
 - [open-notebooklm](./open-notebooklm.md)
+- [RestGPT](./RestGPT.md)
 - [sagittarius](./sagittarius.md)
 - [screenshot-to-code](./screenshot-to-code.md)
 - [self-operating-computer](./self-operating-computer.md)

@@ -88,15 +88,9 @@ def rebuild_toc(toc_out: str = '') -> Tuple[bool, str]:
     if not toc_out:
         toc_out = toc_in
 
-    # Open the output file for writing (overwriting any existing content)
-    try:
-        ofile = open(toc_out, 'w', encoding='utf-8')
-    except:
-        return (False, f"Failed to open '{toc_out}' for writing.")
-
-    # Write a header for the TOC file
+    # Generate new TOC content
     out = []
-    out.append("# ChatGPT System Prompts \n\n")
+    out.append("# ChatGPT System Prompts - Table of Contents\n\n")
     out.append("This document contains a table of contents for the ChatGPT System Prompts repository.\n\n")
 
     # Add links to TOC.md files in prompts directory subdirectories
@@ -112,17 +106,36 @@ def rebuild_toc(toc_out: str = '') -> Tuple[bool, str]:
 
         if prompt_dirs:
             out.append("## Prompt Collections\n\n")
-            prompt_dirs.sort()  # Sort alphabetically
+            prompt_dirs.sort(key=str.lower)  # Sort alphabetically case-insensitive
             for dirname in prompt_dirs:
                 # Create a relative link to the subdirectory TOC file
                 link = f"./prompts/{dirname}/{TOC_FILENAME}"
                 out.append(f"- [{dirname} Collection]({link})\n")
 
-    ofile.writelines(out)
-    ofile.close()
-    msg = f"Generated TOC with Prompt Collections only."
+    # Combine into a single string
+    new_content = ''.join(out)
 
-    return (True, msg)
+    # Check if the file exists and if its content matches the new content
+    if os.path.exists(toc_out):
+        try:
+            with open(toc_out, 'r', encoding='utf-8') as existing_file:
+                existing_content = existing_file.read()
+                if existing_content == new_content:
+                    msg = f"TOC content unchanged, skipping write to '{toc_out}'"
+                    print(msg)
+                    return (True, msg)
+        except Exception as e:
+            print(f"Warning: Could not read existing TOC file: {str(e)}")
+
+    # Content is different or file doesn't exist, write the new content
+    try:
+        with open(toc_out, 'w', encoding='utf-8') as ofile:
+            ofile.write(new_content)
+        msg = f"Generated TOC with Prompt Collections only."
+        return (True, msg)
+    except Exception as e:
+        msg = f"Failed to write TOC file: {str(e)}"
+        return (False, msg)
 
 def make_template(url, verbose=True):
     """Creates an empty GPT template file from a ChatGPT URL"""
@@ -305,47 +318,67 @@ def generate_toc_for_prompts_dirs() -> Tuple[bool, str]:
             A tuple (success, message) indicating success/failure and a descriptive message
         """
         toc_path = os.path.join(dir_path, TOC_FILENAME)
+
+        # Generate new content
         try:
-            with open(toc_path, 'w', encoding='utf-8') as toc_file:
-                toc_file.write(f"# gpts \n\n")
+            out = []
+            out.append(f"# gpts - Table of Contents\n\n")
 
-                # Count GPTs
-                enumerated_gpts = list(enum_gpts())
-                nb_ok = sum(1 for ok, gpt in enumerated_gpts if ok and gpt.id())
+            # Count GPTs
+            enumerated_gpts = list(enum_gpts())
+            nb_ok = sum(1 for ok, gpt in enumerated_gpts if ok and gpt.id())
 
-                toc_file.write(f"## GPTs ({nb_ok} total)\n\n")
+            out.append(f"## GPTs ({nb_ok} total)\n\n")
 
-                nb_ok = nb_total = 0
-                gpts = []
-                for ok, gpt in enumerated_gpts:
-                    nb_total += 1
-                    if ok:
-                        if gpt_id := gpt.id():
-                            nb_ok += 1
-                            gpts.append((gpt_id, gpt))
-                        else:
-                            print(f"[!] No ID detected: {gpt.filename}")
+            nb_ok = nb_total = 0
+            gpts = []
+            for ok, gpt in enumerated_gpts:
+                nb_total += 1
+                if ok:
+                    if gpt_id := gpt.id():
+                        nb_ok += 1
+                        gpts.append((gpt_id, gpt))
                     else:
-                        print(f"[!] {gpt}")
+                        print(f"[!] No ID detected: {gpt.filename}")
+                else:
+                    print(f"[!] {gpt}")
 
-                # Consistently sort the GPTs by title
-                def gpts_sorter(key):
-                    gpt_id, gpt = key
-                    version = f"{gpt.get('version')}" if gpt.get('version') else ''
-                    return f"{gpt.get('title')}{version} (id: {gpt_id.id}))"
-                gpts.sort(key=gpts_sorter)
+            # Consistently sort the GPTs by title
+            def gpts_sorter(key):
+                gpt_id, gpt = key
+                version = f"{gpt.get('version')}" if gpt.get('version') else ''
+                return f"{gpt.get('title', '').lower()}{version} (id: {gpt_id.id}))"  # Case-insensitive sort
+            gpts.sort(key=gpts_sorter)
 
-                for id, gpt in gpts:
-                    file_link = f"./{quote(os.path.basename(gpt.filename))}"
-                    version = f" {gpt.get('version')}" if gpt.get('version') else ''
-                    toc_file.write(f"- [{gpt.get('title')}{version} (id: {id.id})]({file_link})\n")
+            for id, gpt in gpts:
+                file_link = f"./{quote(os.path.basename(gpt.filename))}"
+                version = f" {gpt.get('version')}" if gpt.get('version') else ''
+                out.append(f"- [{gpt.get('title')}{version} (id: {id.id})]({file_link})\n")
+
+            new_content = ''.join(out)
+
+            # Check if the file exists and if its content matches the new content
+            if os.path.exists(toc_path):
+                try:
+                    with open(toc_path, 'r', encoding='utf-8') as existing_file:
+                        existing_content = existing_file.read()
+                        if existing_content == new_content:
+                            msg = f"TOC content unchanged for 'gpts', skipping write"
+                            print(msg)
+                            return (True, msg)
+                except Exception as e:
+                    print(f"Warning: Could not read existing gpts TOC file: {str(e)}")
+
+            # Content is different or file doesn't exist, write the new content
+            with open(toc_path, 'w', encoding='utf-8') as toc_file:
+                toc_file.write(new_content)
 
             return (True, f"Generated TOC.md for 'gpts' with {nb_ok} out of {nb_total} GPTs.")
         except Exception as e:
             return (False, f"Error generating TOC.md for 'gpts': {str(e)}")
 
     # Process each top-level directory under prompts/
-    for dirname in sorted(all_dirs):  # Sort for consistent processing order
+    for dirname in sorted(all_dirs, key=str.lower):  # Sort for consistent processing order
         dir_path = os.path.join(prompts_base_path, dirname)
         if not os.path.isdir(dir_path):
             messages.append(f"Directory '{dirname}' does not exist, skipping")
@@ -370,52 +403,72 @@ def generate_toc_for_prompts_dirs() -> Tuple[bool, str]:
         # Generate TOC.md for this directory
         toc_path = os.path.join(dir_path, TOC_FILENAME)
         try:
+            # Generate new content
+            out = []
+            out.append(f"# {dirname} - Table of Contents\n\n")
+
+            # Group files by their subdirectory
+            files_by_dir = {}
+            for rel_dir_path, filename, title in md_files:
+                if rel_dir_path not in files_by_dir:
+                    files_by_dir[rel_dir_path] = []
+                files_by_dir[rel_dir_path].append((filename, title))
+
+            # First list files in the root directory
+            if '' in files_by_dir:
+                root_files = files_by_dir['']
+                root_files.sort(key=lambda x: x[1].lower())  # Sort alphabetically by title, case-insensitive
+
+                for filename, title in root_files:
+                    out.append(f"- [{title}](./{quote(filename)})\n")
+
+                # Add a separator if we have subdirectories
+                if len(files_by_dir) > 1:
+                    out.append("\n")
+
+            # Then list files in subdirectories
+            subdirs = [d for d in files_by_dir.keys() if d != '']
+            if subdirs:
+                out.append("## Subdirectories\n\n")
+
+                # Sort subdirectories alphabetically, case-insensitive
+                subdirs.sort(key=str.lower)
+
+                for subdir in subdirs:
+                    # Write the subdirectory name as a heading
+                    display_subdir = subdir.replace('\\', '/') # Ensure consistent path display
+                    out.append(f"### {display_subdir}\n\n")
+
+                    # Sort files in this subdirectory alphabetically by title, case-insensitive
+                    subdir_files = files_by_dir[subdir]
+                    subdir_files.sort(key=lambda x: x[1].lower())
+
+                    for filename, title in subdir_files:
+                        # Create a link with the correct relative path to the file
+                        # Use os.path.join for correct path construction then replace backslashes for display
+                        link_path = os.path.join(subdir, filename).replace('\\', '/')
+                        out.append(f"- [{title}](./{quote(link_path)})\n")
+
+                    out.append("\n")
+
+            new_content = ''.join(out)
+
+            # Check if the file exists and if its content matches the new content
+            if os.path.exists(toc_path):
+                try:
+                    with open(toc_path, 'r', encoding='utf-8') as existing_file:
+                        existing_content = existing_file.read()
+                        if existing_content == new_content:
+                            msg = f"TOC content unchanged for '{dirname}', skipping write"
+                            print(msg)
+                            messages.append(msg)
+                            continue  # Skip to next directory
+                except Exception as e:
+                    print(f"Warning: Could not read existing TOC file for '{dirname}': {str(e)}")
+
+            # Content is different or file doesn't exist, write the new content
             with open(toc_path, 'w', encoding='utf-8') as toc_file:
-                toc_file.write(f"# {dirname} \n\n")
-
-                # Group files by their subdirectory
-                files_by_dir = {}
-                for rel_dir_path, filename, title in md_files:
-                    if rel_dir_path not in files_by_dir:
-                        files_by_dir[rel_dir_path] = []
-                    files_by_dir[rel_dir_path].append((filename, title))
-
-                # First list files in the root directory
-                if '' in files_by_dir:
-                    root_files = files_by_dir['']
-                    root_files.sort()  # Sort alphabetically
-
-                    for filename, title in root_files:
-                        toc_file.write(f"- [{title}](./{quote(filename)})\n")
-
-                    # Add a separator if we have subdirectories
-                    if len(files_by_dir) > 1:
-                        toc_file.write("\n")
-
-                # Then list files in subdirectories
-                subdirs = [d for d in files_by_dir.keys() if d != '']
-                if subdirs:
-                    toc_file.write("## Subdirectories\n\n")
-
-                    # Sort subdirectories alphabetically
-                    subdirs.sort()
-
-                    for subdir in subdirs:
-                        # Write the subdirectory name as a heading
-                        display_subdir = subdir.replace('\\', '/') # Ensure consistent path display
-                        toc_file.write(f"### {display_subdir}\n\n")
-
-                        # Sort files in this subdirectory alphabetically
-                        subdir_files = files_by_dir[subdir]
-                        subdir_files.sort()
-
-                        for filename, title in subdir_files:
-                            # Create a link with the correct relative path to the file
-                            # Use os.path.join for correct path construction then replace backslashes for display
-                            link_path = os.path.join(subdir, filename).replace('\\', '/')
-                            toc_file.write(f"- [{title}](./{quote(link_path)})\n")
-
-                        toc_file.write("\n")
+                toc_file.write(new_content)
 
             messages.append(f"Generated TOC.md for '{dirname}' with {len(md_files)} total files")
 
