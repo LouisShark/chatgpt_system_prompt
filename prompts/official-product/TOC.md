@@ -1,4 +1,4 @@
-# official-product - Table of Contents
+# official-product 
 
 ## Subdirectories
 

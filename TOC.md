@@ -1,4 +1,4 @@
-# ChatGPT System Prompts - Table of Contents
+# ChatGPT System Prompts 
 
 This document contains a table of contents for the ChatGPT System Prompts repository.
 

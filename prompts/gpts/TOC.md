@@ -1,4 +1,4 @@
-# gpts - Table of Contents
+# gpts 
 
 ## GPTs (1107 total)
 
