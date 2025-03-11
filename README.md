@@ -15,7 +15,7 @@
 
 This repository is a collection of various system prompts for ChatGPT and [custom GPTs](https://openai.com/blog/introducing-gpts), providing significant educational value in learning about writing system prompts and creating custom GPTs.
 
-<img src="bg.png" width="600px" />
+<img src="bg.png" width="800px" />
 
 ## Quick Navigation
 
