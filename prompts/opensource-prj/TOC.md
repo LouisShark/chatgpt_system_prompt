@@ -3,6 +3,7 @@
 - [Claude_Sentience](./Claude_Sentience.md)
 - [netwrck](./netwrck.md)
 - [open-notebooklm](./open-notebooklm.md)
+- [PRD](./PRD.md)
 - [RestGPT](./RestGPT.md)
 - [sagittarius](./sagittarius.md)
 - [screenshot-to-code](./screenshot-to-code.md)
