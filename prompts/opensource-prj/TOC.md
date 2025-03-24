@@ -1,6 +1,7 @@
 # opensource-prj - Table of Contents
 
 - [Claude_Sentience](./Claude_Sentience.md)
+- [copycoder](./copycoder.md)
 - [netwrck](./netwrck.md)
 - [open-notebooklm](./open-notebooklm.md)
 - [PRD](./PRD.md)
