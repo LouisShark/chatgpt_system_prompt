@@ -111,6 +111,7 @@
 
 ### windsurf
 
+- [ComputerScience](./windsurf/ComputerScience.md)
 - [WinSurfChatModeSystemPrompt](./windsurf/WinSurfChatModeSystemPrompt.md)
 
 ### wordware-ai
