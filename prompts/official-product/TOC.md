@@ -12,6 +12,7 @@
 - [Claude3](./claude/Claude3.md)
 - [ClaudeWithCode](./claude/ClaudeWithCode.md)
 - [readme](./claude/readme.md)
+- [tools](./claude/tools.md)
 
 ### cursor
 
