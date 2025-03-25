@@ -28,3 +28,4 @@
 - https://github.com/x1xhlol/v0-system-prompts-models-and-tools (full v0 system prompts, models and tools)
 - https://manus.im/share/lLR5uWIR5Im3k9FCktVu0k?replay=1 (Manus's Jailbreak)
 - https://gist.github.com/LouisShark/06ad5e12acf24e6aa3583e6bda46409c (Claude's code prompt)
+- https://gist.githubusercontent.com/1rgs/e4e13ac9aba301bcec28d761992ec4e8/raw/7c7cd5b91c6d355e72c7a34b6662006018588780/claudecode.js (Claude's code js)
