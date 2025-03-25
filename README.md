@@ -41,4 +41,4 @@ We have noticed that many GPT authors have improved their security measures, lea
 
 If you find these prompts helpful, please give me a **Star**. I sincerely appreciate your support :)
 
-[![Star History Chart](https://api.star-history.com/svg?repos=LouisShark/ChatGPT_system_prompt&type=Date)](https://star-history.com/#LouisShark/ChatGPT_system_prompt&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=LouisShark/ChatGPT_system_prompt&type=Date)](https://www.star-history.com/#LouisShark/ChatGPT_system_prompt&Date)
