@@ -27,3 +27,4 @@
 - https://github.com/LouisShark/claude-code (claude_code, Decompiled product)
 - https://github.com/x1xhlol/v0-system-prompts-models-and-tools (full v0 system prompts, models and tools)
 - https://manus.im/share/lLR5uWIR5Im3k9FCktVu0k?replay=1 (Manus's Jailbreak)
+- https://gist.github.com/LouisShark/06ad5e12acf24e6aa3583e6bda46409c (Claude's code prompt)
