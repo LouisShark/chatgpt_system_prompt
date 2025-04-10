@@ -95,6 +95,10 @@
 
 - [SummarizeWithInsight](./poe/SummarizeWithInsight.md)
 
+### raycast
+
+- [RaycastAI](./raycast/RaycastAI.md)
+
 ### v0
 
 - [v0-chat](./v0/v0-chat.md)
