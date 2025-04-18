@@ -9,9 +9,10 @@
 ### claude
 
 - [AnthropicAgentLLMPrompter](./claude/AnthropicAgentLLMPrompter.md)
+- [Claude Code System Instructions](./claude/ClaudeCodeSystem.md)
 - [Claude3](./claude/Claude3.md)
 - [ClaudeWithCode](./claude/ClaudeWithCode.md)
-- [Code Bash command prefix detection](claude/ClaudeCodeTools.md)
+- [Code Bash command prefix detection](./claude/ClaudeCodeTools.md)
 - [readme](./claude/readme.md)
 - [tools](./claude/tools.md)
 
@@ -24,6 +25,11 @@
 ### deepseek
 
 - [R1](./deepseek/R1.md)
+
+### devin
+
+- [Command Reference](./devin/commands.md)
+- [system_prompt](./devin/system_prompt.md)
 
 ### github
 
@@ -64,7 +70,9 @@
 
 ### openai
 
+- [gpt-4-5-20250227](./openai/gpt-4-5-20250227.md)
 - [gpt-4-gizmo-20231116](./openai/gpt-4-gizmo-20231116.md)
+- [gpt-o3](./openai/gpt-o3.md)
 - [gpt35](./openai/gpt35.md)
 - [gpt4-5](./openai/gpt4-5.md)
 - [gpt40_for_deep_research](./openai/gpt40_for_deep_research.md)
