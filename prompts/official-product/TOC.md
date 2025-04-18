@@ -11,7 +11,7 @@
 - [AnthropicAgentLLMPrompter](./claude/AnthropicAgentLLMPrompter.md)
 - [Claude3](./claude/Claude3.md)
 - [ClaudeWithCode](./claude/ClaudeWithCode.md)
-- [Code Bash command prefix detection](./claude/ClaudeCode.md)
+- [Code Bash command prefix detection](claude/ClaudeCodeTools.md)
 - [readme](./claude/readme.md)
 - [tools](./claude/tools.md)
 

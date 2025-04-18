@@ -1,6 +1,6 @@
 #  Code Bash command prefix detection
 
-This  defines risk levels for actions that the ${K4} agent may take. This classification system is part of a broader safety framework and is used to determine when additional user confirmation or oversight may be needed.
+This defines risk levels for actions that the ${K4} agent may take. This classification system is part of a broader safety framework and is used to determine when additional user confirmation or oversight may be needed.
 
 ## Command prefix extraction examples
 
