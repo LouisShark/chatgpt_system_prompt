@@ -18,6 +18,7 @@
 
 ### cursor
 
+- [CursorAgentModeSystemPrompt-updated](./cursor/CursorAgentModeSystemPrompt-updated.md)
 - [CursorAgileModeSystemPrompt](./cursor/CursorAgileModeSystemPrompt.md)
 - [CursorChatSystemPrompt](./cursor/CursorChatSystemPrompt.md)
 - [CursorComposerSystemPrompt](./cursor/CursorComposerSystemPrompt.md)
@@ -50,11 +51,16 @@
 - [Grok3WithDeepSearch](./Grok/Grok3WithDeepSearch.md)
 - [GrokJailbreakPrompt](./Grok/GrokJailbreakPrompt.md)
 
+### lovable
+
+- [system](./lovable/system.md)
+
 ### manus
 
 - [agentloop](./manus/agentloop.md)
 - [Manus AI Assistant Capabilities](./manus/capabilities.md)
 - [Manus AI Assistant Capabilities](./manus/prompt.md)
+- [modules](./manus/modules.md)
 
 ### meta
 
@@ -109,6 +115,7 @@
 
 ### v0
 
+- [v0 System Prompts](./v0/v0-system-202503.md)
 - [v0-chat](./v0/v0-chat.md)
 - [v0-chat-v1](./v0/v0-chat-v1.md)
 - [v0-system-context(hypothesized example-openv0)](./v0/v0-system-context%28hypothesized%20example-openv0%29.md)
