@@ -77,6 +77,7 @@
 
 ### openai
 
+- [codex](./openai/codex.md)
 - [gpt-4-5-20250227](./openai/gpt-4-5-20250227.md)
 - [gpt-4-gizmo-20231116](./openai/gpt-4-gizmo-20231116.md)
 - [gpt-o3](./openai/gpt-o3.md)
