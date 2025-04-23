@@ -40,6 +40,7 @@
 
 ### google
 
+- [ai-studio](./google/ai-studio.md)
 - [gemini-2-5pro-20250421](./google/gemini-2-5pro-20250421.md)
 - [gemini-20240410](./google/gemini-20240410.md)
 - [gemini-pro-20240603](./google/gemini-pro-20240603.md)
