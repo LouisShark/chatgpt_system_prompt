@@ -1,6 +1,5 @@
 # opensource-prj - Table of Contents
 
-- [chatwise_research](../official-product/chatwise/chatwise_research.md)
 - [Claude_Sentience](./Claude_Sentience.md)
 - [copycoder](./copycoder.md)
 - [netwrck](./netwrck.md)
