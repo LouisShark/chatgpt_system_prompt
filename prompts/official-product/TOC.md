@@ -121,6 +121,12 @@
 
 - [RaycastAI](./raycast/RaycastAI.md)
 
+### replit
+
+- [agent_functions](./replit/agent_functions.md)
+- [agent_prompt](./replit/agent_prompt.md)
+- [code_generation](./replit/code_generation.md)
+
 ### v0
 
 - [v0 System Prompts](./v0/v0-system-202503.md)
