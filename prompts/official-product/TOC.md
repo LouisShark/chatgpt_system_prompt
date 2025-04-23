@@ -6,6 +6,11 @@
 
 - [Rufus](./amazon/Rufus.md)
 
+### chatwise
+
+- [chatwise_research](./chatwise/chatwise_research.md)
+- [system](./chatwise/system.md)
+
 ### claude
 
 - [AnthropicAgentLLMPrompter](./claude/AnthropicAgentLLMPrompter.md)
