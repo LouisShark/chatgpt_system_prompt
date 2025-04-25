@@ -111,7 +111,7 @@
 - [coding_prompt](./other/coding_prompt.md)
 - [MultiOn](./other/MultiOn.md)
 - [smaug](./other/smaug.md)
-- [wegic](./other/wegic.md)
+- [wegic](wegic/wegic.md)
 
 ### poe
 
