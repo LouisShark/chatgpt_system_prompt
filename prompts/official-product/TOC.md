@@ -65,8 +65,8 @@
 ### manus
 
 - [agentloop](./manus/agentloop.md)
-- [Manus AI Assistant Capabilities](./manus/capabilities.md)
 - [Manus AI Assistant Capabilities](./manus/prompt.md)
+- [Manus AI Assistant Capabilities](./manus/capabilities.md)
 - [modules](./manus/modules.md)
 
 ### meta
@@ -111,7 +111,10 @@
 - [coding_prompt](./other/coding_prompt.md)
 - [MultiOn](./other/MultiOn.md)
 - [smaug](./other/smaug.md)
-- [wegic](wegic/wegic.md)
+
+### perplexity
+
+- [deep_research](./perplexity/deep_research.md)
 
 ### poe
 
@@ -142,6 +145,10 @@
 ### Voilà
 
 - [Voilà](./Voil%C3%A0/Voil%C3%A0.md)
+
+### wegic
+
+- [wegic](./wegic/wegic.md)
 
 ### windsurf
 
