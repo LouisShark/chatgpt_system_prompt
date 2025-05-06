@@ -16,6 +16,7 @@
 - [AnthropicAgentLLMPrompter](./claude/AnthropicAgentLLMPrompter.md)
 - [Claude Code System Instructions](./claude/ClaudeCodeSystem.md)
 - [Claude3](./claude/Claude3.md)
+- [ClaudeCodeCliSystemPrompt](./claude/ClaudeCodeCliSystemPrompt.md)
 - [ClaudeWithCode](./claude/ClaudeWithCode.md)
 - [Code Bash command prefix detection](./claude/ClaudeCodeTools.md)
 - [readme](./claude/readme.md)
