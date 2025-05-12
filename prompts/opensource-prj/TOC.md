@@ -23,6 +23,10 @@
 
 - [system](./bolt/system.md)
 
+### cline
+
+- [system](./cline/system.md)
+
 ### suna
 
 - [agent_system_prompt](./suna/agent_system_prompt.md)
