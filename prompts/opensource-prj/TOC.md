@@ -19,6 +19,10 @@
 
 ## Subdirectories
 
+### bolt
+
+- [system](./bolt/system.md)
+
 ### suna
 
 - [agent_system_prompt](./suna/agent_system_prompt.md)
