@@ -13,8 +13,9 @@
 [twitter-image]: https://img.shields.io/twitter/follow/LouisShark
 [twitter-url]: https://twitter.com/shark_louis
 
-<a href="https://trendshift.io/repositories/4991" target="_blank"><img src="https://trendshift.io/api/badge/repositories/4991" alt="LouisShark%2Fchatgpt_system_prompt | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
-
+<div align="center">
+    <a href="https://trendshift.io/repositories/4991" target="_blank"><img src="https://trendshift.io/api/badge/repositories/4991" alt="LouisShark%2Fchatgpt_system_prompt | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+</div>
 This repository is a collection of various system prompts for ChatGPT and [custom GPTs](https://openai.com/blog/introducing-gpts), providing significant educational value in learning about writing system prompts and creating custom GPTs.
 
 <img src="bg.png" width="800px" />
