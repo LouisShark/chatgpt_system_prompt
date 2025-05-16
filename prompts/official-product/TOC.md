@@ -55,10 +55,10 @@
 
 ### Grok
 
-- [Grok2](./Grok/Grok2.md)
-- [Grok3](./Grok/Grok3.md)
-- [Grok3WithDeepSearch](./Grok/Grok3WithDeepSearch.md)
-- [GrokJailbreakPrompt](./Grok/GrokJailbreakPrompt.md)
+- [Grok2](xai/Grok2.md)
+- [Grok3](xai/Grok3.md)
+- [Grok3WithDeepSearch](xai/Grok3WithDeepSearch.md)
+- [GrokJailbreakPrompt](xai/GrokJailbreakPrompt.md)
 
 ### lovable
 
