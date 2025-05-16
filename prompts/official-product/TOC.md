@@ -53,13 +53,6 @@
 - [gemini-pro-20240603](./google/gemini-pro-20240603.md)
 - [notebooklm](./google/notebooklm.md)
 
-### Grok
-
-- [Grok2](xai/Grok2.md)
-- [Grok3](xai/Grok3.md)
-- [Grok3WithDeepSearch](xai/Grok3WithDeepSearch.md)
-- [GrokJailbreakPrompt](xai/GrokJailbreakPrompt.md)
-
 ### lovable
 
 - [system](./lovable/system.md)
@@ -160,4 +153,11 @@
 ### wordware-ai
 
 - [twitter](./wordware-ai/twitter.md)
+
+### xai
+
+- [Grok2](./xai/Grok2.md)
+- [Grok3](./xai/Grok3.md)
+- [Grok3WithDeepSearch](./xai/Grok3WithDeepSearch.md)
+- [GrokJailbreakPrompt](./xai/GrokJailbreakPrompt.md)
 
