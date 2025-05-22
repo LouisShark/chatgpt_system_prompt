@@ -27,6 +27,12 @@
 
 - [system](./cline/system.md)
 
+### II-agent
+
+- [gaia_system_prompt](./II-agent/gaia_system_prompt.md)
+- [README](./II-agent/README.md)
+- [system](./II-agent/system.md)
+
 ### suna
 
 - [agent_system_prompt](./suna/agent_system_prompt.md)
