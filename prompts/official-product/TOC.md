@@ -18,6 +18,7 @@
 - [Claude3](./claude/Claude3.md)
 - [ClaudeCodeCliSystemPrompt](./claude/ClaudeCodeCliSystemPrompt.md)
 - [ClaudeDesktopSystemPrompt](./claude/ClaudeDesktopSystemPrompt.md)
+- [ClaudeSonnet4](./claude/ClaudeSonnet4.md)
 - [ClaudeWithCode](./claude/ClaudeWithCode.md)
 - [Code Bash command prefix detection](./claude/ClaudeCodeTools.md)
 - [readme](./claude/readme.md)
