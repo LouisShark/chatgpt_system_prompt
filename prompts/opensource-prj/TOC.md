@@ -6,6 +6,7 @@
 - [open-notebooklm](./open-notebooklm.md)
 - [PRD](./PRD.md)
 - [RestGPT](./RestGPT.md)
+- [Role and Objective](./paralle_thinking_tool_example.md)
 - [sagittarius](./sagittarius.md)
 - [screenshot-to-code](./screenshot-to-code.md)
 - [self-operating-computer](./self-operating-computer.md)
