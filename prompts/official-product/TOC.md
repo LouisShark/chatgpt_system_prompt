@@ -30,6 +30,8 @@
 - [CursorAgileModeSystemPrompt](./cursor/CursorAgileModeSystemPrompt.md)
 - [CursorChatSystemPrompt](./cursor/CursorChatSystemPrompt.md)
 - [CursorComposerSystemPrompt](./cursor/CursorComposerSystemPrompt.md)
+- [CursorMemoryEvaluate](./cursor/CursorMemoryEvaluate.md)
+- [CursorMemoryGen](./cursor/CursorMemoryGen.md)
 
 ### deepseek
 
@@ -61,8 +63,8 @@
 ### manus
 
 - [agentloop](./manus/agentloop.md)
-- [Manus AI Assistant Capabilities](./manus/prompt.md)
 - [Manus AI Assistant Capabilities](./manus/capabilities.md)
+- [Manus AI Assistant Capabilities](./manus/prompt.md)
 - [modules](./manus/modules.md)
 
 ### meta
