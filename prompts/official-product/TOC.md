@@ -14,13 +14,13 @@
 ### claude
 
 - [AnthropicAgentLLMPrompter](./claude/AnthropicAgentLLMPrompter.md)
-- [Claude Code System Instructions](./claude/ClaudeCodeSystem.md)
+- [Claude Code System Instructions](claude/claudecode/ClaudeCodeSystem.md)
 - [Claude3](./claude/Claude3.md)
 - [ClaudeCodeCliSystemPrompt](./claude/ClaudeCodeCliSystemPrompt.md)
 - [ClaudeDesktopSystemPrompt](./claude/ClaudeDesktopSystemPrompt.md)
 - [ClaudeSonnet4](./claude/ClaudeSonnet4.md)
 - [ClaudeWithCode](./claude/ClaudeWithCode.md)
-- [Code Bash command prefix detection](./claude/ClaudeCodeTools.md)
+- [Code Bash command prefix detection](claude/claudecode/ClaudeCodeTools.md)
 - [readme](./claude/readme.md)
 - [tools](./claude/tools.md)
 
