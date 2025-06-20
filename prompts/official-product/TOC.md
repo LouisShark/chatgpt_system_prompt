@@ -169,6 +169,12 @@
 
 - [Grok2](./xai/Grok2.md)
 - [Grok3](./xai/Grok3.md)
+- [Grok3_Persona_Companion](./xai/Grok3_Persona_Companion.md)
+- [Grok3_Persona_Homework_Helper](./xai/Grok3_Persona_Homework_Helper.md)
+- [Grok3_Persona_Loyal_Friend](./xai/Grok3_Persona_Loyal_Friend.md)
+- [Grok3_Persona_Not_A_Doctor](./xai/Grok3_Persona_Not_A_Doctor.md)
+- [Grok3_Persona_Not_A_Therapist](./xai/Grok3_Persona_Not_A_Therapist.md)
+- [Grok3_Persona_Unhinged_Comedian](./xai/Grok3_Persona_Unhinged_Comedian.md)
 - [Grok3WithDeepSearch](./xai/Grok3WithDeepSearch.md)
 - [GrokJailbreakPrompt](./xai/GrokJailbreakPrompt.md)
 
