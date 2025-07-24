@@ -71,8 +71,8 @@
 ### manus
 
 - [agentloop](./manus/agentloop.md)
-- [Manus AI Assistant Capabilities](./manus/capabilities.md)
 - [Manus AI Assistant Capabilities](./manus/prompt.md)
+- [Manus AI Assistant Capabilities](./manus/capabilities.md)
 - [modules](./manus/modules.md)
 
 ### meta
@@ -89,6 +89,7 @@
 
 ### openai
 
+- [chatgpt_agent_system_prompt](./openai/chatgpt_agent_system_prompt.md)
 - [codex](./openai/codex.md)
 - [gpt-4-5-20250227](./openai/gpt-4-5-20250227.md)
 - [gpt-4-gizmo-20231116](./openai/gpt-4-gizmo-20231116.md)
