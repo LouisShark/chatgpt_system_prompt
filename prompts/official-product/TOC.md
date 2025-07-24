@@ -62,6 +62,7 @@
 - [gemini-2-5pro-20250421](./google/gemini-2-5pro-20250421.md)
 - [gemini-20240410](./google/gemini-20240410.md)
 - [gemini-pro-20240603](./google/gemini-pro-20240603.md)
+- [IMO_gemini_2.5](./google/IMO_gemini_2.5.md)
 - [notebooklm](./google/notebooklm.md)
 
 ### lovable
