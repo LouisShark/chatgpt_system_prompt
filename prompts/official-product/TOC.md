@@ -139,6 +139,10 @@
 - [agent_prompt](./replit/agent_prompt.md)
 - [code_generation](./replit/code_generation.md)
 
+### trickle
+
+- [system](./trickle/system.md)
+
 ### v0
 
 - [v0 System Prompts](./v0/v0-system-202503.md)
