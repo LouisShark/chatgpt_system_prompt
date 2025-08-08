@@ -37,6 +37,7 @@
 - [CursorAgentModeSystemPrompt-updated](./cursor/CursorAgentModeSystemPrompt-updated.md)
 - [CursorAgileModeSystemPrompt](./cursor/CursorAgileModeSystemPrompt.md)
 - [CursorChatSystemPrompt](./cursor/CursorChatSystemPrompt.md)
+- [CursorCli](./cursor/CursorCli.md)
 - [CursorComposerSystemPrompt](./cursor/CursorComposerSystemPrompt.md)
 - [CursorMemoryEvaluate](./cursor/CursorMemoryEvaluate.md)
 - [CursorMemoryGen](./cursor/CursorMemoryGen.md)
