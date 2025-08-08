@@ -106,6 +106,7 @@
 - [gpt4o-advanced-voice-mode-20240927](./openai/gpt4o-advanced-voice-mode-20240927.md)
 - [gpt4v_bing](./openai/gpt4v_bing.md)
 - [gpt4v_default](./openai/gpt4v_default.md)
+- [gpt5](./openai/gpt5.md)
 - [gpt_all_tools](./openai/gpt_all_tools.md)
 - [gpt_builder](./openai/gpt_builder.md)
 - [gpt_dalle](./openai/gpt_dalle.md)
