@@ -60,11 +60,14 @@
 ### google
 
 - [ai-studio](./google/ai-studio.md)
+- [Brainstormer](./google/Brainstormer.md)
+- [CodingPartner](./google/CodingPartner.md)
 - [gemini-2-5pro-20250421](./google/gemini-2-5pro-20250421.md)
 - [gemini-20240410](./google/gemini-20240410.md)
 - [gemini-pro-20240603](./google/gemini-pro-20240603.md)
 - [IMO_gemini_2.5](./google/IMO_gemini_2.5.md)
 - [notebooklm](./google/notebooklm.md)
+- [WritingEditor](./google/WritingEditor.md)
 
 ### lovable
 
@@ -95,6 +98,7 @@
 - [codex](./openai/codex.md)
 - [gpt-4-5-20250227](./openai/gpt-4-5-20250227.md)
 - [gpt-4-gizmo-20231116](./openai/gpt-4-gizmo-20231116.md)
+- [gpt-5-thinking](./openai/gpt-5-thinking.md)
 - [gpt-o3](./openai/gpt-o3.md)
 - [gpt35](./openai/gpt35.md)
 - [gpt4-5](./openai/gpt4-5.md)
