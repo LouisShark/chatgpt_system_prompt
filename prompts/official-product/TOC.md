@@ -23,7 +23,7 @@
 
 ### claude/claudecode
 
-- [ClaudeCodeSystem](claude/claudecode/ClaudeCodeSystem-2-0-13.md)
+- [ClaudeCodeSystem-2-0-13](./claude/claudecode/ClaudeCodeSystem-2-0-13.md)
 - [ClaudeCodeTools](./claude/claudecode/ClaudeCodeTools.md)
 
 ### claude/clauderesearch
@@ -76,8 +76,8 @@
 ### manus
 
 - [agentloop](./manus/agentloop.md)
-- [Manus AI Assistant Capabilities](./manus/capabilities.md)
 - [Manus AI Assistant Capabilities](./manus/prompt.md)
+- [Manus AI Assistant Capabilities](./manus/capabilities.md)
 - [modules](./manus/modules.md)
 
 ### meta
