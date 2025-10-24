@@ -23,7 +23,7 @@
 
 ### claude/claudecode
 
-- [ClaudeCodeSystem-2-0-13](claude/claudecode/ClaudeCodeSystem-2-0-26.md)
+- [ClaudeCodeSystem-2-0-26](./claude/claudecode/ClaudeCodeSystem-2-0-26.md)
 - [ClaudeCodeTools](./claude/claudecode/ClaudeCodeTools.md)
 
 ### claude/clauderesearch
