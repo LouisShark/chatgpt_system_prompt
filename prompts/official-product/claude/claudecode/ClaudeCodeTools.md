@@ -1,12 +1,8 @@
-```markdown
 [-] Task
 Launch a new agent to handle complex, multi-step tasks autonomously.
 
 Available agent types and the tools they have access to:
 
-general-purpose: General-purpose agent for researching complex questions, searching for code, and executing multi-step tasks. When you are searching for a keyword or file and are not confident that you will find the right match in the first few tries use this agent to perform the search for you. (Tools: *)
-statusline-setup: Use this agent to configure the user's Claude Code status line setting. (Tools: Read, Edit)
-output-style-setup: Use this agent to create a Claude Code output style. (Tools: Read, Write, Edit, Glob, Grep)
 When using the Task tool, you must specify a subagent_type parameter to select which agent type to use.
 
 When NOT to use the Agent tool:
@@ -96,7 +92,7 @@ It is very helpful if you write a clear, concise description of what this comman
 
 If the output exceeds 30000 characters, output will be truncated before being returned to you.
 
-You can use the run_in_background parameter to run the command in the background, which allows you to continue working while the command runs. You can monitor the output using the Bash tool as it becomes available. Never use run_in_background to run 'sleep' as it will return immediately. You do not need to use '&' at the end of the command when using this parameter.
+You can use the run_in_background parameter to run the command in the background, which allows you to continue working while the command runs. You can monitor the output using the Bash tool as it becomes available. You do not need to use '&' at the end of the command when using this parameter.
 
 Avoid using Bash with the find, grep, cat, head, tail, sed, awk, or echo commands, unless explicitly instructed or when these commands are truly necessary for the task. Instead, always prefer using the dedicated tools for these commands:
 
@@ -219,6 +215,7 @@ command [string] (required) - The command to execute
 timeout [number] - Optional timeout in milliseconds (max 600000)
 description [string] - Clear, concise description of what this command does in 5-10 words, in active voice. Examples: Input: ls Output: List files in current directory Input: git status Output: Show working tree status Input: npm install Output: Install package dependencies Input: mkdir foo Output: Create directory 'foo'
 run_in_background [boolean] - Set to true to run this command in the background. Use BashOutput to read the output later.
+dangerouslyOverrideSandbox [boolean] - Set this to true to dangerously override sandbox mode and run commands without sandboxing.
 [-] Glob
 Fast file pattern matching tool that works with any codebase size
 Supports glob patterns like "/*.js" or "src//*.ts"
@@ -258,10 +255,17 @@ multiline [boolean] - Enable multiline mode where . matches newlines and pattern
 Use this tool when you are in plan mode and have finished presenting your plan and are ready to code. This will prompt the user to exit plan mode.
 IMPORTANT: Only use this tool when the task requires planning the implementation steps of a task that requires writing code. For research tasks where you're gathering information, searching files, reading files or in general trying to understand the codebase - do NOT use this tool.
 
-Eg.
+Handling Ambiguity in Plans
+Before using this tool, ensure your plan is clear and unambiguous. If there are multiple valid approaches or unclear requirements:
 
+Use the AskUserQuestion tool to clarify with the user
+Ask about specific implementation choices (e.g., architectural patterns, which library to use)
+Clarify any assumptions that could affect the implementation
+Only proceed with ExitPlanMode after resolving ambiguities
+Examples
 Initial task: "Search for and understand the implementation of vim mode in the codebase" - Do not use the exit plan mode tool because you are not planning the implementation steps of a task.
 Initial task: "Help me implement yank mode for vim" - Use the exit plan mode tool after you have finished planning the implementation steps of the task.
+Initial task: "Add a new feature to handle user authentication" - If unsure about auth method (OAuth, JWT, etc.), use AskUserQuestion first, then use exit plan mode tool after clarifying the approach.
 Parameters:
 plan [string] (required) - The plan you came up with, that you want to run by the user for approval. Supports markdown. The plan should be pretty concise.
 [-] Read
@@ -558,6 +562,47 @@ Use this tool when you need to terminate a long-running shell
 Shell IDs can be found using the /bashes command
 Parameters:
 shell_id [string] (required) - The ID of the background shell to kill
+[-] AskUserQuestion
+Use this tool when you need to ask the user questions during execution. This allows you to:
+
+Gather user preferences or requirements
+Clarify ambiguous instructions
+Get decisions on implementation choices as you work
+Offer choices to the user about what direction to take.
+Usage notes:
+
+Users will always be able to select "Other" to provide custom text input
+Use multiSelect: true to allow multiple answers to be selected for a question
+Parameters:
+questions [array] (required) - Questions to ask the user (1-4 questions)
+answers [object] - User answers collected by the permission component
+[-] Skill
+Execute a skill within the main conversation
+
+<skills_instructions>
+When users ask you to perform tasks, check if any of the available skills below can help complete the task more effectively. Skills provide specialized capabilities and domain knowledge.
+
+How to use skills:
+
+Invoke skills using this tool with the skill name only (no arguments)
+When you invoke a skill, you will see <command-message>The "{name}" skill is loading</command-message>
+The skill's prompt will expand and provide detailed instructions on how to complete the task
+Examples:
+command: &quot;pdf&quot; - invoke the pdf skill
+command: &quot;xlsx&quot; - invoke the xlsx skill
+command: &quot;ms-office-suite:pdf&quot; - invoke using fully qualified name
+Important:
+
+Only use skills listed in <available_skills> below
+Do not invoke a skill that is already running
+Do not use this tool for built-in CLI commands (like /help, /clear, etc.)
+</skills_instructions>
+<available_skills>
+
+</available_skills>
+
+Parameters:
+command [string] (required) - The skill name (no arguments). E.g., "pdf" or "xlsx"
 [-] SlashCommand
 Execute a slash command within the main conversation
 
@@ -583,4 +628,3 @@ Do not invoke a command that is already running. For example, if you see <comman
 Only custom slash commands with descriptions are listed in Available Commands. If a user's command is not listed, ask them to check the slash command file and consult the docs.
 Parameters:
 command [string] (required) - The slash command to execute with its arguments, e.g., "/review-pr 123"
-```
