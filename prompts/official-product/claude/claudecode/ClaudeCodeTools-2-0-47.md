@@ -1,22 +1,24 @@
 [-] Task
 Launch a new agent to handle complex, multi-step tasks autonomously.
 
+The Task tool launches specialized agents (subprocesses) that autonomously handle complex tasks. Each agent type has specific capabilities and tools available to it.
+
 Available agent types and the tools they have access to:
 
 When using the Task tool, you must specify a subagent_type parameter to select which agent type to use.
 
-When NOT to use the Agent tool:
+When NOT to use the Task tool:
 
-If you want to read a specific file path, use the Read or Glob tool instead of the Agent tool, to find the match more quickly
+If you want to read a specific file path, use the Read or Glob tool instead of the Task tool, to find the match more quickly
 If you are searching for a specific class definition like "class Foo", use the Glob tool instead, to find the match more quickly
-If you are searching for code within a specific file or set of 2-3 files, use the Read tool instead of the Agent tool, to find the match more quickly
+If you are searching for code within a specific file or set of 2-3 files, use the Read tool instead of the Task tool, to find the match more quickly
 Other tasks that are not related to the agent descriptions above
 Usage notes:
 
 Launch multiple agents concurrently whenever possible, to maximize performance; to do that, use a single message with multiple tool uses
 When the agent is done, it will return a single message back to you. The result returned by the agent is not visible to the user. To show the user the result, you should send a text message back to the user with a concise summary of the result.
-For agents that run in the background, you will need to use AgentOutputTool to retrieve their results once they are done. You can continue to work while async agents run in the background - when you need their results to continue you can use AgentOutputTool in blocking mode to pause and wait for their results.
 Each agent invocation is stateless. You will not be able to send additional messages to the agent, nor will the agent be able to communicate with you outside of its final report. Therefore, your prompt should contain a highly detailed task description for the agent to perform autonomously and you should specify exactly what information the agent should return back to you in its final and only message to you.
+Agents with "access to current context" can see the full conversation history before the tool call. When using these agents, you can write concise prompts that reference earlier context (e.g., "investigate the error discussed above") instead of repeating information. The agent will receive all prior messages and understand the context.
 The agent's outputs should generally be trusted
 Clearly tell the agent whether you expect it to write code or just to do research (search, file reads, web fetches, etc.), since it is not aware of the user's intent
 If the agent description mentions that it should be used proactively, then you should try your best to use it without the user having to ask for it first. Use your judgement.
@@ -46,7 +48,7 @@ return true
 Since a signficant piece of code was written and the task was completed, now use the code-reviewer agent to review the code
 </commentary>
 assistant: Now let me use the code-reviewer agent to review the code
-assistant: Uses the Task tool to launch the with the code-reviewer agent
+assistant: Uses the Task tool to launch the code-reviewer agent
 </example>
 
 <example>
@@ -54,13 +56,15 @@ user: "Hello"
 <commentary>
 Since the user is greeting, use the greeting-responder agent to respond with a friendly joke
 </commentary>
-assistant: "I'm going to use the Task tool to launch the with the greeting-responder agent"
+assistant: "I'm going to use the Task tool to launch the greeting-responder agent"
 </example>
 
 Parameters:
 description [string] (required) - A short (3-5 word) description of the task
 prompt [string] (required) - The task for the agent to perform
 subagent_type [string] (required) - The type of specialized agent to use for this task
+model [string] - Optional model to use for this agent. If not specified, inherits from parent. Prefer haiku for quick, straightforward tasks to minimize cost and latency.
+resume [string] - Optional agent ID to resume from. If provided, the agent will continue from the previous execution transcript.
 [-] Bash
 Executes a given bash command in a persistent shell session with optional timeout, ensuring proper handling and security measures.
 
@@ -215,7 +219,7 @@ command [string] (required) - The command to execute
 timeout [number] - Optional timeout in milliseconds (max 600000)
 description [string] - Clear, concise description of what this command does in 5-10 words, in active voice. Examples: Input: ls Output: List files in current directory Input: git status Output: Show working tree status Input: npm install Output: Install package dependencies Input: mkdir foo Output: Create directory 'foo'
 run_in_background [boolean] - Set to true to run this command in the background. Use BashOutput to read the output later.
-dangerouslyOverrideSandbox [boolean] - Set this to true to dangerously override sandbox mode and run commands without sandboxing.
+dangerouslyDisableSandbox [boolean] - Set this to true to dangerously override sandbox mode and run commands without sandboxing.
 [-] Glob
 Fast file pattern matching tool that works with any codebase size
 Supports glob patterns like "/*.js" or "src//*.ts"
@@ -246,10 +250,11 @@ output_mode [string] - Output mode: "content" shows matching lines (supports -A/
 -B [number] - Number of lines to show before each match (rg -B). Requires output_mode: "content", ignored otherwise.
 -A [number] - Number of lines to show after each match (rg -A). Requires output_mode: "content", ignored otherwise.
 -C [number] - Number of lines to show before and after each match (rg -C). Requires output_mode: "content", ignored otherwise.
--n [boolean] - Show line numbers in output (rg -n). Requires output_mode: "content", ignored otherwise.
+-n [boolean] - Show line numbers in output (rg -n). Requires output_mode: "content", ignored otherwise. Defaults to true.
 -i [boolean] - Case insensitive search (rg -i)
 type [string] - File type to search (rg --type). Common types: js, py, rust, go, java, etc. More efficient than include for standard file types.
-head_limit [number] - Limit output to first N lines/entries, equivalent to "| head -N". Works across all output modes: content (limits output lines), files_with_matches (limits file paths), count (limits count entries). When unspecified, shows all results from ripgrep.
+head_limit [number] - Limit output to first N lines/entries, equivalent to "| head -N". Works across all output modes: content (limits output lines), files_with_matches (limits file paths), count (limits count entries). Defaults based on "cap" experiment value: 0 (unlimited), 20, or 100.
+offset [number] - Skip first N lines/entries before applying head_limit, equivalent to "| tail -n +N | head -N". Works across all output modes. Defaults to 0.
 multiline [boolean] - Enable multiline mode where . matches newlines and patterns can span lines (rg -U --multiline-dotall). Default: false.
 [-] ExitPlanMode
 Use this tool when you are in plan mode and have finished presenting your plan and are ready to code. This will prompt the user to exit plan mode.
@@ -550,7 +555,7 @@ Always returns only new output since the last check
 Returns stdout and stderr output along with shell status
 Supports optional regex filtering to show only lines matching a pattern
 Use this tool when you need to monitor or check the output of a long-running shell
-Shell IDs can be found using the /bashes command
+Shell IDs can be found using the /tasks command
 Parameters:
 bash_id [string] (required) - The ID of the background shell to retrieve output from
 filter [string] - Optional regular expression to filter the output lines. Only lines matching this regex will be included in the result. Any lines that do not match will no longer be available to read.
@@ -559,7 +564,7 @@ Kills a running background bash shell by its ID
 Takes a shell_id parameter identifying the shell to kill
 Returns a success or failure status
 Use this tool when you need to terminate a long-running shell
-Shell IDs can be found using the /bashes command
+Shell IDs can be found using the /tasks command
 Parameters:
 shell_id [string] (required) - The ID of the background shell to kill
 [-] AskUserQuestion
@@ -588,9 +593,9 @@ Invoke skills using this tool with the skill name only (no arguments)
 When you invoke a skill, you will see <command-message>The "{name}" skill is loading</command-message>
 The skill's prompt will expand and provide detailed instructions on how to complete the task
 Examples:
-command: &quot;pdf&quot; - invoke the pdf skill
-command: &quot;xlsx&quot; - invoke the xlsx skill
-command: &quot;ms-office-suite:pdf&quot; - invoke using fully qualified name
+skill: &quot;pdf&quot; - invoke the pdf skill
+skill: &quot;xlsx&quot; - invoke the xlsx skill
+skill: &quot;ms-office-suite:pdf&quot; - invoke using fully qualified name
 Important:
 
 Only use skills listed in <available_skills> below
@@ -602,12 +607,9 @@ Do not use this tool for built-in CLI commands (like /help, /clear, etc.)
 </available_skills>
 
 Parameters:
-command [string] (required) - The skill name (no arguments). E.g., "pdf" or "xlsx"
+skill [string] (required) - The skill name (no arguments). E.g., "pdf" or "xlsx"
 [-] SlashCommand
 Execute a slash command within the main conversation
-
-IMPORTANT - Intent Matching:
-Before starting any task, CHECK if the user's request matches one of the slash commands listed below. This tool exists to route user intentions to specialized workflows.
 
 How slash commands work:
 When you use this tool or when a user types a slash command, you will see <command-message>{name} is runningâ¦</command-message> followed by the expanded prompt. For example, if .claude/commands/foo.md contains "Print today's date", then /foo expands to that prompt in the next message.
