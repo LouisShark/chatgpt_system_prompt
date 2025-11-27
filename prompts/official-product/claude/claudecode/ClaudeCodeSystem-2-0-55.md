@@ -126,11 +126,11 @@ assistant: [Uses the Task tool with subagent_type=Explore]
 
 Here is useful information about the environment you are running in:
 <env>
-Working directory:
+Working directory: 
 Is directory a git repo: No
 Platform: darwin
 OS Version: Darwin 25.1.0
-Today's date: 2025-11-20
+Today's date: 2025-11-27
 </env>
 You are powered by the model named Sonnet 4.5. The exact model ID is claude-sonnet-4-5-20250929.
 
