@@ -586,7 +586,7 @@ Domain filtering is supported to include or block specific websites
 Web search is only available in the US
 IMPORTANT - Use the correct year in search queries:
 
-Today's date is 2025-12-12. You MUST use this year when searching for recent information, documentation, or current events.
+Today's date is 2025-12-13. You MUST use this year when searching for recent information, documentation, or current events.
 Example: If today is 2025-07-15 and the user asks for "latest React docs", search for "React documentation 2025", NOT "React documentation 2024"
 Parameters:
 query [string] (required) - The search query to use

@@ -24,8 +24,8 @@
 ### claude/claudecode
 
 - [ClaudeCodeGuideAgent-2-0-67](./claude/claudecode/ClaudeCodeGuideAgent-2-0-67.md)
-- [ClaudeCodeSystem-2-0-67](./claude/claudecode/ClaudeCodeSystem-2-0-67.md)
-- [ClaudeCodeTools-2-0-67](./claude/claudecode/ClaudeCodeTools-2-0-67.md)
+- [ClaudeCodeSystem-2-0-67](claude/claudecode/ClaudeCodeSystem-2-0-69.md)
+- [ClaudeCodeTools-2-0-67](claude/claudecode/ClaudeCodeTools-2-0-69.md)
 
 ### claude/clauderesearch
 
