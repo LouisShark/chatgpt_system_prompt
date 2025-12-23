@@ -27,6 +27,7 @@
 - [ClaudeCodePlanMode-2-0-69](./claude/claudecode/ClaudeCodePlanMode-2-0-69.md)
 - [ClaudeCodeSystem-2-0-69](./claude/claudecode/ClaudeCodeSystem-2-0-69.md)
 - [ClaudeCodeTools-2-0-69](./claude/claudecode/ClaudeCodeTools-2-0-69.md)
+- [compact-2-0-69](./claude/claudecode/compact-2-0-69.md)
 
 ### claude/clauderesearch
 
