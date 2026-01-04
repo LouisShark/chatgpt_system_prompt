@@ -23,11 +23,11 @@
 
 ### claude/claudecode
 
-- [ClaudeCodeGuideAgent-2-0-67](claude/claudecode/ClaudeCodeGuideAgent-2-0-76.md)
-- [ClaudeCodePlanMode-2-0-69](claude/claudecode/ClaudeCodePlanMode-2-0-76.md)
-- [ClaudeCodeSystem-2-0-69](claude/claudecode/ClaudeCodeSystem-2-0-76.md)
-- [ClaudeCodeTools-2-0-69](claude/claudecode/ClaudeCodeTools-2-0-76.md)
-- [compact-2-0-69](claude/claudecode/compact-2-0-76.md)
+- [ClaudeCodeGuideAgent-2-0-76](./claude/claudecode/ClaudeCodeGuideAgent-2-0-76.md)
+- [ClaudeCodePlanMode-2-0-76](./claude/claudecode/ClaudeCodePlanMode-2-0-76.md)
+- [ClaudeCodeSystem-2-0-76](./claude/claudecode/ClaudeCodeSystem-2-0-76.md)
+- [ClaudeCodeTools-2-0-76](./claude/claudecode/ClaudeCodeTools-2-0-76.md)
+- [compact-2-0-76](./claude/claudecode/compact-2-0-76.md)
 
 ### claude/clauderesearch
 
