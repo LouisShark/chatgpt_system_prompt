@@ -23,26 +23,26 @@
 
 ### claude/claudecode
 
-- [ClaudeCodeSystem-2-1-2](./claude/claudecode/ClaudeCodeSystem-2-1-2.md)
-- [ClaudeCodeTools-2-1-2](./claude/claudecode/ClaudeCodeTools-2-1-2.md)
-- [compact-2-1-2](./claude/claudecode/compact-2-1-2.md)
+- [ClaudeCodeSystem-2-1-2](claude/claudecode/ClaudeCodeSystem-2-1-12.md)
+- [ClaudeCodeTools-2-1-2](claude/claudecode/ClaudeCodeTools-2-1-12.md)
+- [compact-2-1-2](claude/claudecode/compact-2-1-12.md)
 
 ### claude/claudecode/code_guide
 
-- [ClaudeCodeGuideAgent-2-1-2](./claude/claudecode/code_guide/ClaudeCodeGuideAgent-2-1-2.md)
-- [ClaudeCodeWebFetchUserPrompt-2-1-2](./claude/claudecode/code_guide/ClaudeCodeWebFetchUserPrompt-2-1-2.md)
+- [ClaudeCodeGuideAgent-2-1-2](claude/claudecode/code_guide/ClaudeCodeGuideAgent-2-1-12.md)
+- [ClaudeCodeWebFetchUserPrompt-2-1-2](claude/claudecode/code_guide/ClaudeCodeWebFetchUserPrompt-2-1-12.md)
 
 ### claude/claudecode/command_execution
 
-- [ClaudeCodeCommandExecutionSpecialist-2-1-2](./claude/claudecode/command_execution/ClaudeCodeCommandExecutionSpecialist-2-1-2.md)
+- [ClaudeCodeCommandExecutionSpecialist-2-1-2](claude/claudecode/command_execution/ClaudeCodeCommandExecutionSpecialist-2-1-12.md)
 
 ### claude/claudecode/file_search
 
-- [ClaudeCodeFileSearchSpecialist-2-1-2](./claude/claudecode/file_search/ClaudeCodeFileSearchSpecialist-2-1-2.md)
+- [ClaudeCodeFileSearchSpecialist-2-1-2](claude/claudecode/file_search/ClaudeCodeFileSearchSpecialist-2-1-12.md)
 
 ### claude/claudecode/plan
 
-- [ClaudeCodePlanMode-2-1-2](./claude/claudecode/plan/ClaudeCodePlanMode-2-1-2.md)
+- [ClaudeCodePlanMode-2-1-2](claude/claudecode/plan/ClaudeCodePlanMode-2-1-12.md)
 
 ### claude/clauderesearch
 

@@ -84,7 +84,7 @@ The full documentation is available in the following languages on https://platfo
 - [Let Claude think (CoT)](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/chain-of-thought.md) - Let Claude think (chain of thought prompting) to increase performance
 - [Long context tips](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/long-context-tips.md) - Long context prompting tips
 - [MCP connector](https://platform.claude.com/docs/en/agents-and-tools/mcp-connector.md)
-- [MCP in the SDK](https://platform.claude.com/docs/en/agent-sdk/mcp.md)
+- [MCP in the SDK](https://platform.claude.com/docs/en/agent-sdk/mcp.md) - Connect to external tools with MCP
 - [Memory tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool.md)
 - [Migration Guide](https://platform.claude.com/docs/en/agent-sdk/migration-guide.md) - Migrate to Claude Agent SDK
 - [Migrating to Claude 4.5](https://platform.claude.com/docs/en/about-claude/models/migrating-to-claude-4.md)
@@ -580,6 +580,10 @@ The full documentation is available in the following languages on https://platfo
 ---
 
 For more comprehensive documentation, see [llms-full.txt](https://platform.claude.com/llms-full.txt)
+
+---
+
+[Claude Agent SDK 的核心功能、能力、工具、API、支持的语言、代码示例](https://platform.claude.com/docs/en/agent-sdk/overview.md)
 
 ---
 

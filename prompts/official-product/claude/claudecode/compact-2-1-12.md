@@ -1,6 +1,4 @@
-Your task is to create a detailed summary of the conversation so far, paying close attention to the user's explicit requests and your previous actions.
-
-This summary should be thorough in capturing technical details, code patterns, and architectural decisions that would be essential for continuing development work without losing context.
+Your task is to create a detailed summary of the conversation so far, paying close attention to the user's explicit requests and your previous actions. This summary should be thorough in capturing technical details, code patterns, and architectural decisions that would be essential for continuing development work without losing context.
 
 Before providing your final summary, wrap your analysis in `<analysis>` tags to organize your thoughts and ensure you've covered all necessary points. In your analysis process:
 
@@ -39,6 +37,7 @@ Here's an example of how your output should be structured:
 </analysis>
 
 <summary>
+
 1. Primary Request and Intent:
    [Detailed description]
 
@@ -49,25 +48,25 @@ Here's an example of how your output should be structured:
 
 3. Files and Code Sections:
    - [File Name 1]
-      - [Summary of why this file is important]
-      - [Summary of the changes made to this file, if any]
-      - [Important Code Snippet]
+     - [Summary of why this file is important]
+     - [Summary of the changes made to this file, if any]
+     - [Important Code Snippet]
    - [File Name 2]
-      - [Important Code Snippet]
+     - [Important Code Snippet]
    - [...]
 
 4. Errors and fixes:
-    - [Detailed description of error 1]:
-      - [How you fixed the error]
-      - [User feedback on the error if any]
-    - [...]
+   - [Detailed description of error 1]:
+     - [How you fixed the error]
+     - [User feedback on the error if any]
+   - [...]
 
 5. Problem Solving:
    [Description of solved problems and ongoing troubleshooting]
 
 6. All user messages:
-    - [Detailed non tool use user message]
-    - [...]
+   - [Detailed non tool use user message]
+   - [...]
 
 7. Pending Tasks:
    - [Task 1]
