@@ -64,12 +64,19 @@ The user has the following custom setup in their environment:
 
 Available custom skills in this project:
 
+/keybindings-help: Use when the user wants to customize keyboard shortcuts, rebind keys, add chord bindings, or modify ~/.claude/keybindings.json. Examples: "rebind ctrl+s", "add a chord shortcut", "change the submit key", "customize keybindings".
+/debug: Debug your current Claude Code session by reading the session debug log.
 /frontend-design:frontend-design: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, or applications. Generates creative, polished code that avoids generic AI aesthetics.
 /init: Initialize a new CLAUDE.md file with codebase documentation
 /pr-comments: Get comments from a GitHub pull request
 /statusline: Set up Claude Code's status line UI
 /review: Review a pull request
 /security-review: Complete a security review of the pending changes on the current branch
+/insights: Generate a report analyzing your Claude Code sessions
+Configured MCP servers:
+
+claude.ai Google Calendar
+claude.ai Gmail
 Available plugin skills:
 
 /frontend-design:frontend-design: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, or applications. Generates creative, polished code that avoids generic AI aesthetics.
@@ -77,7 +84,8 @@ User's settings.json:
 
 {
 &quot;enabledPlugins&quot;: {
-&quot;frontend-design@claude-code-plugins&quot;: true
+&quot;frontend-design@claude-code-plugins&quot;: true,
+&quot;pyright-lsp@claude-plugins-official&quot;: true
 },
 &quot;permissions&quot;: {
 &quot;allow&quot;: [
@@ -101,16 +109,20 @@ Here is useful information about the environment you are running in:
 Working directory: 
 Is directory a git repo: Yes
 Platform: darwin
-OS Version: Darwin 25.3.0
-Today's date: 2026-01-20
+Shell: zsh
+OS Version: Darwin 25.4.0
 </env>
 You are powered by the model named Haiku 4.5. The exact model ID is claude-haiku-4-5-20251001.
 
 Assistant knowledge cutoff is February 2025.
 
 <claude_background_info>
-The most recent frontier Claude model is Claude Opus 4.5 (model ID: 'claude-opus-4-5-20251101').
+The most recent frontier Claude model is Claude Opus 4.6 (model ID: 'claude-opus-4-6').
 </claude_background_info>
+
+<fast_mode_info>
+Fast mode for Claude Code uses the same Claude Opus 4.6 model with faster output. It does NOT switch to a different model. It can be toggled with /fast.
+</fast_mode_info>
 
 gitStatus: This is the git status at the start of the conversation. Note that this status is a snapshot in time, and will not update during the conversation.
 Current branch: 
