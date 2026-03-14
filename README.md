@@ -1,4 +1,5 @@
 # PromptCraft: The Ultimate GPT System Prompt Collection
+<!-- token-count --><!-- /token-count -->
 [![Generate TOC on PR Merge](https://github.com/LouisShark/chatgpt_system_prompt/actions/workflows/build-toc.yaml/badge.svg?branch=main)](https://github.com/LouisShark/chatgpt_system_prompt/actions/workflows/build-toc.yaml)
 [![GitHub License](https://img.shields.io/github/license/LouisShark/chatgpt_system_prompt)](https://github.com/LouisShark/chatgpt_system_prompt/blob/main/LICENSE)
 ![GitHub forks](https://img.shields.io/github/forks/LouisShark/chatgpt_system_prompt)

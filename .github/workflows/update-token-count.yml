@@ -1,0 +1,38 @@
+name: Update token count
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'prompts/**'
+      - 'README.md'
+      - 'TOC.md'
+
+permissions:
+  contents: write
+
+jobs:
+  update-tokens:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - uses: qwibitai/nanoclaw/repo-tokens@v1
+        id: tokens
+        with:
+          include: 'prompts/**/*.md prompts/**/*.txt README.md TOC.md GETTING_STARTED.md SECURITY.md CONTRIBUTING.md RESOURCES.md'
+          exclude: 'scripts/** .scripts/** node_modules/** .git/** .idea/**'
+          badge-path: '.github/badges/tokens.svg'
+
+      - name: Commit if changed
+        run: |
+          git add README.md .github/badges/tokens.svg
+          git diff --cached --quiet && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "docs: update token count to ${{ steps.tokens.outputs.badge }}"
+          git push
