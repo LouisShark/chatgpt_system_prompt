@@ -31,7 +31,7 @@ jobs:
 
       - name: Commit if changed
         run: |
-          git add README.md .github/badges/tokens.svg
+          git add .github/badges/tokens.svg
           git diff --cached --quiet && exit 0
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
