@@ -21,7 +21,7 @@ jobs:
         with:
           python-version: '3.12'
 
-      - uses: qwibitai/nanoclaw/repo-tokens@v1
+      - uses: qwibitai/nanoclaw/repo-tokens@v1.2.0
         id: tokens
         with:
           include: 'prompts/**/*.md prompts/**/*.txt README.md TOC.md GETTING_STARTED.md SECURITY.md CONTRIBUTING.md RESOURCES.md'
