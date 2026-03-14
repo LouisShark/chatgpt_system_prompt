@@ -1,5 +1,5 @@
 # PromptCraft: The Ultimate GPT System Prompt Collection
-<!-- token-count --><!-- /token-count -->
+<!-- token-count --><a href="https://github.com/qwibitai/nanoclaw/tree/main/repo-tokens">5174k tokens · 2587% of context window</a><!-- /token-count -->
 [![Generate TOC on PR Merge](https://github.com/LouisShark/chatgpt_system_prompt/actions/workflows/build-toc.yaml/badge.svg?branch=main)](https://github.com/LouisShark/chatgpt_system_prompt/actions/workflows/build-toc.yaml)
 [![GitHub License](https://img.shields.io/github/license/LouisShark/chatgpt_system_prompt)](https://github.com/LouisShark/chatgpt_system_prompt/blob/main/LICENSE)
 ![GitHub forks](https://img.shields.io/github/forks/LouisShark/chatgpt_system_prompt)
