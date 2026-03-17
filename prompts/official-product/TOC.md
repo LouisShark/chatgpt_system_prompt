@@ -158,6 +158,7 @@
 - [o3_cot_summarizer](./openai/o3_cot_summarizer.md)
 - [openai_optimization_system_prompt_playground](./openai/openai_optimization_system_prompt_playground.md)
 - [operator](./openai/operator.md)
+- [prism](./openai/prism.md)
 - [study_mode](./openai/study_mode.md)
 
 ### other
