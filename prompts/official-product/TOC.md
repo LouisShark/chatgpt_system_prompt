@@ -23,47 +23,38 @@
 
 ### claude/claudecode
 
-- [ClaudeCodeSystem-2-1-62](./claude/claudecode/ClaudeCodeSystem-2-1-62.md)
-- [ClaudeCodeTools-2-1-62](./claude/claudecode/ClaudeCodeTools-2-1-62.md)
-- [compact-2-1-62](./claude/claudecode/compact-2-1-62.md)
-- [suggestion_mode-2-1-62](./claude/claudecode/suggestion_mode-2-1-62.md)
+- [Claude Code System Prompts](./claude/claudecode/README.md)
+- [Claude Code System Reminders (2.1.78)](./claude/claudecode/system-reminders-2-1-78.md)
+- [ClaudeCodeSystem-2-1-78](./claude/claudecode/ClaudeCodeSystem-2-1-78.md)
+- [ClaudeCodeTools-2-1-78](./claude/claudecode/ClaudeCodeTools-2-1-78.md)
+
+### claude/claudecode/auxiliary
+
+- [Claude Code Insights Prompts (2.1.78)](./claude/claudecode/auxiliary/insights-2-1-78.md)
+- [compact-2-1-79](./claude/claudecode/auxiliary/compact-2-1-79.md)
+- [new_topic-2-1-12](./claude/claudecode/auxiliary/new_topic-2-1-12.md)
+- [suggestion_mode-2-1-62](./claude/claudecode/auxiliary/suggestion_mode-2-1-62.md)
+- [summarize_conversation-2-1-12](./claude/claudecode/auxiliary/summarize_conversation-2-1-12.md)
 
 ### claude/claudecode/code_guide
 
-- [ClaudeCodeGuideAgent-2-1-62](./claude/claudecode/code_guide/ClaudeCodeGuideAgent-2-1-62.md)
-- [ClaudeCodeWebFetchUserPrompt-2-1-12](./claude/claudecode/code_guide/ClaudeCodeWebFetchUserPrompt-2-1-12.md)
-
-### claude/claudecode/command_execution
-
-- [ClaudeCodeCommandExecutionSpecialist-2-1-12](./claude/claudecode/command_execution/ClaudeCodeCommandExecutionSpecialist-2-1-12.md)
+- [ClaudeCodeGuideAgent-2-1-78](./claude/claudecode/code_guide/ClaudeCodeGuideAgent-2-1-78.md)
 
 ### claude/claudecode/explore
 
-- [ClaudeCodeExplore-2-1-62](./claude/claudecode/explore/ClaudeCodeExplore-2-1-62.md)
+- [ClaudeCodeExplore-2-1-78](./claude/claudecode/explore/ClaudeCodeExplore-2-1-78.md)
 
 ### claude/claudecode/file_search
 
-- [ClaudeCodeFileSearchSpecialist-2-1-62](./claude/claudecode/file_search/ClaudeCodeFileSearchSpecialist-2-1-62.md)
-
-### claude/claudecode/insights
-
-- [system-2-1-62](./claude/claudecode/insights/system-2-1-62.md)
-
-### claude/claudecode/new_topic
-
-- [new_topic-2-1-12](./claude/claudecode/new_topic/new_topic-2-1-12.md)
+- [ClaudeCodeFileSearchSpecialist-2-1-78](./claude/claudecode/file_search/ClaudeCodeFileSearchSpecialist-2-1-78.md)
 
 ### claude/claudecode/plan
 
-- [ClaudeCodePlanMode-2-1-62](./claude/claudecode/plan/ClaudeCodePlanMode-2-1-62.md)
+- [ClaudeCodePlanMode-2-1-78](./claude/claudecode/plan/ClaudeCodePlanMode-2-1-78.md)
 
 ### claude/claudecode/status_line
 
-- [ClaudeCodeStatusLine-2-1-12](./claude/claudecode/status_line/ClaudeCodeStatusLine-2-1-12.md)
-
-### claude/claudecode/summarize_coding_conversation
-
-- [system-2-1-12](./claude/claudecode/summarize_coding_conversation/system-2-1-12.md)
+- [ClaudeCodeStatusLine-2-1-78](./claude/claudecode/status_line/ClaudeCodeStatusLine-2-1-78.md)
 
 ### claude/clauderesearch
 
