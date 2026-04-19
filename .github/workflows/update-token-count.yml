@@ -12,6 +12,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: main-push
+  cancel-in-progress: false
+
 jobs:
   update-tokens:
     runs-on: ubuntu-latest
