@@ -230,7 +230,7 @@ class TreeofThoughtsBEST:
         self.tree = {"nodes": {}}
 
     def save_tree_to_json(self, file_name):
-        os.makdirs(os.path.dirname(file_name), exist_ok=True)
+        os.makedirs(os.path.dirname(file_name), exist_ok=True)
         with open(file_name, "w") as json_file:
             json.dump(self.tree, json_file, indent=4)
 
@@ -239,7 +239,7 @@ class TreeofThoughtsBEST:
         if state_key in self.tree["nodes"]:
             self.tree["nodes"][state_key]["thoughts"].append(evaluation)
         else:
-            self.tree["nodes"]["state_key"] = {"thoughts": [evaluation]}
+            self.tree["nodes"][state_key] = {"thoughts": [evaluation]}
 
     def solve(self, initial_prompt, num_thoughts, max_steps, pruning_threshold):
         visited_states = set()
@@ -278,7 +278,7 @@ class TreeofThoughtsBEST:
                     state_queue.put((value, new_state))
                     self.log_new_state(new_state, value)
 
-        best_state = max(visited_states, key=self.model.evaluate_states)
+        best_state = max(visited_states, key=lambda s: self.model.evaluate_states({s: 0}, initial_prompt)[s])
         solution = self.model.generate_solution(initial_prompt, best_state)
         print(f"Highest_rated solution: {best_state}  Solution: {solution}")
         return solution if solution else best_state
@@ -296,7 +296,7 @@ class TreeofThoughtsASearch:
         max_steps=30,
         pruning_threshold=0.4,
     ):
-        # the open set is implemented as a piorituve quue where the priority is -f_score
+        # the open set is implemented as a priority queue where the priority is -f_score
         open_set = PriorityQueue()
         open_set.put((0, 0, initial_prompt))
 
@@ -364,7 +364,6 @@ class TreeofThoughtsASearch:
             path.append(current_state)
         path.reverse()
 
-        path = self.reconstruct_path(came_from, current_state, initial_prompt)
         solution = self.model.generate_solution(initial_prompt, path)
         print(f"Path: {path} solution: {solution}")
         return solution if solution else path
@@ -389,7 +388,7 @@ class MonteCarloTreeofThoughts(TreeofThoughts):
             num_thoughts += 1
             max_steps += 1
             max_states += 1
-        elif self.objective == "balanace":
+        elif self.objective == "balance":
             if self.solution_found:
                 num_thoughts = max(1, num_thoughts - 1)
                 max_steps = max(1, max_steps - 1)
@@ -442,7 +441,7 @@ class MonteCarloTreeofThoughts(TreeofThoughts):
 
             for state in current_states:
                 if state in transposition_table:
-                    transposition_table[state]
+                    evaluated_thoughts = transposition_table[state]
                 else:
                     time.sleep(1)
                     thoughts = self.model.generate_thoughts(
