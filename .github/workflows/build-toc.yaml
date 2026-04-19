@@ -5,13 +5,7 @@ name: Generate TOC on PR Merge or Push
 # It ensures that the table of contents stays up-to-date without manual intervention.
 
 on:
-  # Trigger on PR merge
-  pull_request_target:
-    types:
-      - closed
-    branches:
-      - main
-  # Trigger on direct pushes to main branch
+  # Trigger on direct pushes to main branch (also fires on PR merges)
   push:
     branches:
       - main
@@ -22,8 +16,6 @@ concurrency:
 
 jobs:
   build_toc:
-    # Only run on PR merge or direct push to main
-    if: github.event_name == 'push' || (github.event_name == 'pull_request_target' && github.event.pull_request.merged == true)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
