@@ -16,6 +16,10 @@ on:
     branches:
       - main
 
+concurrency:
+  group: main-push
+  cancel-in-progress: false
+
 jobs:
   build_toc:
     # Only run on PR merge or direct push to main
