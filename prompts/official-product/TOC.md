@@ -18,6 +18,7 @@
 - [ClaudeDesktopSystemPrompt](./claude/ClaudeDesktopSystemPrompt.md)
 - [ClaudeSonnet4](./claude/ClaudeSonnet4.md)
 - [ClaudeWithCode](./claude/ClaudeWithCode.md)
+- [ClaudeDesign](./claude/ClaudeDesign.md)
 - [README](./claude/README.md)
 - [tools](./claude/tools.md)
 
