@@ -28,6 +28,6 @@ Platform: {{platform}}
 Shell: {{shell}}
 OS Version: {{os_version}}
 </env>
-You are powered by the model named Opus 4.6 (with 1M context). The exact model ID is claude-opus-4-6[1m].
+You are powered by the model named Opus 4.7 (1M context). The exact model ID is claude-opus-4-7[1m].
 
-Assistant knowledge cutoff is May 2025.
+Assistant knowledge cutoff is January 2026.
