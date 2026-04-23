@@ -50,8 +50,9 @@ The `## Command sandbox` section, `dangerouslyDisableSandbox` parameter, and `$T
   - **New bullet (5th item):**
     > If the user asks about "ultrareview" or how to run it, explain that /ultrareview launches a multi-agent cloud review of the current branch (or /ultrareview <PR#> for a GitHub PR). It is user-triggered and billed; you cannot launch it yourself, so do not attempt to via Bash or otherwise. It needs a git repository (offer to "git init" if not in one); the no-arg form bundles the local branch and does not need a GitHub remote.
 - **End of prompt** — the line `Length limits: keep text between tool calls to ≤25 words. Keep final responses to ≤100 words unless the task requires more detail.` has been **removed**.
+- **`# auto memory` → `## What NOT to save in memory`** — single-word grammar fix: `These exclusions apply even when the user explicitly asks to save.` → `... explicitly asks you to save.`
 
-All other sections (`# System`, `# Doing tasks`, `# Executing actions with care`, `# Tone and style`, `# Text output (does not apply to tool calls)`, `# auto memory`, `# Environment`) are byte-identical.
+All other sections (`# System`, `# Doing tasks`, `# Executing actions with care`, `# Tone and style`, `# Text output (does not apply to tool calls)`, the rest of `# auto memory`, `# Environment`) are byte-identical.
 
 ### 4. Sub-agent prompt micro-edits
 
@@ -100,11 +101,18 @@ Generate a short kebab-case name (2-4 words) that captures the main topic of thi
 
 Saved as [`auxiliary/slug_name-2-1-118.md`](auxiliary/slug_name-2-1-118.md). Used by the harness to generate slugs for plan-file paths (e.g. `~/.claude/plans/<slug>.md`) and similar internal naming. The companion title generator (`summarize_conversation-2-1-118.md`) is byte-identical to v2.1.114 (verified against the trace).
 
-### 7. Transparently unobserved / partial captures
+### 7. `compact` (`/compact`) — observed mechanism
+
+The compact prompt text is in [`auxiliary/compact-2-1-118.md`](auxiliary/compact-2-1-118.md) (5581 chars, captured byte-exact from the trace).
+
+**How it's invoked in v2.1.118**: the compact prompt is **appended as a plain `user` string** to the **end of the existing main-agent (opus-4-7) conversation**. Same model, same system prompt, same tool catalog (10 tools at the time of `/compact`) — the model is asked to summarize the conversation it just had with itself in-place. The next API call (post-compact) sees a 2-message thread where the entire prior conversation has been replaced by the model's own `<analysis>` + `<summary>` output, prefixed with `"This session is being continued from a previous conversation that ran out of context."`
+
+Captured in `log-2026-04-23-11-26-38.jsonl` `req_23 msg[26]` (5581-char user string) → `req_24 msg[1]` (post-compact continuation, 2 messages total).
+
+### 8. Transparently unobserved / partial captures
 
 - **All 30 main-agent built-in schemas captured** (8 core + 22 deferred). The second trace explicitly invoked ToolSearch with `select:` for every deferred tool, including the previously-missing `EnterPlanMode`, `NotebookEdit`, `TaskOutput`. Schemas now live in [`tools-2-1-118.json`](tools-2-1-118.json) without placeholders.
 - **No "without ToolSearch" capture** for Explore / Plan sub-agents in v2.1.118: both traces used `ENABLE_TOOL_SEARCH=true`. Therefore there is no `tools-2-1-118.json` (full enumeration) under `explore/` or `plan/` — only their `core-tools-2-1-118.json`. The total tool counts (Explore: 7 core + ~16 deferred ≈ 23; Plan: 5 core + ~15 deferred ≈ 20) are inferred from the deferred list inside the main-agent system-reminder (sub-agents inherit it minus the tools they explicitly exclude).
-- **`compact` aux prompt** did not appear in either trace. The file is preserved verbatim from v2.1.114 (assumed unchanged); flag if a future trace contradicts.
 - **`TaskOutput`** description was rewritten in v2.1.118 to differentiate bash / `local_agent` / `remote_agent` task types — the `local_agent` `.output` file is now a JSONL transcript (do NOT Read it directly, it overflows context). Only documented after the fuller trace was captured.
 
 ---
@@ -208,7 +216,7 @@ claudecode/
 
 | File | Trigger | Description |
 | --- | --- | --- |
-| [auxiliary/compact-2-1-118.md](auxiliary/compact-2-1-118.md) | Context window limit | Context compression. Verbatim from v2.1.114 (not observed in this trace). |
+| [auxiliary/compact-2-1-118.md](auxiliary/compact-2-1-118.md) | `/compact` | Context-compression prompt (5581 chars). Injected as a plain `user` message at the end of the main agent's own conversation — the main `opus-4-7` agent self-summarizes in-place, no separate model call. See section 7 of the changelog. |
 | [auxiliary/summarize_conversation-2-1-118.md](auxiliary/summarize_conversation-2-1-118.md) | Session start | Session-title generator (3-7 words, sentence case). Verified byte-identical to v2.1.114. |
 | [auxiliary/slug_name-2-1-118.md](auxiliary/slug_name-2-1-118.md) | Plan-file / memory-file slug | **NEW in v2.1.118.** Generates a 2-4 word kebab-case slug for plan files (`~/.claude/plans/<slug>.md`) and similar internal naming. |
 

@@ -52,7 +52,7 @@ How to use the statusLine command:
      },
      "context_window": {
        "total_input_tokens": number,       // Total input tokens used in session (cumulative)
-       "total_output_tokens": number,      // Total output tokens generated
+       "total_output_tokens": number,      // Total output tokens used in session (cumulative)
        "context_window_size": number,      // Context window size for current model (e.g., 200000)
        "current_usage": {                   // Token usage from last API call (null if no messages yet)
          "input_tokens": number,           // Input tokens for current context
