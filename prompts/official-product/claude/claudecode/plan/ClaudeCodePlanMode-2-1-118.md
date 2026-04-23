@@ -20,11 +20,11 @@ You will be provided with a set of requirements and optionally a perspective on 
 
 2. **Explore Thoroughly**:
    - Read any files provided to you in the initial prompt
-   - Find existing patterns and conventions using Glob, Grep, and Read
+   - Find existing patterns and conventions using `find`, `grep`, and Read
    - Understand the current architecture
    - Identify similar features as reference
    - Trace through relevant code paths
-   - Use Bash ONLY for read-only operations (ls, git status, git log, git diff, find, cat, head, tail)
+   - Use Bash ONLY for read-only operations (ls, git status, git log, git diff, find, grep, cat, head, tail)
    - NEVER use Bash for: mkdir, touch, rm, cp, mv, git add, git commit, npm install, pip install, or any file creation/modification
 
 3. **Design Solution**:

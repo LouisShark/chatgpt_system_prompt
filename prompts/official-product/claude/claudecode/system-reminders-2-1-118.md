@@ -1,24 +1,27 @@
-# System Reminders (v2.1.114)
+# System Reminders (v2.1.118)
 
 Runtime `<system-reminder>` blocks injected into the **first user message** (`msg[0]`) of each API request. These are NOT part of the system prompt — they appear as multiple content parts prepended to the user's actual message.
 
-**Injection pattern:** All system-reminders are packed into `msg[0]` as separate content parts, followed by the user's actual text as the final part. Subsequent user messages (`msg[2]`, `msg[4]`, etc.) carry no system-reminders. Since the Anthropic API sends the full conversation history on every request, `msg[0]`'s reminders are always visible to the model.
+**Injection pattern:** All system-reminders are packed into `msg[0]` as separate content parts, followed by the user's actual text as the final part. Subsequent user messages (`msg[2]`, `msg[4]`, ...) carry no system-reminders **except** the slim "Auto Mode still active" follow-up (NEW v2.1.118) and the post-`/compact` continuation block. Since the Anthropic API sends the full conversation history on every request, `msg[0]`'s reminders are always visible to the model.
 
 ```
 msg[0] (user):
-  part[0]: <system-reminder> Deferred Tools List         (only when ToolSearch active)
-  part[1]: <system-reminder> MCP Server Instructions     (when MCP servers configured)
-  part[2]: <system-reminder> Skills List                 (always)
-  part[3]: <system-reminder> Plan Mode Active            (NEW v2.1.114 — when EnterPlanMode triggered; replaces Auto Mode block in plan mode)
-  part[3 alt]: <system-reminder> Auto Mode Active        (NEW v2.1.114 — when permissions.defaultMode == "auto" AND not in plan mode)
-  part[4]: <system-reminder> Context (CLAUDE.md + date + memory + userEmail)  (always)
+  part[0]: <system-reminder> Deferred Tools List          (only when ToolSearch active)
+  part[1]: <system-reminder> MCP Server Instructions      (when MCP servers configured)
+  part[2]: <system-reminder> Skills List                  (always)
+  part[3]: <system-reminder> Plan Mode Active             (when EnterPlanMode triggered; replaces Auto Mode block in plan mode)
+  part[3 alt]: <system-reminder> Auto Mode Active         (when permissions.defaultMode == "auto" AND not in plan mode)
+  part[3 alt]: <system-reminder> Plan File Exists         (NEW v2.1.118 — when continuing a session that has a saved plan file)
+  part[4]: <system-reminder> Context (CLAUDE.md + memory + userEmail + currentDate)  (always)
   part[5]: (actual user message text, possibly preceded by /<command> caveat blocks)
 msg[1] (assistant): ...
-msg[2] (user): (no system-reminders, just user text)
+msg[2] (user):
+  part[0..n-1]: tool-result wrappers, possibly the slim "Auto Mode Still Active" reminder (NEW v2.1.118)
+  part[n]: (user text)
 ...
 ```
 
-> **Plan mode vs Auto mode coexistence:** observed in `log-2026-04-20-11-50-52.jsonl` — when both apply, `Plan Mode Active` and `Auto Mode Active` reminders are both emitted (Plan first, Auto second). Plan mode supersedes any conflict.
+> **Plan mode vs Auto mode coexistence:** when both apply, `Plan Mode Active` and `Auto Mode Active` reminders are both emitted (Plan first, Auto second). Plan mode supersedes any conflict.
 
 ---
 
@@ -55,10 +58,13 @@ WebSearch
 </system-reminder>
 ```
 
-**v2.1.114 changes:**
+**v2.1.118 changes vs v2.1.114:**
 
-- Added `PushNotification` (new tool).
-- Removed `ScheduleWakeup` from deferred set — it was promoted to a **core** tool (always loaded with main agent / Plan agent / Explore agent / File Search agent).
+- **Built-in deferred list is unchanged at 22 entries** — `ListMcpResourcesTool` and `ReadMcpResourceTool` remain. (Earlier draft of these notes claimed they had been removed; that was wrong — it was an artifact of the very first request before MCP servers had finished initializing in the trace I first looked at. The fuller `log-2026-04-23-12-00-42.jsonl` trace shows both tools present in every deferred-list reminder.)
+- `Glob` and `Grep` were never in the deferred list — they used to be **core** in v2.1.114 and have been **removed from the entire main-agent catalog** in v2.1.118 (they're not in the deferred list either; gone for good).
+- The `{{mcp_tool_names}}` line is replaced at runtime with one entry per available MCP tool, in the form `mcp__{{server_name}}__{{tool_name}}` (one per line). When the user has no MCP servers configured, it expands to nothing.
+
+**Initial-session caveat:** The very first deferred-list reminder of a fresh session sometimes omits both the MCP resource tools and the `mcp__*` per-tool enumeration if MCP servers haven't completed their handshake yet. From the second turn onward (and for any new session where MCP is healthy), the list contains all 22 built-in entries plus per-MCP-tool names.
 
 ---
 
@@ -80,7 +86,7 @@ The following MCP servers have provided instructions for how to use their tools 
 </system-reminder>
 ```
 
-(unchanged from v2.1.100)
+(structure unchanged from v2.1.114)
 
 ---
 
@@ -114,14 +120,11 @@ Available plugin skills:
 </system-reminder>
 ```
 
-**v2.1.114 additions vs v2.1.100:**
-
-- New built-in skill: **`team-onboarding`** — packaging your Claude Code setup (skills, hooks, settings) into a teammate-ready guide.
-- Existing built-in skill: **`fewer-permission-prompts`** is now consistently surfaced.
+(structure unchanged from v2.1.114; the same built-in skill list is observed.)
 
 ---
 
-## Part 3a: Plan Mode Active (NEW in v2.1.114)
+## Part 3a: Plan Mode Active
 
 **Condition:** Present after `EnterPlanMode` is called. Stays active until `ExitPlanMode` is called or the session leaves plan mode. Always appears **before** the Auto Mode reminder when both apply.
 
@@ -189,15 +192,15 @@ NOTE: At any point in time through this workflow you should feel free to ask the
 
 **Notes:**
 
-- `{{plan_file_path}}` is auto-generated under `~/.claude/plans/`. The only example observed in the captured trace is `hello-rosy-adleman.md` — the exact slug-generation scheme is not derivable from a single sample. The "no plan file yet" branch is the only one captured; the wording when a plan file already exists is unverified.
-- While in plan mode, the main agent's available tools (with ToolSearch active) are: `Agent, AskUserQuestion, Bash, Edit, ExitPlanMode, Glob, Grep, Read, ScheduleWakeup, Skill, ToolSearch, Write` (12 total — verified from `log-2026-04-20-11-50-52.jsonl` idx 11–14). Per the prompt, `Edit`/`Write` are restricted to the designated plan file only.
-- Triggered by the deferred `EnterPlanMode` tool (the tool name appears in the deferred-tools list of every ToolSearch-active request, but its schema was not captured in either trace).
+- `{{plan_file_path}}` is auto-generated under `~/.claude/plans/<kebab-case-slug>.md`. The slug itself is generated by the `slug_name` auxiliary haiku call (see `auxiliary/slug_name-2-1-118.md`).
+- While in plan mode, the main agent's available tools (with ToolSearch active) are: `Agent, AskUserQuestion, Bash, Edit, ExitPlanMode, Read, ScheduleWakeup, Skill, ToolSearch, Write` (10 total — **down from 12 in v2.1.114**, since `Glob` and `Grep` are gone). Per the prompt, `Edit`/`Write` are restricted to the designated plan file only.
+- Triggered by the deferred `EnterPlanMode` tool (the tool name appears in the deferred-tools list of every ToolSearch-active request).
 
 ---
 
-## Part 3b: Auto Mode Active (NEW in v2.1.114)
+## Part 3b: Auto Mode Active
 
-**Condition:** Present when `permissions.defaultMode == "auto"` in `settings.json` (or `--auto` flag is set). Coexists with Plan Mode reminder when both apply (Plan rules take priority).
+**Condition:** Present in `msg[0]` when `permissions.defaultMode == "auto"` in `settings.json` (or `--auto` flag is set). Coexists with Plan Mode reminder when both apply (Plan rules take priority).
 
 ```xml
 <system-reminder>
@@ -214,14 +217,50 @@ Auto mode is active. The user chose continuous, autonomous execution. You should
 </system-reminder>
 ```
 
-**Notes:**
-
-- When Plan mode is also active, this reminder is still emitted but Plan mode's READ-ONLY rule supersedes Auto mode's "execute immediately" directive.
-- The 6-point list overrides the system prompt's "Executing actions with care" defaults for low-risk work, but rules 5 and 6 reinforce the same destructive-action and exfiltration safeguards.
+(structure unchanged from v2.1.114)
 
 ---
 
-## Part 4: Context (CLAUDE.md + Date + Memory + userEmail)
+## Part 3c: Plan File Exists (NEW in v2.1.118)
+
+**Condition:** Present when continuing a session where a plan file was already saved during a prior plan-mode invocation. Replaces the Plan Mode Active reminder once plan mode is exited but the plan file remains on disk; the model is reminded of the plan it produced so subsequent execution turns can refer back to it.
+
+```xml
+<system-reminder>
+A plan file exists from plan mode at: {{plan_file_path}}
+
+Plan contents:
+
+{{plan_contents}}
+</system-reminder>
+```
+
+**Notes:**
+
+- The full plan markdown is inlined verbatim into the reminder (not a file pointer), so the model always has the canonical approach in context without needing a separate Read call.
+- Observed in post-`/compact` continuation requests where the prior turns had used `EnterPlanMode` → wrote a plan → `ExitPlanMode` → started implementation.
+- Coexists with `Auto Mode Active` (or its slim follow-up) when auto mode is also on.
+
+---
+
+## Part 3d: Auto Mode Still Active (NEW in v2.1.118)
+
+**Condition:** Slim follow-up reminder injected into **subsequent** user messages (`msg[1]`, `msg[2]`, ... — i.e., any user turn after the first one) while auto mode remains active. Saves tokens vs. re-emitting the full 6-rule directive.
+
+```xml
+<system-reminder>
+Auto mode still active (see full instructions earlier in conversation). Execute autonomously, minimize interruptions, prefer action over planning.
+</system-reminder>
+```
+
+**Notes:**
+
+- Acts as a one-line refresher pointing back to the full `Auto Mode Active` block from `msg[0]`.
+- Helps long sessions stay in auto mode after `/compact` truncations or after many turns push the original directive deep into history.
+
+---
+
+## Part 4: Context (CLAUDE.md + memory + userEmail + currentDate)
 
 **Condition:** Always present. Combines multiple context sources into one system-reminder.
 
@@ -239,8 +278,8 @@ Contents of {{project_claude_md_path}} (project-specific instructions):
 
 {{project_claude_md_content}}
 
-# memory
-Contents of MEMORY.md from {{memory_directory}}:
+Contents of {{memory_directory}}/MEMORY.md (user's auto-memory, persists across conversations):
+
 {{memory_index_content}}
 
 # userEmail
@@ -253,15 +292,12 @@ Today's date is {{YYYY/MM/DD}}.
 </system-reminder>
 ```
 
-**v2.1.114 additions vs v2.1.100:**
-
-- New section **`# userEmail`** — surfaces the authenticated user's email so the model can address them by handle, sign commits/PRs with the correct attribution, etc.
-- Order has shifted: in v2.1.114 the canonical order is `claudeMd → memory → userEmail → currentDate` (in v2.1.100 `memory` followed `claudeMd` only when auto memory was active; userEmail did not exist).
+**v2.1.118 differences vs v2.1.114:** structure unchanged (still includes `# userEmail`); the trace shows MEMORY.md is inlined under the same `# claudeMd` umbrella as the global/project CLAUDE.md (rather than a separate `# memory` heading observed in some v2.1.114 captures).
 
 **Notes:**
 
 - CLAUDE.md files are loaded in order: global (`~/.claude/CLAUDE.md`) → project root → subdirectories.
-- `@import` directives in CLAUDE.md (e.g. `@RTK.md`) are resolved and inlined.
+- `@import` directives in CLAUDE.md (e.g. `@some-other.md`) are resolved and inlined.
 - The trailing `IMPORTANT` disclaimer is always appended at the end.
 
 ---
@@ -270,7 +306,7 @@ Today's date is {{YYYY/MM/DD}}.
 
 The user's actual input text. No `<system-reminder>` tags.
 
-When the user invokes a slash command (e.g. `/effort`, `/help`, custom skills), the message content is preceded by:
+When the user invokes a slash command (e.g. `/compact`, `/help`, custom skills), the message content is preceded by:
 
 ```xml
 <local-command-caveat>Caveat: The messages below were generated by the user while running local commands. DO NOT respond to these messages or otherwise consider them in your response unless the user explicitly asks you to.</local-command-caveat>
@@ -281,7 +317,28 @@ When the user invokes a slash command (e.g. `/effort`, `/help`, custom skills), 
 {{actual_user_text}}
 ```
 
-The `<local-command-stdout>` carries the output of any local-side command the harness ran (e.g. effort level changes). Treat it as informational — the actual user instruction is the trailing plain text.
+The `<local-command-stdout>` carries the output of any local-side command the harness ran (e.g. `Compacted` after `/compact`). Treat it as informational — the actual user instruction is the trailing plain text.
+
+---
+
+## Tool-result wrappers (always-on)
+
+Every assistant tool call is reflected back into subsequent user messages as paired wrappers:
+
+```xml
+<system-reminder>
+Called the {{tool_name}} tool with the following input: {{tool_input_json}}
+</system-reminder>
+```
+
+```xml
+<system-reminder>
+Result of calling the {{tool_name}} tool:
+{{tool_result_text}}
+</system-reminder>
+```
+
+After `/compact`, the same pattern is preserved for the still-relevant tool calls that survived compaction; long stale tool-result bodies may be elided.
 
 ---
 
@@ -312,3 +369,4 @@ Sub-agents do NOT receive:
 - The Skills List (main-agent only — sub-agents can't invoke skills directly).
 - The MCP Server Instructions (only main agent and File Search agent).
 - The Auto Mode reminder (sub-agents inherit the parent's permission mode but don't re-emit the directive).
+- The Plan Mode Active / Plan File Exists reminders.
