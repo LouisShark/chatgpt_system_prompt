@@ -69,9 +69,6 @@ The user has the following custom setup in their environment:
 **Configured MCP servers:**
 {{user_mcp_servers}}
 
-**Available plugin skills:**
-{{user_plugin_skills}}
-
 **User's settings.json:**
 {{user_settings_json}}
 

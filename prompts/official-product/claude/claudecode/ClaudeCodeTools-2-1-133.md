@@ -1,18 +1,26 @@
-# Claude Code Tools (v2.1.118)
+# Claude Code Tools (v2.1.133)
 
-All **30 built-in tools** available to the main agent. With `ENABLE_TOOL_SEARCH=true` (or auto-threshold triggered), only **8 core tools** load directly: **Agent, Bash, Edit, Read, ScheduleWakeup, Skill, ToolSearch, Write**. The remaining **22 deferred tools** must be fetched via `ToolSearch` with `query: "select:<name>"` before use. (MCP server tools are also enumerated in the deferred list and follow the same fetch protocol.)
+The main agent's built-in catalog totals **30 tools** (9 core + 21 deferred). With `ENABLE_TOOL_SEARCH=true` (or auto-threshold triggered), only the **9 core tools** load directly: **Agent, AskUserQuestion, Bash, Edit, Read, ScheduleWakeup, Skill, ToolSearch, Write**. The other **21 deferred tools** must be fetched via `ToolSearch` with `query: "select:<name>"` before use. (MCP server tools are also enumerated in the deferred list and follow the same fetch protocol.)
 
-> **Compared to v2.1.114:** `Glob` and `Grep` have been **removed entirely** from the main agent tool catalog (use `find` / `grep` via Bash instead). Tool count went from 32 (v2.1.114: 10 core + 22 deferred) → **30 (v2.1.118: 8 core + 22 deferred)**. `ListMcpResourcesTool` / `ReadMcpResourceTool` remain in the deferred list (no change).
+> **Capture status (audit-honest):** the v2.1.133 trace `log-2026-05-08-06-36-15.jsonl` produced byte-exact schemas for **27 of the 30** built-in tools — the 9 core tools (from main agent req 2), 17 deferred tools that File Search loads directly (req 10), plus `ExitPlanMode` which was loaded mid-session via `ToolSearch select:ExitPlanMode` in the main-agent plan-mode flow (req 5 → req 6+). The remaining **3 deferred tools — `EnterPlanMode`, `NotebookEdit`, `TaskOutput` — were not invoked via `ToolSearch select:` in this trace and are therefore NOT in [`tools-2-1-133.json`](tools-2-1-133.json). Their sections in this human-readable doc are tagged with a "schema NOT verified for v2.1.133" warning and reproduce the v2.1.118 text only as a placeholder pending a fresh capture.**
 
-**New / changed in v2.1.118** (vs v2.1.114):
+> **Compared to v2.1.118:** `AskUserQuestion` has been **promoted from deferred to core** — it now loads upfront with the rest of the core set. The total catalog count stays at 30 built-ins (now 9 core + 21 deferred instead of 8 core + 22 deferred). All other tools are unchanged in scope.
 
-- **Removed**: `Glob`, `Grep` (from main agent — and from every other agent).
-- **`Bash` description**: dropped `find`/`grep` from the IMPORTANT redirect list (they're now first-class via Bash); added `cd <current-directory>` git anti-pattern warning; added `find -regex` alternation-order tip; added `--no-edit` git-rebase warning.
-- **`Bash` sandbox JSON**: per-session config (the `Filesystem`/`Network` allow-lists) is interpolated at runtime — replaced with `{{user_sandbox_filesystem_config}}` / `{{user_sandbox_network_config}}` placeholders here.
-- **`Agent` subagent enumeration**: lists 5 subagent types (claude-code-guide, Explore, general-purpose, Plan, statusline-setup); the `(Tools: ...)` declarations no longer mention Glob/Grep on Explore or Plan.
-- **`TaskOutput`**: the `DEPRECATED` paragraph rewritten to differentiate bash / local_agent / remote_agent task types (local_agent .output files are now JSONL transcripts that must NOT be Read directly).
+**New / changed in v2.1.133** (vs v2.1.118), based only on schemas confirmed in the trace:
 
-> Schemas captured in trace `log-2026-04-23-12-00-42.jsonl` (cc_version `2.1.118.3eb`). All 30 schemas observed.
+- **Promoted to core**: `AskUserQuestion` (was deferred in v2.1.118). The deferred tools list no longer mentions it.
+- **All 26 captured schemas** gained `"eager_input_streaming": true` at the top level — Anthropic API hint that the harness streams the model's tool input back to the user as it is produced, rather than buffering until the tool call is complete. (Whether the 4 uncaptured tools also gained this field is unverified.)
+- **`Agent` description (`Explore` subagent)**: rewritten with stronger guard rails. The new text explicitly says Explore is "for locating code" and "Do NOT use it for code review, design-doc auditing, cross-file consistency checks, or open-ended analysis — it reads excerpts rather than whole files and will miss content past its read window." Breadth labels reworded ("specify search breadth: 'quick' for a single targeted lookup, 'medium' for moderate exploration, or 'very thorough' to search across multiple locations and naming conventions").
+- **`Bash` description**: added an extra rule under `# Instructions`: *"When running `find`, search from `.` (or a specific path), not `/` — scanning the full filesystem can exhaust system resources on large trees."* The `run_in_background` parameter description was simplified from `"Set to true to run this command in the background. Use Read to read the output later."` → `"Set to true to run this command in the background."`. (The git/cd/`find -regex`/`--no-edit` guidance from v2.1.118 carries over unchanged.)
+- **`Bash` sandbox JSON**: still interpolated at runtime — replaced with `{{user_sandbox_filesystem_config}}` / `{{user_sandbox_network_config}}` placeholders here.
+- **`Monitor` description**: significantly rewritten. The old "Monitor is for the streaming case" paragraph is replaced with a "Pick by how many notifications you need" decision matrix (one notification → Bash `run_in_background` with `until …`; one-per-occurrence indefinitely → Monitor with `tail -f`/`inotifywait -m`; one-per-occurrence with a known end → Monitor with a polling loop that exits). A multi-line `gh pr checks` example was added.
+- **`EnterWorktree` description**: clarified `worktree.baseRef` setting. Old: *"creates a new git worktree inside `.claude/worktrees/` with a new branch based on HEAD."* New: *"creates a new git worktree inside `.claude/worktrees/` on a new branch. The base ref is governed by the `worktree.baseRef` setting: `fresh` (default) branches from origin/<default-branch>; `head` branches from your current local HEAD."*
+- **`RemoteTrigger` description**: a new sentence appended — *"For create/update, a summary line is appended with the server-parsed run time and the routine's claude.ai URL — relay both to the user so they can confirm the time is right and know where the result will appear."*
+- **`WebSearch` description**: month roll — `"The current month is April 2026."` → `"The current month is May 2026."` (purely a date roll; the rest is byte-identical).
+- **`ExitPlanMode`**: schema captured (description byte-identical to v2.1.118; gained `"eager_input_streaming": true`).
+- **`EnterPlanMode`, `NotebookEdit`, `TaskOutput`**: not re-captured. Whether they changed in v2.1.133 is unknown.
+
+> Schemas captured in trace `log-2026-05-08-06-36-15.jsonl` (cc_version `2.1.133.4b3` and the related `2.1.133.*` sub-revisions across the same session). The 9 core schemas come from the main-agent ToolSearch turn (req 2); 17 deferred schemas come from the File Search agent's direct-load set (req 10); `ExitPlanMode` comes from req 6 onward (after `ToolSearch select:ExitPlanMode` was invoked in req 5).
 
 ---
 
@@ -22,7 +30,7 @@ Launch a new agent to handle complex, multi-step tasks. Each agent type has spec
 
 Available agent types and the tools they have access to:
 - claude-code-guide: Use this agent when the user asks questions ("Can Claude...", "Does Claude...", "How do I...") about: (1) Claude Code (the CLI tool) - features, hooks, slash commands, MCP servers, settings, IDE integrations, keyboard shortcuts; (2) Claude Agent SDK - building custom agents; (3) Claude API (formerly Anthropic API) - API usage, tool use, Anthropic SDK usage. **IMPORTANT:** Before spawning a new agent, check if there is already a running or recently completed claude-code-guide agent that you can continue via SendMessage. (Tools: Bash, Read, WebFetch, WebSearch)
-- Explore: Fast agent specialized for exploring codebases. Use this when you need to quickly find files by patterns (eg. "src/components/**/*.tsx"), search code for keywords (eg. "API endpoints"), or answer questions about the codebase (eg. "how do API endpoints work?"). When calling this agent, specify the desired thoroughness level: "quick" for basic searches, "medium" for moderate exploration, or "very thorough" for comprehensive analysis across multiple locations and naming conventions. (Tools: All tools except Agent, ExitPlanMode, Edit, Write, NotebookEdit)
+- Explore: Fast read-only search agent for locating code. Use it to find files by pattern (eg. "src/components/**/*.tsx"), grep for symbols or keywords (eg. "API endpoints"), or answer "where is X defined / which files reference Y." Do NOT use it for code review, design-doc auditing, cross-file consistency checks, or open-ended analysis — it reads excerpts rather than whole files and will miss content past its read window. When calling, specify search breadth: "quick" for a single targeted lookup, "medium" for moderate exploration, or "very thorough" to search across multiple locations and naming conventions. (Tools: All tools except Agent, ExitPlanMode, Edit, Write, NotebookEdit)
 - general-purpose: General-purpose agent for researching complex questions, searching for code, and executing multi-step tasks. When you are searching for a keyword or file and are not confident that you will find the right match in the first few tries use this agent to perform the search for you. (Tools: *)
 - Plan: Software architect agent for designing implementation plans. Use this when you need to plan the implementation strategy for a task. Returns step-by-step plans, identifies critical files, and considers architectural trade-offs. (Tools: All tools except Agent, ExitPlanMode, Edit, Write, NotebookEdit)
 - statusline-setup: Use this agent to configure the user's Claude Code status line setting. (Tools: Read, Edit)
@@ -135,6 +143,7 @@ While the Bash tool can do similar things, it’s better to use the built-in too
   - Do not retry failing commands in a sleep loop — diagnose the root cause.
   - If waiting for a background task you started with `run_in_background`, you will be notified when it completes — do not poll.
   - Long leading `sleep` commands are blocked. To poll until a condition is met, use Monitor with an until-loop (e.g. `until <check>; do sleep 2; done`) — you get a notification when the loop exits. Do not chain shorter sleeps to work around the block.
+ - When running `find`, search from `.` (or a specific path), not `/` — scanning the full filesystem can exhaust system resources on large trees.
  - When using `find -regex` with alternation, put the longest alternative first. Example: use `'.*\.\(tsx\|ts\)'` not `'.*\.\(ts\|tsx\)'` — the second form silently skips `.tsx` files.
 
 ## Command sandbox
@@ -256,7 +265,7 @@ For commands that are harder to parse at a glance (piped commands, obscure flags
 - find . -name "*.tmp" -exec rm {} \; → "Find and delete all .tmp files recursively"
 - git reset --hard origin/main → "Discard all local changes and match remote main"
 - curl -s url | jq '.data[]' → "Fetch JSON from URL and extract data array elements"
-- `run_in_background` (boolean): Set to true to run this command in the background. Use Read to read the output later.
+- `run_in_background` (boolean): Set to true to run this command in the background.
 - `dangerouslyDisableSandbox` (boolean): Set this to true to dangerously override sandbox mode and run commands without sandboxing.
 
 ---
@@ -510,6 +519,8 @@ List all cron jobs scheduled via CronCreate in this session.
 
 ## EnterPlanMode
 
+> ⚠️ **Schema NOT verified for v2.1.133.** The v2.1.133 trace `log-2026-05-08-06-36-15.jsonl` did not invoke `ToolSearch select:EnterPlanMode`, so this tool's full schema was not re-captured. The text below is the v2.1.118 capture, retained for reference only — it has been **dropped from `tools-2-1-133.json`** until a fresh capture confirms the v2.1.133 description and parameters.
+
 Use this tool proactively when you're about to start a non-trivial implementation task. Getting user sign-off on your approach before writing code prevents wasted effort and ensures alignment. This tool transitions you into plan mode where you can explore the codebase and design an implementation approach for user approval.
 
 ## When to Use This Tool
@@ -621,7 +632,7 @@ Use this tool ONLY when explicitly instructed to work in a worktree — either b
 
 ## Behavior
 
-- In a git repository: creates a new git worktree inside `.claude/worktrees/` with a new branch based on HEAD
+- In a git repository: creates a new git worktree inside `.claude/worktrees/` on a new branch. The base ref is governed by the `worktree.baseRef` setting: `fresh` (default) branches from origin/<default-branch>; `head` branches from your current local HEAD
 - Outside a git repository: delegates to WorktreeCreate/WorktreeRemove hooks for VCS-agnostic isolation
 - Switches the session's working directory to the new worktree
 - Use ExitWorktree to leave the worktree mid-session (keep or remove). On session exit, if still in the worktree, the user will be prompted to keep or remove it
@@ -738,7 +749,23 @@ Parameters:
 
 Start a background monitor that streams events from a long-running script. Each stdout line is an event — you keep working and notifications arrive in the chat. Events arrive on their own schedule and are not replies from the user, even if one lands while you're waiting for the user to answer a question.
 
-Monitor is for the **streaming** case: "tell me every time X happens." For one-shot "wait until X is done," use Bash with run_in_background instead — you'll get a completion notification when it exits.
+Pick by how many notifications you need:
+- **One** ("tell me when the server is ready / the build finishes") → use **Bash with `run_in_background`** and a command that exits when the condition is true, e.g. `until grep -q "Ready in" dev.log; do sleep 0.5; done`. You get a single completion notification when it exits.
+- **One per occurrence, indefinitely** ("tell me every time an ERROR line appears") → Monitor with an unbounded command (`tail -f`, `inotifywait -m`, `while true`).
+- **One per occurrence, until a known end** ("emit each CI step result, stop when the run completes") → Monitor with a command that emits lines and then exits.
+
+  # Per-occurrence with a natural end: emit each CI check as it lands, exit when the run completes
+  prev=""
+  while true; do
+    s=$(gh pr checks 123 --json name,bucket)
+    cur=$(jq -r '.[] | select(.bucket!="pending") | "\(.name): \(.bucket)"' <<<"$s" | sort)
+    comm -13 <(echo "$prev") <(echo "$cur")
+    prev=$cur
+    jq -e 'all(.bucket!="pending")' <<<"$s" >/dev/null && break
+    sleep 30
+  done
+
+**Don't use an unbounded command for a single notification.** `tail -f`, `inotifywait -m`, and `while true` never exit on their own, so the monitor stays armed until timeout even after the event has fired. For "tell me when X is ready," use Bash `run_in_background` with an `until` loop instead (one notification when the condition becomes true).
 
 Your script's stdout is the event stream. Each line becomes a notification. Exit ends the watch.
 
@@ -792,6 +819,8 @@ The script runs in the same shell environment as Bash. Exit ends the watch (exit
 ---
 
 ## NotebookEdit
+
+> ⚠️ **Schema NOT verified for v2.1.133.** The v2.1.133 trace did not invoke `ToolSearch select:NotebookEdit`, so this tool's full schema was not re-captured. The text below is the v2.1.118 capture, retained for reference only — it has been **dropped from `tools-2-1-133.json`** until a fresh capture confirms the v2.1.133 description and parameters.
 
 Completely replaces the contents of a specific cell in a Jupyter notebook (.ipynb file) with new source. Jupyter notebooks are interactive documents that combine code, text, and visualizations, commonly used for data analysis and scientific computing. The notebook_path parameter must be an absolute path, not a relative path. The cell_number is 0-indexed. Use edit_mode=insert to add a new cell at the index specified by cell_number. Use edit_mode=delete to delete the cell at the index specified by cell_number.
 
@@ -850,7 +879,7 @@ Actions:
 - update: POST /v1/code/triggers/{trigger_id} (requires body, partial update)
 - run: POST /v1/code/triggers/{trigger_id}/run (optional body)
 
-The response is the raw JSON from the API.
+The response is the raw JSON from the API. For create/update, a summary line is appended with the server-parsed run time and the routine's claude.ai URL — relay both to the user so they can confirm the time is right and know where the result will appear.
 
 **Parameters:**
 
@@ -970,6 +999,8 @@ Use TaskGet with a specific task ID to view full details including description a
 ---
 
 ## TaskOutput
+
+> ⚠️ **Schema NOT verified for v2.1.133.** The v2.1.133 trace did not invoke `ToolSearch select:TaskOutput`, so this tool's full schema was not re-captured. The text below is the v2.1.118 capture, retained for reference only — it has been **dropped from `tools-2-1-133.json`** until a fresh capture confirms the v2.1.133 description and parameters.
 
 DEPRECATED: Background tasks return their output file path in the tool result, and you receive a <task-notification> with the same path when the task completes.
 - For bash tasks: prefer using the Read tool on that output file path — it contains stdout/stderr.
@@ -1156,7 +1187,7 @@ Usage notes:
   - Web search is only available in the US
 
 IMPORTANT - Use the correct year in search queries:
-  - The current month is April 2026. You MUST use this year when searching for recent information, documentation, or current events.
+  - The current month is May 2026. You MUST use this year when searching for recent information, documentation, or current events.
   - Example: If the user asks for "latest React docs", search for "React documentation" with the current year, NOT last year
 
 

@@ -1,8 +1,8 @@
-# System Reminders (v2.1.118)
+# System Reminders (v2.1.133)
 
 Runtime `<system-reminder>` blocks injected into the **first user message** (`msg[0]`) of each API request. These are NOT part of the system prompt — they appear as multiple content parts prepended to the user's actual message.
 
-**Injection pattern:** All system-reminders are packed into `msg[0]` as separate content parts, followed by the user's actual text as the final part. Subsequent user messages (`msg[2]`, `msg[4]`, ...) carry no system-reminders **except** the slim "Auto Mode still active" follow-up (NEW v2.1.118) and the post-`/compact` continuation block. Since the Anthropic API sends the full conversation history on every request, `msg[0]`'s reminders are always visible to the model.
+**Injection pattern:** All system-reminders are packed into `msg[0]` as separate content parts, followed by the user's actual text as the final part. Subsequent user messages (`msg[2]`, `msg[4]`, ...) carry no system-reminders **except** the slim "Auto Mode still active" follow-up (introduced in v2.1.118) and the post-`/compact` continuation block. Since the Anthropic API sends the full conversation history on every request, `msg[0]`'s reminders are always visible to the model.
 
 ```
 msg[0] (user):
@@ -11,12 +11,12 @@ msg[0] (user):
   part[2]: <system-reminder> Skills List                  (always)
   part[3]: <system-reminder> Plan Mode Active             (when EnterPlanMode triggered; replaces Auto Mode block in plan mode)
   part[3 alt]: <system-reminder> Auto Mode Active         (when permissions.defaultMode == "auto" AND not in plan mode)
-  part[3 alt]: <system-reminder> Plan File Exists         (NEW v2.1.118 — when continuing a session that has a saved plan file)
+  part[3 alt]: <system-reminder> Plan File Exists         (when continuing a session that has a saved plan file)
   part[4]: <system-reminder> Context (CLAUDE.md + memory + userEmail + currentDate)  (always)
   part[5]: (actual user message text, possibly preceded by /<command> caveat blocks)
 msg[1] (assistant): ...
 msg[2] (user):
-  part[0..n-1]: tool-result wrappers, possibly the slim "Auto Mode Still Active" reminder (NEW v2.1.118)
+  part[0..n-1]: tool-result wrappers, possibly the slim "Auto Mode Still Active" reminder
   part[n]: (user text)
 ...
 ```
@@ -32,7 +32,6 @@ msg[2] (user):
 ```xml
 <system-reminder>
 The following deferred tools are now available via ToolSearch. Their schemas are NOT loaded — calling them directly will fail with InputValidationError. Use ToolSearch with query "select:<name>[,<name>...]" to load tool schemas before calling them:
-AskUserQuestion
 CronCreate
 CronDelete
 CronList
@@ -58,13 +57,13 @@ WebSearch
 </system-reminder>
 ```
 
-**v2.1.118 changes vs v2.1.114:**
+**v2.1.133 changes vs v2.1.118:**
 
-- **Built-in deferred list is unchanged at 22 entries** — `ListMcpResourcesTool` and `ReadMcpResourceTool` remain. (Earlier draft of these notes claimed they had been removed; that was wrong — it was an artifact of the very first request before MCP servers had finished initializing in the trace I first looked at. The fuller `log-2026-04-23-12-00-42.jsonl` trace shows both tools present in every deferred-list reminder.)
-- `Glob` and `Grep` were never in the deferred list — they used to be **core** in v2.1.114 and have been **removed from the entire main-agent catalog** in v2.1.118 (they're not in the deferred list either; gone for good).
+- **Built-in deferred list is now 21 entries** (down from 22). `AskUserQuestion` was promoted to **core** in v2.1.133 — it now loads upfront with `Agent`, `Bash`, `Edit`, `Read`, `ScheduleWakeup`, `Skill`, `ToolSearch`, and `Write` and is no longer enumerated in this reminder.
+- `ListMcpResourcesTool` and `ReadMcpResourceTool` remain in the deferred list (no change from v2.1.118).
 - The `{{mcp_tool_names}}` line is replaced at runtime with one entry per available MCP tool, in the form `mcp__{{server_name}}__{{tool_name}}` (one per line). When the user has no MCP servers configured, it expands to nothing.
 
-**Initial-session caveat:** The very first deferred-list reminder of a fresh session sometimes omits both the MCP resource tools and the `mcp__*` per-tool enumeration if MCP servers haven't completed their handshake yet. From the second turn onward (and for any new session where MCP is healthy), the list contains all 22 built-in entries plus per-MCP-tool names.
+**Initial-session caveat:** The very first deferred-list reminder of a fresh session sometimes omits both the MCP resource tools and the `mcp__*` per-tool enumeration if MCP servers haven't completed their handshake yet. From the second turn onward (and for any new session where MCP is healthy), the list contains all 21 built-in entries plus per-MCP-tool names. (In the v2.1.133 capture trace, `log-2026-05-08-06-36-15.jsonl` req 2, every MCP resource tool and the user's six MCP servers are listed in full because MCP had completed its handshake before the first request.)
 
 ---
 
@@ -192,8 +191,8 @@ NOTE: At any point in time through this workflow you should feel free to ask the
 
 **Notes:**
 
-- `{{plan_file_path}}` is auto-generated under `~/.claude/plans/<kebab-case-slug>.md`. The slug itself is generated by the `slug_name` auxiliary haiku call (see `auxiliary/slug_name-2-1-118.md`).
-- While in plan mode, the main agent's available tools (with ToolSearch active) are: `Agent, AskUserQuestion, Bash, Edit, ExitPlanMode, Read, ScheduleWakeup, Skill, ToolSearch, Write` (10 total — **down from 12 in v2.1.114**, since `Glob` and `Grep` are gone). Per the prompt, `Edit`/`Write` are restricted to the designated plan file only.
+- `{{plan_file_path}}` is auto-generated under `~/.claude/plans/<kebab-case-slug>.md`. The slug itself is generated by the `slug_name` auxiliary haiku call (see `auxiliary/slug_name-2-1-133.md`).
+- While in plan mode, the main agent's available tools (with ToolSearch active) are: `Agent, AskUserQuestion, Bash, Edit, ExitPlanMode, Read, ScheduleWakeup, Skill, ToolSearch, Write` (10 total — same composition as v2.1.118, but `AskUserQuestion` is now **core** rather than fetched via ToolSearch). Per the prompt, `Edit`/`Write` are restricted to the designated plan file only.
 - Triggered by the deferred `EnterPlanMode` tool (the tool name appears in the deferred-tools list of every ToolSearch-active request).
 
 ---
@@ -221,7 +220,7 @@ Auto mode is active. The user chose continuous, autonomous execution. You should
 
 ---
 
-## Part 3c: Plan File Exists (NEW in v2.1.118)
+## Part 3c: Plan File Exists
 
 **Condition:** Present when continuing a session where a plan file was already saved during a prior plan-mode invocation. Replaces the Plan Mode Active reminder once plan mode is exited but the plan file remains on disk; the model is reminded of the plan it produced so subsequent execution turns can refer back to it.
 
@@ -243,7 +242,7 @@ Plan contents:
 
 ---
 
-## Part 3d: Auto Mode Still Active (NEW in v2.1.118)
+## Part 3d: Auto Mode Still Active
 
 **Condition:** Slim follow-up reminder injected into **subsequent** user messages (`msg[1]`, `msg[2]`, ... — i.e., any user turn after the first one) while auto mode remains active. Saves tokens vs. re-emitting the full 6-rule directive.
 
@@ -257,6 +256,23 @@ Auto mode still active (see full instructions earlier in conversation). Execute 
 
 - Acts as a one-line refresher pointing back to the full `Auto Mode Active` block from `msg[0]`.
 - Helps long sessions stay in auto mode after `/compact` truncations or after many turns push the original directive deep into history.
+
+---
+
+## Part 3e: Task Tools Nudge (NEW capture, mid-conversation)
+
+**Condition:** Injected into a mid-conversation user message (alongside tool-result wrappers, not at `msg[0]`) when the harness detects that **`TaskCreate` / `TaskUpdate` haven't been used recently** but the conversation is doing multi-step work that would benefit from tracking. Observed at `req 14 msg[10]` and `req 15 msg[10]` of the v2.1.133 trace, both times after the main agent had run multiple `Agent` sub-agent calls without tracking them as tasks.
+
+```xml
+<system-reminder>
+The task tools haven't been used recently. If you're working on tasks that would benefit from tracking progress, consider using TaskCreate to add new tasks and TaskUpdate to update task status (set to in_progress when starting, completed when done). Also consider cleaning up the task list if it has become stale. Only use these if relevant to the current work. This is just a gentle reminder - ignore if not applicable. Make sure that you NEVER mention this reminder to the user
+</system-reminder>
+```
+
+**Notes:**
+
+- Carries an explicit *"NEVER mention this reminder to the user"* instruction — the model should silently consider whether tasks would help, not announce that it received the nudge.
+- Trigger heuristic isn't visible in the trace, but observed firing only after several minutes of work without a `TaskCreate` call. Likely a debounced timer or a tool-call-count threshold in the harness.
 
 ---
 
@@ -292,7 +308,7 @@ Today's date is {{YYYY/MM/DD}}.
 </system-reminder>
 ```
 
-**v2.1.118 differences vs v2.1.114:** structure unchanged (still includes `# userEmail`); the trace shows MEMORY.md is inlined under the same `# claudeMd` umbrella as the global/project CLAUDE.md (rather than a separate `# memory` heading observed in some v2.1.114 captures).
+**v2.1.133 vs v2.1.118:** structure unchanged. Still includes `# userEmail` and `# currentDate` at the bottom. MEMORY.md is inlined under the same `# claudeMd` umbrella as the global/project CLAUDE.md (the v2.1.133 trace `log-2026-05-08-06-36-15.jsonl` req 2 confirms this).
 
 **Notes:**
 

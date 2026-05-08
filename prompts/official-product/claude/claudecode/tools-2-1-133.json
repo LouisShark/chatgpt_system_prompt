@@ -1,7 +1,7 @@
 [
   {
     "name": "Agent",
-    "description": "Launch a new agent to handle complex, multi-step tasks. Each agent type has specific capabilities and tools available to it.\n\nAvailable agent types and the tools they have access to:\n- claude-code-guide: Use this agent when the user asks questions (\"Can Claude...\", \"Does Claude...\", \"How do I...\") about: (1) Claude Code (the CLI tool) - features, hooks, slash commands, MCP servers, settings, IDE integrations, keyboard shortcuts; (2) Claude Agent SDK - building custom agents; (3) Claude API (formerly Anthropic API) - API usage, tool use, Anthropic SDK usage. **IMPORTANT:** Before spawning a new agent, check if there is already a running or recently completed claude-code-guide agent that you can continue via SendMessage. (Tools: Bash, Read, WebFetch, WebSearch)\n- Explore: Fast agent specialized for exploring codebases. Use this when you need to quickly find files by patterns (eg. \"src/components/**/*.tsx\"), search code for keywords (eg. \"API endpoints\"), or answer questions about the codebase (eg. \"how do API endpoints work?\"). When calling this agent, specify the desired thoroughness level: \"quick\" for basic searches, \"medium\" for moderate exploration, or \"very thorough\" for comprehensive analysis across multiple locations and naming conventions. (Tools: All tools except Agent, ExitPlanMode, Edit, Write, NotebookEdit)\n- general-purpose: General-purpose agent for researching complex questions, searching for code, and executing multi-step tasks. When you are searching for a keyword or file and are not confident that you will find the right match in the first few tries use this agent to perform the search for you. (Tools: *)\n- Plan: Software architect agent for designing implementation plans. Use this when you need to plan the implementation strategy for a task. Returns step-by-step plans, identifies critical files, and considers architectural trade-offs. (Tools: All tools except Agent, ExitPlanMode, Edit, Write, NotebookEdit)\n- statusline-setup: Use this agent to configure the user's Claude Code status line setting. (Tools: Read, Edit)\n\nWhen using the Agent tool, specify a subagent_type parameter to select which agent type to use. If omitted, the general-purpose agent is used.\n\n## When not to use\n\nIf the target is already known, use the direct tool: Read for a known path, `grep` via the Bash tool for a specific symbol or string. Reserve this tool for open-ended questions that span the codebase, or tasks that match an available agent type.\n\n## Usage notes\n\n- Always include a short description summarizing what the agent will do\n- When you launch multiple agents for independent work, send them in a single message with multiple tool uses so they run concurrently\n- When the agent is done, it will return a single message back to you. The result returned by the agent is not visible to the user. To show the user the result, you should send a text message back to the user with a concise summary of the result.\n- Trust but verify: an agent's summary describes what it intended to do, not necessarily what it did. When an agent writes or edits code, check the actual changes before reporting the work as done.\n- You can optionally run agents in the background using the run_in_background parameter. When an agent runs in the background, you will be automatically notified when it completes — do NOT sleep, poll, or proactively check on its progress. Continue with other work or respond to the user instead.\n- **Foreground vs background**: Use foreground (default) when you need the agent's results before you can proceed — e.g., research agents whose findings inform your next steps. Use background when you have genuinely independent work to do in parallel.\n- To continue a previously spawned agent, use SendMessage with the agent's ID or name as the `to` field — that resumes it with full context. A new Agent call starts a fresh agent with no memory of prior runs, so the prompt must be self-contained.\n- Clearly tell the agent whether you expect it to write code or just to do research (search, file reads, web fetches, etc.), since it is not aware of the user's intent\n- If the agent description mentions that it should be used proactively, then you should try your best to use it without the user having to ask for it first.\n- If the user specifies that they want you to run agents \"in parallel\", you MUST send a single message with multiple Agent tool use content blocks. For example, if you need to launch both a build-validator agent and a test-runner agent in parallel, send a single message with both tool calls.\n- With `isolation: \"worktree\"`, the worktree is automatically cleaned up if the agent makes no changes; otherwise the path and branch are returned in the result.\n\n## Writing the prompt\n\nBrief the agent like a smart colleague who just walked into the room — it hasn't seen this conversation, doesn't know what you've tried, doesn't understand why this task matters.\n- Explain what you're trying to accomplish and why.\n- Describe what you've already learned or ruled out.\n- Give enough context about the surrounding problem that the agent can make judgment calls rather than just following a narrow instruction.\n- If you need a short response, say so (\"report in under 200 words\").\n- Lookups: hand over the exact command. Investigations: hand over the question — prescribed steps become dead weight when the premise is wrong.\n\nTerse command-style prompts produce shallow, generic work.\n\n**Never delegate understanding.** Don't write \"based on your findings, fix the bug\" or \"based on the research, implement it.\" Those phrases push synthesis onto the agent instead of doing it yourself. Write prompts that prove you understood: include file paths, line numbers, what specifically to change.\n\nExample usage:\n\n<example>\nuser: \"What's left on this branch before we can ship?\"\nassistant: <thinking>A survey question across git state, tests, and config. I'll delegate it and ask for a short report so the raw command output stays out of my context.</thinking>\nAgent({\n  description: \"Branch ship-readiness audit\",\n  prompt: \"Audit what's left before this branch can ship. Check: uncommitted changes, commits ahead of main, whether tests exist, whether the GrowthBook gate is wired up, whether CI-relevant files changed. Report a punch list — done vs. missing. Under 200 words.\"\n})\n<commentary>\nThe prompt is self-contained: it states the goal, lists what to check, and caps the response length. The agent's report comes back as the tool result; relay the findings to the user.\n</commentary>\n</example>\n\n<example>\nuser: \"Can you get a second opinion on whether this migration is safe?\"\nassistant: <thinking>I'll ask the code-reviewer agent — it won't see my analysis, so it can give an independent read.</thinking>\nAgent({\n  description: \"Independent migration review\",\n  subagent_type: \"code-reviewer\",\n  prompt: \"Review migration 0042_user_schema.sql for safety. Context: we're adding a NOT NULL column to a 50M-row table. Existing rows get a backfill default. I want a second opinion on whether the backfill approach is safe under concurrent writes — I've checked locking behavior but want independent verification. Report: is this safe, and if not, what specifically breaks?\"\n})\n<commentary>\nThe agent starts with no context from this conversation, so the prompt briefs it: what to assess, the relevant background, and what form the answer should take.\n</commentary>\n</example>\n",
+    "description": "Launch a new agent to handle complex, multi-step tasks. Each agent type has specific capabilities and tools available to it.\n\nAvailable agent types and the tools they have access to:\n- claude-code-guide: Use this agent when the user asks questions (\"Can Claude...\", \"Does Claude...\", \"How do I...\") about: (1) Claude Code (the CLI tool) - features, hooks, slash commands, MCP servers, settings, IDE integrations, keyboard shortcuts; (2) Claude Agent SDK - building custom agents; (3) Claude API (formerly Anthropic API) - API usage, tool use, Anthropic SDK usage. **IMPORTANT:** Before spawning a new agent, check if there is already a running or recently completed claude-code-guide agent that you can continue via SendMessage. (Tools: Bash, Read, WebFetch, WebSearch)\n- Explore: Fast read-only search agent for locating code. Use it to find files by pattern (eg. \"src/components/**/*.tsx\"), grep for symbols or keywords (eg. \"API endpoints\"), or answer \"where is X defined / which files reference Y.\" Do NOT use it for code review, design-doc auditing, cross-file consistency checks, or open-ended analysis — it reads excerpts rather than whole files and will miss content past its read window. When calling, specify search breadth: \"quick\" for a single targeted lookup, \"medium\" for moderate exploration, or \"very thorough\" to search across multiple locations and naming conventions. (Tools: All tools except Agent, ExitPlanMode, Edit, Write, NotebookEdit)\n- general-purpose: General-purpose agent for researching complex questions, searching for code, and executing multi-step tasks. When you are searching for a keyword or file and are not confident that you will find the right match in the first few tries use this agent to perform the search for you. (Tools: *)\n- Plan: Software architect agent for designing implementation plans. Use this when you need to plan the implementation strategy for a task. Returns step-by-step plans, identifies critical files, and considers architectural trade-offs. (Tools: All tools except Agent, ExitPlanMode, Edit, Write, NotebookEdit)\n- statusline-setup: Use this agent to configure the user's Claude Code status line setting. (Tools: Read, Edit)\n\nWhen using the Agent tool, specify a subagent_type parameter to select which agent type to use. If omitted, the general-purpose agent is used.\n\n## When not to use\n\nIf the target is already known, use the direct tool: Read for a known path, `grep` via the Bash tool for a specific symbol or string. Reserve this tool for open-ended questions that span the codebase, or tasks that match an available agent type.\n\n## Usage notes\n\n- Always include a short description summarizing what the agent will do\n- When you launch multiple agents for independent work, send them in a single message with multiple tool uses so they run concurrently\n- When the agent is done, it will return a single message back to you. The result returned by the agent is not visible to the user. To show the user the result, you should send a text message back to the user with a concise summary of the result.\n- Trust but verify: an agent's summary describes what it intended to do, not necessarily what it did. When an agent writes or edits code, check the actual changes before reporting the work as done.\n- You can optionally run agents in the background using the run_in_background parameter. When an agent runs in the background, you will be automatically notified when it completes — do NOT sleep, poll, or proactively check on its progress. Continue with other work or respond to the user instead.\n- **Foreground vs background**: Use foreground (default) when you need the agent's results before you can proceed — e.g., research agents whose findings inform your next steps. Use background when you have genuinely independent work to do in parallel.\n- To continue a previously spawned agent, use SendMessage with the agent's ID or name as the `to` field — that resumes it with full context. A new Agent call starts a fresh agent with no memory of prior runs, so the prompt must be self-contained.\n- Clearly tell the agent whether you expect it to write code or just to do research (search, file reads, web fetches, etc.), since it is not aware of the user's intent\n- If the agent description mentions that it should be used proactively, then you should try your best to use it without the user having to ask for it first.\n- If the user specifies that they want you to run agents \"in parallel\", you MUST send a single message with multiple Agent tool use content blocks. For example, if you need to launch both a build-validator agent and a test-runner agent in parallel, send a single message with both tool calls.\n- With `isolation: \"worktree\"`, the worktree is automatically cleaned up if the agent makes no changes; otherwise the path and branch are returned in the result.\n\n## Writing the prompt\n\nBrief the agent like a smart colleague who just walked into the room — it hasn't seen this conversation, doesn't know what you've tried, doesn't understand why this task matters.\n- Explain what you're trying to accomplish and why.\n- Describe what you've already learned or ruled out.\n- Give enough context about the surrounding problem that the agent can make judgment calls rather than just following a narrow instruction.\n- If you need a short response, say so (\"report in under 200 words\").\n- Lookups: hand over the exact command. Investigations: hand over the question — prescribed steps become dead weight when the premise is wrong.\n\nTerse command-style prompts produce shallow, generic work.\n\n**Never delegate understanding.** Don't write \"based on your findings, fix the bug\" or \"based on the research, implement it.\" Those phrases push synthesis onto the agent instead of doing it yourself. Write prompts that prove you understood: include file paths, line numbers, what specifically to change.\n\nExample usage:\n\n<example>\nuser: \"What's left on this branch before we can ship?\"\nassistant: <thinking>A survey question across git state, tests, and config. I'll delegate it and ask for a short report so the raw command output stays out of my context.</thinking>\nAgent({\n  description: \"Branch ship-readiness audit\",\n  prompt: \"Audit what's left before this branch can ship. Check: uncommitted changes, commits ahead of main, whether tests exist, whether the GrowthBook gate is wired up, whether CI-relevant files changed. Report a punch list — done vs. missing. Under 200 words.\"\n})\n<commentary>\nThe prompt is self-contained: it states the goal, lists what to check, and caps the response length. The agent's report comes back as the tool result; relay the findings to the user.\n</commentary>\n</example>\n\n<example>\nuser: \"Can you get a second opinion on whether this migration is safe?\"\nassistant: <thinking>I'll ask the code-reviewer agent — it won't see my analysis, so it can give an independent read.</thinking>\nAgent({\n  description: \"Independent migration review\",\n  subagent_type: \"code-reviewer\",\n  prompt: \"Review migration 0042_user_schema.sql for safety. Context: we're adding a NOT NULL column to a 50M-row table. Existing rows get a backfill default. I want a second opinion on whether the backfill approach is safe under concurrent writes — I've checked locking behavior but want independent verification. Report: is this safe, and if not, what specifically breaks?\"\n})\n<commentary>\nThe agent starts with no context from this conversation, so the prompt briefs it: what to assess, the relevant background, and what form the answer should take.\n</commentary>\n</example>\n",
     "input_schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -44,205 +44,8 @@
         "prompt"
       ],
       "additionalProperties": false
-    }
-  },
-  {
-    "name": "Bash",
-    "description": "Executes a given bash command and returns its output.\n\nThe working directory persists between commands, but shell state does not. The shell environment is initialized from the user's profile (bash or zsh).\n\nIMPORTANT: Avoid using this tool to run `cat`, `head`, `tail`, `sed`, `awk`, or `echo` commands, unless explicitly instructed or after you have verified that a dedicated tool cannot accomplish your task. Instead, use the appropriate dedicated tool as this will provide a much better experience for the user:\n\n - Read files: Use Read (NOT cat/head/tail)\n - Edit files: Use Edit (NOT sed/awk)\n - Write files: Use Write (NOT echo >/cat <<EOF)\n - Communication: Output text directly (NOT echo/printf)\nWhile the Bash tool can do similar things, it’s better to use the built-in tools as they provide a better user experience and make it easier to review tool calls and give permission.\n\n# Instructions\n - If your command will create new directories or files, first use this tool to run `ls` to verify the parent directory exists and is the correct location.\n - Always quote file paths that contain spaces with double quotes in your command (e.g., cd \"path with spaces/file.txt\")\n - Try to maintain your current working directory throughout the session by using absolute paths and avoiding usage of `cd`. You may use `cd` if the User explicitly requests it. In particular, never prepend `cd <current-directory>` to a `git` command — `git` already operates on the current working tree, and the compound triggers a permission prompt.\n - You may specify an optional timeout in milliseconds (up to 600000ms / 10 minutes). By default, your command will timeout after 120000ms (2 minutes).\n - You can use the `run_in_background` parameter to run the command in the background. Only use this if you don't need the result immediately and are OK being notified when the command completes later. You do not need to check the output right away - you'll be notified when it finishes. You do not need to use '&' at the end of the command when using this parameter.\n - When issuing multiple commands:\n  - If the commands are independent and can run in parallel, make multiple Bash tool calls in a single message. Example: if you need to run \"git status\" and \"git diff\", send a single message with two Bash tool calls in parallel.\n  - If the commands depend on each other and must run sequentially, use a single Bash call with '&&' to chain them together.\n  - Use ';' only when you need to run commands sequentially but don't care if earlier commands fail.\n  - DO NOT use newlines to separate commands (newlines are ok in quoted strings).\n - For git commands:\n  - Prefer to create a new commit rather than amending an existing commit.\n  - Before running destructive operations (e.g., git reset --hard, git push --force, git checkout --), consider whether there is a safer alternative that achieves the same goal. Only use destructive operations when they are truly the best approach.\n  - Never skip hooks (--no-verify) or bypass signing (--no-gpg-sign, -c commit.gpgsign=false) unless the user has explicitly asked for it. If a hook fails, investigate and fix the underlying issue.\n - Avoid unnecessary `sleep` commands:\n  - Do not sleep between commands that can run immediately — just run them.\n  - Use the Monitor tool to stream events from a background process (each stdout line is a notification). For one-shot \"wait until done,\" use Bash with run_in_background instead.\n  - If your command is long running and you would like to be notified when it finishes — use `run_in_background`. No sleep needed.\n  - Do not retry failing commands in a sleep loop — diagnose the root cause.\n  - If waiting for a background task you started with `run_in_background`, you will be notified when it completes — do not poll.\n  - Long leading `sleep` commands are blocked. To poll until a condition is met, use Monitor with an until-loop (e.g. `until <check>; do sleep 2; done`) — you get a notification when the loop exits. Do not chain shorter sleeps to work around the block.\n - When using `find -regex` with alternation, put the longest alternative first. Example: use `'.*\\.\\(tsx\\|ts\\)'` not `'.*\\.\\(ts\\|tsx\\)'` — the second form silently skips `.tsx` files.\n\n## Command sandbox\nBy default, your command will be run in a sandbox. This sandbox controls which directories and network hosts commands may access or modify without an explicit override.\n\nThe sandbox has the following restrictions:\nFilesystem: {{user_sandbox_filesystem_config}}\nNetwork: {{user_sandbox_network_config}}\n\n - You should always default to running commands within the sandbox. Do NOT attempt to set `dangerouslyDisableSandbox: true` unless:\n  - The user *explicitly* asks you to bypass sandbox\n  - A specific command just failed and you see evidence of sandbox restrictions causing the failure. Note that commands can fail for many reasons unrelated to the sandbox (missing files, wrong arguments, network issues, etc.).\n - Evidence of sandbox-caused failures includes:\n  - \"Operation not permitted\" errors for file/network operations\n  - Access denied to specific paths outside allowed directories\n  - Network connection failures to non-whitelisted hosts\n  - Unix socket connection errors\n - When you see evidence of sandbox-caused failure:\n  - Immediately retry with `dangerouslyDisableSandbox: true` (don't ask, just do it)\n  - Briefly explain what sandbox restriction likely caused the failure. Be sure to mention that the user can use the `/sandbox` command to manage restrictions.\n  - This will prompt the user for permission\n - Treat each command you execute with `dangerouslyDisableSandbox: true` individually. Even if you have recently run a command with this setting, you should default to running future commands within the sandbox.\n - Do not suggest adding sensitive paths like ~/.bashrc, ~/.zshrc, ~/.ssh/*, or credential files to the sandbox allowlist.\n - For temporary files, always use the `$TMPDIR` environment variable. TMPDIR is automatically set to the correct sandbox-writable directory in sandbox mode. Do NOT use `/tmp` directly - use `$TMPDIR` instead.\n\n# Committing changes with git\n\nOnly create commits when requested by the user. If unclear, ask first. When the user asks you to create a new git commit, follow these steps carefully:\n\nYou can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. The numbered steps below indicate which commands should be batched in parallel.\n\nGit Safety Protocol:\n- NEVER update the git config\n- NEVER run destructive git commands (push --force, reset --hard, checkout ., restore ., clean -f, branch -D) unless the user explicitly requests these actions. Taking unauthorized destructive actions is unhelpful and can result in lost work, so it's best to ONLY run these commands when given direct instructions \n- NEVER skip hooks (--no-verify, --no-gpg-sign, etc) unless the user explicitly requests it\n- NEVER run force push to main/master, warn the user if they request it\n- CRITICAL: Always create NEW commits rather than amending, unless the user explicitly requests a git amend. When a pre-commit hook fails, the commit did NOT happen — so --amend would modify the PREVIOUS commit, which may result in destroying work or losing previous changes. Instead, after hook failure, fix the issue, re-stage, and create a NEW commit\n- When staging files, prefer adding specific files by name rather than using \"git add -A\" or \"git add .\", which can accidentally include sensitive files (.env, credentials) or large binaries\n- NEVER commit changes unless the user explicitly asks you to. It is VERY IMPORTANT to only commit when explicitly asked, otherwise the user will feel that you are being too proactive\n\n1. Run the following bash commands in parallel, each using the Bash tool:\n  - Run a git status command to see all untracked files. IMPORTANT: Never use the -uall flag as it can cause memory issues on large repos.\n  - Run a git diff command to see both staged and unstaged changes that will be committed.\n  - Run a git log command to see recent commit messages, so that you can follow this repository's commit message style.\n2. Analyze all staged changes (both previously staged and newly added) and draft a commit message:\n  - Summarize the nature of the changes (eg. new feature, enhancement to an existing feature, bug fix, refactoring, test, docs, etc.). Ensure the message accurately reflects the changes and their purpose (i.e. \"add\" means a wholly new feature, \"update\" means an enhancement to an existing feature, \"fix\" means a bug fix, etc.).\n  - Do not commit files that likely contain secrets (.env, credentials.json, etc). Warn the user if they specifically request to commit those files\n  - Draft a concise (1-2 sentences) commit message that focuses on the \"why\" rather than the \"what\"\n  - Ensure it accurately reflects the changes and their purpose\n3. Run the following commands in parallel:\n   - Add relevant untracked files to the staging area.\n   - Create the commit with a message.\n   - Run git status after the commit completes to verify success.\n   Note: git status depends on the commit completing, so run it sequentially after the commit.\n4. If the commit fails due to pre-commit hook: fix the issue and create a NEW commit\n\nImportant notes:\n- NEVER run additional commands to read or explore code, besides git bash commands\n- NEVER use the TodoWrite or Agent tools\n- DO NOT push to the remote repository unless the user explicitly asks you to do so\n- IMPORTANT: Never use git commands with the -i flag (like git rebase -i or git add -i) since they require interactive input which is not supported.\n- IMPORTANT: Do not use --no-edit with git rebase commands, as the --no-edit flag is not a valid option for git rebase.\n- If there are no changes to commit (i.e., no untracked files and no modifications), do not create an empty commit\n- In order to ensure good formatting, ALWAYS pass the commit message via a HEREDOC, a la this example:\n<example>\ngit commit -m \"$(cat <<'EOF'\n   Commit message here.\n   EOF\n   )\"\n</example>\n\n# Creating pull requests\nUse the gh command via the Bash tool for ALL GitHub-related tasks including working with issues, pull requests, checks, and releases. If given a Github URL use the gh command to get the information needed.\n\nIMPORTANT: When the user asks you to create a pull request, follow these steps carefully:\n\n1. Run the following bash commands in parallel using the Bash tool, in order to understand the current state of the branch since it diverged from the main branch:\n   - Run a git status command to see all untracked files (never use -uall flag)\n   - Run a git diff command to see both staged and unstaged changes that will be committed\n   - Check if the current branch tracks a remote branch and is up to date with the remote, so you know if you need to push to the remote\n   - Run a git log command and `git diff [base-branch]...HEAD` to understand the full commit history for the current branch (from the time it diverged from the base branch)\n2. Analyze all changes that will be included in the pull request, making sure to look at all relevant commits (NOT just the latest commit, but ALL commits that will be included in the pull request!!!), and draft a pull request title and summary:\n   - Keep the PR title short (under 70 characters)\n   - Use the description/body for details, not the title\n3. Run the following commands in parallel:\n   - Create new branch if needed\n   - Push to remote with -u flag if needed\n   - Create PR using gh pr create with the format below. Use a HEREDOC to pass the body to ensure correct formatting.\n<example>\ngh pr create --title \"the pr title\" --body \"$(cat <<'EOF'\n## Summary\n<1-3 bullet points>\n\n## Test plan\n[Bulleted markdown checklist of TODOs for testing the pull request...]\nEOF\n)\"\n</example>\n\nImportant:\n- DO NOT use the TodoWrite or Agent tools\n- Return the PR URL when you're done, so the user can see it\n\n# Other common operations\n- View comments on a Github PR: gh api repos/foo/bar/pulls/123/comments",
-    "input_schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "command": {
-          "description": "The command to execute",
-          "type": "string"
-        },
-        "timeout": {
-          "description": "Optional timeout in milliseconds (max 600000)",
-          "type": "number"
-        },
-        "description": {
-          "description": "Clear, concise description of what this command does in active voice. Never use words like \"complex\" or \"risk\" in the description - just describe what it does.\n\nFor simple commands (git, npm, standard CLI tools), keep it brief (5-10 words):\n- ls → \"List files in current directory\"\n- git status → \"Show working tree status\"\n- npm install → \"Install package dependencies\"\n\nFor commands that are harder to parse at a glance (piped commands, obscure flags, etc.), add enough context to clarify what it does:\n- find . -name \"*.tmp\" -exec rm {} \\; → \"Find and delete all .tmp files recursively\"\n- git reset --hard origin/main → \"Discard all local changes and match remote main\"\n- curl -s url | jq '.data[]' → \"Fetch JSON from URL and extract data array elements\"",
-          "type": "string"
-        },
-        "run_in_background": {
-          "description": "Set to true to run this command in the background. Use Read to read the output later.",
-          "type": "boolean"
-        },
-        "dangerouslyDisableSandbox": {
-          "description": "Set this to true to dangerously override sandbox mode and run commands without sandboxing.",
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "command"
-      ],
-      "additionalProperties": false
-    }
-  },
-  {
-    "name": "Edit",
-    "description": "Performs exact string replacements in files.\n\nUsage:\n- You must use your `Read` tool at least once in the conversation before editing. This tool will error if you attempt an edit without reading the file.\n- When editing text from Read tool output, ensure you preserve the exact indentation (tabs/spaces) as it appears AFTER the line number prefix. The line number prefix format is: line number + tab. Everything after that is the actual file content to match. Never include any part of the line number prefix in the old_string or new_string.\n- ALWAYS prefer editing existing files in the codebase. NEVER write new files unless explicitly required.\n- Only use emojis if the user explicitly requests it. Avoid adding emojis to files unless asked.\n- The edit will FAIL if `old_string` is not unique in the file. Either provide a larger string with more surrounding context to make it unique or use `replace_all` to change every instance of `old_string`.\n- Use `replace_all` for replacing and renaming strings across the file. This parameter is useful if you want to rename a variable for instance.",
-    "input_schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "file_path": {
-          "description": "The absolute path to the file to modify",
-          "type": "string"
-        },
-        "old_string": {
-          "description": "The text to replace",
-          "type": "string"
-        },
-        "new_string": {
-          "description": "The text to replace it with (must be different from old_string)",
-          "type": "string"
-        },
-        "replace_all": {
-          "description": "Replace all occurrences of old_string (default false)",
-          "default": false,
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "file_path",
-        "old_string",
-        "new_string"
-      ],
-      "additionalProperties": false
-    }
-  },
-  {
-    "name": "Read",
-    "description": "Reads a file from the local filesystem. You can access any file directly by using this tool.\nAssume this tool is able to read all files on the machine. If the User provides a path to a file assume that path is valid. It is okay to read a file that does not exist; an error will be returned.\n\nUsage:\n- The file_path parameter must be an absolute path, not a relative path\n- By default, it reads up to 2000 lines starting from the beginning of the file\n- When you already know which part of the file you need, only read that part. This can be important for larger files.\n- Results are returned using cat -n format, with line numbers starting at 1\n- This tool allows Claude Code to read images (eg PNG, JPG, etc). When reading an image file the contents are presented visually as Claude Code is a multimodal LLM.\n- This tool can read PDF files (.pdf). For large PDFs (more than 10 pages), you MUST provide the pages parameter to read specific page ranges (e.g., pages: \"1-5\"). Reading a large PDF without the pages parameter will fail. Maximum 20 pages per request.\n- This tool can read Jupyter notebooks (.ipynb files) and returns all cells with their outputs, combining code, text, and visualizations.\n- This tool can only read files, not directories. To list files in a directory, use the registered shell tool.\n- You will regularly be asked to read screenshots. If the user provides a path to a screenshot, ALWAYS use this tool to view the file at the path. This tool will work with all temporary file paths.\n- If you read a file that exists but has empty contents you will receive a system reminder warning in place of file contents.\n- Do NOT re-read a file you just edited to verify — Edit/Write would have errored if the change failed, and the harness tracks file state for you.",
-    "input_schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "file_path": {
-          "description": "The absolute path to the file to read",
-          "type": "string"
-        },
-        "offset": {
-          "description": "The line number to start reading from. Only provide if the file is too large to read at once",
-          "type": "integer",
-          "minimum": 0,
-          "maximum": 9007199254740991
-        },
-        "limit": {
-          "description": "The number of lines to read. Only provide if the file is too large to read at once.",
-          "type": "integer",
-          "exclusiveMinimum": 0,
-          "maximum": 9007199254740991
-        },
-        "pages": {
-          "description": "Page range for PDF files (e.g., \"1-5\", \"3\", \"10-20\"). Only applicable to PDF files. Maximum 20 pages per request.",
-          "type": "string"
-        }
-      },
-      "required": [
-        "file_path"
-      ],
-      "additionalProperties": false
-    }
-  },
-  {
-    "name": "ScheduleWakeup",
-    "description": "Schedule when to resume work in /loop dynamic mode — the user invoked /loop without an interval, asking you to self-pace iterations of a specific task.\n\nPass the same /loop prompt back via `prompt` each turn so the next firing repeats the task. For an autonomous /loop (no user prompt), pass the literal sentinel `<<autonomous-loop-dynamic>>` as `prompt` instead — the runtime resolves it back to the autonomous-loop instructions at fire time. (There is a similar `<<autonomous-loop>>` sentinel for CronCreate-based autonomous loops; do not confuse the two — ScheduleWakeup always uses the `-dynamic` variant.) Omit the call to end the loop.\n\n## Picking delaySeconds\n\nThe Anthropic prompt cache has a 5-minute TTL. Sleeping past 300 seconds means the next wake-up reads your full conversation context uncached — slower and more expensive. So the natural breakpoints:\n\n- **Under 5 minutes (60s–270s)**: cache stays warm. Right for active work — checking a build, polling for state that's about to change, watching a process you just started.\n- **5 minutes to 1 hour (300s–3600s)**: pay the cache miss. Right when there's no point checking sooner — waiting on something that takes minutes to change, or genuinely idle.\n\n**Don't pick 300s.** It's the worst-of-both: you pay the cache miss without amortizing it. If you're tempted to \"wait 5 minutes,\" either drop to 270s (stay in cache) or commit to 1200s+ (one cache miss buys a much longer wait). Don't think in round-number minutes — think in cache windows.\n\nFor idle ticks with no specific signal to watch, default to **1200s–1800s** (20–30 min). The loop checks back, you don't burn cache 12× per hour for nothing, and the user can always interrupt if they need you sooner.\n\nThink about what you're actually waiting for, not just \"how long should I sleep.\" If you kicked off an 8-minute build, sleeping 60s burns the cache 8 times before it finishes — sleep ~270s twice instead.\n\nThe runtime clamps to [60, 3600], so you don't need to clamp yourself.\n\n## The reason field\n\nOne short sentence on what you chose and why. Goes to telemetry and is shown back to the user. \"checking long bun build\" beats \"waiting.\" The user reads this to understand what you're doing without having to predict your cadence in advance — make it specific.\n",
-    "input_schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "delaySeconds": {
-          "description": "Seconds from now to wake up. Clamped to [60, 3600] by the runtime.",
-          "type": "number"
-        },
-        "reason": {
-          "description": "One short sentence explaining the chosen delay. Goes to telemetry and is shown to the user. Be specific.",
-          "type": "string"
-        },
-        "prompt": {
-          "description": "The /loop input to fire on wake-up. Pass the same /loop input verbatim each turn so the next firing re-enters the skill and continues the loop. For autonomous /loop (no user prompt), pass the literal sentinel `<<autonomous-loop-dynamic>>` instead (the dynamic-pacing variant, not the CronCreate-mode `<<autonomous-loop>>`).",
-          "type": "string"
-        }
-      },
-      "required": [
-        "delaySeconds",
-        "reason",
-        "prompt"
-      ],
-      "additionalProperties": false
-    }
-  },
-  {
-    "name": "Skill",
-    "description": "Execute a skill within the main conversation\n\nWhen users ask you to perform tasks, check if any of the available skills match. Skills provide specialized capabilities and domain knowledge.\n\nWhen users reference a \"slash command\" or \"/<something>\", they are referring to a skill. Use this tool to invoke it.\n\nHow to invoke:\n- Set `skill` to the exact name of an available skill (no leading slash). For plugin-namespaced skills use the fully qualified `plugin:skill` form.\n- Set `args` to pass optional arguments.\n\nImportant:\n- Available skills are listed in system-reminder messages in the conversation\n- Only invoke a skill that appears in that list, or one the user explicitly typed as `/<name>` in their message. Never guess or invent a skill name from training data; otherwise do not call this tool\n- When a skill matches the user's request, this is a BLOCKING REQUIREMENT: invoke the relevant Skill tool BEFORE generating any other response about the task\n- NEVER mention a skill without actually calling this tool\n- Do not invoke a skill that is already running\n- Do not use this tool for built-in CLI commands (like /help, /clear, etc.)\n- If you see a <command-name> tag in the current conversation turn, the skill has ALREADY been loaded - follow the instructions directly instead of calling this tool again\n",
-    "input_schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "skill": {
-          "description": "The name of a skill from the available-skills list. Do not guess names.",
-          "type": "string"
-        },
-        "args": {
-          "description": "Optional arguments for the skill",
-          "type": "string"
-        }
-      },
-      "required": [
-        "skill"
-      ],
-      "additionalProperties": false
-    }
-  },
-  {
-    "name": "ToolSearch",
-    "description": "Fetches full schema definitions for deferred tools so they can be called.\n\nDeferred tools appear by name in <system-reminder> messages. Until fetched, only the name is known — there is no parameter schema, so the tool cannot be invoked. This tool takes a query, matches it against the deferred tool list, and returns the matched tools' complete JSONSchema definitions inside a <functions> block. Once a tool's schema appears in that result, it is callable exactly like any tool defined at the top of the prompt.\n\nResult format: each matched tool appears as one <function>{\"description\": \"...\", \"name\": \"...\", \"parameters\": {...}}</function> line inside the <functions> block — the same encoding as the tool list at the top of this prompt.\n\nQuery forms:\n- \"select:Read,Edit,Grep\" — fetch these exact tools by name\n- \"notebook jupyter\" — keyword search, up to max_results best matches\n- \"+slack send\" — require \"slack\" in the name, rank by remaining terms",
-    "input_schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "query": {
-          "description": "Query to find deferred tools. Use \"select:<tool_name>\" for direct selection, or keywords to search.",
-          "type": "string"
-        },
-        "max_results": {
-          "description": "Maximum number of results to return (default: 5)",
-          "default": 5,
-          "type": "number"
-        }
-      },
-      "required": [
-        "query",
-        "max_results"
-      ],
-      "additionalProperties": false
-    }
-  },
-  {
-    "name": "Write",
-    "description": "Writes a file to the local filesystem.\n\nUsage:\n- This tool will overwrite the existing file if there is one at the provided path.\n- If this is an existing file, you MUST use the Read tool first to read the file's contents. This tool will fail if you did not read the file first.\n- Prefer the Edit tool for modifying existing files — it only sends the diff. Only use this tool to create new files or for complete rewrites.\n- NEVER create documentation files (*.md) or README files unless explicitly requested by the User.\n- Only use emojis if the user explicitly requests it. Avoid writing emojis to files unless asked.",
-    "input_schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "file_path": {
-          "description": "The absolute path to the file to write (must be absolute, not relative)",
-          "type": "string"
-        },
-        "content": {
-          "description": "The content to write to the file",
-          "type": "string"
-        }
-      },
-      "required": [
-        "file_path",
-        "content"
-      ],
-      "additionalProperties": false
-    }
+    },
+    "eager_input_streaming": true
   },
   {
     "name": "AskUserQuestion",
@@ -358,7 +161,212 @@
       ],
       "additionalProperties": false
     },
-    "defer_loading": true
+    "eager_input_streaming": true
+  },
+  {
+    "name": "Bash",
+    "description": "Executes a given bash command and returns its output.\n\nThe working directory persists between commands, but shell state does not. The shell environment is initialized from the user's profile (bash or zsh).\n\nIMPORTANT: Avoid using this tool to run `cat`, `head`, `tail`, `sed`, `awk`, or `echo` commands, unless explicitly instructed or after you have verified that a dedicated tool cannot accomplish your task. Instead, use the appropriate dedicated tool as this will provide a much better experience for the user:\n\n - Read files: Use Read (NOT cat/head/tail)\n - Edit files: Use Edit (NOT sed/awk)\n - Write files: Use Write (NOT echo >/cat <<EOF)\n - Communication: Output text directly (NOT echo/printf)\nWhile the Bash tool can do similar things, it’s better to use the built-in tools as they provide a better user experience and make it easier to review tool calls and give permission.\n\n# Instructions\n - If your command will create new directories or files, first use this tool to run `ls` to verify the parent directory exists and is the correct location.\n - Always quote file paths that contain spaces with double quotes in your command (e.g., cd \"path with spaces/file.txt\")\n - Try to maintain your current working directory throughout the session by using absolute paths and avoiding usage of `cd`. You may use `cd` if the User explicitly requests it. In particular, never prepend `cd <current-directory>` to a `git` command — `git` already operates on the current working tree, and the compound triggers a permission prompt.\n - You may specify an optional timeout in milliseconds (up to 600000ms / 10 minutes). By default, your command will timeout after 120000ms (2 minutes).\n - You can use the `run_in_background` parameter to run the command in the background. Only use this if you don't need the result immediately and are OK being notified when the command completes later. You do not need to check the output right away - you'll be notified when it finishes. You do not need to use '&' at the end of the command when using this parameter.\n - When issuing multiple commands:\n  - If the commands are independent and can run in parallel, make multiple Bash tool calls in a single message. Example: if you need to run \"git status\" and \"git diff\", send a single message with two Bash tool calls in parallel.\n  - If the commands depend on each other and must run sequentially, use a single Bash call with '&&' to chain them together.\n  - Use ';' only when you need to run commands sequentially but don't care if earlier commands fail.\n  - DO NOT use newlines to separate commands (newlines are ok in quoted strings).\n - For git commands:\n  - Prefer to create a new commit rather than amending an existing commit.\n  - Before running destructive operations (e.g., git reset --hard, git push --force, git checkout --), consider whether there is a safer alternative that achieves the same goal. Only use destructive operations when they are truly the best approach.\n  - Never skip hooks (--no-verify) or bypass signing (--no-gpg-sign, -c commit.gpgsign=false) unless the user has explicitly asked for it. If a hook fails, investigate and fix the underlying issue.\n - Avoid unnecessary `sleep` commands:\n  - Do not sleep between commands that can run immediately — just run them.\n  - Use the Monitor tool to stream events from a background process (each stdout line is a notification). For one-shot \"wait until done,\" use Bash with run_in_background instead.\n  - If your command is long running and you would like to be notified when it finishes — use `run_in_background`. No sleep needed.\n  - Do not retry failing commands in a sleep loop — diagnose the root cause.\n  - If waiting for a background task you started with `run_in_background`, you will be notified when it completes — do not poll.\n  - Long leading `sleep` commands are blocked. To poll until a condition is met, use Monitor with an until-loop (e.g. `until <check>; do sleep 2; done`) — you get a notification when the loop exits. Do not chain shorter sleeps to work around the block.\n - When running `find`, search from `.` (or a specific path), not `/` — scanning the full filesystem can exhaust system resources on large trees.\n - When using `find -regex` with alternation, put the longest alternative first. Example: use `'.*\\.\\(tsx\\|ts\\)'` not `'.*\\.\\(ts\\|tsx\\)'` — the second form silently skips `.tsx` files.\n\n## Command sandbox\nBy default, your command will be run in a sandbox. This sandbox controls which directories and network hosts commands may access or modify without an explicit override.\n\nThe sandbox has the following restrictions:\nFilesystem: {{user_sandbox_filesystem_config}}\nNetwork: {{user_sandbox_network_config}}\n\n - You should always default to running commands within the sandbox. Do NOT attempt to set `dangerouslyDisableSandbox: true` unless:\n  - The user *explicitly* asks you to bypass sandbox\n  - A specific command just failed and you see evidence of sandbox restrictions causing the failure. Note that commands can fail for many reasons unrelated to the sandbox (missing files, wrong arguments, network issues, etc.).\n - Evidence of sandbox-caused failures includes:\n  - \"Operation not permitted\" errors for file/network operations\n  - Access denied to specific paths outside allowed directories\n  - Network connection failures to non-whitelisted hosts\n  - Unix socket connection errors\n - When you see evidence of sandbox-caused failure:\n  - Immediately retry with `dangerouslyDisableSandbox: true` (don't ask, just do it)\n  - Briefly explain what sandbox restriction likely caused the failure. Be sure to mention that the user can use the `/sandbox` command to manage restrictions.\n  - This will prompt the user for permission\n - Treat each command you execute with `dangerouslyDisableSandbox: true` individually. Even if you have recently run a command with this setting, you should default to running future commands within the sandbox.\n - Do not suggest adding sensitive paths like ~/.bashrc, ~/.zshrc, ~/.ssh/*, or credential files to the sandbox allowlist.\n - For temporary files, always use the `$TMPDIR` environment variable. TMPDIR is automatically set to the correct sandbox-writable directory in sandbox mode. Do NOT use `/tmp` directly - use `$TMPDIR` instead.\n\n# Committing changes with git\n\nOnly create commits when requested by the user. If unclear, ask first. When the user asks you to create a new git commit, follow these steps carefully:\n\nYou can call multiple tools in a single response. When multiple independent pieces of information are requested and all commands are likely to succeed, run multiple tool calls in parallel for optimal performance. The numbered steps below indicate which commands should be batched in parallel.\n\nGit Safety Protocol:\n- NEVER update the git config\n- NEVER run destructive git commands (push --force, reset --hard, checkout ., restore ., clean -f, branch -D) unless the user explicitly requests these actions. Taking unauthorized destructive actions is unhelpful and can result in lost work, so it's best to ONLY run these commands when given direct instructions \n- NEVER skip hooks (--no-verify, --no-gpg-sign, etc) unless the user explicitly requests it\n- NEVER run force push to main/master, warn the user if they request it\n- CRITICAL: Always create NEW commits rather than amending, unless the user explicitly requests a git amend. When a pre-commit hook fails, the commit did NOT happen — so --amend would modify the PREVIOUS commit, which may result in destroying work or losing previous changes. Instead, after hook failure, fix the issue, re-stage, and create a NEW commit\n- When staging files, prefer adding specific files by name rather than using \"git add -A\" or \"git add .\", which can accidentally include sensitive files (.env, credentials) or large binaries\n- NEVER commit changes unless the user explicitly asks you to. It is VERY IMPORTANT to only commit when explicitly asked, otherwise the user will feel that you are being too proactive\n\n1. Run the following bash commands in parallel, each using the Bash tool:\n  - Run a git status command to see all untracked files. IMPORTANT: Never use the -uall flag as it can cause memory issues on large repos.\n  - Run a git diff command to see both staged and unstaged changes that will be committed.\n  - Run a git log command to see recent commit messages, so that you can follow this repository's commit message style.\n2. Analyze all staged changes (both previously staged and newly added) and draft a commit message:\n  - Summarize the nature of the changes (eg. new feature, enhancement to an existing feature, bug fix, refactoring, test, docs, etc.). Ensure the message accurately reflects the changes and their purpose (i.e. \"add\" means a wholly new feature, \"update\" means an enhancement to an existing feature, \"fix\" means a bug fix, etc.).\n  - Do not commit files that likely contain secrets (.env, credentials.json, etc). Warn the user if they specifically request to commit those files\n  - Draft a concise (1-2 sentences) commit message that focuses on the \"why\" rather than the \"what\"\n  - Ensure it accurately reflects the changes and their purpose\n3. Run the following commands in parallel:\n   - Add relevant untracked files to the staging area.\n   - Create the commit with a message.\n   - Run git status after the commit completes to verify success.\n   Note: git status depends on the commit completing, so run it sequentially after the commit.\n4. If the commit fails due to pre-commit hook: fix the issue and create a NEW commit\n\nImportant notes:\n- NEVER run additional commands to read or explore code, besides git bash commands\n- NEVER use the TodoWrite or Agent tools\n- DO NOT push to the remote repository unless the user explicitly asks you to do so\n- IMPORTANT: Never use git commands with the -i flag (like git rebase -i or git add -i) since they require interactive input which is not supported.\n- IMPORTANT: Do not use --no-edit with git rebase commands, as the --no-edit flag is not a valid option for git rebase.\n- If there are no changes to commit (i.e., no untracked files and no modifications), do not create an empty commit\n- In order to ensure good formatting, ALWAYS pass the commit message via a HEREDOC, a la this example:\n<example>\ngit commit -m \"$(cat <<'EOF'\n   Commit message here.\n   EOF\n   )\"\n</example>\n\n# Creating pull requests\nUse the gh command via the Bash tool for ALL GitHub-related tasks including working with issues, pull requests, checks, and releases. If given a Github URL use the gh command to get the information needed.\n\nIMPORTANT: When the user asks you to create a pull request, follow these steps carefully:\n\n1. Run the following bash commands in parallel using the Bash tool, in order to understand the current state of the branch since it diverged from the main branch:\n   - Run a git status command to see all untracked files (never use -uall flag)\n   - Run a git diff command to see both staged and unstaged changes that will be committed\n   - Check if the current branch tracks a remote branch and is up to date with the remote, so you know if you need to push to the remote\n   - Run a git log command and `git diff [base-branch]...HEAD` to understand the full commit history for the current branch (from the time it diverged from the base branch)\n2. Analyze all changes that will be included in the pull request, making sure to look at all relevant commits (NOT just the latest commit, but ALL commits that will be included in the pull request!!!), and draft a pull request title and summary:\n   - Keep the PR title short (under 70 characters)\n   - Use the description/body for details, not the title\n3. Run the following commands in parallel:\n   - Create new branch if needed\n   - Push to remote with -u flag if needed\n   - Create PR using gh pr create with the format below. Use a HEREDOC to pass the body to ensure correct formatting.\n<example>\ngh pr create --title \"the pr title\" --body \"$(cat <<'EOF'\n## Summary\n<1-3 bullet points>\n\n## Test plan\n[Bulleted markdown checklist of TODOs for testing the pull request...]\nEOF\n)\"\n</example>\n\nImportant:\n- DO NOT use the TodoWrite or Agent tools\n- Return the PR URL when you're done, so the user can see it\n\n# Other common operations\n- View comments on a Github PR: gh api repos/foo/bar/pulls/123/comments",
+    "input_schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "command": {
+          "description": "The command to execute",
+          "type": "string"
+        },
+        "timeout": {
+          "description": "Optional timeout in milliseconds (max 600000)",
+          "type": "number"
+        },
+        "description": {
+          "description": "Clear, concise description of what this command does in active voice. Never use words like \"complex\" or \"risk\" in the description - just describe what it does.\n\nFor simple commands (git, npm, standard CLI tools), keep it brief (5-10 words):\n- ls → \"List files in current directory\"\n- git status → \"Show working tree status\"\n- npm install → \"Install package dependencies\"\n\nFor commands that are harder to parse at a glance (piped commands, obscure flags, etc.), add enough context to clarify what it does:\n- find . -name \"*.tmp\" -exec rm {} \\; → \"Find and delete all .tmp files recursively\"\n- git reset --hard origin/main → \"Discard all local changes and match remote main\"\n- curl -s url | jq '.data[]' → \"Fetch JSON from URL and extract data array elements\"",
+          "type": "string"
+        },
+        "run_in_background": {
+          "description": "Set to true to run this command in the background.",
+          "type": "boolean"
+        },
+        "dangerouslyDisableSandbox": {
+          "description": "Set this to true to dangerously override sandbox mode and run commands without sandboxing.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "command"
+      ],
+      "additionalProperties": false
+    },
+    "eager_input_streaming": true
+  },
+  {
+    "name": "Edit",
+    "description": "Performs exact string replacements in files.\n\nUsage:\n- You must use your `Read` tool at least once in the conversation before editing. This tool will error if you attempt an edit without reading the file.\n- When editing text from Read tool output, ensure you preserve the exact indentation (tabs/spaces) as it appears AFTER the line number prefix. The line number prefix format is: line number + tab. Everything after that is the actual file content to match. Never include any part of the line number prefix in the old_string or new_string.\n- ALWAYS prefer editing existing files in the codebase. NEVER write new files unless explicitly required.\n- Only use emojis if the user explicitly requests it. Avoid adding emojis to files unless asked.\n- The edit will FAIL if `old_string` is not unique in the file. Either provide a larger string with more surrounding context to make it unique or use `replace_all` to change every instance of `old_string`.\n- Use `replace_all` for replacing and renaming strings across the file. This parameter is useful if you want to rename a variable for instance.",
+    "input_schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "file_path": {
+          "description": "The absolute path to the file to modify",
+          "type": "string"
+        },
+        "old_string": {
+          "description": "The text to replace",
+          "type": "string"
+        },
+        "new_string": {
+          "description": "The text to replace it with (must be different from old_string)",
+          "type": "string"
+        },
+        "replace_all": {
+          "description": "Replace all occurrences of old_string (default false)",
+          "default": false,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "file_path",
+        "old_string",
+        "new_string"
+      ],
+      "additionalProperties": false
+    },
+    "eager_input_streaming": true
+  },
+  {
+    "name": "Read",
+    "description": "Reads a file from the local filesystem. You can access any file directly by using this tool.\nAssume this tool is able to read all files on the machine. If the User provides a path to a file assume that path is valid. It is okay to read a file that does not exist; an error will be returned.\n\nUsage:\n- The file_path parameter must be an absolute path, not a relative path\n- By default, it reads up to 2000 lines starting from the beginning of the file\n- When you already know which part of the file you need, only read that part. This can be important for larger files.\n- Results are returned using cat -n format, with line numbers starting at 1\n- This tool allows Claude Code to read images (eg PNG, JPG, etc). When reading an image file the contents are presented visually as Claude Code is a multimodal LLM.\n- This tool can read PDF files (.pdf). For large PDFs (more than 10 pages), you MUST provide the pages parameter to read specific page ranges (e.g., pages: \"1-5\"). Reading a large PDF without the pages parameter will fail. Maximum 20 pages per request.\n- This tool can read Jupyter notebooks (.ipynb files) and returns all cells with their outputs, combining code, text, and visualizations.\n- This tool can only read files, not directories. To list files in a directory, use the registered shell tool.\n- You will regularly be asked to read screenshots. If the user provides a path to a screenshot, ALWAYS use this tool to view the file at the path. This tool will work with all temporary file paths.\n- If you read a file that exists but has empty contents you will receive a system reminder warning in place of file contents.\n- Do NOT re-read a file you just edited to verify — Edit/Write would have errored if the change failed, and the harness tracks file state for you.",
+    "input_schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "file_path": {
+          "description": "The absolute path to the file to read",
+          "type": "string"
+        },
+        "offset": {
+          "description": "The line number to start reading from. Only provide if the file is too large to read at once",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "limit": {
+          "description": "The number of lines to read. Only provide if the file is too large to read at once.",
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991
+        },
+        "pages": {
+          "description": "Page range for PDF files (e.g., \"1-5\", \"3\", \"10-20\"). Only applicable to PDF files. Maximum 20 pages per request.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "file_path"
+      ],
+      "additionalProperties": false
+    },
+    "eager_input_streaming": true
+  },
+  {
+    "name": "ScheduleWakeup",
+    "description": "Schedule when to resume work in /loop dynamic mode — the user invoked /loop without an interval, asking you to self-pace iterations of a specific task.\n\nPass the same /loop prompt back via `prompt` each turn so the next firing repeats the task. For an autonomous /loop (no user prompt), pass the literal sentinel `<<autonomous-loop-dynamic>>` as `prompt` instead — the runtime resolves it back to the autonomous-loop instructions at fire time. (There is a similar `<<autonomous-loop>>` sentinel for CronCreate-based autonomous loops; do not confuse the two — ScheduleWakeup always uses the `-dynamic` variant.) Omit the call to end the loop.\n\n## Picking delaySeconds\n\nThe Anthropic prompt cache has a 5-minute TTL. Sleeping past 300 seconds means the next wake-up reads your full conversation context uncached — slower and more expensive. So the natural breakpoints:\n\n- **Under 5 minutes (60s–270s)**: cache stays warm. Right for active work — checking a build, polling for state that's about to change, watching a process you just started.\n- **5 minutes to 1 hour (300s–3600s)**: pay the cache miss. Right when there's no point checking sooner — waiting on something that takes minutes to change, or genuinely idle.\n\n**Don't pick 300s.** It's the worst-of-both: you pay the cache miss without amortizing it. If you're tempted to \"wait 5 minutes,\" either drop to 270s (stay in cache) or commit to 1200s+ (one cache miss buys a much longer wait). Don't think in round-number minutes — think in cache windows.\n\nFor idle ticks with no specific signal to watch, default to **1200s–1800s** (20–30 min). The loop checks back, you don't burn cache 12× per hour for nothing, and the user can always interrupt if they need you sooner.\n\nThink about what you're actually waiting for, not just \"how long should I sleep.\" If you kicked off an 8-minute build, sleeping 60s burns the cache 8 times before it finishes — sleep ~270s twice instead.\n\nThe runtime clamps to [60, 3600], so you don't need to clamp yourself.\n\n## The reason field\n\nOne short sentence on what you chose and why. Goes to telemetry and is shown back to the user. \"checking long bun build\" beats \"waiting.\" The user reads this to understand what you're doing without having to predict your cadence in advance — make it specific.\n",
+    "input_schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "delaySeconds": {
+          "description": "Seconds from now to wake up. Clamped to [60, 3600] by the runtime.",
+          "type": "number"
+        },
+        "reason": {
+          "description": "One short sentence explaining the chosen delay. Goes to telemetry and is shown to the user. Be specific.",
+          "type": "string"
+        },
+        "prompt": {
+          "description": "The /loop input to fire on wake-up. Pass the same /loop input verbatim each turn so the next firing re-enters the skill and continues the loop. For autonomous /loop (no user prompt), pass the literal sentinel `<<autonomous-loop-dynamic>>` instead (the dynamic-pacing variant, not the CronCreate-mode `<<autonomous-loop>>`).",
+          "type": "string"
+        }
+      },
+      "required": [
+        "delaySeconds",
+        "reason",
+        "prompt"
+      ],
+      "additionalProperties": false
+    },
+    "eager_input_streaming": true
+  },
+  {
+    "name": "Skill",
+    "description": "Execute a skill within the main conversation\n\nWhen users ask you to perform tasks, check if any of the available skills match. Skills provide specialized capabilities and domain knowledge.\n\nWhen users reference a \"slash command\" or \"/<something>\", they are referring to a skill. Use this tool to invoke it.\n\nHow to invoke:\n- Set `skill` to the exact name of an available skill (no leading slash). For plugin-namespaced skills use the fully qualified `plugin:skill` form.\n- Set `args` to pass optional arguments.\n\nImportant:\n- Available skills are listed in system-reminder messages in the conversation\n- Only invoke a skill that appears in that list, or one the user explicitly typed as `/<name>` in their message. Never guess or invent a skill name from training data; otherwise do not call this tool\n- When a skill matches the user's request, this is a BLOCKING REQUIREMENT: invoke the relevant Skill tool BEFORE generating any other response about the task\n- NEVER mention a skill without actually calling this tool\n- Do not invoke a skill that is already running\n- Do not use this tool for built-in CLI commands (like /help, /clear, etc.)\n- If you see a <command-name> tag in the current conversation turn, the skill has ALREADY been loaded - follow the instructions directly instead of calling this tool again\n",
+    "input_schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "skill": {
+          "description": "The name of a skill from the available-skills list. Do not guess names.",
+          "type": "string"
+        },
+        "args": {
+          "description": "Optional arguments for the skill",
+          "type": "string"
+        }
+      },
+      "required": [
+        "skill"
+      ],
+      "additionalProperties": false
+    },
+    "eager_input_streaming": true
+  },
+  {
+    "name": "ToolSearch",
+    "description": "Fetches full schema definitions for deferred tools so they can be called.\n\nDeferred tools appear by name in <system-reminder> messages. Until fetched, only the name is known — there is no parameter schema, so the tool cannot be invoked. This tool takes a query, matches it against the deferred tool list, and returns the matched tools' complete JSONSchema definitions inside a <functions> block. Once a tool's schema appears in that result, it is callable exactly like any tool defined at the top of the prompt.\n\nResult format: each matched tool appears as one <function>{\"description\": \"...\", \"name\": \"...\", \"parameters\": {...}}</function> line inside the <functions> block — the same encoding as the tool list at the top of this prompt.\n\nQuery forms:\n- \"select:Read,Edit,Grep\" — fetch these exact tools by name\n- \"notebook jupyter\" — keyword search, up to max_results best matches\n- \"+slack send\" — require \"slack\" in the name, rank by remaining terms",
+    "input_schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "query": {
+          "description": "Query to find deferred tools. Use \"select:<tool_name>\" for direct selection, or keywords to search.",
+          "type": "string"
+        },
+        "max_results": {
+          "description": "Maximum number of results to return (default: 5)",
+          "default": 5,
+          "type": "number"
+        }
+      },
+      "required": [
+        "query",
+        "max_results"
+      ],
+      "additionalProperties": false
+    },
+    "eager_input_streaming": true
+  },
+  {
+    "name": "Write",
+    "description": "Writes a file to the local filesystem.\n\nUsage:\n- This tool will overwrite the existing file if there is one at the provided path.\n- If this is an existing file, you MUST use the Read tool first to read the file's contents. This tool will fail if you did not read the file first.\n- Prefer the Edit tool for modifying existing files — it only sends the diff. Only use this tool to create new files or for complete rewrites.\n- NEVER create documentation files (*.md) or README files unless explicitly requested by the User.\n- Only use emojis if the user explicitly requests it. Avoid writing emojis to files unless asked.",
+    "input_schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "file_path": {
+          "description": "The absolute path to the file to write (must be absolute, not relative)",
+          "type": "string"
+        },
+        "content": {
+          "description": "The content to write to the file",
+          "type": "string"
+        }
+      },
+      "required": [
+        "file_path",
+        "content"
+      ],
+      "additionalProperties": false
+    },
+    "eager_input_streaming": true
   },
   {
     "name": "CronCreate",
@@ -390,7 +398,7 @@
       ],
       "additionalProperties": false
     },
-    "defer_loading": true
+    "eager_input_streaming": true
   },
   {
     "name": "CronDelete",
@@ -409,7 +417,7 @@
       ],
       "additionalProperties": false
     },
-    "defer_loading": true
+    "eager_input_streaming": true
   },
   {
     "name": "CronList",
@@ -420,22 +428,11 @@
       "properties": {},
       "additionalProperties": false
     },
-    "defer_loading": true
-  },
-  {
-    "name": "EnterPlanMode",
-    "description": "Use this tool proactively when you're about to start a non-trivial implementation task. Getting user sign-off on your approach before writing code prevents wasted effort and ensures alignment. This tool transitions you into plan mode where you can explore the codebase and design an implementation approach for user approval.\n\n## When to Use This Tool\n\n**Prefer using EnterPlanMode** for implementation tasks unless they're simple. Use it when ANY of these conditions apply:\n\n1. **New Feature Implementation**: Adding meaningful new functionality\n   - Example: \"Add a logout button\" - where should it go? What should happen on click?\n   - Example: \"Add form validation\" - what rules? What error messages?\n\n2. **Multiple Valid Approaches**: The task can be solved in several different ways\n   - Example: \"Add caching to the API\" - could use Redis, in-memory, file-based, etc.\n   - Example: \"Improve performance\" - many optimization strategies possible\n\n3. **Code Modifications**: Changes that affect existing behavior or structure\n   - Example: \"Update the login flow\" - what exactly should change?\n   - Example: \"Refactor this component\" - what's the target architecture?\n\n4. **Architectural Decisions**: The task requires choosing between patterns or technologies\n   - Example: \"Add real-time updates\" - WebSockets vs SSE vs polling\n   - Example: \"Implement state management\" - Redux vs Context vs custom solution\n\n5. **Multi-File Changes**: The task will likely touch more than 2-3 files\n   - Example: \"Refactor the authentication system\"\n   - Example: \"Add a new API endpoint with tests\"\n\n6. **Unclear Requirements**: You need to explore before understanding the full scope\n   - Example: \"Make the app faster\" - need to profile and identify bottlenecks\n   - Example: \"Fix the bug in checkout\" - need to investigate root cause\n\n7. **User Preferences Matter**: The implementation could reasonably go multiple ways\n   - If you would use AskUserQuestion to clarify the approach, use EnterPlanMode instead\n   - Plan mode lets you explore first, then present options with context\n\n## When NOT to Use This Tool\n\nOnly skip EnterPlanMode for simple tasks:\n- Single-line or few-line fixes (typos, obvious bugs, small tweaks)\n- Adding a single function with clear requirements\n- Tasks where the user has given very specific, detailed instructions\n- Pure research/exploration tasks (use the Agent tool with explore agent instead)\n\n## What Happens in Plan Mode\n\nIn plan mode, you'll:\n1. Thoroughly explore the codebase using Glob, Grep, and Read tools\n2. Understand existing patterns and architecture\n3. Design an implementation approach\n4. Present your plan to the user for approval\n5. Use AskUserQuestion if you need to clarify approaches\n6. Exit plan mode with ExitPlanMode when ready to implement\n\n## Examples\n\n### GOOD - Use EnterPlanMode:\nUser: \"Add user authentication to the app\"\n- Requires architectural decisions (session vs JWT, where to store tokens, middleware structure)\n\nUser: \"Optimize the database queries\"\n- Multiple approaches possible, need to profile first, significant impact\n\nUser: \"Implement dark mode\"\n- Architectural decision on theme system, affects many components\n\nUser: \"Add a delete button to the user profile\"\n- Seems simple but involves: where to place it, confirmation dialog, API call, error handling, state updates\n\nUser: \"Update the error handling in the API\"\n- Affects multiple files, user should approve the approach\n\n### BAD - Don't use EnterPlanMode:\nUser: \"Fix the typo in the README\"\n- Straightforward, no planning needed\n\nUser: \"Add a console.log to debug this function\"\n- Simple, obvious implementation\n\nUser: \"What files handle routing?\"\n- Research task, not implementation planning\n\n## Important Notes\n\n- This tool REQUIRES user approval - they must consent to entering plan mode\n- If unsure whether to use it, err on the side of planning - it's better to get alignment upfront than to redo work\n- Users appreciate being consulted before significant changes are made to their codebase\n",
-    "input_schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {},
-      "additionalProperties": false
-    },
-    "defer_loading": true
+    "eager_input_streaming": true
   },
   {
     "name": "EnterWorktree",
-    "description": "Use this tool ONLY when explicitly instructed to work in a worktree — either by the user directly, or by project instructions (CLAUDE.md / memory). This tool creates an isolated git worktree and switches the current session into it.\n\n## When to Use\n\n- The user explicitly says \"worktree\" (e.g., \"start a worktree\", \"work in a worktree\", \"create a worktree\", \"use a worktree\")\n- CLAUDE.md or memory instructions direct you to work in a worktree for the current task\n\n## When NOT to Use\n\n- The user asks to create a branch, switch branches, or work on a different branch — use git commands instead\n- The user asks to fix a bug or work on a feature — use normal git workflow unless worktrees are explicitly requested by the user or project instructions\n- Never use this tool unless \"worktree\" is explicitly mentioned by the user or in CLAUDE.md / memory instructions\n\n## Requirements\n\n- Must be in a git repository, OR have WorktreeCreate/WorktreeRemove hooks configured in settings.json\n- Must not already be in a worktree\n\n## Behavior\n\n- In a git repository: creates a new git worktree inside `.claude/worktrees/` with a new branch based on HEAD\n- Outside a git repository: delegates to WorktreeCreate/WorktreeRemove hooks for VCS-agnostic isolation\n- Switches the session's working directory to the new worktree\n- Use ExitWorktree to leave the worktree mid-session (keep or remove). On session exit, if still in the worktree, the user will be prompted to keep or remove it\n\n## Entering an existing worktree\n\nPass `path` instead of `name` to switch the session into a worktree that already exists (e.g., one you just created with `git worktree add`). The path must appear in `git worktree list` for the current repository — paths that are not registered worktrees of this repo are rejected. ExitWorktree will not remove a worktree entered this way; use `action: \"keep\"` to return to the original directory.\n\n## Parameters\n\n- `name` (optional): A name for a new worktree. If neither `name` nor `path` is provided, a random name is generated.\n- `path` (optional): Path to an existing worktree of the current repository to enter instead of creating one. Mutually exclusive with `name`.\n",
+    "description": "Use this tool ONLY when explicitly instructed to work in a worktree — either by the user directly, or by project instructions (CLAUDE.md / memory). This tool creates an isolated git worktree and switches the current session into it.\n\n## When to Use\n\n- The user explicitly says \"worktree\" (e.g., \"start a worktree\", \"work in a worktree\", \"create a worktree\", \"use a worktree\")\n- CLAUDE.md or memory instructions direct you to work in a worktree for the current task\n\n## When NOT to Use\n\n- The user asks to create a branch, switch branches, or work on a different branch — use git commands instead\n- The user asks to fix a bug or work on a feature — use normal git workflow unless worktrees are explicitly requested by the user or project instructions\n- Never use this tool unless \"worktree\" is explicitly mentioned by the user or in CLAUDE.md / memory instructions\n\n## Requirements\n\n- Must be in a git repository, OR have WorktreeCreate/WorktreeRemove hooks configured in settings.json\n- Must not already be in a worktree\n\n## Behavior\n\n- In a git repository: creates a new git worktree inside `.claude/worktrees/` on a new branch. The base ref is governed by the `worktree.baseRef` setting: `fresh` (default) branches from origin/<default-branch>; `head` branches from your current local HEAD\n- Outside a git repository: delegates to WorktreeCreate/WorktreeRemove hooks for VCS-agnostic isolation\n- Switches the session's working directory to the new worktree\n- Use ExitWorktree to leave the worktree mid-session (keep or remove). On session exit, if still in the worktree, the user will be prompted to keep or remove it\n\n## Entering an existing worktree\n\nPass `path` instead of `name` to switch the session into a worktree that already exists (e.g., one you just created with `git worktree add`). The path must appear in `git worktree list` for the current repository — paths that are not registered worktrees of this repo are rejected. ExitWorktree will not remove a worktree entered this way; use `action: \"keep\"` to return to the original directory.\n\n## Parameters\n\n- `name` (optional): A name for a new worktree. If neither `name` nor `path` is provided, a random name is generated.\n- `path` (optional): Path to an existing worktree of the current repository to enter instead of creating one. Mutually exclusive with `name`.\n",
     "input_schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -451,7 +448,7 @@
       },
       "additionalProperties": false
     },
-    "defer_loading": true
+    "eager_input_streaming": true
   },
   {
     "name": "ExitPlanMode",
@@ -488,6 +485,7 @@
       },
       "additionalProperties": {}
     },
+    "eager_input_streaming": true,
     "defer_loading": true
   },
   {
@@ -515,7 +513,7 @@
       ],
       "additionalProperties": false
     },
-    "defer_loading": true
+    "eager_input_streaming": true
   },
   {
     "name": "ListMcpResourcesTool",
@@ -531,11 +529,11 @@
       },
       "additionalProperties": false
     },
-    "defer_loading": true
+    "eager_input_streaming": true
   },
   {
     "name": "Monitor",
-    "description": "Start a background monitor that streams events from a long-running script. Each stdout line is an event — you keep working and notifications arrive in the chat. Events arrive on their own schedule and are not replies from the user, even if one lands while you're waiting for the user to answer a question.\n\nMonitor is for the **streaming** case: \"tell me every time X happens.\" For one-shot \"wait until X is done,\" use Bash with run_in_background instead — you'll get a completion notification when it exits.\n\nYour script's stdout is the event stream. Each line becomes a notification. Exit ends the watch.\n\n  # Each matching log line is an event\n  tail -f /var/log/app.log | grep --line-buffered \"ERROR\"\n\n  # Each file change is an event\n  inotifywait -m --format '%e %f' /watched/dir\n\n  # Poll GitHub for new PR comments and emit one line per new comment\n  last=$(date -u +%Y-%m-%dT%H:%M:%SZ)\n  while true; do\n    now=$(date -u +%Y-%m-%dT%H:%M:%SZ)\n    gh api \"repos/owner/repo/issues/123/comments?since=$last\" --jq '.[] | \"\\(.user.login): \\(.body)\"'\n    last=$now; sleep 30\n  done\n\n  # Node script that emits events as they arrive (e.g. WebSocket listener)\n  node watch-for-events.js\n\n**Script quality:**\n- Always use `grep --line-buffered` in pipes — without it, pipe buffering delays events by minutes.\n- In poll loops, handle transient failures (`curl ... || true`) — one failed request shouldn't kill the monitor.\n- Poll intervals: 30s+ for remote APIs (rate limits), 0.5-1s for local checks.\n- Write a specific `description` — it appears in every notification (\"errors in deploy.log\" not \"watching logs\").\n- Only stdout is the event stream. Stderr goes to the output file (readable via Read) but does not trigger notifications — for a command you run directly (e.g. `python train.py 2>&1 | grep --line-buffered ...`), merge stderr with `2>&1` so its failures reach your filter. (No effect on `tail -f` of an existing log — that file only contains what its writer redirected.)\n\n**Coverage — silence is not success.** When watching a job or process for an outcome, your filter must match every terminal state, not just the happy path. A monitor that greps only for the success marker stays silent through a crashloop, a hung process, or an unexpected exit — and silence looks identical to \"still running.\" Before arming, ask: *if this process crashed right now, would my filter emit anything?* If not, widen it.\n\n  # Wrong — silent on crash, hang, or any non-success exit\n  tail -f run.log | grep --line-buffered \"elapsed_steps=\"\n\n  # Right — one alternation covering progress + the failure signatures you'd act on\n  tail -f run.log | grep -E --line-buffered \"elapsed_steps=|Traceback|Error|FAILED|assert|Killed|OOM\"\n\nFor poll loops checking job state, emit on every terminal status (`succeeded|failed|cancelled|timeout`), not just success. If you cannot confidently enumerate the failure signatures, broaden the grep alternation rather than narrow it — some extra noise is better than missing a crashloop.\n\n**Output volume**: Every stdout line is a conversation message, so the filter should be selective — but selective means \"the lines you'd act on,\" not \"only good news.\" Never pipe raw logs; use `grep --line-buffered`, `awk`, or a wrapper that emits exactly the success and failure signals you care about. Monitors that produce too many events are automatically stopped; restart with a tighter filter if this happens.\n\nStdout lines within 200ms are batched into a single notification, so multiline output from a single event groups naturally.\n\nThe script runs in the same shell environment as Bash. Exit ends the watch (exit code is reported). Timeout → killed. Set `persistent: true` for session-length watches (PR monitoring, log tails) — the monitor runs until you call TaskStop or the session ends. Use TaskStop to cancel early.",
+    "description": "Start a background monitor that streams events from a long-running script. Each stdout line is an event — you keep working and notifications arrive in the chat. Events arrive on their own schedule and are not replies from the user, even if one lands while you're waiting for the user to answer a question.\n\nPick by how many notifications you need:\n- **One** (\"tell me when the server is ready / the build finishes\") → use **Bash with `run_in_background`** and a command that exits when the condition is true, e.g. `until grep -q \"Ready in\" dev.log; do sleep 0.5; done`. You get a single completion notification when it exits.\n- **One per occurrence, indefinitely** (\"tell me every time an ERROR line appears\") → Monitor with an unbounded command (`tail -f`, `inotifywait -m`, `while true`).\n- **One per occurrence, until a known end** (\"emit each CI step result, stop when the run completes\") → Monitor with a command that emits lines and then exits.\n\nYour script's stdout is the event stream. Each line becomes a notification. Exit ends the watch.\n\n  # Each matching log line is an event\n  tail -f /var/log/app.log | grep --line-buffered \"ERROR\"\n\n  # Each file change is an event\n  inotifywait -m --format '%e %f' /watched/dir\n\n  # Poll GitHub for new PR comments and emit one line per new comment\n  last=$(date -u +%Y-%m-%dT%H:%M:%SZ)\n  while true; do\n    now=$(date -u +%Y-%m-%dT%H:%M:%SZ)\n    gh api \"repos/owner/repo/issues/123/comments?since=$last\" --jq '.[] | \"\\(.user.login): \\(.body)\"'\n    last=$now; sleep 30\n  done\n\n  # Node script that emits events as they arrive (e.g. WebSocket listener)\n  node watch-for-events.js\n\n  # Per-occurrence with a natural end: emit each CI check as it lands, exit when the run completes\n  prev=\"\"\n  while true; do\n    s=$(gh pr checks 123 --json name,bucket)\n    cur=$(jq -r '.[] | select(.bucket!=\"pending\") | \"\\(.name): \\(.bucket)\"' <<<\"$s\" | sort)\n    comm -13 <(echo \"$prev\") <(echo \"$cur\")\n    prev=$cur\n    jq -e 'all(.bucket!=\"pending\")' <<<\"$s\" >/dev/null && break\n    sleep 30\n  done\n\n**Don't use an unbounded command for a single notification.** `tail -f`, `inotifywait -m`, and `while true` never exit on their own, so the monitor stays armed until timeout even after the event has fired. For \"tell me when X is ready,\" use Bash `run_in_background` with an `until` loop instead (one notification, ends in seconds). Note that `tail -f log | grep -m 1 ...` does *not* fix this: if the log goes quiet after the match, `tail` never receives SIGPIPE and the pipeline hangs anyway.\n\n**Script quality:**\n- Always use `grep --line-buffered` in pipes — without it, pipe buffering delays events by minutes.\n- In poll loops, handle transient failures (`curl ... || true`) — one failed request shouldn't kill the monitor.\n- Poll intervals: 30s+ for remote APIs (rate limits), 0.5-1s for local checks.\n- Write a specific `description` — it appears in every notification (\"errors in deploy.log\" not \"watching logs\").\n- Only stdout is the event stream. Stderr goes to the output file (readable via Read) but does not trigger notifications — for a command you run directly (e.g. `python train.py 2>&1 | grep --line-buffered ...`), merge stderr with `2>&1` so its failures reach your filter. (No effect on `tail -f` of an existing log — that file only contains what its writer redirected.)\n\n**Coverage — silence is not success.** When watching a job or process for an outcome, your filter must match every terminal state, not just the happy path. A monitor that greps only for the success marker stays silent through a crashloop, a hung process, or an unexpected exit — and silence looks identical to \"still running.\" Before arming, ask: *if this process crashed right now, would my filter emit anything?* If not, widen it.\n\n  # Wrong — silent on crash, hang, or any non-success exit\n  tail -f run.log | grep --line-buffered \"elapsed_steps=\"\n\n  # Right — one alternation covering progress + the failure signatures you'd act on\n  tail -f run.log | grep -E --line-buffered \"elapsed_steps=|Traceback|Error|FAILED|assert|Killed|OOM\"\n\nFor poll loops checking job state, emit on every terminal status (`succeeded|failed|cancelled|timeout`), not just success. If you cannot confidently enumerate the failure signatures, broaden the grep alternation rather than narrow it — some extra noise is better than missing a crashloop.\n\n**Output volume**: Every stdout line is a conversation message, so the filter should be selective — but selective means \"the lines you'd act on,\" not \"only good news.\" Never pipe raw logs; use `grep --line-buffered`, `awk`, or a wrapper that emits exactly the success and failure signals you care about. Monitors that produce too many events are automatically stopped; restart with a tighter filter if this happens.\n\nStdout lines within 200ms are batched into a single notification, so multiline output from a single event groups naturally.\n\nThe script runs in the same shell environment as Bash. Exit ends the watch (exit code is reported). Timeout → killed. Set `persistent: true` for session-length watches (PR monitoring, log tails) — the monitor runs until you call TaskStop or the session ends. Use TaskStop to cancel early.",
     "input_schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -568,52 +566,7 @@
       ],
       "additionalProperties": false
     },
-    "defer_loading": true
-  },
-  {
-    "name": "NotebookEdit",
-    "description": "Completely replaces the contents of a specific cell in a Jupyter notebook (.ipynb file) with new source. Jupyter notebooks are interactive documents that combine code, text, and visualizations, commonly used for data analysis and scientific computing. The notebook_path parameter must be an absolute path, not a relative path. The cell_number is 0-indexed. Use edit_mode=insert to add a new cell at the index specified by cell_number. Use edit_mode=delete to delete the cell at the index specified by cell_number.",
-    "input_schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "notebook_path": {
-          "description": "The absolute path to the Jupyter notebook file to edit (must be absolute, not relative)",
-          "type": "string"
-        },
-        "cell_id": {
-          "description": "The ID of the cell to edit. When inserting a new cell, the new cell will be inserted after the cell with this ID, or at the beginning if not specified.",
-          "type": "string"
-        },
-        "new_source": {
-          "description": "The new source for the cell",
-          "type": "string"
-        },
-        "cell_type": {
-          "description": "The type of the cell (code or markdown). If not specified, it defaults to the current cell type. If using edit_mode=insert, this is required.",
-          "type": "string",
-          "enum": [
-            "code",
-            "markdown"
-          ]
-        },
-        "edit_mode": {
-          "description": "The type of edit to make (replace, insert, delete). Defaults to replace.",
-          "type": "string",
-          "enum": [
-            "replace",
-            "insert",
-            "delete"
-          ]
-        }
-      },
-      "required": [
-        "notebook_path",
-        "new_source"
-      ],
-      "additionalProperties": false
-    },
-    "defer_loading": true
+    "eager_input_streaming": true
   },
   {
     "name": "PushNotification",
@@ -638,7 +591,7 @@
       ],
       "additionalProperties": false
     },
-    "defer_loading": true
+    "eager_input_streaming": true
   },
   {
     "name": "ReadMcpResourceTool",
@@ -662,11 +615,11 @@
       ],
       "additionalProperties": false
     },
-    "defer_loading": true
+    "eager_input_streaming": true
   },
   {
     "name": "RemoteTrigger",
-    "description": "Call the claude.ai remote-trigger API. Use this instead of curl — the OAuth token is added automatically in-process and never exposed.\n\nActions:\n- list: GET /v1/code/triggers\n- get: GET /v1/code/triggers/{trigger_id}\n- create: POST /v1/code/triggers (requires body)\n- update: POST /v1/code/triggers/{trigger_id} (requires body, partial update)\n- run: POST /v1/code/triggers/{trigger_id}/run (optional body)\n\nThe response is the raw JSON from the API.",
+    "description": "Call the claude.ai remote-trigger API. Use this instead of curl — the OAuth token is added automatically in-process and never exposed.\n\nActions:\n- list: GET /v1/code/triggers\n- get: GET /v1/code/triggers/{trigger_id}\n- create: POST /v1/code/triggers (requires body)\n- update: POST /v1/code/triggers/{trigger_id} (requires body, partial update)\n- run: POST /v1/code/triggers/{trigger_id}/run (optional body)\n\nThe response is the raw JSON from the API. For create/update, a summary line is appended with the server-parsed run time and the routine's claude.ai URL — relay both to the user so they can confirm the time is right and know where the result will appear.",
     "input_schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -700,7 +653,7 @@
       ],
       "additionalProperties": false
     },
-    "defer_loading": true
+    "eager_input_streaming": true
   },
   {
     "name": "TaskCreate",
@@ -736,7 +689,7 @@
       ],
       "additionalProperties": false
     },
-    "defer_loading": true
+    "eager_input_streaming": true
   },
   {
     "name": "TaskGet",
@@ -755,7 +708,7 @@
       ],
       "additionalProperties": false
     },
-    "defer_loading": true
+    "eager_input_streaming": true
   },
   {
     "name": "TaskList",
@@ -766,40 +719,7 @@
       "properties": {},
       "additionalProperties": false
     },
-    "defer_loading": true
-  },
-  {
-    "name": "TaskOutput",
-    "description": "DEPRECATED: Background tasks return their output file path in the tool result, and you receive a <task-notification> with the same path when the task completes.\n- For bash tasks: prefer using the Read tool on that output file path — it contains stdout/stderr.\n- For local_agent tasks: use the Agent tool result directly. Do NOT Read the .output file — it is a symlink to the full sub-agent conversation transcript (JSONL) and will overflow your context window.\n- For remote_agent tasks: prefer using the Read tool on the output file path — it contains the streamed remote session output (same as bash).\n\n- Retrieves output from a running or completed task (background shell, agent, or remote session)\n- Takes a task_id parameter identifying the task\n- Returns the task output along with status information\n- Use block=true (default) to wait for task completion\n- Use block=false for non-blocking check of current status\n- Task IDs can be found using the /tasks command\n- Works with all task types: background shells, async agents, and remote sessions",
-    "input_schema": {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "type": "object",
-      "properties": {
-        "task_id": {
-          "description": "The task ID to get output from",
-          "type": "string"
-        },
-        "block": {
-          "description": "Whether to wait for completion",
-          "default": true,
-          "type": "boolean"
-        },
-        "timeout": {
-          "description": "Max wait time in ms",
-          "default": 30000,
-          "type": "number",
-          "minimum": 0,
-          "maximum": 600000
-        }
-      },
-      "required": [
-        "task_id",
-        "block",
-        "timeout"
-      ],
-      "additionalProperties": false
-    },
-    "defer_loading": true
+    "eager_input_streaming": true
   },
   {
     "name": "TaskStop",
@@ -819,7 +739,7 @@
       },
       "additionalProperties": false
     },
-    "defer_loading": true
+    "eager_input_streaming": true
   },
   {
     "name": "TaskUpdate",
@@ -893,7 +813,7 @@
       ],
       "additionalProperties": false
     },
-    "defer_loading": true
+    "eager_input_streaming": true
   },
   {
     "name": "WebFetch",
@@ -918,11 +838,11 @@
       ],
       "additionalProperties": false
     },
-    "defer_loading": true
+    "eager_input_streaming": true
   },
   {
     "name": "WebSearch",
-    "description": "\n- Allows Claude to search the web and use the results to inform responses\n- Provides up-to-date information for current events and recent data\n- Returns search result information formatted as search result blocks, including links as markdown hyperlinks\n- Use this tool for accessing information beyond Claude's knowledge cutoff\n- Searches are performed automatically within a single API call\n\nCRITICAL REQUIREMENT - You MUST follow this:\n  - After answering the user's question, you MUST include a \"Sources:\" section at the end of your response\n  - In the Sources section, list all relevant URLs from the search results as markdown hyperlinks: [Title](URL)\n  - This is MANDATORY - never skip including sources in your response\n  - Example format:\n\n    [Your answer here]\n\n    Sources:\n    - [Source Title 1](https://example.com/1)\n    - [Source Title 2](https://example.com/2)\n\nUsage notes:\n  - Domain filtering is supported to include or block specific websites\n  - Web search is only available in the US\n\nIMPORTANT - Use the correct year in search queries:\n  - The current month is April 2026. You MUST use this year when searching for recent information, documentation, or current events.\n  - Example: If the user asks for \"latest React docs\", search for \"React documentation\" with the current year, NOT last year\n",
+    "description": "\n- Allows Claude to search the web and use the results to inform responses\n- Provides up-to-date information for current events and recent data\n- Returns search result information formatted as search result blocks, including links as markdown hyperlinks\n- Use this tool for accessing information beyond Claude's knowledge cutoff\n- Searches are performed automatically within a single API call\n\nCRITICAL REQUIREMENT - You MUST follow this:\n  - After answering the user's question, you MUST include a \"Sources:\" section at the end of your response\n  - In the Sources section, list all relevant URLs from the search results as markdown hyperlinks: [Title](URL)\n  - This is MANDATORY - never skip including sources in your response\n  - Example format:\n\n    [Your answer here]\n\n    Sources:\n    - [Source Title 1](https://example.com/1)\n    - [Source Title 2](https://example.com/2)\n\nUsage notes:\n  - Domain filtering is supported to include or block specific websites\n  - Web search is only available in the US\n\nIMPORTANT - Use the correct year in search queries:\n  - The current month is May 2026. You MUST use this year when searching for recent information, documentation, or current events.\n  - Example: If the user asks for \"latest React docs\", search for \"React documentation\" with the current year, NOT last year\n",
     "input_schema": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
@@ -952,6 +872,6 @@
       ],
       "additionalProperties": false
     },
-    "defer_loading": true
+    "eager_input_streaming": true
   }
 ]

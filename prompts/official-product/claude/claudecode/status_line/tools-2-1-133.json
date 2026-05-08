@@ -31,7 +31,8 @@
         "file_path"
       ],
       "additionalProperties": false
-    }
+    },
+    "eager_input_streaming": true
   },
   {
     "name": "Edit",
@@ -64,6 +65,7 @@
         "new_string"
       ],
       "additionalProperties": false
-    }
+    },
+    "eager_input_streaming": true
   }
 ]
