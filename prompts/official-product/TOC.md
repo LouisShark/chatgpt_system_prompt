@@ -25,15 +25,17 @@
 ### claude/claudecode
 
 - [Claude Code System Prompts](./claude/claudecode/README.md)
-- [Claude Code Tools (v2.1.118)](./claude/claudecode/ClaudeCodeTools-2-1-133.md)
+- [Claude Code Tools (v2.1.133)](./claude/claudecode/ClaudeCodeTools-2-1-133.md)
 - [ClaudeCodeSystem-2-1-133](./claude/claudecode/ClaudeCodeSystem-2-1-133.md)
-- [System Reminders (v2.1.118)](./claude/claudecode/system-reminders-2-1-133.md)
+- [System Reminders (v2.1.133)](./claude/claudecode/system-reminders-2-1-133.md)
 
 ### claude/claudecode/auxiliary
 
+- [analyze_session_facets-2-1-133](./claude/claudecode/auxiliary/analyze_session_facets-2-1-133.md)
 - [compact-2-1-133](./claude/claudecode/auxiliary/compact-2-1-133.md)
 - [slug_name-2-1-133](./claude/claudecode/auxiliary/slug_name-2-1-133.md)
 - [summarize_conversation-2-1-133](./claude/claudecode/auxiliary/summarize_conversation-2-1-133.md)
+- [summarize_transcript_chunk-2-1-133](./claude/claudecode/auxiliary/summarize_transcript_chunk-2-1-133.md)
 
 ### claude/claudecode/code_guide
 
