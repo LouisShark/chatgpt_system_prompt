@@ -25,35 +25,35 @@
 ### claude/claudecode
 
 - [Claude Code System Prompts](./claude/claudecode/README.md)
-- [Claude Code Tools (v2.1.118)](./claude/claudecode/ClaudeCodeTools-2-1-118.md)
-- [ClaudeCodeSystem-2-1-118](./claude/claudecode/ClaudeCodeSystem-2-1-118.md)
-- [System Reminders (v2.1.118)](./claude/claudecode/system-reminders-2-1-118.md)
+- [Claude Code Tools (v2.1.118)](./claude/claudecode/ClaudeCodeTools-2-1-133.md)
+- [ClaudeCodeSystem-2-1-133](./claude/claudecode/ClaudeCodeSystem-2-1-133.md)
+- [System Reminders (v2.1.118)](./claude/claudecode/system-reminders-2-1-133.md)
 
 ### claude/claudecode/auxiliary
 
-- [compact-2-1-118](./claude/claudecode/auxiliary/compact-2-1-118.md)
-- [slug_name-2-1-118](./claude/claudecode/auxiliary/slug_name-2-1-118.md)
-- [summarize_conversation-2-1-118](./claude/claudecode/auxiliary/summarize_conversation-2-1-118.md)
+- [compact-2-1-133](./claude/claudecode/auxiliary/compact-2-1-133.md)
+- [slug_name-2-1-133](./claude/claudecode/auxiliary/slug_name-2-1-133.md)
+- [summarize_conversation-2-1-133](./claude/claudecode/auxiliary/summarize_conversation-2-1-133.md)
 
 ### claude/claudecode/code_guide
 
-- [ClaudeCodeGuideAgent-2-1-118](./claude/claudecode/code_guide/ClaudeCodeGuideAgent-2-1-118.md)
+- [ClaudeCodeGuideAgent-2-1-133](./claude/claudecode/code_guide/ClaudeCodeGuideAgent-2-1-133.md)
 
 ### claude/claudecode/explore
 
-- [ClaudeCodeExplore-2-1-118](./claude/claudecode/explore/ClaudeCodeExplore-2-1-118.md)
+- [ClaudeCodeExplore-2-1-133](./claude/claudecode/explore/ClaudeCodeExplore-2-1-133.md)
 
 ### claude/claudecode/file_search
 
-- [ClaudeCodeFileSearchSpecialist-2-1-118](./claude/claudecode/file_search/ClaudeCodeFileSearchSpecialist-2-1-118.md)
+- [ClaudeCodeFileSearchSpecialist-2-1-133](./claude/claudecode/file_search/ClaudeCodeFileSearchSpecialist-2-1-133.md)
 
 ### claude/claudecode/plan
 
-- [ClaudeCodePlanMode-2-1-118](./claude/claudecode/plan/ClaudeCodePlanMode-2-1-118.md)
+- [ClaudeCodePlanMode-2-1-133](./claude/claudecode/plan/ClaudeCodePlanMode-2-1-133.md)
 
 ### claude/claudecode/status_line
 
-- [ClaudeCodeStatusLine-2-1-118](./claude/claudecode/status_line/ClaudeCodeStatusLine-2-1-118.md)
+- [ClaudeCodeStatusLine-2-1-133](./claude/claudecode/status_line/ClaudeCodeStatusLine-2-1-133.md)
 
 ### claude/clauderesearch
 
