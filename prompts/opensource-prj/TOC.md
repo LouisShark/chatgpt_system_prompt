@@ -36,6 +36,10 @@
 - [README](./II-agent/README.md)
 - [system](./II-agent/system.md)
 
+### micode
+
+- [system](./micode/system.md)
+
 ### suna
 
 - [agent_system_prompt](./suna/agent_system_prompt.md)
