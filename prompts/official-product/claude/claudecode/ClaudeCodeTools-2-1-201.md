@@ -1,12 +1,14 @@
-# Claude Code Tools (v2.1.168)
+# Claude Code Tools (v2.1.201, SDK-CLI partial)
 
-Captured from `claude-cli/2.1.168` trace `log-2026-06-08-06-52-06.jsonl`. The main agent's built-in catalog totals **30 tools**: **12 core** plus **18 deferred** behind ToolSearch.
+Captured from `claude-cli/2.1.201` `cc_entrypoint=sdk-cli` (`claude -p`) traces. This documents the **10 core tools** loaded for the `-p` main agent plus **3 deferred schemas** loaded via ToolSearch — 13 tools total with verified schemas.
 
-**Main core tools:** Agent, AskUserQuestion, Bash, Edit, EnterWorktree, Read, ScheduleWakeup, SendUserFile, Skill, ToolSearch, Workflow, Write.
+**Main core tools (10):** Agent, Bash, Edit, Read, ReportFindings, ScheduleWakeup, Skill, ToolSearch, Workflow, Write.
 
-**Deferred built-ins observed by name only:** CronCreate, CronDelete, CronList, EnterPlanMode, ExitPlanMode, ExitWorktree, Monitor, NotebookEdit, PushNotification, RemoteTrigger, TaskCreate, TaskGet, TaskList, TaskOutput, TaskStop, TaskUpdate, WebFetch, WebSearch. In this trace only **WebFetch** and **WebSearch** had schemas loaded outside the root core set; the other 16 deferred schemas are not asserted in the root JSON.
+**Deferred schemas loaded here (3):** Monitor, NotebookEdit, WebFetch.
 
-**Environment-specific note:** the captured Agent description includes this machine's installed custom/plugin subagents (for example claude-obsidian and codex entries). They are real request parameters from this trace, but not necessarily Claude Code core defaults.
+> ⚠️ **SDK-CLI variant, not the full interactive catalog.** Versus the 2.1.168 interactive capture (12 core): `ReportFindings` is new; `AskUserQuestion`, `EnterWorktree`, and `SendUserFile` are **not loaded** under `-p` (interactive-only); `WebSearch` was not loaded in these traces. Those four are documented only in the 2.1.168 version (git history). The full deferred name list and its 2.1.168 delta are in `system-reminders-2-1-201.md`.
+
+**Environment-specific note:** the captured Agent description includes this machine's installed custom/plugin subagents (e.g. claude-obsidian, codex entries). They are real request parameters, not necessarily Claude Code core defaults.
 
 ---
 
@@ -14,16 +16,7 @@ Captured from `claude-cli/2.1.168` trace `log-2026-06-08-06-52-06.jsonl`. The ma
 
 Launch a new agent to handle complex, multi-step tasks. Each agent type has specific capabilities and tools available to it.
 
-Available agent types and the tools they have access to:
-- claude: Catch-all for any task that doesn't fit a more specific agent. FleetView's default when no agent name is typed. (Tools: *)
-- claude-code-guide: Use this agent when the user asks questions ("Can Claude...", "Does Claude...", "How do I...") about: (1) Claude Code (the CLI tool) - features, hooks, slash commands, MCP servers, settings, IDE integrations, keyboard shortcuts; (2) Claude Agent SDK - building custom agents; (3) Claude API (formerly Anthropic API) - API usage, tool use, Anthropic SDK usage. **IMPORTANT:** Before spawning a new agent, check if there is already a running or recently completed claude-code-guide agent that you can continue via SendMessage. (Tools: Bash, Read, WebFetch, WebSearch)
-- claude-obsidian:wiki-ingest: Parallel batch ingestion agent for the Obsidian wiki vault. Dispatched when multiple sources need to be ingested simultaneously. Processes one source fully (read, extract, file entities and concepts, update index) then reports what was created and updated. Use when the user says "ingest all", "batch ingest", or provides multiple files at once. <example>Context: User drops 5 transcript files into .raw/ and says "ingest all of these" assistant: "I'll dispatch parallel agents to process all 5 sources simultaneously." </example> <example>Context: User says "process everything in .raw/ that hasn't been ingested yet" assistant: "I'll use wiki-ingest agents to handle each source in parallel." </example> (Tools: Read, Write, Edit, Glob, Grep)
-- claude-obsidian:wiki-lint: Comprehensive wiki health check agent. Scans for orphan pages, dead links, stale claims, missing cross-references, frontmatter gaps, and empty sections. Generates a structured lint report. Dispatched when the user says "lint the wiki", "health check", "wiki audit", or "clean up". <example>Context: User says "lint the wiki" after 15 ingests assistant: "I'll dispatch the wiki-lint agent for a full health check." </example> <example>Context: User says "find all orphan pages" assistant: "I'll use the wiki-lint agent to scan for pages with no inbound links." </example> (Tools: Read, Write, Glob, Grep, Bash)
-- codex:codex-rescue: Proactively use when Claude Code is stuck, wants a second implementation or diagnosis pass, needs a deeper root-cause investigation, or should hand a substantial coding task to Codex through the shared runtime (Tools: Bash)
-- Explore: Read-only search agent for broad fan-out searches — when answering means sweeping many files, directories, or naming conventions and you only need the conclusion, not the file dumps. It reads excerpts rather than whole files, so it locates code; it doesn't review or audit it. Specify search breadth: "medium" for moderate exploration, "very thorough" for multiple locations and naming conventions. (Tools: All tools except Agent, ExitPlanMode, Edit, Write, NotebookEdit)
-- general-purpose: General-purpose agent for researching complex questions, searching for code, and executing multi-step tasks. When you are searching for a keyword or file and are not confident that you will find the right match in the first few tries use this agent to perform the search for you. (Tools: *)
-- Plan: Software architect agent for designing implementation plans. Use this when you need to plan the implementation strategy for a task. Returns step-by-step plans, identifies critical files, and considers architectural trade-offs. (Tools: All tools except Agent, ExitPlanMode, Edit, Write, NotebookEdit)
-- statusline-setup: Use this agent to configure the user's Claude Code status line setting. (Tools: Read, Edit)
+Available agent types are listed in <system-reminder> messages in the conversation.
 
 When using the Agent tool, specify a subagent_type parameter to select which agent type to use. If omitted, the general-purpose agent is used.
 
@@ -33,9 +26,9 @@ Reach for this when the task matches an available agent type, when you have inde
 
 - The agent's final message is returned to you as the tool result; it is not shown to the user — relay what matters.
 - Use SendMessage with the agent's ID or name to continue a previously spawned agent with its context intact; a new Agent call starts fresh.
+- Each agent type's model, reasoning effort, and tools come from its definition (`.claude/agents/*.md` frontmatter or SDK `agents`).
 - `isolation: "worktree"` gives the agent its own git worktree (auto-cleaned if unchanged).
-- `run_in_background: true` runs the agent asynchronously; you'll be notified when it completes.
-- When you launch multiple agents for independent work, send them in a single message with multiple tool uses so they run concurrently
+- Subagents run in the background by default; you'll be notified when one completes. Pass `run_in_background: false` for a synchronous run when you need the result before continuing.
 
 ### Input schema
 
@@ -57,23 +50,25 @@ Reach for this when the task matches an available agent type, when you have inde
       "type": "string"
     },
     "model": {
-      "description": "Optional model override for this agent. Takes precedence over the agent definition's model frontmatter. If omitted, uses the agent definition's model, or inherits from the parent.",
+      "description": "Optional model override for this agent. Takes precedence over the agent definition's model frontmatter. If omitted, uses the agent definition's model, or inherits from the parent. Ignored for subagent_type: \"fork\" — forks always inherit the parent model.",
       "type": "string",
       "enum": [
         "sonnet",
         "opus",
-        "haiku"
+        "haiku",
+        "fable"
       ]
     },
     "run_in_background": {
-      "description": "Set to true to run this agent in the background. You will be notified when it completes.",
+      "description": "Agents run in the background by default; you will be notified when one completes. Set to false to run this agent synchronously when you need its result before continuing.",
       "type": "boolean"
     },
     "isolation": {
-      "description": "Isolation mode. \"worktree\" creates a temporary git worktree so the agent works on an isolated copy of the repo.",
+      "description": "Isolation mode. \"worktree\" creates a temporary git worktree so the agent works on an isolated copy of the repo. \"remote\" launches the agent in a remote cloud environment (always runs in background; availability is gated).",
       "type": "string",
       "enum": [
-        "worktree"
+        "worktree",
+        "remote"
       ]
     }
   },
@@ -84,149 +79,6 @@ Reach for this when the task matches an available agent type, when you have inde
   "additionalProperties": false
 }
 ```
-
-eager_input_streaming: true
-
-## AskUserQuestion
-
-Use this tool only when you are blocked on a decision that is genuinely the user's to make: one you cannot resolve from the request, the code, or sensible defaults.
-
-Usage notes:
-- Users will always be able to select "Other" to provide custom text input
-- Use multiSelect: true to allow multiple answers to be selected for a question
-- If you recommend a specific option, make that the first option in the list and add "(Recommended)" at the end of the label
-
-Plan mode note: To switch into plan mode, use EnterPlanMode (not this tool). Once in plan mode, use this tool to clarify requirements or choose between approaches BEFORE finalizing your plan. Do NOT use this tool to ask "Is my plan ready?", "Should I proceed?", or otherwise reference "the plan" in questions — the user cannot see the plan until you call ExitPlanMode for approval.
-
-Reserve this for decisions where the user's answer changes what you do next — not for choices with a conventional default or facts you can verify in the codebase yourself. In those cases pick the obvious option, mention it in your response, and proceed.
-
-Preview feature:
-Use the optional `preview` field on options when presenting concrete artifacts that users need to visually compare:
-- ASCII mockups of UI layouts or components
-- Code snippets showing different implementations
-- Diagram variations
-- Configuration examples
-
-Preview content is rendered as markdown in a monospace box. Multi-line text with newlines is supported. When any option has a preview, the UI switches to a side-by-side layout with a vertical option list on the left and preview on the right. Do not use previews for simple preference questions where labels and descriptions suffice. Note: previews are only supported for single-select questions (not multiSelect).
-
-
-### Input schema
-
-```json
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
-  "properties": {
-    "questions": {
-      "description": "Questions to ask the user (1-4 questions)",
-      "minItems": 1,
-      "maxItems": 4,
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "question": {
-            "description": "The complete question to ask the user. Should be clear, specific, and end with a question mark. Example: \"Which library should we use for date formatting?\" If multiSelect is true, phrase it accordingly, e.g. \"Which features do you want to enable?\"",
-            "type": "string"
-          },
-          "header": {
-            "description": "Very short label displayed as a chip/tag (max 12 chars). Examples: \"Auth method\", \"Library\", \"Approach\".",
-            "type": "string"
-          },
-          "options": {
-            "description": "The available choices for this question. Must have 2-4 options. Each option should be a distinct, mutually exclusive choice (unless multiSelect is enabled). There should be no 'Other' option, that will be provided automatically.",
-            "minItems": 2,
-            "maxItems": 4,
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "label": {
-                  "description": "The display text for this option that the user will see and select. Should be concise (1-5 words) and clearly describe the choice.",
-                  "type": "string"
-                },
-                "description": {
-                  "description": "Explanation of what this option means or what will happen if chosen. Useful for providing context about trade-offs or implications.",
-                  "type": "string"
-                },
-                "preview": {
-                  "description": "Optional preview content rendered when this option is focused. Use for mockups, code snippets, or visual comparisons that help users compare options. See the tool description for the expected content format.",
-                  "type": "string"
-                }
-              },
-              "required": [
-                "label",
-                "description"
-              ],
-              "additionalProperties": false
-            }
-          },
-          "multiSelect": {
-            "description": "Set to true to allow the user to select multiple options instead of just one. Use when choices are not mutually exclusive.",
-            "default": false,
-            "type": "boolean"
-          }
-        },
-        "required": [
-          "question",
-          "header",
-          "options",
-          "multiSelect"
-        ],
-        "additionalProperties": false
-      }
-    },
-    "answers": {
-      "description": "User answers collected by the permission component",
-      "type": "object",
-      "propertyNames": {
-        "type": "string"
-      },
-      "additionalProperties": {
-        "type": "string"
-      }
-    },
-    "annotations": {
-      "description": "Optional per-question annotations from the user (e.g., notes on preview selections). Keyed by question text.",
-      "type": "object",
-      "propertyNames": {
-        "type": "string"
-      },
-      "additionalProperties": {
-        "type": "object",
-        "properties": {
-          "preview": {
-            "description": "The preview content of the selected option, if the question used previews.",
-            "type": "string"
-          },
-          "notes": {
-            "description": "Free-text notes the user added to their selection.",
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      }
-    },
-    "metadata": {
-      "description": "Optional metadata for tracking and analytics purposes. Not displayed to user.",
-      "type": "object",
-      "properties": {
-        "source": {
-          "description": "Optional identifier for the source of this question (e.g., \"remember\" for /remember command). Used for analytics tracking.",
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
-    }
-  },
-  "required": [
-    "questions"
-  ],
-  "additionalProperties": false
-}
-```
-
-eager_input_streaming: true
 
 ## Bash
 
@@ -242,6 +94,7 @@ By default, your command will be run in a sandbox. This sandbox controls which d
 
 The sandbox has the following restrictions:
 Filesystem: {{user_sandbox_filesystem_config}}
+Network: {{user_sandbox_network_config}}
 
  - You should always default to running commands within the sandbox. Do NOT attempt to set `dangerouslyDisableSandbox: true` unless:
   - The user *explicitly* asks you to bypass sandbox
@@ -299,8 +152,6 @@ Filesystem: {{user_sandbox_filesystem_config}}
 }
 ```
 
-eager_input_streaming: true
-
 ## Edit
 
 Performs exact string replacement in a file.
@@ -342,69 +193,6 @@ Performs exact string replacement in a file.
   "additionalProperties": false
 }
 ```
-
-eager_input_streaming: true
-
-## EnterWorktree
-
-Use this tool ONLY when explicitly instructed to work in a worktree — either by the user directly, or by project instructions (CLAUDE.md / memory). This tool creates an isolated git worktree and switches the current session into it.
-
-## When to Use
-
-- The user explicitly says "worktree" (e.g., "start a worktree", "work in a worktree", "create a worktree", "use a worktree")
-- CLAUDE.md or memory instructions direct you to work in a worktree for the current task
-
-## When NOT to Use
-
-- The user asks to create a branch, switch branches, or work on a different branch — use git commands instead
-- The user asks to fix a bug or work on a feature — use normal git workflow unless worktrees are explicitly requested by the user or project instructions
-- Never use this tool unless "worktree" is explicitly mentioned by the user or in CLAUDE.md / memory instructions
-
-## Requirements
-
-- Must be in a git repository, OR have WorktreeCreate/WorktreeRemove hooks configured in settings.json
-- Must not already be in a worktree session when creating a new worktree (`name`); switching into another existing worktree via `path` is allowed
-
-## Behavior
-
-- In a git repository: creates a new git worktree inside `.claude/worktrees/` on a new branch. The base ref is governed by the `worktree.baseRef` setting: `fresh` (default) branches from origin/<default-branch>; `head` branches from your current local HEAD
-- Outside a git repository: delegates to WorktreeCreate/WorktreeRemove hooks for VCS-agnostic isolation
-- Switches the session's working directory to the new worktree
-- Use ExitWorktree to leave the worktree mid-session (keep or remove). On session exit, if still in the worktree, the user will be prompted to keep or remove it
-
-## Entering an existing worktree
-
-Pass `path` instead of `name` to switch the session into a worktree that already exists (e.g., one you just created with `git worktree add`). The path must appear in `git worktree list` for the current repository — paths that are not registered worktrees of this repo are rejected. ExitWorktree will not remove a worktree entered this way; use `action: "keep"` to return to the original directory.
-
-Switching with `path` also works when the session is already in a worktree (the previous worktree is left on disk, untouched, and only the new one is tracked for exit-time cleanup), and from agents whose working directory was pinned at launch (subagent isolation or explicit cwd). In both cases the target must be a worktree under `.claude/worktrees/` of the same repository, and from a pinned agent the switch only affects this agent, not the parent session. After a further switch, previously-visited worktrees are no longer writable — re-issue EnterWorktree with `path` to return to one.
-
-## Parameters
-
-- `name` (optional): A name for a new worktree. If neither `name` nor `path` is provided, a random name is generated.
-- `path` (optional): Path to an existing worktree of the current repository to enter instead of creating one. Mutually exclusive with `name`.
-
-
-### Input schema
-
-```json
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
-  "properties": {
-    "name": {
-      "description": "Optional name for a new worktree. Each \"/\"-separated segment may contain only letters, digits, dots, underscores, and dashes; max 64 chars total. A random name is generated if not provided. Mutually exclusive with `path`.",
-      "type": "string"
-    },
-    "path": {
-      "description": "Path to an existing worktree of the current repository to switch into instead of creating a new one. Must appear in `git worktree list` for the current repo. Mutually exclusive with `name`.",
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
-```
-
-eager_input_streaming: true
 
 ## Read
 
@@ -453,7 +241,91 @@ Reads a file from the local filesystem.
 }
 ```
 
-eager_input_streaming: true
+## ReportFindings
+
+Report code-review findings as a typed list so the host UI can render them. Use this only when the active code-review instructions tell you to report findings with this tool; otherwise follow whatever output format those instructions specify. When reporting a review's results, call it once with the verified findings ranked most-severe first (empty array if nothing survived verification) and do not also print the findings as text. When re-reporting after applying fixes (only if the apply instructions ask for it), set `outcome` on each finding to what actually happened.
+
+### Input schema
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "level": {
+      "description": "Effort level the review ran at",
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ]
+    },
+    "findings": {
+      "description": "Verified findings, most-severe first; empty if none survived",
+      "maxItems": 32,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "description": "Repo-relative path of the file the finding is in",
+            "type": "string"
+          },
+          "line": {
+            "description": "1-indexed line the finding anchors to",
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
+          },
+          "summary": {
+            "description": "One-sentence statement of the defect",
+            "type": "string"
+          },
+          "failure_scenario": {
+            "description": "Concrete inputs/state → wrong output/crash",
+            "type": "string"
+          },
+          "category": {
+            "description": "Short kebab-case slug of the finding type, e.g. \"correctness\", \"simplification\", \"efficiency\", \"test-coverage\"",
+            "type": "string",
+            "maxLength": 40
+          },
+          "verdict": {
+            "description": "Set when a verify pass ran; absent on inline-only reviews",
+            "type": "string",
+            "enum": [
+              "CONFIRMED",
+              "PLAUSIBLE"
+            ]
+          },
+          "outcome": {
+            "description": "Set ONLY when re-reporting after applying fixes: what happened to this finding",
+            "type": "string",
+            "enum": [
+              "fixed",
+              "skipped",
+              "no_change_needed"
+            ]
+          }
+        },
+        "required": [
+          "file",
+          "summary",
+          "failure_scenario"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "findings"
+  ],
+  "additionalProperties": false
+}
+```
 
 ## ScheduleWakeup
 
@@ -481,7 +353,6 @@ The runtime clamps to [60, 3600], so you don't need to clamp yourself.
 ## The reason field
 
 One short sentence on what you chose and why. Goes to telemetry and is shown back to the user. "watching CI run" beats "waiting." The user reads this to understand what you're doing without having to predict your cadence in advance — make it specific.
-
 
 ### Input schema
 
@@ -512,54 +383,6 @@ One short sentence on what you chose and why. Goes to telemetry and is shown bac
 }
 ```
 
-eager_input_streaming: true
-
-## SendUserFile
-
-Send files to the user. Use this when the file *is* the deliverable — a generated diagram, a report, a screenshot, a built artifact — and you want it surfaced, not just mentioned. Paths can be absolute or relative to the current working directory.
-
-Add a `caption` when a one-liner of context helps ("the failing case is row 42", "before vs after"). Skip it if the file speaks for itself.
-
-Set `status` on every call. Use `proactive` when you're initiating — the user is away and you want this to reach their phone (build artifact ready, report generated). Use `normal` when replying to something the user just said.
-
-### Input schema
-
-```json
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
-  "properties": {
-    "files": {
-      "description": "File paths (absolute or relative to cwd) to send to the user.",
-      "minItems": 1,
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "caption": {
-      "description": "Optional short caption for the file(s).",
-      "type": "string"
-    },
-    "status": {
-      "description": "Use 'proactive' when you're surfacing a file the user hasn't asked for and needs to see now — a generated artifact, a completed report. Use 'normal' when replying to something the user just said.",
-      "type": "string",
-      "enum": [
-        "normal",
-        "proactive"
-      ]
-    }
-  },
-  "required": [
-    "files",
-    "status"
-  ],
-  "additionalProperties": false
-}
-```
-
-eager_input_streaming: true
-
 ## Skill
 
 Execute a skill within the main conversation
@@ -571,6 +394,7 @@ When users reference a "slash command" or "/<something>", they are referring to 
 How to invoke:
 - Set `skill` to the exact name of an available skill (no leading slash). For plugin-namespaced skills use the fully qualified `plugin:skill` form.
 - Set `args` to pass optional arguments.
+- Some skills are scoped to a directory: their name is prefixed with the directory (e.g. `apps/web:deploy`) and their description says which directory they apply to. When a skill name has both a scoped and an unscoped variant, pick by the files you are working on: if the files are under a variant's directory, invoke that variant (most specific directory wins); otherwise invoke the unscoped one.
 
 Important:
 - Available skills are listed in system-reminder messages in the conversation
@@ -580,7 +404,6 @@ Important:
 - Do not invoke a skill that is already running
 - Do not use this tool for built-in CLI commands (like /help, /clear, etc.)
 - If you see a <command-name> tag in the current conversation turn, the skill has ALREADY been loaded - follow the instructions directly instead of calling this tool again
-
 
 ### Input schema
 
@@ -604,8 +427,6 @@ Important:
   "additionalProperties": false
 }
 ```
-
-eager_input_streaming: true
 
 ## ToolSearch
 
@@ -644,8 +465,6 @@ Query forms:
   "additionalProperties": false
 }
 ```
-
-eager_input_streaming: true
 
 ## Workflow
 
@@ -694,7 +513,7 @@ Every script must begin with `export const meta = {...}`:
 The `meta` object must be a PURE LITERAL — no variables, function calls, spreads, or template interpolation. Required fields: `name`, `description`. Optional: `whenToUse` (shown in the workflow list), `phases`. Use the SAME phase titles in meta.phases as in phase() calls — titles are matched exactly; a phase() call with no matching meta entry just gets its own progress group. Add `model` to a phase entry when that phase uses a specific model override.
 
 Script body hooks:
-- agent(prompt: string, opts?: {label?: string, phase?: string, schema?: object, model?: string, isolation?: 'worktree', agentType?: string}): Promise<any> — spawn a subagent. Without schema, returns its final text as a string. With schema (a JSON Schema), the subagent is forced to call a StructuredOutput tool and agent() returns the validated object — no parsing needed. Returns null if the user skips the agent mid-run or the subagent dies on a terminal API error after retries (filter with .filter(Boolean)). opts.label overrides the display label. opts.phase explicitly assigns this agent to a progress group (use this inside pipeline()/parallel() stages to avoid races on the global phase() state — same phase string → same group box). opts.model overrides the model for this agent call. Default to omitting it — the agent inherits the main-loop model (the resolved session model), which is almost always correct. Only set it when you're highly confident a different tier fits the task; when unsure, omit. opts.isolation: 'worktree' runs the agent in a fresh git worktree — EXPENSIVE (~200-500ms setup + disk per agent), use ONLY when agents mutate files in parallel and would otherwise conflict; the worktree is auto-removed if unchanged. opts.agentType uses a custom subagent type (e.g. 'Explore', 'code-reviewer') instead of the default workflow subagent — resolved from the same registry as the Agent tool; composes with schema (the custom agent's system prompt gets a StructuredOutput instruction appended).
+- agent(prompt: string, opts?: {label?: string, phase?: string, schema?: object, model?: string, effort?: string, isolation?: 'worktree', agentType?: string}): Promise<any> — spawn a subagent. Without schema, returns its final text as a string. With schema (a JSON Schema), the subagent is forced to call a StructuredOutput tool and agent() returns the validated object — no parsing needed. Returns null if the user skips the agent mid-run or the subagent dies on a terminal API error after retries (filter with .filter(Boolean)). opts.label overrides the display label. opts.phase explicitly assigns this agent to a progress group (use this inside pipeline()/parallel() stages to avoid races on the global phase() state — same phase string → same group box). opts.model overrides the model for this agent call. Default to omitting it — the agent inherits the main-loop model (the resolved session model), which is almost always correct. Only set it when you're highly confident a different tier fits the task; when unsure, omit. opts.effort overrides the reasoning effort for this agent call ('low' | 'medium' | 'high' | 'xhigh' | 'max') — omit to inherit the session effort; use 'low' for cheap mechanical stages and higher tiers only for the hardest verify/judge stages. opts.isolation: 'worktree' runs the agent in a fresh git worktree — EXPENSIVE (~200-500ms setup + disk per agent), use ONLY when agents mutate files in parallel and would otherwise conflict; the worktree is auto-removed if unchanged. opts.agentType uses a custom subagent type (e.g. 'general-purpose', 'code-reviewer') instead of the default workflow subagent — resolved from the same registry as the Agent tool; composes with schema (the custom agent's system prompt gets a StructuredOutput instruction appended).
 - pipeline(items, stage1, stage2, ...): Promise<any[]> — run each item through all stages independently, NO barrier between stages. Item A can be in stage 3 while item B is still in stage 1. This is the DEFAULT for multi-stage work. Wall-clock = slowest single-item chain, not sum-of-slowest-per-stage. Every stage callback receives (prevResult, originalItem, index) — use originalItem/index in later stages to label work without threading context through stage 1's return value. A stage that throws drops that item to `null` and skips its remaining stages.
 - parallel(thunks: Array<() => Promise<any>>): Promise<any[]> — run tasks concurrently. This is a BARRIER: awaits all thunks before returning. A thunk that throws (or whose agent errors) resolves to `null` in the result array — the call itself never rejects, so `.filter(Boolean)` before using the results. Use ONLY when you genuinely need all results together.
 - log(message: string): void — emit a progress message to the user (shown as a narrator line above the progress tree)
@@ -807,7 +626,7 @@ Use this tool for multi-step orchestration where control flow should be determin
 
 ## Resume
 
-The tool result includes a runId. To resume after a pause, kill, or script edit, relaunch with Workflow({scriptPath, resumeFromRunId}) — the longest unchanged prefix of agent() calls returns cached results instantly; the first edited/new call and everything after it runs live. Same script + same args → 100% cache hit. Date.now()/Math.random()/new Date() are unavailable in scripts (they would break this) — stamp results after the workflow returns, or pass timestamps via args. Fallback when no journal is available: Read agent-<id>.jsonl files in the transcript directory and hand-author a continuation script.
+The tool result includes a runId. To resume after a pause, kill, or script edit, relaunch with Workflow({scriptPath, resumeFromRunId}) — the longest unchanged prefix of agent() calls returns cached results instantly; the first edited/new call and everything after it runs live. Same script + same args → 100% cache hit. Before diagnosing why a completed workflow returned an empty or unexpected result, Read <transcriptDir>/journal.jsonl — it records each agent's actual return value; do not assume cached results are non-empty. Date.now()/Math.random()/new Date() are unavailable in scripts (they would break this) — stamp results after the workflow returns, or pass timestamps via args. Fallback when no journal is available: Read agent-<id>.jsonl files in the transcript directory and hand-author a continuation script.
 
 ### Input schema
 
@@ -850,8 +669,6 @@ The tool result includes a runId. To resume after a pause, kill, or script edit,
 }
 ```
 
-eager_input_streaming: true
-
 ## Write
 
 Writes a file to the local filesystem, overwriting if one exists.
@@ -882,30 +699,206 @@ When to use: creating a new file, or fully replacing one you've already Read. Ov
 }
 ```
 
-eager_input_streaming: true
+---
+
+# Deferred tool schemas (loaded via ToolSearch)
+
+These three were fetched by a `ToolSearch` call `select:WebFetch,Monitor,NotebookEdit` and became callable with full schemas.
+
+## Monitor
+
+Start a background monitor that streams events from a long-running script. Each stdout line is an event — you keep working and notifications arrive in the chat. Events arrive on their own schedule and are not replies from the user, even if one lands while you're waiting for the user to answer a question.
+
+Pick by how many notifications you need:
+- **One** ("tell me when the server is ready / the build finishes") → use **Bash with `run_in_background`** and a command that exits when the condition is true, e.g. `until grep -q "Ready in" dev.log; do sleep 0.5; done`. You get a single completion notification when it exits.
+- **One per occurrence, indefinitely** ("tell me every time an ERROR line appears") → Monitor with an unbounded command (`tail -f`, `inotifywait -m`, `while true`).
+- **One per occurrence, until a known end** ("emit each CI step result, stop when the run completes") → Monitor with a command that emits lines and then exits.
+
+Your script's stdout is the event stream. Each line becomes a notification. Exit ends the watch.
+
+  # Each matching log line is an event
+  tail -f /var/log/app.log | grep --line-buffered "ERROR"
+
+  # Each file change is an event
+  inotifywait -m --format '%e %f' /watched/dir
+
+  # Poll GitHub for new PR comments and emit one line per new comment
+  last=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+  while true; do
+    now=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+    gh api "repos/owner/repo/issues/123/comments?since=$last" --jq '.[] | "\(.user.login): \(.body)"'
+    last=$now; sleep 30
+  done
+
+  # Node script that emits events as they arrive (e.g. WebSocket listener)
+  node watch-for-events.js
+
+  # Per-occurrence with a natural end: emit each CI check as it lands, exit when the run completes
+  prev=""
+  while true; do
+    s=$(gh pr checks 123 --json name,bucket)
+    cur=$(jq -r '.[] | select(.bucket!="pending") | "\(.name): \(.bucket)"' <<<"$s" | sort)
+    comm -13 <(echo "$prev") <(echo "$cur")
+    prev=$cur
+    jq -e 'all(.bucket!="pending")' <<<"$s" >/dev/null && break
+    sleep 30
+  done
+
+**Don't use an unbounded command for a single notification.** `tail -f`, `inotifywait -m`, and `while true` never exit on their own, so the monitor stays armed until timeout even after the event has fired. For "tell me when X is ready," use Bash `run_in_background` with an `until` loop instead (one notification, ends in seconds). Note that `tail -f log | grep -m 1 ...` does *not* fix this: if the log goes quiet after the match, `tail` never receives SIGPIPE and the pipeline hangs anyway.
+
+**Script quality:**
+- Every pipe stage must flush per line or matches sit in its buffer unseen: `grep` needs `--line-buffered`, `awk` needs `fflush()`. `head` cannot flush at all — `| head -N` delivers nothing until N matches accumulate, then ends the stream.
+- In poll loops, handle transient failures (`curl ... || true`) — one failed request shouldn't kill the monitor.
+- Poll intervals: 30s+ for remote APIs (rate limits), 0.5-1s for local checks.
+- Write a specific `description` — it appears in every notification ("errors in deploy.log" not "watching logs").
+- Only stdout is the event stream. Stderr goes to the output file (readable via Read) but does not trigger notifications — for a command you run directly (e.g. `python train.py 2>&1 | grep --line-buffered ...`), merge stderr with `2>&1` so its failures reach your filter. (No effect on `tail -f` of an existing log — that file only contains what its writer redirected.)
+
+**Coverage — silence is not success.** When watching a job or process for an outcome, your filter must match every terminal state, not just the happy path. A monitor that greps only for the success marker stays silent through a crashloop, a hung process, or an unexpected exit — and silence looks identical to "still running." Before arming, ask: *if this process crashed right now, would my filter emit anything?* If not, widen it.
+
+  # Wrong — silent on crash, hang, or any non-success exit
+  tail -f run.log | grep --line-buffered "elapsed_steps="
+
+  # Right — one alternation covering progress + the failure signatures you'd act on
+  tail -f run.log | grep -E --line-buffered "elapsed_steps=|Traceback|Error|FAILED|assert|Killed|OOM"
+
+For poll loops checking job state, emit on every terminal status (`succeeded|failed|cancelled|timeout`), not just success. If you cannot confidently enumerate the failure signatures, broaden the grep alternation rather than narrow it — some extra noise is better than missing a crashloop.
+
+**Output volume**: Every stdout line is a conversation message, so the filter should be selective — but selective means "the lines you'd act on," not "only good news." Never pipe raw logs; filter to exactly the success and failure signals you care about. Monitors that produce too many events are automatically stopped; restart with a tighter filter if this happens.
+
+Stdout lines within 200ms are batched into a single notification, so multiline output from a single event groups naturally.
+
+The script runs in the same shell environment as Bash. Exit ends the watch (exit code is reported). Timeout → killed. Set `persistent: true` for session-length watches (PR monitoring, log tails) — the monitor runs until you call TaskStop or the session ends. Use TaskStop to cancel early.
+**ws source** — open a WebSocket and stream each incoming text frame as an event. No shell, no polling: the server pushes, you get notified.
+
+  Monitor({
+    ws: {url: 'wss://events.example.com/stream', protocols: ['v1']},
+    description: 'deploy events',
+  })
+
+Each text frame becomes one notification (multiline frames stay as one event). Binary frames are reported as `[binary frame, N bytes]` rather than passed through. Socket close ends the watch with the close code surfaced; errors are surfaced before close. Same rate limiting as bash — a firehose will be suppressed and eventually stopped, so subscribe to a filtered feed where one exists.
+
+Prefer this over `command: 'websocat wss://…'` — it avoids the extra process and line-buffering pitfalls. Use bash when you need to transform or filter frames with shell tools before they become events.
+
+When an event lands that the user would want to act on now — an error appeared, the status they were waiting on flipped — send a PushNotification. Not every event is worth a push; the ones that change what they'd do next are.
+
+### Input schema
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "description": {
+      "description": "Short human-readable description of what you are monitoring (shown in notifications).",
+      "type": "string"
+    },
+    "timeout_ms": {
+      "description": "Kill the monitor after this deadline. Default 300000ms, max 3600000ms. Ignored when persistent is true.",
+      "default": 300000,
+      "type": "number",
+      "minimum": 1000
+    },
+    "persistent": {
+      "description": "Run for the lifetime of the session (no timeout). Use for session-length watches like PR monitoring or log tails. Stop with TaskStop.",
+      "default": false,
+      "type": "boolean"
+    },
+    "command": {
+      "description": "Shell command or script. Each stdout line is an event; exit ends the watch.",
+      "type": "string"
+    },
+    "ws": {
+      "description": "WebSocket to open. Each text frame is an event; binary frames are reported as a placeholder line. Socket close ends the watch. Cannot be combined with command.",
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "protocols": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[!#$%&'*+.^_`|~0-9A-Za-z-]+$"
+          }
+        }
+      },
+      "required": [
+        "url"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "description",
+    "timeout_ms",
+    "persistent"
+  ],
+  "additionalProperties": false
+}
+```
+
+## NotebookEdit
+
+Replaces, inserts, or deletes a single cell in a Jupyter notebook (.ipynb file).
+
+Usage:
+- You must use the Read tool on the notebook in this conversation before editing — this tool will fail otherwise.
+- `notebook_path` must be an absolute path.
+- `cell_id` is the `id` attribute shown in the Read tool's `<cell id="...">` output. It is required for `replace` and `delete`.
+- `edit_mode` defaults to `replace`. Use `insert` to add a new cell after the cell with the given `cell_id` (or at the beginning of the notebook if `cell_id` is omitted) — `cell_type` is required when inserting. Use `delete` to remove the cell.
+
+### Input schema
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "notebook_path": {
+      "description": "The absolute path to the Jupyter notebook file to edit (must be absolute, not relative)",
+      "type": "string"
+    },
+    "cell_id": {
+      "description": "The ID of the cell to edit. When inserting a new cell, the new cell will be inserted after the cell with this ID, or at the beginning if not specified.",
+      "type": "string"
+    },
+    "new_source": {
+      "description": "The new source for the cell",
+      "type": "string"
+    },
+    "cell_type": {
+      "description": "The type of the cell (code or markdown). If not specified, it defaults to the current cell type. If using edit_mode=insert, this is required.",
+      "type": "string",
+      "enum": [
+        "code",
+        "markdown"
+      ]
+    },
+    "edit_mode": {
+      "description": "The type of edit to make (replace, insert, delete). Defaults to replace.",
+      "type": "string",
+      "enum": [
+        "replace",
+        "insert",
+        "delete"
+      ]
+    }
+  },
+  "required": [
+    "notebook_path",
+    "new_source"
+  ],
+  "additionalProperties": false
+}
+```
 
 ## WebFetch
 
-IMPORTANT: WebFetch WILL FAIL for authenticated or private URLs. Before using this tool, check if the URL points to an authenticated service (e.g. Google Docs, Confluence, Jira, GitHub). If so, look for a specialized MCP tool that provides authenticated access.
+Fetches a URL, converts the page to markdown, and answers `prompt` against it using a small fast model.
 
-- Fetches content from a specified URL and processes it using an AI model
-- Takes a URL and a prompt as input
-- Fetches the URL content, converts HTML to markdown
-- Processes the content with the prompt using a small, fast model
-- Returns the model's response about the content
-- Use this tool when you need to retrieve and analyze web content
-
-Usage notes:
-  - IMPORTANT: If an MCP-provided web fetch tool is available, prefer using that tool instead of this one, as it may have fewer restrictions.
-  - The URL must be a fully-formed valid URL
-  - HTTP URLs will be automatically upgraded to HTTPS
-  - The prompt should describe what information you want to extract from the page
-  - This tool is read-only and does not modify any files
-  - Results may be summarized if the content is very large
-  - Includes a self-cleaning 15-minute cache for faster responses when repeatedly accessing the same URL
-  - When a URL redirects to a different host, the tool will inform you and provide the redirect URL in a special format. You should then make a new WebFetch request with the redirect URL to fetch the content.
-  - For GitHub URLs, prefer using the gh CLI via Bash instead (e.g., gh pr view, gh issue view, gh api).
-
+- Fails on authenticated/private URLs — use an authenticated MCP tool or `gh` for those instead.
+- HTTP is upgraded to HTTPS. Cross-host redirects are returned to you rather than followed; call again with the redirect URL.
+- Responses are cached for 15 minutes per URL.
 
 ### Input schema
 
@@ -932,70 +925,14 @@ Usage notes:
 }
 ```
 
-eager_input_streaming: true
+---
 
-## WebSearch
+# Interactive-only tools not loaded in the `-p` surface
 
+Present in the 2.1.168 interactive capture but **not loaded** under `-p`, so no 2.1.201 schema was captured. See the 2.1.168 version in git history for their full documentation:
 
-- Allows Claude to search the web and use the results to inform responses
-- Provides up-to-date information for current events and recent data
-- Returns search result information formatted as search result blocks, including links as markdown hyperlinks
-- Use this tool for accessing information beyond Claude's knowledge cutoff
-- Searches are performed automatically within a single API call
+- **AskUserQuestion** — core in 2.1.168 (interactive user prompts)
+- **EnterWorktree** — core in 2.1.168; appears as a *deferred* name in the 2.1.201 `-p` list
+- **SendUserFile** — core in 2.1.168 (send local files to the user)
+- **WebSearch** — deferred in 2.1.168; schema not loaded in these `-p` traces
 
-CRITICAL REQUIREMENT - You MUST follow this:
-  - After answering the user's question, you MUST include a "Sources:" section at the end of your response
-  - In the Sources section, list all relevant URLs from the search results as markdown hyperlinks: [Title](URL)
-  - This is MANDATORY - never skip including sources in your response
-  - Example format:
-
-    [Your answer here]
-
-    Sources:
-    - [Source Title 1](https://example.com/1)
-    - [Source Title 2](https://example.com/2)
-
-Usage notes:
-  - Domain filtering is supported to include or block specific websites
-  - Web search is only available in the US
-
-IMPORTANT - Use the correct year in search queries:
-  - The current month is June 2026. You MUST use this year when searching for recent information, documentation, or current events.
-  - Example: If the user asks for "latest React docs", search for "React documentation" with the current year, NOT last year
-
-
-### Input schema
-
-```json
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
-  "properties": {
-    "query": {
-      "description": "The search query to use",
-      "type": "string",
-      "minLength": 2
-    },
-    "allowed_domains": {
-      "description": "Only include search results from these domains",
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "blocked_domains": {
-      "description": "Never include search results from these domains",
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    }
-  },
-  "required": [
-    "query"
-  ],
-  "additionalProperties": false
-}
-```
-
-eager_input_streaming: true
