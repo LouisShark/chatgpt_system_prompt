@@ -25,9 +25,9 @@
 ### claude/claudecode
 
 - [Claude Code System Prompts](./claude/claudecode/README.md)
-- [Claude Code Tools (v2.1.168)](./claude/claudecode/ClaudeCodeTools-2-1-168.md)
-- [ClaudeCodeSystem-2-1-168](./claude/claudecode/ClaudeCodeSystem-2-1-168.md)
-- [System Reminders (v2.1.168)](./claude/claudecode/system-reminders-2-1-168.md)
+- [Claude Code Tools (v2.1.201, SDK-CLI partial)](./claude/claudecode/ClaudeCodeTools-2-1-201.md)
+- [ClaudeCodeSystem-2-1-201](./claude/claudecode/ClaudeCodeSystem-2-1-201.md)
+- [System Reminders (v2.1.201, partial — SDK-CLI capture)](./claude/claudecode/system-reminders-2-1-201.md)
 
 ### claude/claudecode/auxiliary
 
@@ -47,7 +47,7 @@
 
 ### claude/claudecode/custom_agents/claude_obsidian_wiki_ingest
 
-- [ClaudeCodeWikiIngestAgent-2-1-168](./claude/claudecode/custom_agents/claude_obsidian_wiki_ingest/ClaudeCodeWikiIngestAgent-2-1-168.md)
+- [ClaudeCodeWikiIngestAgent-2-1-201](./claude/claudecode/custom_agents/claude_obsidian_wiki_ingest/ClaudeCodeWikiIngestAgent-2-1-201.md)
 
 ### claude/claudecode/custom_agents/claude_obsidian_wiki_lint
 
@@ -59,19 +59,19 @@
 
 ### claude/claudecode/explore
 
-- [ClaudeCodeExplore-2-1-168](./claude/claudecode/explore/ClaudeCodeExplore-2-1-168.md)
+- [ClaudeCodeExplore-2-1-201](./claude/claudecode/explore/ClaudeCodeExplore-2-1-201.md)
 
 ### claude/claudecode/file_search
 
-- [ClaudeCodeFileSearchSpecialist-2-1-168](./claude/claudecode/file_search/ClaudeCodeFileSearchSpecialist-2-1-168.md)
+- [ClaudeCodeFileSearchSpecialist-2-1-201](./claude/claudecode/file_search/ClaudeCodeFileSearchSpecialist-2-1-201.md)
 
 ### claude/claudecode/plan
 
-- [ClaudeCodePlanMode-2-1-168](./claude/claudecode/plan/ClaudeCodePlanMode-2-1-168.md)
+- [ClaudeCodePlanMode-2-1-201](./claude/claudecode/plan/ClaudeCodePlanMode-2-1-201.md)
 
 ### claude/claudecode/status_line
 
-- [ClaudeCodeStatusLine-2-1-168](./claude/claudecode/status_line/ClaudeCodeStatusLine-2-1-168.md)
+- [ClaudeCodeStatusLine-2-1-201](./claude/claudecode/status_line/ClaudeCodeStatusLine-2-1-201.md)
 
 ### claude/clauderesearch
 
