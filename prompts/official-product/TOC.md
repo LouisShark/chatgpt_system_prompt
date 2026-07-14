@@ -169,6 +169,11 @@
 - [prism](./openai/prism.md)
 - [study_mode](./openai/study_mode.md)
 
+### openai/codex-desktop
+
+- [5.6-Sol_SystemPrompt](./openai/codex-desktop/5.6-Sol_SystemPrompt.md)
+- [Codex Desktop GPT-5.6 Sol Prompt Snapshot](./openai/codex-desktop/README.md)
+
 ### other
 
 - [coding_prompt](./other/coding_prompt.md)
