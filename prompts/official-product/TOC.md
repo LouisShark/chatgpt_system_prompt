@@ -25,21 +25,22 @@
 ### claude/claudecode
 
 - [Claude Code System Prompts](./claude/claudecode/README.md)
-- [Claude Code Tools (v2.1.201, SDK-CLI partial)](./claude/claudecode/ClaudeCodeTools-2-1-201.md)
-- [ClaudeCodeSystem-2-1-201](./claude/claudecode/ClaudeCodeSystem-2-1-201.md)
-- [System Reminders (v2.1.201, partial — SDK-CLI capture)](./claude/claudecode/system-reminders-2-1-201.md)
+- [Claude Code Tools (v2.1.220, SDK-CLI, full deferred load)](./claude/claudecode/ClaudeCodeTools-2-1-220.md)
+- [ClaudeCodeSystem-2-1-220](./claude/claudecode/ClaudeCodeSystem-2-1-220.md)
+- [System Reminders (v2.1.220, partial — SDK-CLI capture)](./claude/claudecode/system-reminders-2-1-220.md)
 
 ### claude/claudecode/auxiliary
 
 - [analyze_session_facets-2-1-168](./claude/claudecode/auxiliary/analyze_session_facets-2-1-168.md)
 - [compact-2-1-168](./claude/claudecode/auxiliary/compact-2-1-168.md)
+- [security_monitor-2-1-220](./claude/claudecode/auxiliary/security_monitor-2-1-220.md)
 - [slug_name-2-1-168](./claude/claudecode/auxiliary/slug_name-2-1-168.md)
 - [summarize_conversation-2-1-168](./claude/claudecode/auxiliary/summarize_conversation-2-1-168.md)
 - [summarize_transcript_chunk-2-1-168](./claude/claudecode/auxiliary/summarize_transcript_chunk-2-1-168.md)
 
 ### claude/claudecode/claude
 
-- [ClaudeCodeClaudeAgent-2-1-168](./claude/claudecode/claude/ClaudeCodeClaudeAgent-2-1-168.md)
+- [ClaudeCodeClaudeAgent-2-1-220](./claude/claudecode/claude/ClaudeCodeClaudeAgent-2-1-220.md)
 
 ### claude/claudecode/code_guide
 
@@ -55,23 +56,23 @@
 
 ### claude/claudecode/custom_agents/codex_rescue
 
-- [ClaudeCodeCodexRescueAgent-2-1-168](./claude/claudecode/custom_agents/codex_rescue/ClaudeCodeCodexRescueAgent-2-1-168.md)
+- [ClaudeCodeCodexRescueAgent-2-1-220](./claude/claudecode/custom_agents/codex_rescue/ClaudeCodeCodexRescueAgent-2-1-220.md)
 
 ### claude/claudecode/explore
 
-- [ClaudeCodeExplore-2-1-201](./claude/claudecode/explore/ClaudeCodeExplore-2-1-201.md)
+- [ClaudeCodeExplore-2-1-220](./claude/claudecode/explore/ClaudeCodeExplore-2-1-220.md)
 
 ### claude/claudecode/file_search
 
-- [ClaudeCodeFileSearchSpecialist-2-1-201](./claude/claudecode/file_search/ClaudeCodeFileSearchSpecialist-2-1-201.md)
+- [ClaudeCodeFileSearchSpecialist-2-1-220](./claude/claudecode/file_search/ClaudeCodeFileSearchSpecialist-2-1-220.md)
 
 ### claude/claudecode/plan
 
-- [ClaudeCodePlanMode-2-1-201](./claude/claudecode/plan/ClaudeCodePlanMode-2-1-201.md)
+- [ClaudeCodePlanMode-2-1-220](./claude/claudecode/plan/ClaudeCodePlanMode-2-1-220.md)
 
 ### claude/claudecode/status_line
 
-- [ClaudeCodeStatusLine-2-1-201](./claude/claudecode/status_line/ClaudeCodeStatusLine-2-1-201.md)
+- [ClaudeCodeStatusLine-2-1-220](./claude/claudecode/status_line/ClaudeCodeStatusLine-2-1-220.md)
 
 ### claude/clauderesearch
 
@@ -123,8 +124,8 @@
 ### manus
 
 - [agentloop](./manus/agentloop.md)
-- [Manus AI Assistant Capabilities](./manus/prompt.md)
 - [Manus AI Assistant Capabilities](./manus/capabilities.md)
+- [Manus AI Assistant Capabilities](./manus/prompt.md)
 - [modules](./manus/modules.md)
 
 ### meta
