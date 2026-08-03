@@ -1,8 +1,26 @@
 # Supermemory Pilot Log
 
 Repository: `LouisShark/chatgpt_system_prompt`  
-Pilot start: _(fill in when first session is recorded)_  
+Pilot start: 2026-08-03  
 Pilot end: _(fill in after session 10)_
+
+## Setup Notes
+
+**API key type**: Personal app token (`sm_*`) from `app.supermemory.ai`.  
+**Observation**: Personal app tokens work for `/v3/documents` (ingest) but the
+`/v3/memories` endpoint requires a developer console key from `console.supermemory.ai`.
+For full MCP tool access (add_memory, search_memory, list_memories, delete_memory),
+use a developer console key.
+
+**Documents ingested during setup** (2026-08-03):
+- `vPkZZehdpKnJgzy6EDjs5i` — Python+GitPython runtime decision (status: done)
+- `i9VuPm61Y8A1ZSu2jBga19` — Scope Creep Detector local implementation decision
+- `CNr3Y35uNwa8G6utouAABB` — Supermemory authority order decision
+- `Hhdq9UTFnnuCXWxBL37VTQ` — Project context (files not to modify, CI workflows)
+- `5Mq2ND5B426PtgnXww6k9w` — Runtime architecture decision (instant mode)
+
+**Search test**: Returned 0 results at time of setup. Documents still indexing or
+search requires developer console key scope. Re-test after obtaining a developer key.
 
 ---
 

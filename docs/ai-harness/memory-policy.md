@@ -154,7 +154,7 @@ Short version:
 | Retention | Indefinite until explicitly deleted |
 | Deletion | `delete_memory` tool or Supermemory console |
 | Data leaving the machine | Yes — memories are sent to `api.supermemory.ai` |
-| Authentication | API key from `console.supermemory.ai` |
+| Authentication | API key from `console.supermemory.ai` (developer) **or** personal app token (`sm_*`) from `app.supermemory.ai`. Developer key required for full MCP tool access. |
 | Automatic session capture | Disabled — explicit writes only (no auto-ingest hook) |
 
 Review Supermemory's privacy policy and terms before ingesting any sensitive data:
