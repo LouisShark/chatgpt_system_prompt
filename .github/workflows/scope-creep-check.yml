@@ -1,0 +1,79 @@
+name: Scope Creep Check (advisory)
+
+# Non-blocking advisory check on pull requests.
+# Reports PASS/WARN/FAIL as a status check but never blocks merges.
+# Will be promoted to a blocking check once the detector has demonstrated
+# acceptable accuracy over time.
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  scope-creep:
+    runs-on: ubuntu-latest
+    continue-on-error: true   # advisory only — never blocks merge
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install GitPython
+
+      - name: Extract PR title as intended change
+        id: pr-title
+        run: |
+          echo "title=${{ github.event.pull_request.title }}" >> $GITHUB_OUTPUT
+
+      - name: Run Scope Creep Detector
+        id: detector
+        run: |
+          python .scripts/scope-creep-detector.py \
+            --intended-change "${{ steps.pr-title.outputs.title }}" \
+            --base ${{ github.event.pull_request.base.sha }} \
+            2>&1 | tee scope-creep-output.txt
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
+        continue-on-error: true
+
+      - name: Comment on PR
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let output = '';
+            try {
+              output = fs.readFileSync('scope-creep-output.txt', 'utf8');
+            } catch (e) {
+              output = 'Scope creep detector output not available.';
+            }
+            const body = [
+              '## 🔍 Scope Creep Detector (advisory)',
+              '',
+              '```',
+              output.substring(0, 3000),
+              '```',
+              '',
+              '_This check is advisory. WARN/FAIL does not block merging._',
+              '_False positives? Document the reason in the PR description._',
+            ].join('\n');
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body,
+            });

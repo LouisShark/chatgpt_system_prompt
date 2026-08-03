@@ -1,0 +1,11 @@
+﻿{
+  "mcpServers": {
+    "supermemory": {
+      "type": "http",
+      "url": "https://mcp.supermemory.ai/mcp",
+      "headers": {
+        "Authorization": "Bearer ${SUPERMEMORY_API_KEY}"
+      }
+    }
+  }
+}

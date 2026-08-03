@@ -319,3 +319,8 @@ TSWLatexianTemp*
 .DS_Store
 
 __pycache__/
+
+# Environment / secrets (added by chore/claude-code-harness-upgrade)
+.env
+.env.local
+.env.*.local
