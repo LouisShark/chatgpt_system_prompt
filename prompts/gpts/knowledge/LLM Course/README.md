@@ -406,7 +406,7 @@ Special thanks to:
 
 ---
 <p align="center">
-  <a href="https://star-history.com/#mlabonne/llm-course&Date">
-    <img src="https://api.star-history.com/svg?repos=mlabonne/llm-course&type=Date" alt="Star History Chart">
+  <a href="https://star-history.dera.page/#mlabonne/llm-course&Date">
+    <img src="https://star-history.dera.page/svg?repos=mlabonne/llm-course&type=Date" alt="Star History Chart">
   </a>
 </p>
