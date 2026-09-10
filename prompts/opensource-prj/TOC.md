@@ -1,16 +1,45 @@
 # opensource-prj - Table of Contents
 
+
+## Subdirectories
+
+### bolt
+
+
+### cline
+
+
+### II-agent
+
+
+### micode
+
+
+### suna
+
+- [agent_system_prompt](./suna/agent_system_prompt.md)
 - [Claude_Sentience](./Claude_Sentience.md)
 - [copycoder](./copycoder.md)
+- [gaia_system_prompt](./II-agent/gaia_system_prompt.md)
+- [Hermes](./Hermes.md)
+- [KiloCode](./KiloCode.md)
 - [Lyra](./Lyra.md)
+- [MiMoCode](./MiMoCode.md)
 - [netwrck](./netwrck.md)
 - [open-notebooklm](./open-notebooklm.md)
+- [OpenCode](./OpenCode.md)
 - [PRD](./PRD.md)
+- [QwenCode](./QwenCode.md)
+- [README](./II-agent/README.md)
 - [RestGPT](./RestGPT.md)
 - [Role and Objective](./paralle_thinking_tool_example.md)
 - [sagittarius](./sagittarius.md)
 - [screenshot-to-code](./screenshot-to-code.md)
 - [self-operating-computer](./self-operating-computer.md)
+- [system](./bolt/system.md)
+- [system](./cline/system.md)
+- [system](./II-agent/system.md)
+- [system](./micode/system.md)
 - [tldraw](./tldraw.md)
 - [周易八卦](./%E5%91%A8%E6%98%93%E5%85%AB%E5%8D%A6.md)
 - [微信公众号&小红书封面](./%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%26%E5%B0%8F%E7%BA%A2%E4%B9%A6%E5%B0%81%E9%9D%A2.md)
@@ -19,28 +48,3 @@
 - [深度精通学习](./%E6%B7%B1%E5%BA%A6%E7%B2%BE%E9%80%9A%E5%AD%A6%E4%B9%A0.md)
 - [空格zephyr‘s claude prompt](./%E7%A9%BA%E6%A0%BCzephyr%E2%80%98s%20claude%20prompt.md)
 - [阅读理解巩固](./%E9%98%85%E8%AF%BB%E7%90%86%E8%A7%A3%E5%B7%A9%E5%9B%BA.md)
-
-## Subdirectories
-
-### bolt
-
-- [system](./bolt/system.md)
-
-### cline
-
-- [system](./cline/system.md)
-
-### II-agent
-
-- [gaia_system_prompt](./II-agent/gaia_system_prompt.md)
-- [README](./II-agent/README.md)
-- [system](./II-agent/system.md)
-
-### micode
-
-- [system](./micode/system.md)
-
-### suna
-
-- [agent_system_prompt](./suna/agent_system_prompt.md)
-
