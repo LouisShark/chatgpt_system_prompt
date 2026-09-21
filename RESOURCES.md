@@ -26,7 +26,7 @@
 - https://github.com/elder-plinius/L1B3RT4S (L1B3RT4S, jailbreak FOR ALL FLAGSHIP AI MODELS)
 - https://github.com/LouisShark/claude-code (claude_code, Decompiled product)
 - https://github.com/x1xhlol/v0-system-prompts-models-and-tools (full v0 system prompts, models and tools)
-- https://github.com/Continuum-AI-Corp/OrcaPromptVault (110 system prompts, tool schemas and harness files from 35 AI products; 35 of them recorded off the wire with the command that reproduces each one, the rest inherited from CL4R1T4S)
+- https://github.com/Continuum-AI-Corp/OrcaPromptVault (119 system prompts, tool schemas and harness files from 43 AI products; 44 of them recorded off the wire with the command that reproduces each one, the rest inherited from CL4R1T4S)
 - https://manus.im/share/lLR5uWIR5Im3k9FCktVu0k?replay=1 (Manus's Jailbreak)
 - https://gist.github.com/LouisShark/06ad5e12acf24e6aa3583e6bda46409c (Claude's code prompt)
 - https://gist.githubusercontent.com/1rgs/e4e13ac9aba301bcec28d761992ec4e8/raw/7c7cd5b91c6d355e72c7a34b6662006018588780/claudecode.js (Claude's code js)
