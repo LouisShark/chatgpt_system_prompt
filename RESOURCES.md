@@ -31,3 +31,4 @@
 - https://gist.github.com/LouisShark/06ad5e12acf24e6aa3583e6bda46409c (Claude's code prompt)
 - https://gist.githubusercontent.com/1rgs/e4e13ac9aba301bcec28d761992ec4e8/raw/7c7cd5b91c6d355e72c7a34b6662006018588780/claudecode.js (Claude's code js)
 - https://github.com/xai-org/grok-prompts (xai-org/grok-prompts)
+- https://github.com/Continuum-AI-Corp/Orca-AI-Incident-Archive (354 real-world AI agent security incidents with primary sources, 45 tagged indirect prompt injection; e.g. the unauthorized Grok system-prompt edit and Manus leaking its sandbox prompts)
