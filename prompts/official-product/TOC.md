@@ -136,6 +136,13 @@
 
 - [GraphRAG](./microsoft/GraphRAG.md)
 
+### minimax/mcode
+
+- [MiniMax Code System Prompts](./minimax/mcode/README.md)
+- [MiniMaxCodeSystem-coding-0-4-12](./minimax/mcode/MiniMaxCodeSystem-coding-0-4-12.md)
+- [MiniMaxCodeSystem-tui-0-4-12](./minimax/mcode/MiniMaxCodeSystem-tui-0-4-12.md)
+- [MiniMaxCodeSystem-work-0-4-12](./minimax/mcode/MiniMaxCodeSystem-work-0-4-12.md)
+
 ### nvidia
 
 - [LLAMA-3.1-NEMOTRON-70B](./nvidia/LLAMA-3.1-NEMOTRON-70B.md)

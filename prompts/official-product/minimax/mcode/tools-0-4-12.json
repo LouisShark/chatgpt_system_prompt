@@ -1,0 +1,672 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "read",
+      "description": "Reads a file from the local filesystem.\n\n- `path` can be workspace-relative or absolute; the desktop permission gate reviews it.\n- Text reads return up to 2000 lines, subject to byte limits. Use `offset` and `limit` to read only the part you need.\n- Text results include line numbers starting at 1.\n- Follow a truncated result's continuation instructions only if you need the omitted text. When `next_offset` is provided, use that exact value with the same `path`.\n- Reads images (jpg, png, gif, webp) and presents them visually.\n- Reads PDFs via `pages` (required for PDFs over 10 pages; max 20 pages/request), and Jupyter notebooks (.ipynb) as cells with outputs.\n- Reads videos (mp4, avi, mov, mkv) when the active model supports video.\n- Directories, missing files, unsupported binary files, and empty files return an error or system reminder.\n- Reuse current file content already in context. Re-read when it may be stale or to resolve uncertain content or failed matches; do not re-read solely to confirm a successful edit/write.",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "path"
+        ],
+        "properties": {
+          "path": {
+            "description": "Workspace-relative or absolute local file path.",
+            "type": "string"
+          },
+          "offset": {
+            "description": "Starting line for text files (1-indexed).",
+            "type": "number"
+          },
+          "limit": {
+            "description": "Maximum number of text lines to read.",
+            "type": "number"
+          },
+          "pages": {
+            "description": "Page range for PDF files (e.g., \"1-5\", \"3\", \"10-20\"). Only applicable to PDF files. Maximum 20 pages per request. Text offsets and limits are ignored for PDFs.",
+            "type": "string"
+          }
+        }
+      },
+      "strict": false
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "write",
+      "description": "Writes a file to the local filesystem, overwriting if it exists and creating parent directories as needed.\n\n- `path` can be workspace-relative or absolute; the desktop permission gate reviews it.\n- Use for new files or complete rewrites; use `edit` for partial changes.\n- Read existing content before overwriting it. Provide the complete replacement content.\n- Content is written literally, including line endings.\n- On success, reports the number of bytes written and whether an existing file was overwritten.\n- Do not proactively create documentation files unless explicitly requested.",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "path",
+          "content"
+        ],
+        "properties": {
+          "path": {
+            "description": "Workspace-relative or absolute local file path.",
+            "type": "string"
+          },
+          "content": {
+            "description": "Full file content to write.",
+            "type": "string"
+          }
+        }
+      },
+      "strict": false
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "edit",
+      "description": "Performs exact string replacement in a local file.\n\n- `file_path` must be an absolute local path; the desktop permission gate reviews it.\n- Use current file content from `read` or your own successful edit/write. Read the file first if that content is unavailable or may be stale.\n- `old_string` must be non-empty and match the file exactly, including whitespace and indentation. It must be unique unless `replace_all` is true; otherwise the edit fails.\n- `replace_all: true` replaces every occurrence instead.",
+      "parameters": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "file_path",
+          "old_string",
+          "new_string"
+        ],
+        "properties": {
+          "file_path": {
+            "description": "The absolute path to the file to modify.",
+            "type": "string"
+          },
+          "old_string": {
+            "description": "The text to replace.",
+            "type": "string"
+          },
+          "new_string": {
+            "description": "The text to replace it with (must be different from old_string).",
+            "type": "string"
+          },
+          "replace_all": {
+            "description": "Replace all occurrences of old_string. Default is false.",
+            "default": false,
+            "type": "boolean"
+          }
+        }
+      },
+      "strict": false
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "bash",
+      "description": "Executes a command in a fresh local shell and returns its output.\n\n- Each call starts in the session workspace. `cd` and shell state do not persist between calls; use absolute paths or change directories within the same command.\n- Use dedicated `read`, `write`, `edit`, `grep`, and `glob` tools for file operations. Do not use shell commands for file reading, searching, or modification unless the user explicitly requests it or you have verified that the dedicated tools cannot perform the required operation. Use `bash` for processes, git, package managers, builds, tests, and necessary pipelines.\n- The shell is non-interactive: no TTY or stdin prompts. Run non-interactive commands yourself; check `--help` for suitable flags before asking the user to run one. Leave physical authorization (OAuth consent, MFA, hardware keys) to the user.\n- Use `run_in_background` for long commands. Do not increase timeouts to mask hung commands. A returned task id refers to the original process; do not rerun it. Use `task_query` or `task_output` to inspect progress and `task_stop` to cancel.\n- For file or directory deletion, use one top-level `rm -- <path> ...`; the local runtime routes it through recoverable deletion.\n- Do not bypass recoverable deletion with absolute paths to deletion commands or inline scripts. If it fails, report the failure instead of falling back to permanent deletion. Permission checks still apply.\n\nWindows shell:\n- PowerShell is preferred; Bash is a fallback when PowerShell is unavailable. Match the selected shell syntax.\n- For PowerShell, use `$env:VAR`; do not use `export`, `/dev/null`, heredocs, `sed -i`, or `&&`. Do not wrap commands in `powershell -Command`.\n- Start multi-statement PowerShell scripts with `$ErrorActionPreference = 'Stop'`. Use single quotes for literals and regex patterns. Do NOT use Bash-style backslash escapes.\n- For native program failures in PowerShell, check `$LASTEXITCODE` or enable `$PSNativeCommandUseErrorActionPreference` when available.\n- Avoid `Get-Content | ... | Set-Content` file-editing pipelines. Prefer file tools or a script with explicit UTF-8 encoding for batch changes. If Get-Content/Set-Content are needed, specify `-Encoding UTF8`; PowerShell 5.1 writes a BOM.\n- If a CLI is missing, check `.cmd` or `.ps1` wrappers. If `bash` opens WSL or produces garbled output, switch to direct `node`/`python` execution or a verified Git Bash path. After two failures with the same approach, change strategy.\n\n# Git\n- Interactive flags (`-i`, e.g. `git rebase -i`, `git add -i`) are not supported in this environment.\n- Use the `gh` CLI for GitHub operations (PRs, issues, API).\n- Commit or push only when the user asks. If on the default branch, branch first.",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "command"
+        ],
+        "properties": {
+          "command": {
+            "description": "Shell command line to execute locally.",
+            "type": "string"
+          },
+          "timeout": {
+            "maximum": 2147483,
+            "description": "Timeout in seconds. Foreground: default 120s, max 300s. Use run_in_background for longer commands. Background tasks use the requested timeout, subject to a runtime watchdog.",
+            "type": "number"
+          },
+          "run_in_background": {
+            "description": "Start in the background and return a task id immediately. Foreground commands may also return a task id after 15s without restarting the process.",
+            "type": "boolean"
+          }
+        }
+      },
+      "strict": false
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "grep",
+      "description": "Search local file contents using ripgrep. ALWAYS use this tool for content search — NEVER invoke `grep`/`rg` via bash (that would bypass filtering and permission review). `pattern` is a raw ripgrep regular expression by default; use `literal=true` for exact code or text. Returns only the paths of matching files by default (`output_mode=\"files_with_matches\"`) — use it to locate relevant files, then use `read` to view their contents and `edit` to change them. Set `output_mode=\"content\"` to get matching lines (supports `context` and paging) or `\"count\"` for per-file match counts. Project ignore rules and common dependency, environment, build, and cache directories are excluded by default; use a narrow `path` when explicitly inspecting an artifact directory. Sensitive files (.env, keys, ssh configs) remain excluded. `path` may be workspace-relative or absolute and is reviewed by the desktop permission gate. Results are truncated at `limit`. When a result provides `next_offset` and the omitted remainder is needed, continue with that exact value and preserve the same search arguments and `output_mode`.",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "pattern"
+        ],
+        "properties": {
+          "pattern": {
+            "description": "Pattern is a raw ripgrep regular expression by default: `|`, `(`, `[`, `{`, `.`, `?`, `*`, and `+` are operators and literal uses must be escaped. For example, search for the literal code `functionCall(` with `functionCall\\(`. For one exact code or text string, set `literal=true`; then `|` is literal text, not alternation. Do not add surrounding quotes.",
+            "type": "string"
+          },
+          "path": {
+            "description": "Directory or file to search. Defaults to the workspace.",
+            "type": "string"
+          },
+          "glob": {
+            "description": "File-glob filter, e.g. '*.ts' or '**/*.spec.ts'.",
+            "type": "string"
+          },
+          "output_mode": {
+            "description": "Output shape: \"files_with_matches\" (default) lists matching file paths only; \"content\" shows matching lines with line numbers; \"count\" shows per-file match counts.",
+            "anyOf": [
+              {
+                "const": "files_with_matches",
+                "type": "string"
+              },
+              {
+                "const": "content",
+                "type": "string"
+              },
+              {
+                "const": "count",
+                "type": "string"
+              }
+            ]
+          },
+          "ignoreCase": {
+            "description": "Case-insensitive search.",
+            "type": "boolean"
+          },
+          "literal": {
+            "description": "Treat the entire pattern as one literal string instead of regex. Use for exact code or text; regex operators such as `|` are disabled.",
+            "type": "boolean"
+          },
+          "context": {
+            "description": "Lines of context before and after each match. Only applies to output_mode=\"content\".",
+            "type": "number"
+          },
+          "limit": {
+            "description": "Maximum number of results to return.",
+            "type": "number"
+          },
+          "offset": {
+            "description": "Skip the first N results (matches in content mode, files/entries otherwise). Use with `limit` to page.",
+            "type": "number"
+          }
+        }
+      },
+      "strict": false
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "glob",
+      "description": "Search for local files by glob pattern using ripgrep. ALWAYS use this tool to find files by name/pattern — NEVER use `find`/`ls -R` via bash (that would bypass filtering and permission review). Project ignore rules plus common dependency, environment, build, cache, binary, and media noise are excluded from broad scans by default. Use an explicit extension glob or narrow path/pattern prefix to find intentionally targeted media or binary files. Set include_ignored=true only with a narrow path/pattern prefix or exact filename when inspecting project-ignored artifacts. Sensitive files (.env, keys, ssh configs) remain excluded. `path` may be workspace-relative or absolute and is reviewed by the desktop permission gate. Returns paths relative to the search root, with a 200-path default limit; pass sort=\"modified\" to list recently changed files first. When a result provides `next_offset` and the omitted remainder is needed, continue with that exact value and preserve the same search arguments.",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "pattern"
+        ],
+        "properties": {
+          "pattern": {
+            "description": "Glob pattern, e.g. '**/*.ts' or 'src/**/*.tsx'.",
+            "type": "string"
+          },
+          "path": {
+            "description": "Search root. Defaults to the workspace.",
+            "type": "string"
+          },
+          "include_ignored": {
+            "description": "Include files excluded by project ignore rules. Requires a narrow path, pattern prefix, or exact filename and is only for explicit artifact inspection; sensitive-file exclusions still apply.",
+            "type": "boolean"
+          },
+          "limit": {
+            "description": "Maximum number of file paths to return.",
+            "type": "number"
+          },
+          "offset": {
+            "description": "Skip the first N matching file paths. Use the returned next_offset with the same search arguments to continue.",
+            "type": "number"
+          },
+          "sort": {
+            "description": "Result ordering: \"none\" (default, fastest) or \"modified\" (recently changed first — useful when results may be truncated).",
+            "anyOf": [
+              {
+                "const": "none",
+                "type": "string"
+              },
+              {
+                "const": "modified",
+                "type": "string"
+              }
+            ]
+          }
+        }
+      },
+      "strict": false
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "todowrite",
+      "description": "Replace the visible session task list with a complete snapshot.\n\n- Use for multiple meaningful steps or an explicit task-list request; skip single-step, trivial, or conversational work.\n- Keep items concise and reflect actual progress. Mark an item `in_progress` before starting; at most one may be `in_progress`.\n- Mark finished work `completed` and obsolete work `cancelled` promptly.\n- Before final delivery, reconcile statuses with actual work and reported completion. Updating the list does not complete the work.",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "todos"
+        ],
+        "properties": {
+          "todos": {
+            "description": "The complete updated list, including unchanged items. An empty list clears it.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "content",
+                "status",
+                "priority"
+              ],
+              "properties": {
+                "content": {
+                  "description": "Brief description of the task",
+                  "type": "string"
+                },
+                "status": {
+                  "description": "Current status of the task: pending, in_progress, completed, cancelled",
+                  "type": "string"
+                },
+                "priority": {
+                  "description": "Priority level of the task: high, medium, low",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "strict": false
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "skill",
+      "description": "Loads the complete SKILL.md instructions for an available local or plugin skill.\n\n- Load a skill when the user explicitly names it (including `/name`), or its name and description in `available_skills` clearly match the request or linked resource. Do not load unrelated skills.\n- Set `name` to an exact catalog name or one the user explicitly provided, without a leading slash; preserve any `plugin:skill` prefix. Do not guess names or invoke built-in CLI commands such as `/help` or `/clear`.\n- Before related task actions, make this the first and only tool call in the assistant step. Wait for the complete result, then follow its instructions to perform the task.\n- Reuse complete instructions already in context when their loading prerequisites are satisfied; an earlier-turn result does not satisfy a current-turn loading requirement.\n- If the skill is not found or cannot be read, it has not been loaded. Do not claim to have used it.",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "description": "Exact skill name from the catalog or user, without a leading slash; preserve any plugin prefix.",
+            "type": "string"
+          }
+        }
+      },
+      "strict": false
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "web_fetch",
+      "description": "Fetches raw text from an absolute HTTP/HTTPS URL over the local network.\n\n- Supports reachable localhost, intranet, VPN, and public URLs.\n- Does not render JavaScript, extract, or summarize content.\n- Defaults to GET; HEAD returns status metadata.\n- Follows redirects. Large responses may be truncated.",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "url"
+        ],
+        "properties": {
+          "url": {
+            "description": "Absolute HTTP/HTTPS URL.",
+            "type": "string"
+          },
+          "prompt": {
+            "description": "Ignored locally; omit this field.",
+            "type": "string"
+          },
+          "fetch_mode": {
+            "description": "Ignored locally; omit this field.",
+            "anyOf": [
+              {
+                "const": "default",
+                "type": "string"
+              },
+              {
+                "const": "deep",
+                "type": "string"
+              }
+            ]
+          },
+          "method": {
+            "description": "HTTP method. Defaults to GET.",
+            "anyOf": [
+              {
+                "const": "GET",
+                "type": "string"
+              },
+              {
+                "const": "HEAD",
+                "type": "string"
+              }
+            ]
+          }
+        }
+      },
+      "strict": false
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "web_search",
+      "description": "Search the web for external facts and current information such as news, prices, places, and recent posts.\nUse before answering or asking for clarification when external facts are unfamiliar or unsupported, including recent, changeable, niche, or user-provided claims. Skip verification when facts are clearly stable or already supported by the conversation, local files, or stable general knowledge.\nPrefer primary or authoritative sources. For important, surprising, disputed, or source-dependent claims, cross-check key facts across multiple reliable sources when practical. State when sources conflict or only one reliable source is available.\nSearch misses do not prove non-existence. If results are inconclusive, inspect an authoritative source with an available page-reading tool, or state that the claim could not be verified.\nReport only searches actually performed and cite URLs returned by tools. A search result does not establish that its source page was opened or verified; claim that only after a tool actually read the page.",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "query"
+        ],
+        "properties": {
+          "query": {
+            "description": "Search query.",
+            "type": "string"
+          },
+          "count": {
+            "description": "Max results (default 10).",
+            "type": "integer"
+          },
+          "freshness": {
+            "description": "noLimit (default) | day | week | month | year.",
+            "type": "string"
+          },
+          "search_type": {
+            "description": "search (default) | videos | places | news | shopping.",
+            "type": "string"
+          }
+        }
+      },
+      "strict": false
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "task",
+      "description": "Launch a fresh child Agent for one concrete, bounded subtask.\n\n## When to use\nDelegate independent research, scoped implementation, or verification when\nisolated context or parallel work helps. Handle conversation, targeted lookups,\nand small changes directly. If the user explicitly requests a specific Agent,\nuse that exact reference as agent_name even for simple work.\n\nStay within the user's authorized scope; delegation grants no additional\npermission. Do not duplicate assigned work. Parallel writers must own disjoint\nfiles; otherwise use one writer serially.\n\n## Agent types\n- mavis — Broad or mixed-scope work that does not fit a specialist role.\n- explore — Read-only mapping for unfamiliar, cross-file, or evidence-heavy questions; it can use Bash for read-only Git and code investigation, but cannot create or edit files.\n- worker — Bounded production work with explicit scope, ownership, deliverable, and acceptance.\n- verifier — Independently validate an existing deliverable and report findings; no project-file changes. Temporary validation artifacts require an explicitly designated temporary location.\n\nA known custom Agent may also be selected by its stable name.\n\nDo not make project-file creation or edits an acceptance criterion for explore\nor verifier. Use worker for changes, or have the child return findings or content\nfor the parent to persist.\n\n## Context and results\n- The child has no parent conversation history. Provide a self-contained prompt;\n  its Agent contract, scoped context, applicable project instructions and exposed\n  tools still apply.\n- The parent owns task interpretation, scope, decisions and final delivery.\n  Review the child's status, evidence and changes, then integrate the result.\n- If execution is incomplete, inspect the returned status, final text and error\n  details to identify the blocker before deciding how to continue.\n\n## Execution and continuation\n- Foreground is the default and waits for the result. Use it when the result\n  blocks your next decision. Use run_in_background=true only for independent\n  work while you continue non-overlapping work. Completion automatically resumes\n  the owner; avoid routine polling.\n- Continue the child asynchronously with task_append using task_id; read\n  task_output with the returned task_id. If the native mavis tool is available,\n  \"session send\" with session_id waits synchronously for a reply. Start a new\n  task for independent work needing fresh context.",
+      "parameters": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "description",
+          "prompt",
+          "agent_name"
+        ],
+        "properties": {
+          "description": {
+            "minLength": 1,
+            "description": "Short child Session title, separate from the execution prompt.",
+            "type": "string"
+          },
+          "prompt": {
+            "description": "Self-contained first user message: objective and why, relevant facts and ruled-out paths, scope and file ownership, constraints and out-of-scope actions, deliverable, acceptance criteria, and desired response format and length.",
+            "type": "string"
+          },
+          "agent_name": {
+            "description": "Use explore, worker, or verifier for built-in work. For a known custom Agent, use its stable `requestRef`. Use `agent:<stable-name>` to select the exact manual/custom Agent when its name collides with a reserved role or primary alias; ordinary custom names use their raw stable name.",
+            "type": "string"
+          },
+          "model": {
+            "minLength": 1,
+            "description": "Set only when the user explicitly specifies a model; otherwise omit to use the target Agent or inherited model. Do not choose or guess a model or send an empty string. Use an exact source-qualified model key (e.g. minimax/MiniMax-M3). Setting model resets inherited effort; do not also set effort unless the user explicitly specifies it.",
+            "type": "string"
+          },
+          "effort": {
+            "minLength": 1,
+            "description": "Set only when the user explicitly specifies an effort level; otherwise omit to use the resolved default. Do not infer effort from the selected model or task complexity, or send an empty string. The value must be supported by the resolved model (MiniMax M3: on/off); do not assume high is supported. May be supplied alone to override inherited effort.",
+            "type": "string"
+          },
+          "run_in_background": {
+            "description": "Optional; defaults to false. True starts background execution and returns a task_id.",
+            "type": "boolean"
+          }
+        }
+      },
+      "strict": false
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "task_append",
+      "description": "Send follow-up work to a task you already started, addressed by its task_id.\n\nThe content is delivered into that task's child Agent, which keeps its\nown context, so use it to continue, correct or extend delegated work instead of\nstarting a new task for the same thread.\n\nThe result is an admission acknowledgement, not a completion and not a result:\n\n- activated: the child was idle, so a new child Turn started under a NEW task_id.\n- steered: the child was already running, so the content joined the Turn already\n  in flight and the returned task_id is that running task.\n- duplicate: this exact tool call was already admitted; the original task_id is\n  returned and nothing is delivered twice.\n\nA steered append cannot be split out of the Turn it joined: the child produces\none merged answer for that whole Turn, so do not expect a separate reply for\nthis message.\n\nRead the work with task_output(task_id) after the owning conversation is woken\nup by <background-task-finished>, and stop it with task_stop(task_id). Once the\nappend is admitted, ending or aborting the parent turn does not cancel the child.\n\nOnly the owner of the task may append to it, and only while its child Session\nstill exists and is not archived. Use the native mavis tool with command\n\"session send\" when you want a synchronous reply from a Session by session_id\ninstead.",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "task_id",
+          "content"
+        ],
+        "properties": {
+          "task_id": {
+            "description": "The local task id to continue, as returned by task, task_append or task_query.",
+            "type": "string"
+          },
+          "content": {
+            "description": "Self-contained follow-up briefing for the child Agent. It keeps its own context from the task so far, but not yours.",
+            "type": "string"
+          }
+        }
+      },
+      "strict": false
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "task_query",
+      "description": "Query local desktop background tasks started in this session. Omit task_id to list tasks; pass task_id to get one.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "description": "A specific local background task id to fetch.",
+            "type": "string"
+          },
+          "status": {
+            "description": "Optional status filter when listing local background tasks.",
+            "anyOf": [
+              {
+                "const": "queued",
+                "type": "string"
+              },
+              {
+                "const": "running",
+                "type": "string"
+              },
+              {
+                "const": "stopping",
+                "type": "string"
+              },
+              {
+                "const": "succeeded",
+                "type": "string"
+              },
+              {
+                "const": "failed",
+                "type": "string"
+              },
+              {
+                "const": "canceled",
+                "type": "string"
+              },
+              {
+                "const": "lost",
+                "type": "string"
+              }
+            ]
+          }
+        }
+      },
+      "strict": false
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "task_output",
+      "description": "Read a local background task's output by task_id. To wait for progress, pass the previous next_offset as offset with wait_ms=30000. Alternatively, consistently omit offset from the first read to use this session's automatic cursor; explicit offset reads do not update it, so do not assume the two modes stay synchronized. Use offset=0 only to intentionally replay output: existing content returns immediately even with wait_ms=30000. Do not repeatedly replay output or issue immediate checks while waiting. Continue independent work and rely on the completion notification when available. Waiting never stops the task.",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "task_id"
+        ],
+        "properties": {
+          "task_id": {
+            "description": "The local background task id to read output from.",
+            "type": "string"
+          },
+          "offset": {
+            "minimum": 0,
+            "description": "Byte offset to read from. Pass the previous next_offset to continue. offset=0 replays existing output and can return immediately even with wait_ms. Omit consistently to use the automatic cursor; explicit reads do not advance it.",
+            "type": "integer"
+          },
+          "wait_ms": {
+            "minimum": 0,
+            "maximum": 30000,
+            "description": "Milliseconds to wait for output after the selected offset or task completion. Defaults to 0 (return immediately); maximum 30000. When waiting, use 30000 with the previous next_offset. Existing unread or replayed output returns immediately; this is not a minimum polling interval.",
+            "type": "integer"
+          }
+        }
+      },
+      "strict": false
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "task_stop",
+      "description": "Request a local background task to stop by task_id. Queued tasks are cancelled; running child sessions are aborted.",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "task_id"
+        ],
+        "properties": {
+          "task_id": {
+            "description": "The local background task id to stop.",
+            "type": "string"
+          },
+          "reason": {
+            "description": "Optional human-readable stop reason.",
+            "type": "string"
+          }
+        }
+      },
+      "strict": false
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "website_deploy",
+      "description": "⚠️ **Public deployment — user confirmation required.** This publishes files from THIS machine to a **publicly-accessible URL on the open Internet**. Anyone with the link can view the deployed site. Before invoking you MUST: (1) tell the user the site will be public, (2) get explicit confirmation. The local permission gate also gates this tool, but do not rely on it alone — confirm at the moment of publishing. `source_path` is required and source code is always uploaded to private cloud storage, so tell the user about this source upload when confirming publication; the initial release has no secrets scanner and only applies the `.env*` and other documented exclusion rules.\n\nDeploy a **built static website** (a directory containing index.html and bundled assets — e.g. the output of `vite build` / `next export` / similar bundler dist/) to a public URL. The directory **must contain index.html at the root**. **Do not pass source code or unbuilt project directories** — run the build step first and pass the dist/ output. The site is registered as a node in the user drive (category=website). Returns the public URL. Omit `node_id` for a first publish. To update an existing site in place, pass the exact string `node_id` returned by the prior deployment; its original primary and alias URLs stay attached to that node.\n\n⚠️ **Pick in-place update vs new site with the user before calling.** Whenever this publish could target a site that already exists — the user says \"update / change that site\", an earlier deployment in this context returned a `node_id`, or their drive already holds a site with the same name — you MUST ask via `ask_user` first and have the user choose explicitly between: (a) **update the existing site in place** — pass `node_id`, the original primary and alias URLs are kept, and the live site content is **replaced wholesale** by this upload; or (b) **publish as a new site** — omit `node_id`, which creates a new drive node with a **brand-new URL** and leaves the existing site untouched. The two outcomes are asymmetric and not easily undone: (a) overwrites what is already public, (b) leaves the user a second site to manage separately. Do not guess: never decide to pass or omit `node_id` on your own while the user has made no explicit choice.\n\nWhen delivering the deployed site to the user, output it inside a <deliver-assets> block with type=\"website\":\n\n<deliver-assets>\n<media type=\"website\" src=\"<the deployed URL returned in tool result>\" node_id=\"<the node ID returned in tool result>\" name=\"<project_name>\" />\n</deliver-assets>",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "path",
+          "project_name",
+          "source_path"
+        ],
+        "properties": {
+          "node_id": {
+            "minLength": 1,
+            "description": "Optional exact string ID of an existing website drive node. Omit for a first publish. Pass it only after the user has explicitly chosen to update that existing site in place — doing so replaces the live site content wholesale while keeping its URLs. When present, website_deploy updates that node in place; never convert node IDs to numbers.",
+            "type": "string"
+          },
+          "path": {
+            "description": "Workspace-relative or absolute path to the **built** static-site root directory (bundler dist/ output). Must contain index.html.",
+            "type": "string"
+          },
+          "project_name": {
+            "description": "Used as the display name of the drive node and the HTML <title> tag when missing from the source. Pick a short human-readable name.",
+            "type": "string"
+          },
+          "source_path": {
+            "description": "Required workspace-relative or absolute path to the project source root. It is always uploaded to private cloud storage separately from the public built site; do not include secrets. It must be a real directory. A self-contained static site may use the same directory as path. If the build path is inside it, the build directory is excluded from the source archive. A source path inside the build path is rejected.",
+            "type": "string"
+          }
+        }
+      },
+      "strict": false
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "update_goal",
+      "description": "Propose a terminal status for the existing goal, or—only when explicitly requested by the user—update its token budget. Always set `mode` to choose exactly one operation per call; fields belonging to the other mode are ignored.\nTerminal mode (`mode: \"status\"`): pass `status` and optional `summary`; follow the rules documented on the `status` field. The host settles the proposal after this turn, and an accepted proposal ends the turn.\nBudget mode (`mode: \"token_budget\"`): call `get_goal` immediately before `update_goal`, then pass only `token_budget`, `expected_goal_id`, and `expected_updated_at`. Use a positive integer token count, or `null` to clear the cap. A successful update does not end the turn and may reactivate a token-limited goal.\nDo not combine the two modes. This tool cannot directly pause, resume, or edit the objective.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "description": "Which single operation this call performs. Always set this field. `status`: propose a terminal status; every field other than `status` and `summary` is ignored. `token_budget`: update the token budget; every field other than `token_budget`, `expected_goal_id`, and `expected_updated_at` is ignored.",
+            "anyOf": [
+              {
+                "const": "status",
+                "type": "string"
+              },
+              {
+                "const": "token_budget",
+                "type": "string"
+              }
+            ]
+          },
+          "status": {
+            "description": "Terminal mode only. Set to `complete` only when the objective is achieved and no required work remains. When all executable work is finished and only a passive wait for the user's next arbitrary message remains, treat the wait as a stop condition and set `complete`. An explicit safety or policy refusal may be set to `blocked` immediately and does not require the three-turn threshold. For every other blocker, set to `blocked` only after the same blocking condition has recurred for at least three consecutive goal turns and the agent is at an impasse. After a previously blocked goal is resumed, a safety/policy refusal remains immediate; every other blocker starts a fresh blocked audit.",
+            "anyOf": [
+              {
+                "const": "complete",
+                "type": "string"
+              },
+              {
+                "const": "blocked",
+                "type": "string"
+              }
+            ]
+          },
+          "summary": {
+            "maxLength": 2000,
+            "description": "Recommended when status is `complete`: briefly state what was accomplished and where the evidence lives. The host passes this claim to an independent verifier as untrusted data.",
+            "type": "string"
+          },
+          "token_budget": {
+            "anyOf": [
+              {
+                "minimum": 1,
+                "description": "Budget mode only. New positive integer token cap. Convert the explicit user request to an integer before calling; use null to clear the cap.",
+                "type": "integer"
+              },
+              {
+                "description": "Budget mode only. Clear the current token cap.",
+                "type": "null"
+              }
+            ]
+          },
+          "expected_goal_id": {
+            "minLength": 1,
+            "description": "Budget mode only. Exact goalId returned by the immediately preceding get_goal call.",
+            "type": "string"
+          },
+          "expected_updated_at": {
+            "minimum": 0,
+            "description": "Budget mode only. Exact updatedAt returned by the immediately preceding get_goal call.",
+            "type": "integer"
+          }
+        }
+      },
+      "strict": false
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_goal",
+      "description": "Get the current goal for this thread, including status, timestamps, token usage, and token budget. Returns an empty result if no goal is set.",
+      "parameters": {
+        "type": "object",
+        "properties": {}
+      },
+      "strict": false
+    }
+  }
+]
