@@ -2,6 +2,11 @@
 
 ## Subdirectories
 
+### alibaba/qwen-code
+
+- [Qwen Code System Prompt](./alibaba/qwen-code/README.md)
+- [QwenCodeSystem-gpt-5.6-sol-20260903](./alibaba/qwen-code/QwenCodeSystem-gpt-5.6-sol-20260903.md)
+
 ### amazon
 
 - [Rufus](./amazon/Rufus.md)
