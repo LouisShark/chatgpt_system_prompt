@@ -1,0 +1,83 @@
+{
+  "request_safeguards": [
+    {
+      "type": "dangerous_tool_use",
+      "classifier_context": {
+        "v": 1,
+        "permission_mode": "auto",
+        "platform": "macos",
+        "live_cwd": "{{fixture_directory}}",
+        "home_dir": "{{home}}",
+        "rule_roots": {
+          "userSettings": "{{claude_config_dir}}",
+          "projectSettings": "{{fixture_directory}}",
+          "localSettings": "{{fixture_directory}}",
+          "flagSettings": "{{fixture_directory}}",
+          "policySettings": "{{fixture_directory}}",
+          "cliArg": "{{fixture_directory}}",
+          "command": "{{fixture_directory}}",
+          "session": "{{fixture_directory}}",
+          "toolsNarrowing": "{{fixture_directory}}",
+          "mcpServerPolicy": "{{fixture_directory}}",
+          "hostCredential": "{{fixture_directory}}"
+        },
+        "trusted_directories": {
+          "primary": {
+            "path": "{{fixture_directory}}",
+            "resolved": [
+              "{{fixture_directory}}"
+            ]
+          },
+          "additional": [],
+          "network": [],
+          "block_reads_outside_working_directories": false
+        },
+        "rules": {
+          "allow": [],
+          "deny": [],
+          "ask": []
+        },
+        "auto_mode": {
+          "allow": [],
+          "soft_deny": [],
+          "hard_deny": [],
+          "environment": []
+        },
+        "artifact_consent_holdback": true,
+        "case_insensitive_paths": false,
+        "restricted": false,
+        "is_remote_mode": false,
+        "classify_all_shell": false,
+        "user_identity": "{{user}}",
+        "git_state": {
+          "cwd": "{{fixture_directory}}",
+          "root": null,
+          "branch": null,
+          "default_branch": null,
+          "status": null,
+          "visibility": {
+            "origin": null,
+            "push_remote": null,
+            "remotes": [],
+            "visibility_cache": []
+          },
+          "error": "not_a_repo"
+        }
+      }
+    }
+  ],
+  "response_safeguard_results": [
+    {
+      "type": "dangerous_tool_use",
+      "status": {
+        "type": "available",
+        "tool_uses": {
+          "{{tool_use_id}}": {
+            "type": "evaluated",
+            "outcome": "not_flagged"
+          }
+        }
+      }
+    }
+  ]
+}

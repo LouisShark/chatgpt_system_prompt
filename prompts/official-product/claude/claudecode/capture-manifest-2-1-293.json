@@ -1,0 +1,223 @@
+{
+  "claude_code_version": "2.1.293",
+  "captured_at": "2026-10-08T07:54:48.172Z",
+  "entrypoint": "sdk-cli",
+  "output_style": "Explanatory",
+  "main_model": "claude-opus-5-5",
+  "allowed_tools_argument": [
+    "Agent"
+  ],
+  "raw_trace_sha256": "7ec7f1a31267c908a399da9d410368908c1d45353f25d7eaed7d106bc2706818",
+  "raw_trace_location": "local only; excluded from repository",
+  "request_response_pairs": 17,
+  "agents": [
+    {
+      "agent_type": "Plan",
+      "model": "claude-opus-5-5",
+      "reply": "Hello!",
+      "request_row": 3,
+      "tools": [
+        "Bash",
+        "ListAgents",
+        "Read",
+        "ReportFindings",
+        "Skill",
+        "ToolSearch",
+        "SubagentHandback"
+      ],
+      "prompt_file": "plan/ClaudeCodePlanMode-2-1-293.md"
+    },
+    {
+      "agent_type": "codex:codex-rescue",
+      "model": "claude-sonnet-5-5",
+      "reply": "Hello!",
+      "request_row": 5,
+      "tools": [
+        "Bash",
+        "SubagentHandback"
+      ],
+      "prompt_file": "custom_agents/codex_rescue/ClaudeCodeCodexRescueAgent-2-1-293.md"
+    },
+    {
+      "agent_type": "Explore",
+      "model": "claude-opus-5-5",
+      "reply": "Hello!",
+      "request_row": 6,
+      "tools": [
+        "Bash",
+        "ListAgents",
+        "Read",
+        "ReportFindings",
+        "Skill",
+        "ToolSearch",
+        "SubagentHandback"
+      ],
+      "prompt_file": "file_search/ClaudeCodeFileSearchSpecialist-2-1-293.md"
+    },
+    {
+      "agent_type": "statusline-setup",
+      "model": "claude-sonnet-5-5",
+      "reply": "Hello!",
+      "request_row": 7,
+      "tools": [
+        "Read",
+        "Edit",
+        "SubagentHandback"
+      ],
+      "prompt_file": "status_line/ClaudeCodeStatusLine-2-1-293.md"
+    },
+    {
+      "agent_type": "general-purpose",
+      "model": "claude-opus-5-5",
+      "reply": "Hello!",
+      "request_row": 8,
+      "tools": [
+        "Agent",
+        "Bash",
+        "Edit",
+        "ListAgents",
+        "Read",
+        "ReportFindings",
+        "Skill",
+        "ToolSearch",
+        "Write",
+        "SubagentHandback"
+      ],
+      "prompt_file": "explore/ClaudeCodeExplore-2-1-293.md"
+    },
+    {
+      "agent_type": "claude",
+      "model": "claude-opus-5-5",
+      "reply": "Hello!",
+      "request_row": 9,
+      "tools": [
+        "Agent",
+        "Bash",
+        "Edit",
+        "ListAgents",
+        "Read",
+        "ReportFindings",
+        "Skill",
+        "ToolSearch",
+        "Write",
+        "SubagentHandback"
+      ],
+      "prompt_file": "claude/ClaudeCodeClaudeAgent-2-1-293.md"
+    }
+  ],
+  "main_loaded_tools": [
+    "Agent",
+    "Bash",
+    "Edit",
+    "ListAgents",
+    "Read",
+    "ReportFindings",
+    "ScheduleWakeup",
+    "Skill",
+    "ToolSearch",
+    "Workflow",
+    "Write"
+  ],
+  "deferred_names": [
+    "CronCreate",
+    "CronDelete",
+    "CronList",
+    "DesignSync",
+    "EnterWorktree",
+    "ExitWorktree",
+    "ListMcpResourcesTool",
+    "Monitor",
+    "NotebookEdit",
+    "PushNotification",
+    "ReadMcpResourceDirTool",
+    "ReadMcpResourceTool",
+    "RemoteTrigger",
+    "SendMessage",
+    "TaskStop",
+    "WebFetch",
+    "WebSearch"
+  ],
+  "deferred_schema_capture": true,
+  "successful_agents": 6,
+  "failed_agents": 0,
+  "supplemental_captures": [
+    {
+      "purpose": "Full deferred schemas and Code Guide availability",
+      "raw_trace_sha256": "32d283274498e5cede48debe868856b2931e0ab0a704922367b6099f296d28d3",
+      "request_response_pairs": 6,
+      "full_deferred_schema_count": 17,
+      "deferred_schema_request_row": 3,
+      "code_guide_sdk_error": "Agent type 'claude-code-guide' not found. Available agents: claude, codex:codex-rescue, Explore, general-purpose, Plan, statusline-setup"
+    },
+    {
+      "purpose": "Interactive Code Guide and full interactive built-in tool catalogs",
+      "raw_trace_sha256": "5baa06c0604bbdf4adbcfcaaebdd8467fe1ebf8fb0b7f62dcc3c5639f534c4f8",
+      "request_response_pairs": 17,
+      "code_guide_request_row": 6,
+      "code_guide_model": "claude-haiku-5-5",
+      "code_guide_reply": "Hello",
+      "interactive_core_count": 14,
+      "interactive_deferred_count": 22,
+      "interactive_loaded_catalog_request_row": 16,
+      "code_guide_configuration_redacted": true,
+      "session_title_request_row": 4
+    },
+    {
+      "purpose": "wiki",
+      "raw_trace_sha256": "11b22b0e547c2c29bd35c67ef0d67a15eed3983d8d4bfa61f8debce3a901ab9b",
+      "request_response_pairs": 9,
+      "agent": "claude_obsidian_wiki_ingest",
+      "request_row": 3,
+      "model": "claude-sonnet-5-5",
+      "reply": "Hello",
+      "session_only_plugin": "claude-obsidian 1.6.0"
+    },
+    {
+      "purpose": "wiki",
+      "raw_trace_sha256": "11b22b0e547c2c29bd35c67ef0d67a15eed3983d8d4bfa61f8debce3a901ab9b",
+      "request_response_pairs": 9,
+      "agent": "claude_obsidian_wiki_lint",
+      "request_row": 6,
+      "model": "claude-sonnet-5-5",
+      "reply": "Hello",
+      "session_only_plugin": "claude-obsidian 1.6.0"
+    },
+    {
+      "purpose": "compact",
+      "raw_trace_sha256": "51289c58dc205923753f609153f56ca6feed98197bcaf6e1b88eccd6dfa20ca8",
+      "request_response_pairs": 4,
+      "request_row": 2,
+      "message_index": 11,
+      "prompt_location": "user message suffix, not request.system",
+      "model": "claude-opus-5-5",
+      "user_instructions_placeholdered": true
+    },
+    {
+      "purpose": "slug",
+      "raw_trace_sha256": "cc721d78525255584778b6e881986d2f7528f921f913c15fb722ba41d0bbe585",
+      "request_response_pairs": 9,
+      "request_row": 6,
+      "model": "claude-opus-5-5",
+      "capture_method": "claude-trace ReverseProxyServer held open for a native background Hello job",
+      "dynamic_fields_placeholdered": true
+    },
+    {
+      "purpose": "slug",
+      "raw_trace_sha256": "cc721d78525255584778b6e881986d2f7528f921f913c15fb722ba41d0bbe585",
+      "request_response_pairs": 9,
+      "surface": "background result summary",
+      "request_row": 5,
+      "model": "claude-opus-5-5",
+      "prompt_location": "request.system"
+    },
+    {
+      "purpose": "security",
+      "raw_trace_sha256": "29f2ddf5069fbb457398c0cbf22782569a5971972aa98822f342d33e501379f2",
+      "request_response_pairs": 3,
+      "request_row": 2,
+      "captured_surface": "safeguards.classifier_context and response safeguard_results",
+      "outcome": "not_flagged",
+      "separate_security_monitor_prompt_captured": false
+    }
+  ]
+}

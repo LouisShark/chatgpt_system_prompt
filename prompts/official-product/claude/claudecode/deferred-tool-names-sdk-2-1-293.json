@@ -1,0 +1,19 @@
+[
+  "CronCreate",
+  "CronDelete",
+  "CronList",
+  "DesignSync",
+  "EnterWorktree",
+  "ExitWorktree",
+  "ListMcpResourcesTool",
+  "Monitor",
+  "NotebookEdit",
+  "PushNotification",
+  "ReadMcpResourceDirTool",
+  "ReadMcpResourceTool",
+  "RemoteTrigger",
+  "SendMessage",
+  "TaskStop",
+  "WebFetch",
+  "WebSearch"
+]
