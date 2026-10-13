@@ -75,6 +75,10 @@
 
 - [ClaudeCodeFileSearchSpecialist-2-1-293](./claude/claudecode/file_search/ClaudeCodeFileSearchSpecialist-2-1-293.md)
 
+### claude/claudecode/mods
+
+- [you_should_know-2-1-296](./claude/claudecode/mods/you_should_know-2-1-296.md)
+
 ### claude/claudecode/plan
 
 - [ClaudeCodePlanMode-2-1-293](./claude/claudecode/plan/ClaudeCodePlanMode-2-1-293.md)
