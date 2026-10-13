@@ -30,54 +30,58 @@
 ### claude/claudecode
 
 - [Claude Code System Prompts](./claude/claudecode/README.md)
-- [Claude Code Tools (v2.1.220, SDK-CLI, full deferred load)](./claude/claudecode/ClaudeCodeTools-2-1-220.md)
-- [ClaudeCodeSystem-2-1-220](./claude/claudecode/ClaudeCodeSystem-2-1-220.md)
-- [System Reminders (v2.1.220, partial — SDK-CLI capture)](./claude/claudecode/system-reminders-2-1-220.md)
+- [Claude Code Tools (v2.1.293, full interactive built-in catalog)](./claude/claudecode/ClaudeCodeTools-2-1-293.md)
+- [ClaudeCodeSystem-2-1-293](./claude/claudecode/ClaudeCodeSystem-2-1-293.md)
+- [ClaudeCodeSystem-interactive-2-1-293](./claude/claudecode/ClaudeCodeSystem-interactive-2-1-293.md)
+- [Subagent hello capture — Claude Code 2.1.293](./claude/claudecode/capture-summary-2-1-293.md)
+- [System Reminders (v2.1.293, partial SDK-CLI capture)](./claude/claudecode/system-reminders-2-1-293.md)
 
 ### claude/claudecode/auxiliary
 
 - [analyze_session_facets-2-1-168](./claude/claudecode/auxiliary/analyze_session_facets-2-1-168.md)
-- [compact-2-1-168](./claude/claudecode/auxiliary/compact-2-1-168.md)
+- [background_result_summary-2-1-293](./claude/claudecode/auxiliary/background_result_summary-2-1-293.md)
+- [compact-2-1-293](./claude/claudecode/auxiliary/compact-2-1-293.md)
+- [Security safeguard capture (Claude Code 2.1.293)](./claude/claudecode/auxiliary/security-safeguards-2-1-293.md)
 - [security_monitor-2-1-220](./claude/claudecode/auxiliary/security_monitor-2-1-220.md)
-- [slug_name-2-1-168](./claude/claudecode/auxiliary/slug_name-2-1-168.md)
-- [summarize_conversation-2-1-168](./claude/claudecode/auxiliary/summarize_conversation-2-1-168.md)
+- [Session title prompt (2.1.293, interactive CLI)](./claude/claudecode/auxiliary/summarize_conversation-2-1-293.md)
+- [slug_name-2-1-293](./claude/claudecode/auxiliary/slug_name-2-1-293.md)
 - [summarize_transcript_chunk-2-1-168](./claude/claudecode/auxiliary/summarize_transcript_chunk-2-1-168.md)
 
 ### claude/claudecode/claude
 
-- [ClaudeCodeClaudeAgent-2-1-220](./claude/claudecode/claude/ClaudeCodeClaudeAgent-2-1-220.md)
+- [ClaudeCodeClaudeAgent-2-1-293](./claude/claudecode/claude/ClaudeCodeClaudeAgent-2-1-293.md)
 
 ### claude/claudecode/code_guide
 
-- [ClaudeCodeGuideAgent-2-1-168](./claude/claudecode/code_guide/ClaudeCodeGuideAgent-2-1-168.md)
+- [ClaudeCodeGuideAgent-2-1-293](./claude/claudecode/code_guide/ClaudeCodeGuideAgent-2-1-293.md)
 
 ### claude/claudecode/custom_agents/claude_obsidian_wiki_ingest
 
-- [ClaudeCodeWikiIngestAgent-2-1-201](./claude/claudecode/custom_agents/claude_obsidian_wiki_ingest/ClaudeCodeWikiIngestAgent-2-1-201.md)
+- [ClaudeCodeWikiIngestAgent-2-1-293](./claude/claudecode/custom_agents/claude_obsidian_wiki_ingest/ClaudeCodeWikiIngestAgent-2-1-293.md)
 
 ### claude/claudecode/custom_agents/claude_obsidian_wiki_lint
 
-- [ClaudeCodeWikiLintAgent-2-1-168](./claude/claudecode/custom_agents/claude_obsidian_wiki_lint/ClaudeCodeWikiLintAgent-2-1-168.md)
+- [ClaudeCodeWikiLintAgent-2-1-293](./claude/claudecode/custom_agents/claude_obsidian_wiki_lint/ClaudeCodeWikiLintAgent-2-1-293.md)
 
 ### claude/claudecode/custom_agents/codex_rescue
 
-- [ClaudeCodeCodexRescueAgent-2-1-220](./claude/claudecode/custom_agents/codex_rescue/ClaudeCodeCodexRescueAgent-2-1-220.md)
+- [ClaudeCodeCodexRescueAgent-2-1-293](./claude/claudecode/custom_agents/codex_rescue/ClaudeCodeCodexRescueAgent-2-1-293.md)
 
 ### claude/claudecode/explore
 
-- [ClaudeCodeExplore-2-1-220](./claude/claudecode/explore/ClaudeCodeExplore-2-1-220.md)
+- [ClaudeCodeExplore-2-1-293](./claude/claudecode/explore/ClaudeCodeExplore-2-1-293.md)
 
 ### claude/claudecode/file_search
 
-- [ClaudeCodeFileSearchSpecialist-2-1-220](./claude/claudecode/file_search/ClaudeCodeFileSearchSpecialist-2-1-220.md)
+- [ClaudeCodeFileSearchSpecialist-2-1-293](./claude/claudecode/file_search/ClaudeCodeFileSearchSpecialist-2-1-293.md)
 
 ### claude/claudecode/plan
 
-- [ClaudeCodePlanMode-2-1-220](./claude/claudecode/plan/ClaudeCodePlanMode-2-1-220.md)
+- [ClaudeCodePlanMode-2-1-293](./claude/claudecode/plan/ClaudeCodePlanMode-2-1-293.md)
 
 ### claude/claudecode/status_line
 
-- [ClaudeCodeStatusLine-2-1-220](./claude/claudecode/status_line/ClaudeCodeStatusLine-2-1-220.md)
+- [ClaudeCodeStatusLine-2-1-293](./claude/claudecode/status_line/ClaudeCodeStatusLine-2-1-293.md)
 
 ### claude/clauderesearch
 
