@@ -45,6 +45,7 @@
 - [security_monitor-2-1-220](./claude/claudecode/auxiliary/security_monitor-2-1-220.md)
 - [Session title prompt (2.1.293, interactive CLI)](./claude/claudecode/auxiliary/summarize_conversation-2-1-293.md)
 - [slug_name-2-1-293](./claude/claudecode/auxiliary/slug_name-2-1-293.md)
+- [suggestion_mode-2-1-319](./claude/claudecode/auxiliary/suggestion_mode-2-1-319.md)
 - [summarize_transcript_chunk-2-1-168](./claude/claudecode/auxiliary/summarize_transcript_chunk-2-1-168.md)
 
 ### claude/claudecode/claude
@@ -137,8 +138,8 @@
 ### manus
 
 - [agentloop](./manus/agentloop.md)
-- [Manus AI Assistant Capabilities](./manus/prompt.md)
 - [Manus AI Assistant Capabilities](./manus/capabilities.md)
+- [Manus AI Assistant Capabilities](./manus/prompt.md)
 - [modules](./manus/modules.md)
 
 ### meta
